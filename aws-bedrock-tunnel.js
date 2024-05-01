@@ -19,7 +19,7 @@ import {
 // -------------------
 // -- main function --
 // -------------------
-export async function* awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObject) {
+export async function* awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObject, logging = false) {
     writeAsciiArt();
     const { region, accessKeyId, secretAccessKey } = awsCreds;
     const { messages, model, max_tokens, stream, temperature, top_p } = openaiChatCompletionsCreateObject;
@@ -36,6 +36,10 @@ export async function* awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObj
             message_cleaned.push(messages[i]);
         } else if (awsModel.display_role_names) {
             message_cleaned.push(messages[i]);
+        }
+
+        if (i === (messages.length - 1) && messages[i].content !== "" && awsModel.display_role_names) {
+            message_cleaned.push({role: "assistant", content: ""});
         }
     }
 
@@ -77,7 +81,7 @@ export async function* awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObj
         }
     }
     
-    // console.log(`\nPrompt: ${prompt}\n`);
+    if (logging) { console.log(`\nPrompt: ${prompt}\n`); }
 
     // Format the request payload using the model's native structure.
     const request = {

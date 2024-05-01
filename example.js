@@ -73,7 +73,7 @@ const openaiChatCompletionsCreateObject = {
 let completeResponse = "";
 // streamed call
 if (openaiChatCompletionsCreateObject.stream) {
-    for await (const chunk of awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObject)) {
+    for await (const chunk of awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObject, { logging:true })) {
         completeResponse += chunk;
         // ---------------------------------------------------
         // -- each chunk is streamed as it is received here --
@@ -81,7 +81,7 @@ if (openaiChatCompletionsCreateObject.stream) {
         process.stdout.write(chunk); // ⇠ do stuff with the streamed chunk
     }
 } else { // unstreamed call
-    const response = await awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObject);
+    const response = await awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObject, { logging:true });
     for await (const data of response) {
         const jsonString = new TextDecoder().decode(data.body);
         const jsonResponse = JSON.parse(jsonString);
