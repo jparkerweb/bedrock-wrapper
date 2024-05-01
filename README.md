@@ -1,5 +1,5 @@
 # 🪨 Bedrock Tunnel
-Bedrock Tunnel is an npm package that simplifies the integration of existing OpenAI-compatible applications with Bedrock's serverless inference LLMs.
+Bedrock Tunnel is an npm package that simplifies the integration of existing OpenAI-compatible API objects AWS Bedrock's serverless inference LLMs.
 
 ---
 
