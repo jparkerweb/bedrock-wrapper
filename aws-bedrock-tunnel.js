@@ -125,6 +125,18 @@ export async function* awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObj
 }
 
 
+// ---------------------------
+// -- list supported models --
+// ---------------------------
+export async function listBedrockTunnelSupportedModels() {
+    let supported_models = [];
+    for (let i = 0; i < aws_models.length; i++) {
+        supported_models.push(`{"modelName": ${aws_models[i].modelName}, "modelId": ${aws_models[i].modelId}}`);
+    }
+    return supported_models;
+}
+
+
 // ----------------------
 // -- helper functions --
 // ----------------------

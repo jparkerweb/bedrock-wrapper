@@ -104,3 +104,9 @@ The `aws_models.js` file can be expanded to support additional models offered on
 | Llama-3-70b    | meta.llama3-70b-instruct-v1:0      |
 | Mixtral-8x7b   | mistral.mixtral-8x7b-instruct-v0:1 |
 | Mistral-Large  | mistral.mistral-large-2402-v1:0    |
+
+To return the list progrmatically you can import and call `listBedrockTunnelSupportedModels`:  
+```javascript
+import { listBedrockTunnelSupportedModels } from 'bedrock-tunnel';
+console.log(`\nsupported models:\n${JSON.stringify(await listBedrockTunnelSupportedModels())}\n`);
+```

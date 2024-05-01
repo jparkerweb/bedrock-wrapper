@@ -14,10 +14,17 @@ const LLM_MAX_GEN_TOKENS = parseInt(process.env.LLM_MAX_GEN_TOKENS);
 const LLM_TEMPERATURE = parseFloat(process.env.LLM_TEMPERATURE);
 const LLM_TOP_P = parseFloat(process.env.LLM_TOP_P);
 
-// ----------------------------------------------------------
-// -- import awsBedrockTunnel function from bedrock-tunnel --
-// ----------------------------------------------------------
-import { awsBedrockTunnel } from "bedrock-tunnel";
+// --------------------------------------------
+// -- import functions from bedrock-tunnel   --
+// --     - awsBedrockTunnel                 --
+// --     - listBedrockTunnelSupportedModels --
+// --------------------------------------------
+import { awsBedrockTunnel, listBedrockTunnelSupportedModels } from "./aws-bedrock-tunnel.js";
+
+// ----------------------------------------------
+// -- example call to list of supported models --
+// ----------------------------------------------
+console.log(`\nsupported models:\n${JSON.stringify(await listBedrockTunnelSupportedModels())}\n`);
 
 // -----------------------------------------------
 // -- example prompt in `messages` array format --
