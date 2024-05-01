@@ -1,3 +1,14 @@
+// ======================================================================
+// == 🪨 Bedrock Tunnel                                                ==
+// ==                                                                  ==
+// == Bedrock Tunnel is an npm package that simplifies the integration ==
+// == of existing OpenAI-compatible applications with Bedrock's        ==
+// == serverless inference LLMs.                                       ==
+// ======================================================================
+
+// -------------
+// -- imports --
+// -------------
 import { aws_models } from "./aws_models.js";
 import {
     BedrockRuntimeClient,
@@ -5,7 +16,10 @@ import {
 } from "@aws-sdk/client-bedrock-runtime";
 
 
-export async function* awsBedrockTunnelChatCompletion(awsCreds, openaiChatCompletionsCreateObject) {
+// -------------------
+// -- main function --
+// -------------------
+export async function* bedrockTunnel(awsCreds, openaiChatCompletionsCreateObject) {
     writeAsciiArt();
     const { region, accessKeyId, secretAccessKey } = awsCreds;
     const { messages, model, max_tokens, stream, temperature, top_p } = openaiChatCompletionsCreateObject;
@@ -110,13 +124,18 @@ export async function* awsBedrockTunnelChatCompletion(awsCreds, openaiChatComple
     }    
 }
 
+
+// ----------------------
+// -- helper functions --
+// ----------------------
+// helper function to get a value from an object using a path string
 function getValueByPath(obj, path) {
     // Split the path into an array of keys
     let keys = path.replace(/\[(\w+)\]/g, '.$1').split('.');  // Convert indexes into properties
     // Reduce the keys array to the final value
     return keys.reduce((acc, key) => acc && acc[key], obj);
 }
-
+// helper function to write ascii art
 function writeAsciiArt() {
     console.log(`
      ___         _                 _     ___                     _ 

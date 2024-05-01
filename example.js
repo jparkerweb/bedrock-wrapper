@@ -2,10 +2,11 @@
 // == AWS Bedrock Example: Invoke a Model with a Streamed or Unstreamed Response ==
 // ================================================================================
 
-// import environment variables from .env file
+// ---------------------------------------------------------------------
+// -- import environment variables from .env file or define them here --
+// ---------------------------------------------------------------------
 import dotenv from 'dotenv';
 dotenv.config();
-
 const AWS_REGION = process.env.AWS_REGION;
 const AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID;
 const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY;
@@ -13,10 +14,14 @@ const LLM_MAX_GEN_TOKENS = parseInt(process.env.LLM_MAX_GEN_TOKENS);
 const LLM_TEMPERATURE = parseFloat(process.env.LLM_TEMPERATURE);
 const LLM_TOP_P = parseFloat(process.env.LLM_TOP_P);
 
-import { awsBedrockTunnelChatCompletion } from "./bedrock_tunnel.js";
+// -------------------------------------------------------
+// -- import bedrockTunnel function from bedrock-tunnel --
+// -------------------------------------------------------
+import { bedrockTunnel } from "bedrock-tunnel";
 
-
-// example prompt in `messages` array format
+// -----------------------------------------------
+// -- example prompt in `messages` array format --
+// -----------------------------------------------
 const messages = [
     {
         role: "system",
@@ -54,19 +59,22 @@ const openaiChatCompletionsCreateObject = {
 };
 
 
+// ------------------------------------------------------------
+// -- invoke the streamed or unstreamed bedrock api response --
+// ------------------------------------------------------------
 // create a variable to hold the complete response
 let completeResponse = "";
-// invoke the streamed bedrock api response
+// streamed call
 if (openaiChatCompletionsCreateObject.stream) {
-    for await (const chunk of awsBedrockTunnelChatCompletion(awsCreds, openaiChatCompletionsCreateObject)) {
+    for await (const chunk of bedrockTunnel(awsCreds, openaiChatCompletionsCreateObject)) {
         completeResponse += chunk;
         // ---------------------------------------------------
         // -- each chunk is streamed as it is received here --
         // ---------------------------------------------------
         process.stdout.write(chunk); // ⇠ do stuff with the streamed chunk
     }
-} else { // invoke the unstreamed bedrock api response
-    const response = await awsBedrockTunnelChatCompletion(awsCreds, openaiChatCompletionsCreateObject);
+} else { // unstreamed call
+    const response = await bedrockTunnel(awsCreds, openaiChatCompletionsCreateObject);
     for await (const data of response) {
         const jsonString = new TextDecoder().decode(data.body);
         const jsonResponse = JSON.parse(jsonString);

@@ -1,26 +1,19 @@
 # 🪨 Bedrock Tunnel
-Bedrock Tunnel simplifies the integration of existing OpenAI-compatible applications with Bedrock's serverless inference LLMs, enhancing ease of use from Bedrock's aweful API.
+Bedrock Tunnel is an npm package that simplifies the integration of existing OpenAI-compatible applications with Bedrock's serverless inference LLMs.
 
 ---
 
-### Install / Setup
+### Install
 
-- install package dependencies: `npm ci`
-- rename `.example.env` to `.env` and enter your AWS creds  
-  _needed for the example; you will pass these objects yourself when integrating into your own app_
-- run the example: `node index`
-
-  ![node-index](/docs/node-index.gif)
+- install package: `npm install aws-bedrock-tunnel`
 
 ---
 
 ### Usage
 
-see `index.js` for a full code example
-
-1. import `awsBedrockTunnelChatCompletion`  
+1. import `bedrockTunnel`  
     ```javascript
-    import { awsBedrockTunnelChatCompletion } from "./bedrock_tunnel.js";
+    import { bedrockTunnel } from "bedrock-tunnel";
     ```
 
 2. create an `awsCreds` object and fill in your AWS credentials  
@@ -32,7 +25,7 @@ see `index.js` for a full code example
     };
     ```
 
-3. clone your openai chat completions object into `openaiChatCompletionsCreateObject` or create a new one and edit the values.  
+3. clone your openai chat completions object into `openaiChatCompletionsCreateObject` or create a new one and edit the values  
     ```javascript
     const openaiChatCompletionsCreateObject = {
         "messages": messages,
@@ -62,14 +55,14 @@ see `index.js` for a full code example
     ]
     ```
 
-    the `model` value should be either a corresponding `modelName` or `modelId` from the supplied `aws_models.js` file (see the Further Configuration section below for a list of models and more details).
+    ***the `model` value should be either a corresponding `modelName` or `modelId` for the supported `aws_models` (see the Supported Models section below)***
 
-4. call the `awsBedrockTunnelChatCompletion` function and pass in the previously defined `awsCreds` and `openaiChatCompletionsCreateObject` objects.  
+4. call the `bedrockTunnel` function and pass in the previously defined `awsCreds` and `openaiChatCompletionsCreateObject` objects  
     ```javascript
     // create a variable to hold the complete response
     let completeResponse = "";
     // invoke the streamed bedrock api response
-    for await (const chunk of awsBedrockTunnelChatCompletion(awsCreds, openaiChatCompletionsCreateObject)) {
+    for await (const chunk of bedrockTunnel(awsCreds, openaiChatCompletionsCreateObject)) {
         completeResponse += chunk;
         // ---------------------------------------------------
         // -- each chunk is streamed as it is received here --
@@ -79,11 +72,27 @@ see `index.js` for a full code example
     // console.log(`\n\completeResponse:\n${completeResponse}\n`); // ⇠ optional do stuff with the complete response returned from the API reguardless of stream or not
     ```
 
-    see `index.js` for a conditional check for streamed and unstreamed calls/reponses if unstreamed is required
+    if calling the unstreamed version you can call bedrockTunnel like this  
+    ```javascript
+    // create a variable to hold the complete response
+    let completeResponse = "";
+    // invoke the streamed bedrock api response
+    if (!openaiChatCompletionsCreateObject.stream){ // invoke the unstreamed bedrock api response
+        const response = await bedrockTunnel(awsCreds, openaiChatCompletionsCreateObject);
+        for await (const data of response) {
+            const jsonString = new TextDecoder().decode(data.body);
+            const jsonResponse = JSON.parse(jsonString);
+            completeResponse += jsonResponse.generation;
+        }
+        // ----------------------------------------------------
+        // -- unstreamed complete response is available here --
+        // ----------------------------------------------------
+        console.log(`\n\completeResponse:\n${completeResponse}\n`); // ⇠ do stuff with the complete response
+    }
 
 ---
 
-### Further Configuration
+### Supported Models
 
 The `aws_models.js` file can be expanded to support additional models offered on AWS Bedrock. Copy the template and fill in the model name, id, tokens, etc...
 
