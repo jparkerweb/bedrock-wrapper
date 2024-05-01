@@ -19,7 +19,7 @@ const LLM_TOP_P = parseFloat(process.env.LLM_TOP_P);
 // --     - awsBedrockTunnel                 --
 // --     - listBedrockTunnelSupportedModels --
 // --------------------------------------------
-import { awsBedrockTunnel, listBedrockTunnelSupportedModels } from "./aws-bedrock-tunnel.js";
+import { awsBedrockTunnel, listBedrockTunnelSupportedModels } from "bedrock-tunnel";
 
 // ----------------------------------------------
 // -- example call to list of supported models --
