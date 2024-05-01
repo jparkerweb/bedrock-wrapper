@@ -1,0 +1,17 @@
+{
+  "name": "bedrock-tunnel",
+  "version": "1.0.0",
+  "description": "🪨 Bedrock Tunnel simplifies the integration of existing OpenAI-compatible applications with Bedrock's serverless inference LLMs, enhancing ease of use and scalability.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "example": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.565.0",
+    "dotenv": "^16.4.5"
+  }
+}
