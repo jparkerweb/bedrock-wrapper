@@ -5,15 +5,15 @@ Bedrock Tunnel is an npm package that simplifies the integration of existing Ope
 
 ### Install
 
-- install package: `npm install aws-bedrock-tunnel`
+- install package: `npm install bedrock-tunnel`
 
 ---
 
 ### Usage
 
-1. import `bedrockTunnel`  
+1. import `awsBedrockTunnel`  
     ```javascript
-    import { bedrockTunnel } from "bedrock-tunnel";
+    import { awsBedrockTunnel } from "bedrock-tunnel";
     ```
 
 2. create an `awsCreds` object and fill in your AWS credentials  
@@ -57,12 +57,12 @@ Bedrock Tunnel is an npm package that simplifies the integration of existing Ope
 
     ***the `model` value should be either a corresponding `modelName` or `modelId` for the supported `aws_models` (see the Supported Models section below)***
 
-4. call the `bedrockTunnel` function and pass in the previously defined `awsCreds` and `openaiChatCompletionsCreateObject` objects  
+4. call the `awsBedrockTunnel` function and pass in the previously defined `awsCreds` and `openaiChatCompletionsCreateObject` objects  
     ```javascript
     // create a variable to hold the complete response
     let completeResponse = "";
     // invoke the streamed bedrock api response
-    for await (const chunk of bedrockTunnel(awsCreds, openaiChatCompletionsCreateObject)) {
+    for await (const chunk of awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObject)) {
         completeResponse += chunk;
         // ---------------------------------------------------
         // -- each chunk is streamed as it is received here --
@@ -72,13 +72,13 @@ Bedrock Tunnel is an npm package that simplifies the integration of existing Ope
     // console.log(`\n\completeResponse:\n${completeResponse}\n`); // ⇠ optional do stuff with the complete response returned from the API reguardless of stream or not
     ```
 
-    if calling the unstreamed version you can call bedrockTunnel like this  
+    if calling the unstreamed version you can call awsBedrockTunnel like this  
     ```javascript
     // create a variable to hold the complete response
     let completeResponse = "";
     // invoke the streamed bedrock api response
     if (!openaiChatCompletionsCreateObject.stream){ // invoke the unstreamed bedrock api response
-        const response = await bedrockTunnel(awsCreds, openaiChatCompletionsCreateObject);
+        const response = await awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObject);
         for await (const data of response) {
             const jsonString = new TextDecoder().decode(data.body);
             const jsonResponse = JSON.parse(jsonString);

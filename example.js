@@ -14,10 +14,10 @@ const LLM_MAX_GEN_TOKENS = parseInt(process.env.LLM_MAX_GEN_TOKENS);
 const LLM_TEMPERATURE = parseFloat(process.env.LLM_TEMPERATURE);
 const LLM_TOP_P = parseFloat(process.env.LLM_TOP_P);
 
-// -------------------------------------------------------
-// -- import bedrockTunnel function from bedrock-tunnel --
-// -------------------------------------------------------
-import { bedrockTunnel } from "bedrock-tunnel";
+// ----------------------------------------------------------
+// -- import awsBedrockTunnel function from bedrock-tunnel --
+// ----------------------------------------------------------
+import { awsBedrockTunnel } from "bedrock-tunnel";
 
 // -----------------------------------------------
 // -- example prompt in `messages` array format --
@@ -66,7 +66,7 @@ const openaiChatCompletionsCreateObject = {
 let completeResponse = "";
 // streamed call
 if (openaiChatCompletionsCreateObject.stream) {
-    for await (const chunk of bedrockTunnel(awsCreds, openaiChatCompletionsCreateObject)) {
+    for await (const chunk of awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObject)) {
         completeResponse += chunk;
         // ---------------------------------------------------
         // -- each chunk is streamed as it is received here --
@@ -74,7 +74,7 @@ if (openaiChatCompletionsCreateObject.stream) {
         process.stdout.write(chunk); // ⇠ do stuff with the streamed chunk
     }
 } else { // unstreamed call
-    const response = await bedrockTunnel(awsCreds, openaiChatCompletionsCreateObject);
+    const response = await awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObject);
     for await (const data of response) {
         const jsonString = new TextDecoder().decode(data.body);
         const jsonResponse = JSON.parse(jsonString);

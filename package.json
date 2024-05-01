@@ -1,17 +1,24 @@
 {
   "name": "bedrock-tunnel",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "🪨 Bedrock Tunnel is an npm package that simplifies the integration of existing OpenAI-compatible API objects AWS Bedrock's serverless inference LLMs.",
   "repository": {
 		"type": "git",
 		"url": "https://github.com/jparkerweb/bedrock-tunnel.git"
 	},
-  "main": "bedrock-tunnel.js",
+  "main": "aws-bedrock-tunnel.js",
   "type": "module",
   "scripts": {
     "example": "node example.js"
   },
-  "keywords": [],
+  "keywords": [
+    "openai",
+    "bedrock",
+    "aws",
+    "serverless",
+    "inference",
+    "llm"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {

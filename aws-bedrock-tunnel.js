@@ -2,7 +2,7 @@
 // == 🪨 Bedrock Tunnel                                                ==
 // ==                                                                  ==
 // == Bedrock Tunnel is an npm package that simplifies the integration ==
-// == of existing OpenAI-compatible applications with Bedrock's        ==
+// == of existing OpenAI-compatible API objects AWS Bedrock's          ==
 // == serverless inference LLMs.                                       ==
 // ======================================================================
 
@@ -19,7 +19,7 @@ import {
 // -------------------
 // -- main function --
 // -------------------
-export async function* bedrockTunnel(awsCreds, openaiChatCompletionsCreateObject) {
+export async function* awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObject) {
     writeAsciiArt();
     const { region, accessKeyId, secretAccessKey } = awsCreds;
     const { messages, model, max_tokens, stream, temperature, top_p } = openaiChatCompletionsCreateObject;
