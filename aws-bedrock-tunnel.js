@@ -9,7 +9,7 @@
 // -------------
 // -- imports --
 // -------------
-import { aws_models } from "./aws_models.js";
+import { aws_models } from "./aws-bedrock-models.js";
 import {
     BedrockRuntimeClient,
     InvokeModelCommand, InvokeModelWithResponseStreamCommand,
