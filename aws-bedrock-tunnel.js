@@ -80,7 +80,9 @@ export async function* awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObj
         }
     }
     
-    if (logging) { console.log(`\nPrompt: ${prompt}\n`); }
+    if (logging === true) {
+        console.log(`\nPrompt: ${prompt}\n`);
+    }
 
     // Format the request payload using the model's native structure.
     const request = {
