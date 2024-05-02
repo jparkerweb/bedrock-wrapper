@@ -115,3 +115,5 @@ Please modify the `aws_models.js` file and submit a PR 🏆 or create an Issue.
 ### 📢 P.S.
 
 In case you missed it at the beginning of this doc, for an even easier setup, use the 🪨 [Bedrock Tunnel Endpoint](https://github.com/jparkerweb/bedrock-tunnel-endpoint) project to spin up your own custom OpenAI server endpoint (using the standard `baseUrl`, and `apiKey` params).
+
+![bedrock-tunnel-endpoing](./docs/bedrock-tunnel-endpoint.jpg)
