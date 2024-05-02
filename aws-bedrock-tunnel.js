@@ -5,6 +5,7 @@
 // == of existing OpenAI-compatible API objects AWS Bedrock's          ==
 // == serverless inference LLMs.                                       ==
 // ======================================================================
+writeAsciiArt();
 
 // -------------
 // -- imports --
@@ -15,12 +16,10 @@ import {
     InvokeModelCommand, InvokeModelWithResponseStreamCommand,
 } from "@aws-sdk/client-bedrock-runtime";
 
-
 // -------------------
 // -- main function --
 // -------------------
 export async function* awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObject, logging = false) {
-    writeAsciiArt();
     const { region, accessKeyId, secretAccessKey } = awsCreds;
     const { messages, model, max_tokens, stream, temperature, top_p } = openaiChatCompletionsCreateObject;
 
