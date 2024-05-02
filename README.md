@@ -1,5 +1,5 @@
 # 🪨 Bedrock Tunnel
-Bedrock Tunnel is an npm package that simplifies the integration of existing OpenAI-compatible API objects AWS Bedrock's serverless inference LLMs.
+Bedrock Tunnel is an npm package that simplifies the integration of existing OpenAI-compatible API objects AWS Bedrock's serverless inference LLMs.  Follow the steps below to integrate into your own application, or alternativly use the 🪨 [Bedrock Tunnel Endpoint](https://github.com/jparkerweb/bedrock-tunnel-endpoint) project to spin up your own custom OpenAI server endpoint for even easier inference (using the standard `baseUrl`, and `apiKey` params).
 
 ---
 
@@ -94,10 +94,6 @@ Bedrock Tunnel is an npm package that simplifies the integration of existing Ope
 
 ### Supported Models
 
-The `aws_models.js` file can be expanded to support additional models offered on AWS Bedrock. Copy the template and fill in the model name, id, tokens, etc...
-
-**Current Model List**
-
 | modelName      | modelId                            |
 |----------------|------------------------------------|
 | Llama-3-8b     | meta.llama3-8b-instruct-v1:0       |
@@ -110,3 +106,12 @@ To return the list progrmatically you can import and call `listBedrockTunnelSupp
 import { listBedrockTunnelSupportedModels } from 'bedrock-tunnel';
 console.log(`\nsupported models:\n${JSON.stringify(await listBedrockTunnelSupportedModels())}\n`);
 ```
+
+Additional Bedrock model support can be added.  
+Please modify the `aws_models.js` file and submit a PR 🏆 or create an Issue.
+
+---
+
+### 📢 P.S.
+
+In case you missed it at the beginning of this doc, for an even easier setup, use the 🪨 [Bedrock Tunnel Endpoint](https://github.com/jparkerweb/bedrock-tunnel-endpoint) project to spin up your own custom OpenAI server endpoint (using the standard `baseUrl`, and `apiKey` params).
