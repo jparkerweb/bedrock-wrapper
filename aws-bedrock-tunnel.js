@@ -19,7 +19,7 @@ import {
 // -------------------
 // -- main function --
 // -------------------
-export async function* awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObject, logging = false) {
+export async function* awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObject, { logging = false } = {} ) {
     const { region, accessKeyId, secretAccessKey } = awsCreds;
     const { messages, model, max_tokens, stream, temperature, top_p } = openaiChatCompletionsCreateObject;
 
@@ -28,7 +28,7 @@ export async function* awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObj
     const awsModel = aws_models.find((x) => (x.modelName.toLowerCase() === model.toLowerCase() || x.modelId.toLowerCase() === model.toLowerCase()));
     if (!awsModel) { throw new Error(`Model configuration not found for model: ${model}`); }
 
-    // cleanup unneeded message content
+    // cleanup message content before formatting prompt message
     let message_cleaned = [];
     for (let i = 0; i < messages.length; i++) {
         if (messages[i].content !== "") {
@@ -80,7 +80,8 @@ export async function* awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObj
         }
     }
     
-    if (logging === true) {
+    // logging
+    if (logging) {
         console.log(`\nPrompt: ${prompt}\n`);
     }
 
