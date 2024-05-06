@@ -5,16 +5,27 @@
 // == of existing OpenAI-compatible API objects AWS Bedrock's          ==
 // == serverless inference LLMs.                                       ==
 // ======================================================================
-writeAsciiArt();
 
 // -------------
 // -- imports --
 // -------------
+// Bedrock model configurations
 import { bedrock_models } from "./bedrock-models.js";
+// AWS SDK
 import {
     BedrockRuntimeClient,
     InvokeModelCommand, InvokeModelWithResponseStreamCommand,
 } from "@aws-sdk/client-bedrock-runtime";
+// helper functions
+import {
+    getValueByPath,
+    writeAsciiArt
+} from "./utils.js";
+
+
+// write the ascii art logo on initial load
+writeAsciiArt();
+
 
 // -------------------
 // -- main function --
@@ -140,26 +151,4 @@ export async function listBedrockWrapperSupportedModels() {
         supported_models.push(`{"modelName": ${bedrock_models[i].modelName}, "modelId": ${bedrock_models[i].modelId}}`);
     }
     return supported_models;
-}
-
-
-// ----------------------
-// -- helper functions --
-// ----------------------
-// helper function to get a value from an object using a path string
-function getValueByPath(obj, path) {
-    // Split the path into an array of keys
-    let keys = path.replace(/\[(\w+)\]/g, '.$1').split('.');  // Convert indexes into properties
-    // Reduce the keys array to the final value
-    return keys.reduce((acc, key) => acc && acc[key], obj);
-}
-// helper function to write ascii art
-function writeAsciiArt() {
-    console.log(`
-    ___         _                 _     _ _ _                               
-    | . > ___  _| | _ _  ___  ___ | |__ | | | | _ _  ___  ___  ___  ___  _ _ 
-    | . \/ ._>/ . || '_>/ . \/ | '| / / | | | || '_><_> || . \| . \/ ._>| '_>
-    |___/\___.\___||_|  \___/\_|_.|_\_\ |__/_/ |_|  <___||  _/|  _/\___.|_|  
-                                                         |_|  |_|            
-    `);
 }

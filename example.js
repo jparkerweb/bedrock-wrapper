@@ -19,7 +19,10 @@ const LLM_TOP_P = parseFloat(process.env.LLM_TOP_P);
 // --     - bedrockWrapper                 --
 // --     - listBedrockWrapperSupportedModels --
 // --------------------------------------------
-import { bedrockWrapper, listBedrockWrapperSupportedModels } from "bedrock-wrapper";
+import {
+    bedrockWrapper,
+    listBedrockWrapperSupportedModels
+} from "bedrock-wrapper";
 
 // ----------------------------------------------
 // -- example call to list of supported models --
