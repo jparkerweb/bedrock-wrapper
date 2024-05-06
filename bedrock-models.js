@@ -1,5 +1,5 @@
 // Description: This file contains the model configurations
-export const aws_models = [
+export const bedrock_models = [
     {
         // ================
         // == Llama 3 8b ==

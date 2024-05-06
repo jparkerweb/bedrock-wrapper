@@ -1,7 +1,7 @@
 // ======================================================================
-// == 🪨 Bedrock Tunnel                                                ==
+// == 🪨 Bedrock Wrapper                                                ==
 // ==                                                                  ==
-// == Bedrock Tunnel is an npm package that simplifies the integration ==
+// == Bedrock Wrapper is an npm package that simplifies the integration ==
 // == of existing OpenAI-compatible API objects AWS Bedrock's          ==
 // == serverless inference LLMs.                                       ==
 // ======================================================================
@@ -10,7 +10,7 @@ writeAsciiArt();
 // -------------
 // -- imports --
 // -------------
-import { aws_models } from "./aws-bedrock-models.js";
+import { bedrock_models } from "./bedrock-models.js";
 import {
     BedrockRuntimeClient,
     InvokeModelCommand, InvokeModelWithResponseStreamCommand,
@@ -19,13 +19,13 @@ import {
 // -------------------
 // -- main function --
 // -------------------
-export async function* awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObject, { logging = false } = {} ) {
+export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging = false } = {} ) {
     const { region, accessKeyId, secretAccessKey } = awsCreds;
     const { messages, model, max_tokens, stream, temperature, top_p } = openaiChatCompletionsCreateObject;
 
 
     // retrieve the model configuration
-    const awsModel = aws_models.find((x) => (x.modelName.toLowerCase() === model.toLowerCase() || x.modelId.toLowerCase() === model.toLowerCase()));
+    const awsModel = bedrock_models.find((x) => (x.modelName.toLowerCase() === model.toLowerCase() || x.modelId.toLowerCase() === model.toLowerCase()));
     if (!awsModel) { throw new Error(`Model configuration not found for model: ${model}`); }
 
     // cleanup message content before formatting prompt message
@@ -134,10 +134,10 @@ export async function* awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObj
 // ---------------------------
 // -- list supported models --
 // ---------------------------
-export async function listBedrockTunnelSupportedModels() {
+export async function listBedrockWrapperSupportedModels() {
     let supported_models = [];
-    for (let i = 0; i < aws_models.length; i++) {
-        supported_models.push(`{"modelName": ${aws_models[i].modelName}, "modelId": ${aws_models[i].modelId}}`);
+    for (let i = 0; i < bedrock_models.length; i++) {
+        supported_models.push(`{"modelName": ${bedrock_models[i].modelName}, "modelId": ${bedrock_models[i].modelId}}`);
     }
     return supported_models;
 }

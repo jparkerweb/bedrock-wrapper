@@ -15,16 +15,16 @@ const LLM_TEMPERATURE = parseFloat(process.env.LLM_TEMPERATURE);
 const LLM_TOP_P = parseFloat(process.env.LLM_TOP_P);
 
 // --------------------------------------------
-// -- import functions from bedrock-tunnel   --
-// --     - awsBedrockTunnel                 --
-// --     - listBedrockTunnelSupportedModels --
+// -- import functions from bedrock-wrapper   --
+// --     - bedrockWrapper                 --
+// --     - listBedrockWrapperSupportedModels --
 // --------------------------------------------
-import { awsBedrockTunnel, listBedrockTunnelSupportedModels } from "bedrock-tunnel";
+import { bedrockWrapper, listBedrockWrapperSupportedModels } from "bedrock-wrapper";
 
 // ----------------------------------------------
 // -- example call to list of supported models --
 // ----------------------------------------------
-console.log(`\nsupported models:\n${JSON.stringify(await listBedrockTunnelSupportedModels())}\n`);
+console.log(`\nsupported models:\n${JSON.stringify(await listBedrockWrapperSupportedModels())}\n`);
 
 // -----------------------------------------------
 // -- example prompt in `messages` array format --
@@ -73,7 +73,7 @@ const openaiChatCompletionsCreateObject = {
 let completeResponse = "";
 // streamed call
 if (openaiChatCompletionsCreateObject.stream) {
-    for await (const chunk of awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObject, { logging:true })) {
+    for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging:true })) {
         completeResponse += chunk;
         // ---------------------------------------------------
         // -- each chunk is streamed as it is received here --
@@ -81,7 +81,7 @@ if (openaiChatCompletionsCreateObject.stream) {
         process.stdout.write(chunk); // ⇠ do stuff with the streamed chunk
     }
 } else { // unstreamed call
-    const response = await awsBedrockTunnel(awsCreds, openaiChatCompletionsCreateObject, { logging:true });
+    const response = await bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging:true });
     for await (const data of response) {
         const jsonString = new TextDecoder().decode(data.body);
         const jsonResponse = JSON.parse(jsonString);
