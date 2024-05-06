@@ -49,6 +49,30 @@ export const bedrock_models = [
         "response_chunk_element":        "generation",
     },
     {
+        // ================
+        // == Mistral-7b ==
+        // ================
+        "modelName":                     "Mistral-7b",
+        "modelId":                       "mistral.mistral-7b-instruct-v0:2",
+        "bos_text":                      "<s>",
+        "role_system_message_prefix":    "",
+        "role_system_message_suffix":    "",
+        "role_system_prefix":            "",
+        "role_system_suffix":            "",
+        "role_user_message_prefix":      "[INST]",
+        "role_user_message_suffix":      "[/INST]",
+        "role_user_prefix":              "",
+        "role_user_suffix":              "",
+        "role_assistant_message_prefix": "",
+        "role_assistant_message_suffix": "",
+        "role_assistant_prefix":         "",
+        "role_assistant_suffix":         "",
+        "eom_text":                      "</s>",
+        "display_role_names":            false,
+        "max_tokens_param_name":         "max_tokens",
+        "response_chunk_element":        "outputs[0].text",
+    },
+    {
         // ==================
         // == Mixtral-8x7b ==
         // ==================
