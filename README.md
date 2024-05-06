@@ -98,6 +98,7 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 |----------------|------------------------------------|
 | Llama-3-8b     | meta.llama3-8b-instruct-v1:0       |
 | Llama-3-70b    | meta.llama3-70b-instruct-v1:0      |
+| Mistral-7b     | mistral.mistral-7b-instruct-v0:2   |
 | Mixtral-8x7b   | mistral.mixtral-8x7b-instruct-v0:1 |
 | Mistral-Large  | mistral.mistral-large-2402-v1:0    |
 
