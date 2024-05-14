@@ -22,6 +22,7 @@ export const bedrock_models = [
         "eom_text":                      "<|eot_id|>",
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
+        "max_supported_response_tokens": 2048,
         "response_chunk_element":        "generation",
     },
     {
@@ -46,6 +47,7 @@ export const bedrock_models = [
         "eom_text":                      "<|eot_id|>",
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
+        "max_supported_response_tokens": 2048,
         "response_chunk_element":        "generation",
     },
     {
@@ -70,6 +72,7 @@ export const bedrock_models = [
         "eom_text":                      "</s>",
         "display_role_names":            false,
         "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 8192,
         "response_chunk_element":        "outputs[0].text",
     },
     {
@@ -94,6 +97,7 @@ export const bedrock_models = [
         "eom_text":                      "</s>",
         "display_role_names":            false,
         "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 4096,
         "response_chunk_element":        "outputs[0].text",
     },
     {
@@ -118,6 +122,7 @@ export const bedrock_models = [
         "eom_text":                      "</s>",
         "display_role_names":            false,
         "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 8192,
         "response_chunk_element":        "outputs[0].text",
     },
 ];

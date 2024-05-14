@@ -96,11 +96,13 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
         console.log(`\nPrompt: ${prompt}\n`);
     }
 
+    const max_gen_tokens = max_tokens <= awsModel.max_supported_response_tokens ? max_tokens : awsModel.max_supported_response_tokens;
+
     // Format the request payload using the model's native structure.
     const request = {
         prompt,
         // Optional inference parameters:
-        [awsModel.max_tokens_param_name]: max_tokens,
+        [awsModel.max_tokens_param_name]: max_gen_tokens,
         temperature: temperature,
         top_p: top_p,
     };
