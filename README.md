@@ -29,7 +29,7 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
     ```javascript
     const openaiChatCompletionsCreateObject = {
         "messages": messages,
-        "model": "Llama-3-8b",
+        "model": "Llama-3-1-8b",
         "max_tokens": LLM_MAX_GEN_TOKENS,
         "stream": true,
         "temperature": LLM_TEMPERATURE,
@@ -94,13 +94,15 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 
 ### Supported Models
 
-| modelName      | modelId                            |
-|----------------|------------------------------------|
-| Llama-3-8b     | meta.llama3-8b-instruct-v1:0       |
-| Llama-3-70b    | meta.llama3-70b-instruct-v1:0      |
-| Mistral-7b     | mistral.mistral-7b-instruct-v0:2   |
-| Mixtral-8x7b   | mistral.mixtral-8x7b-instruct-v0:1 |
-| Mistral-Large  | mistral.mistral-large-2402-v1:0    |
+| modelName     | modelId                            |
+|---------------|------------------------------------|
+| Llama-3-1-8b  | meta.llama3-1-8b-instruct-v1:0     |
+| Llama-3-1-70b | meta.llama3-1-70b-instruct-v1:0    |
+| Llama-3-8b    | meta.llama3-8b-instruct-v1:0       |
+| Llama-3-70b   | meta.llama3-70b-instruct-v1:0      |
+| Mistral-7b    | mistral.mistral-7b-instruct-v0:2   |
+| Mixtral-8x7b  | mistral.mixtral-8x7b-instruct-v0:1 |
+| Mistral-Large | mistral.mistral-large-2402-v1:0    |
 
 To return the list progrmatically you can import and call `listBedrockWrapperSupportedModels`:  
 ```javascript

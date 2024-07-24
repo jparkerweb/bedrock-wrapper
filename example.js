@@ -35,11 +35,11 @@ console.log(`\nsupported models:\n${JSON.stringify(await listBedrockWrapperSuppo
 const messages = [
     {
         role: "system",
-        content: "You are a helpful AI assistant that follows instructions extremely well. Answer the user questions accurately. Think step by step before answering the question. You will get a $100 tip if you provide the correct answer.",
+        content: "You are a helpful AI assistant that follows instructions extremely well. Answer the user questions accurately. Think step by step before answering the question.",
     },
     {
         role: "user",
-        content: "Describe why openai api standard used by lots of serverless LLM api providers is better than aws bedrock invoke api offered by aws bedrock. Limit your response to five sentences.",
+        content: "Describe what the openai api standard used by lots of serverless LLM api providers is and why it has been widely adopted.",
     },
     {
         role: "assistant",
@@ -61,7 +61,7 @@ const awsCreds = {
 // ----------------------------------------------------------------------
 const openaiChatCompletionsCreateObject = {
     "messages": messages,
-    "model": "Llama-3-8b",
+    "model": "Llama-3-1-8b",
     "max_tokens": LLM_MAX_GEN_TOKENS,
     "stream": true,
     "temperature": LLM_TEMPERATURE,
