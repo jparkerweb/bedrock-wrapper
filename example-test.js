@@ -22,7 +22,7 @@ const LLM_TOP_P = parseFloat(process.env.LLM_TOP_P);
 import {
     bedrockWrapper,
     listBedrockWrapperSupportedModels
-} from "bedrock-wrapper";
+} from "./bedrock-wrapper.js";
 
 // ----------------------------------------------
 // -- example call to list of supported models --
@@ -61,7 +61,7 @@ const awsCreds = {
 // ----------------------------------------------------------------------
 const openaiChatCompletionsCreateObject = {
     "messages": messages,
-    "model": "Llama-3-1-8b",
+    "model": "Llama-3-1-405b",
     "max_tokens": LLM_MAX_GEN_TOKENS,
     "stream": true,
     "temperature": LLM_TEMPERATURE,
