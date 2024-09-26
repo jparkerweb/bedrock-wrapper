@@ -96,6 +96,10 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 
 | modelName      | modelId                            |
 |----------------|------------------------------------|
+| Llama-3-2-1b   | meta.llama3-2-1b-instruct-v1:0     |
+| Llama-3-2-3b   | meta.llama3-2-3b-instruct-v1:0     |
+| Llama-3-2-11b  | meta.llama3-2-11b-instruct-v1:0    |
+| Llama-3-2-90b  | meta.llama3-2-90b-instruct-v1:0    |
 | Llama-3-1-8b   | meta.llama3-1-8b-instruct-v1:0     |
 | Llama-3-1-70b  | meta.llama3-1-70b-instruct-v1:0    |
 | Llama-3-1-405b | meta.llama3-1-405b-instruct-v1:0   |
@@ -121,3 +125,13 @@ Please modify the `bedrock_models.js` file and submit a PR 🏆 or create an Iss
 In case you missed it at the beginning of this doc, for an even easier setup, use the 🔀 [Bedrock Proxy Endpoint](https://github.com/jparkerweb/bedrock-proxy-endpoint) project to spin up your own custom OpenAI server endpoint (using the standard `baseUrl`, and `apiKey` params).
 
 ![bedrock-proxy-endpoing](./docs/bedrock-proxy-endpoint.jpg)
+
+---
+
+### 📚 References
+
+- [AWS Meta Llama Models User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html)
+- [AWS Mistral Models User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral.html)
+- [OpenAI API](https://platform.openai.com/docs/api-reference/chat/create)
+- [AWS Bedrock](https://aws.amazon.com/bedrock/)
+- [AWS SDK for JavaScript](https://aws.amazon.com/sdk-for-javascript/)

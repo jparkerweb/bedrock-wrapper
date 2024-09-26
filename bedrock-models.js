@@ -2,6 +2,106 @@
 export const bedrock_models = [
     {
         // ==================
+        // == Llama 3.2 1b ==
+        // ==================
+        "modelName":                     "Llama-3-2-1b",
+        "modelId":                       "meta.llama3-2-1b-instruct-v1:0",
+        "bos_text":                      "<|begin_of_text|>",
+        "role_system_message_prefix":    "",
+        "role_system_message_suffix":    "",
+        "role_system_prefix":            "<|start_header_id|>",
+        "role_system_suffix":            "<|end_header_id|>",
+        "role_user_message_prefix":      "",
+        "role_user_message_suffix":      "",
+        "role_user_prefix":              "<|start_header_id|>",
+        "role_user_suffix":              "<|end_header_id|>",
+        "role_assistant_message_prefix": "",
+        "role_assistant_message_suffix": "",
+        "role_assistant_prefix":         "<|start_header_id|>",
+        "role_assistant_suffix":         "<|end_header_id|>",
+        "eom_text":                      "<|eot_id|>",
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_gen_len",
+        "max_supported_response_tokens": 2048,
+        "response_chunk_element":        "generation",
+    },
+    {
+        // ==================
+        // == Llama 3.2 3b ==
+        // ==================
+        "modelName":                     "Llama-3-2-3b",
+        "modelId":                       "meta.llama3-2-3b-instruct-v1:0",
+        "bos_text":                      "<|begin_of_text|>",
+        "role_system_message_prefix":    "",
+        "role_system_message_suffix":    "",
+        "role_system_prefix":            "<|start_header_id|>",
+        "role_system_suffix":            "<|end_header_id|>",
+        "role_user_message_prefix":      "",
+        "role_user_message_suffix":      "",
+        "role_user_prefix":              "<|start_header_id|>",
+        "role_user_suffix":              "<|end_header_id|>",
+        "role_assistant_message_prefix": "",
+        "role_assistant_message_suffix": "",
+        "role_assistant_prefix":         "<|start_header_id|>",
+        "role_assistant_suffix":         "<|end_header_id|>",
+        "eom_text":                      "<|eot_id|>",
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_gen_len",
+        "max_supported_response_tokens": 2048,
+        "response_chunk_element":        "generation",
+    },
+    {
+        // ===================
+        // == Llama 3.2 11b ==
+        // ===================
+        "modelName":                     "Llama-3-2-11b",
+        "modelId":                       "meta.llama3-2-11b-instruct-v1:0",
+        "bos_text":                      "<|begin_of_text|>",
+        "role_system_message_prefix":    "",
+        "role_system_message_suffix":    "",
+        "role_system_prefix":            "<|start_header_id|>",
+        "role_system_suffix":            "<|end_header_id|>",
+        "role_user_message_prefix":      "",
+        "role_user_message_suffix":      "",
+        "role_user_prefix":              "<|start_header_id|>",
+        "role_user_suffix":              "<|end_header_id|>",
+        "role_assistant_message_prefix": "",
+        "role_assistant_message_suffix": "",
+        "role_assistant_prefix":         "<|start_header_id|>",
+        "role_assistant_suffix":         "<|end_header_id|>",
+        "eom_text":                      "<|eot_id|>",
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_gen_len",
+        "max_supported_response_tokens": 2048,
+        "response_chunk_element":        "generation",
+    },
+    {
+        // ===================
+        // == Llama 3.2 90b ==
+        // ===================
+        "modelName":                     "Llama-3-2-90b",
+        "modelId":                       "meta.llama3-2-90b-instruct-v1:0",
+        "bos_text":                      "<|begin_of_text|>",
+        "role_system_message_prefix":    "",
+        "role_system_message_suffix":    "",
+        "role_system_prefix":            "<|start_header_id|>",
+        "role_system_suffix":            "<|end_header_id|>",
+        "role_user_message_prefix":      "",
+        "role_user_message_suffix":      "",
+        "role_user_prefix":              "<|start_header_id|>",
+        "role_user_suffix":              "<|end_header_id|>",
+        "role_assistant_message_prefix": "",
+        "role_assistant_message_suffix": "",
+        "role_assistant_prefix":         "<|start_header_id|>",
+        "role_assistant_suffix":         "<|end_header_id|>",
+        "eom_text":                      "<|eot_id|>",
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_gen_len",
+        "max_supported_response_tokens": 2048,
+        "response_chunk_element":        "generation",
+    },
+    {
+        // ==================
         // == Llama 3.1 8b ==
         // ==================
         "modelName":                     "Llama-3-1-8b",
