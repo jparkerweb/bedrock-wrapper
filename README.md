@@ -96,10 +96,10 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 
 | modelName      | modelId                            |
 |----------------|------------------------------------|
-| Llama-3-2-1b   | meta.llama3-2-1b-instruct-v1:0     |
-| Llama-3-2-3b   | meta.llama3-2-3b-instruct-v1:0     |
-| Llama-3-2-11b  | meta.llama3-2-11b-instruct-v1:0    |
-| Llama-3-2-90b  | meta.llama3-2-90b-instruct-v1:0    |
+| Llama-3-2-1b   | us.meta.llama3-2-1b-instruct-v1:0  |
+| Llama-3-2-3b   | us.meta.llama3-2-3b-instruct-v1:0  |
+| Llama-3-2-11b  | us.meta.llama3-2-11b-instruct-v1:0 |
+| Llama-3-2-90b  | us.meta.llama3-2-90b-instruct-v1:0 |
 | Llama-3-1-8b   | meta.llama3-1-8b-instruct-v1:0     |
 | Llama-3-1-70b  | meta.llama3-1-70b-instruct-v1:0    |
 | Llama-3-1-405b | meta.llama3-1-405b-instruct-v1:0   |

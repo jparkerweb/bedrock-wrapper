@@ -61,7 +61,7 @@ const awsCreds = {
 // ----------------------------------------------------------------------
 const openaiChatCompletionsCreateObject = {
     "messages": messages,
-    "model": "Llama-3-1-405b",
+    "model": "Llama-3-2-11b",
     "max_tokens": LLM_MAX_GEN_TOKENS,
     "stream": true,
     "temperature": LLM_TEMPERATURE,

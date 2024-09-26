@@ -1,11 +1,18 @@
 // Description: This file contains the model configurations
+
+// NOTE: Not all models are available in all regions.
+//       Check the bedrock documentation for availability.
+//       The Llama 3.2 modelId's reference cross-region profile ids.
+//       https://us-west-2.console.aws.amazon.com/bedrock/home?region=us-west-2#/cross-region-inference
+
 export const bedrock_models = [
     {
         // ==================
         // == Llama 3.2 1b ==
         // ==================
         "modelName":                     "Llama-3-2-1b",
-        "modelId":                       "meta.llama3-2-1b-instruct-v1:0",
+        // "modelId":                       "meta.llama3-2-1b-instruct-v1:0",
+        "modelId":                       "us.meta.llama3-2-1b-instruct-v1:0",
         "bos_text":                      "<|begin_of_text|>",
         "role_system_message_prefix":    "",
         "role_system_message_suffix":    "",
@@ -30,7 +37,8 @@ export const bedrock_models = [
         // == Llama 3.2 3b ==
         // ==================
         "modelName":                     "Llama-3-2-3b",
-        "modelId":                       "meta.llama3-2-3b-instruct-v1:0",
+        // "modelId":                       "meta.llama3-2-3b-instruct-v1:0",
+        "modelId":                       "us.meta.llama3-2-3b-instruct-v1:0",
         "bos_text":                      "<|begin_of_text|>",
         "role_system_message_prefix":    "",
         "role_system_message_suffix":    "",
@@ -55,7 +63,8 @@ export const bedrock_models = [
         // == Llama 3.2 11b ==
         // ===================
         "modelName":                     "Llama-3-2-11b",
-        "modelId":                       "meta.llama3-2-11b-instruct-v1:0",
+        // "modelId":                       "meta.llama3-2-11b-instruct-v1:0",
+        "modelId":                       "us.meta.llama3-2-11b-instruct-v1:0",
         "bos_text":                      "<|begin_of_text|>",
         "role_system_message_prefix":    "",
         "role_system_message_suffix":    "",
@@ -80,7 +89,8 @@ export const bedrock_models = [
         // == Llama 3.2 90b ==
         // ===================
         "modelName":                     "Llama-3-2-90b",
-        "modelId":                       "meta.llama3-2-90b-instruct-v1:0",
+        // "modelId":                       "meta.llama3-2-90b-instruct-v1:0",
+        "modelId":                       "us.meta.llama3-2-90b-instruct-v1:0",
         "bos_text":                      "<|begin_of_text|>",
         "role_system_message_prefix":    "",
         "role_system_message_suffix":    "",
