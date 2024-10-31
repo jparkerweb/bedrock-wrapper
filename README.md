@@ -76,13 +76,10 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
     ```javascript
     // create a variable to hold the complete response
     let completeResponse = "";
-    // invoke the streamed bedrock api response
     if (!openaiChatCompletionsCreateObject.stream){ // invoke the unstreamed bedrock api response
         const response = await bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject);
         for await (const data of response) {
-            const jsonString = new TextDecoder().decode(data.body);
-            const jsonResponse = JSON.parse(jsonString);
-            completeResponse += jsonResponse.generation;
+            completeResponse += data;
         }
         // ----------------------------------------------------
         // -- unstreamed complete response is available here --
@@ -94,20 +91,23 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 
 ### Supported Models
 
-| modelName      | modelId                            |
-|----------------|------------------------------------|
-| Llama-3-2-1b   | us.meta.llama3-2-1b-instruct-v1:0  |
-| Llama-3-2-3b   | us.meta.llama3-2-3b-instruct-v1:0  |
-| Llama-3-2-11b  | us.meta.llama3-2-11b-instruct-v1:0 |
-| Llama-3-2-90b  | us.meta.llama3-2-90b-instruct-v1:0 |
-| Llama-3-1-8b   | meta.llama3-1-8b-instruct-v1:0     |
-| Llama-3-1-70b  | meta.llama3-1-70b-instruct-v1:0    |
-| Llama-3-1-405b | meta.llama3-1-405b-instruct-v1:0   |
-| Llama-3-8b     | meta.llama3-8b-instruct-v1:0       |
-| Llama-3-70b    | meta.llama3-70b-instruct-v1:0      |
-| Mistral-7b     | mistral.mistral-7b-instruct-v0:2   |
-| Mixtral-8x7b   | mistral.mixtral-8x7b-instruct-v0:1 |
-| Mistral-Large  | mistral.mistral-large-2402-v1:0    |
+| modelName            | modelId                                   |
+|----------------------|-------------------------------------------|
+| Claude-3-5-Sonnet-v2 | anthropic.claude-3-5-sonnet-20241022-v2:0 |
+| Claude-3-5-Sonnet    | anthropic.claude-3-5-sonnet-20240620-v1:0 |
+| Claude-3-Haiku       | anthropic.claude-3-haiku-20240307-v1:0    |
+| Llama-3-2-1b         | us.meta.llama3-2-1b-instruct-v1:0         |
+| Llama-3-2-3b         | us.meta.llama3-2-3b-instruct-v1:0         |
+| Llama-3-2-11b        | us.meta.llama3-2-11b-instruct-v1:0        |
+| Llama-3-2-90b        | us.meta.llama3-2-90b-instruct-v1:0        |
+| Llama-3-1-8b         | meta.llama3-1-8b-instruct-v1:0            |
+| Llama-3-1-70b        | meta.llama3-1-70b-instruct-v1:0           |
+| Llama-3-1-405b       | meta.llama3-1-405b-instruct-v1:0          |
+| Llama-3-8b           | meta.llama3-8b-instruct-v1:0              |
+| Llama-3-70b          | meta.llama3-70b-instruct-v1:0             |
+| Mistral-7b           | mistral.mistral-7b-instruct-v0:2          |
+| Mixtral-8x7b         | mistral.mixtral-8x7b-instruct-v0:1        |
+| Mistral-Large        | mistral.mistral-large-2402-v1:0           |
 
 To return the list progrmatically you can import and call `listBedrockWrapperSupportedModels`:  
 ```javascript
@@ -135,3 +135,8 @@ In case you missed it at the beginning of this doc, for an even easier setup, us
 - [OpenAI API](https://platform.openai.com/docs/api-reference/chat/create)
 - [AWS Bedrock](https://aws.amazon.com/bedrock/)
 - [AWS SDK for JavaScript](https://aws.amazon.com/sdk-for-javascript/)
+
+---
+
+Please consider sending me a tip to support my work 😀
+# [🍵 tip me here](https://ko-fi.com/jparkerweb)

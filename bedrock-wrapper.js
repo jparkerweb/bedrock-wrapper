@@ -41,9 +41,16 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
 
     // cleanup message content before formatting prompt message
     let message_cleaned = [];
+    let system_message = "";
+
     for (let i = 0; i < messages.length; i++) {
         if (messages[i].content !== "") {
-            message_cleaned.push(messages[i]);
+            // Extract system message only if model requires it as separate field
+            if (awsModel.system_as_separate_field && messages[i].role === "system") {
+                system_message = messages[i].content;
+            } else {
+                message_cleaned.push(messages[i]);
+            }
         } else if (awsModel.display_role_names) {
             message_cleaned.push(messages[i]);
         }
@@ -53,58 +60,77 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
         }
     }
 
+    let prompt;
+
     // format prompt message from message array
-    let prompt = awsModel.bos_text;
-    let eom_text_inserted = false;
-    for (let i = 0; i < message_cleaned.length; i++) {
-        prompt += "\n";
-        if (message_cleaned[i].role === "system") {
-            prompt += awsModel.role_system_message_prefix;
-            prompt += awsModel.role_system_prefix;
-            if (awsModel.display_role_names) { prompt += message_cleaned[i].role; }
-            prompt += awsModel.role_system_suffix;
-            if (awsModel.display_role_names) {prompt += "\n"; }
-            prompt += message_cleaned[i].content;
-            prompt += awsModel.role_system_message_suffix;
-        } else if (message_cleaned[i].role === "user") {
-            prompt += awsModel.role_user_message_prefix;
-            prompt += awsModel.role_user_prefix;
-            if (awsModel.display_role_names) { prompt += message_cleaned[i].role; }
-            prompt += awsModel.role_user_suffix;
-            if (awsModel.display_role_names) {prompt += "\n"; }
-            prompt += message_cleaned[i].content;
-            prompt += awsModel.role_user_message_suffix;
-        } else if (message_cleaned[i].role === "assistant") {
-            prompt += awsModel.role_assistant_message_prefix;
-            prompt += awsModel.role_assistant_prefix;
-            if (awsModel.display_role_names) { prompt += message_cleaned[i].role; }
-            prompt += awsModel.role_assistant_suffix;
-            if (awsModel.display_role_names) {prompt += "\n"; }
-            prompt += message_cleaned[i].content;
-            prompt += awsModel.role_assistant_message_suffix;
-        }
-        if (message_cleaned[i+1] && message_cleaned[i+1].content === "") {
-            prompt += `\n${awsModel.eom_text}`;
-            eom_text_inserted = true;
-        } else if ((i+1) === (message_cleaned.length - 1) && !eom_text_inserted) {
-            prompt += `\n${awsModel.eom_text}`;
+    if (awsModel.messages_api) {
+        // convert message array to prompt object if model supports messages api
+        prompt = message_cleaned;
+    } else {
+        // convert message array to prompt string if model does not support messages api
+        prompt = awsModel.bos_text;
+        let eom_text_inserted = false;
+        for (let i = 0; i < message_cleaned.length; i++) {
+            prompt += "\n";
+            if (message_cleaned[i].role === "system") {
+                prompt += awsModel.role_system_message_prefix;
+                prompt += awsModel.role_system_prefix;
+                if (awsModel.display_role_names) { prompt += message_cleaned[i].role; }
+                prompt += awsModel.role_system_suffix;
+                if (awsModel.display_role_names) {prompt += "\n"; }
+                prompt += message_cleaned[i].content;
+                prompt += awsModel.role_system_message_suffix;
+            } else if (message_cleaned[i].role === "user") {
+                prompt += awsModel.role_user_message_prefix;
+                prompt += awsModel.role_user_prefix;
+                if (awsModel.display_role_names) { prompt += message_cleaned[i].role; }
+                prompt += awsModel.role_user_suffix;
+                if (awsModel.display_role_names) {prompt += "\n"; }
+                prompt += message_cleaned[i].content;
+                prompt += awsModel.role_user_message_suffix;
+            } else if (message_cleaned[i].role === "assistant") {
+                prompt += awsModel.role_assistant_message_prefix;
+                prompt += awsModel.role_assistant_prefix;
+                if (awsModel.display_role_names) { prompt += message_cleaned[i].role; }
+                prompt += awsModel.role_assistant_suffix;
+                if (awsModel.display_role_names) {prompt += "\n"; }
+                prompt += message_cleaned[i].content;
+                prompt += awsModel.role_assistant_message_suffix;
+            }
+            if (message_cleaned[i+1] && message_cleaned[i+1].content === "") {
+                prompt += `\n${awsModel.eom_text}`;
+                eom_text_inserted = true;
+            } else if ((i+1) === (message_cleaned.length - 1) && !eom_text_inserted) {
+                prompt += `\n${awsModel.eom_text}`;
+            }
         }
     }
     
     // logging
     if (logging) {
-        console.log(`\nPrompt: ${prompt}\n`);
+        if (awsModel.system_as_separate_field && system_message) {
+            console.log(`\nsystem: ${system_message}`);
+        }
+        console.log(`\nprompt: ${typeof prompt === 'object' ? JSON.stringify(prompt) : prompt}\n`);
     }
 
     const max_gen_tokens = max_tokens <= awsModel.max_supported_response_tokens ? max_tokens : awsModel.max_supported_response_tokens;
 
     // Format the request payload using the model's native structure.
-    const request = {
+    const request = awsModel.messages_api ? {
+        messages: prompt,
+        ...(awsModel.system_as_separate_field && system_message && { system: system_message }), // Only add system field if model requires it and there's a system message
+        [awsModel.max_tokens_param_name]: max_gen_tokens,
+        temperature: temperature,
+        top_p: top_p,
+        ...awsModel.special_request_schema
+    } : {
         prompt,
         // Optional inference parameters:
         [awsModel.max_tokens_param_name]: max_gen_tokens,
         temperature: temperature,
         top_p: top_p,
+        ...awsModel.special_request_schema
     };
     
     // Create a Bedrock Runtime client in the AWS Region of your choice
@@ -139,7 +165,15 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
               modelId: awsModel.modelId,
             }),
           );
-        yield apiResponse;
+        
+        const decodedBodyResponse = JSON.parse(new TextDecoder().decode(apiResponse.body));
+        let result;
+        if (awsModel.response_nonchunk_element) {
+            result = getValueByPath(decodedBodyResponse, awsModel.response_nonchunk_element);
+        } else {
+            result = getValueByPath(decodedBodyResponse, awsModel.response_chunk_element);
+        }
+        yield result;
     }    
 }
 
