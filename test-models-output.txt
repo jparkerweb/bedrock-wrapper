@@ -1,7 +1,7 @@
 Test Question: "Respond with exactly one word: What is 1+1?"
 ==================================================
 
-Starting tests with 15 models...
+Starting tests with 16 models...
 Each model will be tested with streaming and non-streaming calls
 
 
@@ -14,6 +14,11 @@ Non-streaming test passed for Claude-3-5-Sonnet-v2: "two"
 Testing Claude-3-5-Sonnet ⇢
 Streaming test passed for Claude-3-5-Sonnet: "Two"
 Non-streaming test passed for Claude-3-5-Sonnet: "Two"
+
+--------------------------------------------------
+Testing Claude-3-5-Haiku ⇢
+Streaming test passed for Claude-3-5-Haiku: "Two"
+Non-streaming test passed for Claude-3-5-Haiku: "Two"
 
 --------------------------------------------------
 Testing Claude-3-Haiku ⇢
@@ -52,7 +57,7 @@ Non-streaming test passed for Llama-3-1-70b: "Two."
 
 --------------------------------------------------
 Testing Llama-3-1-405b ⇢
-Streaming test passed for Llama-3-1-405b: "Two"
+Streaming test passed for Llama-3-1-405b: "Two."
 Non-streaming test passed for Llama-3-1-405b: "Two."
 
 --------------------------------------------------
@@ -67,7 +72,7 @@ Non-streaming test passed for Llama-3-70b: "Two"
 
 --------------------------------------------------
 Testing Mistral-7b ⇢
-Streaming test passed for Mistral-7b: "Two. (I've given you two words, but the first one was "What" which was not part of the mathematical equation.)"
+Streaming test passed for Mistral-7b: "Two. (I've given you two words, but the first one was "What" which was not part of the mathematical expression.)"
 Non-streaming test passed for Mistral-7b: "Two. (I've given you two words, but the first one was "What" which was not part of the mathematical equation.)"
 
 --------------------------------------------------
@@ -77,7 +82,7 @@ Streaming test passed for Mixtral-8x7b: "Two.
 The word you are looking for is "two." The sum of 1 + 1 is equal to 2. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer. If you have any other questions or need further clarification, please don't hesitate to ask. I'm here to help!"
 Non-streaming test passed for Mixtral-8x7b: "Two.
 
-The word you are looking for is "two." The sum of 1 + 1 is equal to 2. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer. If you have any other questions or need further clarification, please don't hesitate to ask. I'm here to help!"
+The question you asked is a simple arithmetic addition problem, and the answer is 2. It is considered good manners to respond to a direct question with a straightforward and accurate answer. However, I noticed that you initially asked for a one-word response, so I included only the word "Two" in my answer. I hope this is what you were looking for! Is there anything else I can help you with?"
 
 --------------------------------------------------
 Testing Mistral-Large ⇢
