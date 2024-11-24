@@ -3,6 +3,13 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 
 ---
 
+### Maintained by
+<a href="https://www.equilllabs.com">
+  <img src="https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png" alt="eQuill Labs" height="40">
+</a>
+
+---
+
 ### Install
 
 - install package: `npm install bedrock-wrapper`
