@@ -26,6 +26,39 @@ import {
 // write the ascii art logo on initial load
 writeAsciiArt();
 
+/**
+ * Finds an AWS model configuration by model id or name.
+ * Model id may match partially to support cross-region models.
+ *
+ * @param {string} model - Model id (can be partial) or model name
+ * @returns {{awsModelId: string, awsModel: object}} - The matching model configuration
+ * @throws {Error} When no matching model configuration is found
+ *
+ * @example
+ * // Full model id
+ * findAwsModelWithId("us.anthropic.claude-3-5-sonnet-20241022-v2:0")
+ * // Partial model id
+ * findAwsModelWithId("anthropic.claude-3-5-sonnet-20241022-v2:0")
+ * // Model name
+ * findAwsModelWithId("Claude-3-5-Sonnet-v2")
+ */
+function findAwsModelWithId(model) {
+  const matchingModel = bedrock_models.find(candidate =>
+    model.endsWith(candidate.modelId) ||
+    model === candidate.modelName
+  );
+
+  if (!matchingModel) {
+    throw new Error(`Model configuration not found for model: ${model}`);
+  }
+
+  return {
+    awsModelId: model.endsWith(matchingModel.modelId) ?
+      model :
+      matchingModel.modelId,
+    awsModel: matchingModel
+  };
+}
 
 // -------------------
 // -- main function --
@@ -35,9 +68,7 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
     const { messages, model, max_tokens, stream, temperature, top_p } = openaiChatCompletionsCreateObject;
 
 
-    // retrieve the model configuration
-    const awsModel = bedrock_models.find((x) => (x.modelName.toLowerCase() === model.toLowerCase() || x.modelId.toLowerCase() === model.toLowerCase()));
-    if (!awsModel) { throw new Error(`Model configuration not found for model: ${model}`); }
+  let {awsModelId, awsModel} = findAwsModelWithId(model);
 
     // cleanup message content before formatting prompt message
     let message_cleaned = [];
@@ -147,7 +178,7 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
             new InvokeModelWithResponseStreamCommand({
                 contentType: "application/json",
                 body: JSON.stringify(request),
-                modelId: awsModel.modelId,
+                modelId: awsModelId,
             }),
         );
         for await (const event of responseStream.body) {
@@ -162,7 +193,7 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
             new InvokeModelCommand({
               contentType: "application/json",
               body: JSON.stringify(request),
-              modelId: awsModel.modelId,
+              modelId: awsModelId,
             }),
           );
         
