@@ -104,6 +104,7 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 | Claude-3-5-Sonnet    | anthropic.claude-3-5-sonnet-20240620-v1:0 |
 | Claude-3-5-Haiku     | anthropic.claude-3-5-haiku-20241022-v1:0  |
 | Claude-3-Haiku       | anthropic.claude-3-haiku-20240307-v1:0    |
+| Llama-3-3-70b        | us.meta.llama3-3-70b-instruct-v1:0        |
 | Llama-3-2-1b         | us.meta.llama3-2-1b-instruct-v1:0         |
 | Llama-3-2-3b         | us.meta.llama3-2-3b-instruct-v1:0         |
 | Llama-3-2-11b        | us.meta.llama3-2-11b-instruct-v1:0        |

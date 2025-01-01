@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.2.0] - 2025-01-01 (Llama 3.3 70b)
+### Added
+- Support for Llama 3.3 70b
 
 ## [2.1.0] - 2024-11-21 (Claude 3.5 Haiku)
 ### Added

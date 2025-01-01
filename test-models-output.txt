@@ -1,7 +1,7 @@
 Test Question: "Respond with exactly one word: What is 1+1?"
 ==================================================
 
-Starting tests with 16 models...
+Starting tests with 17 models...
 Each model will be tested with streaming and non-streaming calls
 
 
@@ -24,6 +24,11 @@ Non-streaming test passed for Claude-3-5-Haiku: "Two"
 Testing Claude-3-Haiku ⇢
 Streaming test passed for Claude-3-Haiku: "Two."
 Non-streaming test passed for Claude-3-Haiku: "Two."
+
+--------------------------------------------------
+Testing Llama-3-3-70b ⇢
+Streaming test passed for Llama-3-3-70b: "Two."
+Non-streaming test passed for Llama-3-3-70b: "Two."
 
 --------------------------------------------------
 Testing Llama-3-2-1b ⇢
@@ -79,10 +84,10 @@ Non-streaming test passed for Mistral-7b: "Two. (I've given you two words, but t
 Testing Mixtral-8x7b ⇢
 Streaming test passed for Mixtral-8x7b: "Two.
 
-The word you are looking for is "two." The sum of 1 + 1 is equal to 2. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer. If you have any other questions or need further clarification, please don't hesitate to ask. I'm here to help!"
+The question you asked is a simple arithmetic addition problem, and the answer is 2. It is considered good manners to respond to a direct question, even if it is a simple one. This helps to maintain a respectful and positive interaction."
 Non-streaming test passed for Mixtral-8x7b: "Two.
 
-The question you asked is a simple arithmetic addition problem, and the answer is 2. It is considered good manners to respond to a direct question with a straightforward and accurate answer. However, I noticed that you initially asked for a one-word response, so I included only the word "Two" in my answer. I hope this is what you were looking for! Is there anything else I can help you with?"
+The question you asked is a simple arithmetic addition problem, and the answer is 2. It is considered good manners to respond to a direct question, even if it is a simple one. This helps to maintain a respectful and positive interaction."
 
 --------------------------------------------------
 Testing Mistral-Large ⇢
