@@ -27,6 +27,28 @@ import {
 writeAsciiArt();
 
 
+function convertImageUrlsToImages(content) {
+    const dataImageRe = /data:(image\/[a-z]+);base64,(.+)?/;
+    return content.map(content => {
+      if (content.type !== "image_url") {
+        return content;
+      }
+      // image_url can be only "data: " encoded string
+      const reResults = dataImageRe.exec(content.image_url.url)
+      if (!reResults) {
+        throw new Error("Only image_urls with base64 encoding are supported");
+      }
+      return {
+        type: "image",
+        source: {
+          type: "base64",
+          media_type: reResults[1],
+          data: reResults[2],
+        },
+      }
+    });
+}
+
 // -------------------
 // -- main function --
 // -------------------
@@ -44,18 +66,24 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
     let system_message = "";
 
     for (let i = 0; i < messages.length; i++) {
-        if (messages[i].content !== "") {
+        const message = {
+          ...messages[i]
+        };
+        if (message.content !== "") {
             // Extract system message only if model requires it as separate field
-            if (awsModel.system_as_separate_field && messages[i].role === "system") {
-                system_message = messages[i].content;
+            if (awsModel.system_as_separate_field && message.role === "system") {
+                system_message = message.content;
             } else {
-                message_cleaned.push(messages[i]);
+                message_cleaned.push(message);
+            }
+            if (Array.isArray(message.content)) {
+              message.content = convertImageUrlsToImages(message.content);
             }
         } else if (awsModel.display_role_names) {
-            message_cleaned.push(messages[i]);
+            message_cleaned.push(message);
         }
 
-        if (i === (messages.length - 1) && messages[i].content !== "" && awsModel.display_role_names) {
+        if (i === (messages.length - 1) && message.content !== "" && awsModel.display_role_names) {
             message_cleaned.push({role: "assistant", content: ""});
         }
     }

@@ -53,7 +53,17 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
         },
         {
             role: "user",
-            content: "Describe why openai api standard used by lots of serverless LLM api providers is better than aws bedrock invoke api offered by aws bedrock. Limit your response to five sentences.",
+            content: [
+                {
+                    type: "text",
+                    text: "Describe why openai api standard used by lots of serverless LLM api providers is better than aws bedrock invoke api offered by aws bedrock. Limit your response to five sentences.",
+                },
+                {
+                    type: "image_url",
+                    image_url: {
+                        url: "data:image/png;base64,<base64 encoded image>"
+                    }
+                }]
         },
         {
             role: "assistant",
@@ -62,7 +72,9 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
     ]
     ```
 
-    ***the `model` value should be either a corresponding `modelName` or `modelId` for the supported `bedrock_models` (see the Supported Models section below)***
+    - ***the `model` value should be either a corresponding `modelName` or `modelId` for the supported `bedrock_models` (see the Supported Models section below)***
+    
+    - ***only base64-encoded images are supported; support is limited to models capable of multimodal prompts***
 
 4. call the `bedrockWrapper` function and pass in the previously defined `awsCreds` and `openaiChatCompletionsCreateObject` objects  
     ```javascript
