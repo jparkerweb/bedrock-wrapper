@@ -26,39 +26,7 @@ import {
 // write the ascii art logo on initial load
 writeAsciiArt();
 
-/**
- * Finds an AWS model configuration by model id or name.
- * Model id may match partially to support cross-region models.
- *
- * @param {string} model - Model id (can be partial) or model name
- * @returns {{awsModelId: string, awsModel: object}} - The matching model configuration
- * @throws {Error} When no matching model configuration is found
- *
- * @example
- * // Full model id
- * findAwsModelWithId("us.anthropic.claude-3-5-sonnet-20241022-v2:0")
- * // Partial model id
- * findAwsModelWithId("anthropic.claude-3-5-sonnet-20241022-v2:0")
- * // Model name
- * findAwsModelWithId("Claude-3-5-Sonnet-v2")
- */
-function findAwsModelWithId(model) {
-  const matchingModel = bedrock_models.find(candidate =>
-    model.endsWith(candidate.modelId) ||
-    model === candidate.modelName
-  );
 
-  if (!matchingModel) {
-    throw new Error(`Model configuration not found for model: ${model}`);
-  }
-
-  return {
-    awsModelId: model.endsWith(matchingModel.modelId) ?
-      model :
-      matchingModel.modelId,
-    awsModel: matchingModel
-  };
-}
 
 // -------------------
 // -- main function --
@@ -207,6 +175,30 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
         yield result;
     }    
 }
+
+
+// ----------------------------------------------------
+// -- lookup model configuration by model id or name --
+// -----------------------------------------------------------------------------
+// -- partial model id or model name is accepted (cross-region model support) --
+// -- returns model configuration object and model id                         --
+// -----------------------------------------------------------------------------
+function findAwsModelWithId(model) {
+    const matchingModel = bedrock_models.find(candidate =>
+        model.endsWith(candidate.modelId) ||
+        model === candidate.modelName
+    );
+
+    if (!matchingModel) {
+        throw new Error(`Model configuration not found for model: ${model}`);
+    }
+
+    return {
+        awsModelId: model.endsWith(matchingModel.modelId) ? model : matchingModel.modelId,
+        awsModel: matchingModel
+    };
+}
+
 
 
 // ---------------------------

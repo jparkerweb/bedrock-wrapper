@@ -84,10 +84,10 @@ Non-streaming test passed for Mistral-7b: "Two. (I've given you two words, but t
 Testing Mixtral-8x7b ⇢
 Streaming test passed for Mixtral-8x7b: "Two.
 
-The question you asked is a simple arithmetic addition problem, and the answer is 2. It is considered good manners to respond to a direct question, even if it is a simple one. This helps to maintain a respectful and positive interaction."
+The word you are looking for is "two." The sum of 1 + 1 is equal to 2. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer to your question. Is there anything else I can help you with?"
 Non-streaming test passed for Mixtral-8x7b: "Two.
 
-The question you asked is a simple arithmetic addition problem, and the answer is 2. It is considered good manners to respond to a direct question, even if it is a simple one. This helps to maintain a respectful and positive interaction."
+The word you are looking for is "two." The sum of 1 + 1 is equal to 2. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer to your question. Is there anything else I can help you with?"
 
 --------------------------------------------------
 Testing Mistral-Large ⇢
