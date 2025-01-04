@@ -12,6 +12,7 @@ export const bedrock_models = [
         // ==========================
         "modelName":                     "Claude-3-5-Sonnet-v2",
         "modelId":                       "anthropic.claude-3-5-sonnet-20241022-v2:0",
+        "vision":                        true,
         "messages_api":                  true,
         "system_as_separate_field":      true,
         "display_role_names":            true,
@@ -29,6 +30,7 @@ export const bedrock_models = [
         // =======================
         "modelName":                     "Claude-3-5-Sonnet",
         "modelId":                       "anthropic.claude-3-5-sonnet-20240620-v1:0",
+        "vision":                        true,
         "messages_api":                  true,
         "system_as_separate_field":      true,
         "display_role_names":            true,
@@ -46,6 +48,7 @@ export const bedrock_models = [
         // ======================
         "modelName":                     "Claude-3-5-Haiku",
         "modelId":                       "anthropic.claude-3-5-haiku-20241022-v1:0",
+        "vision":                        false,
         "messages_api":                  true,
         "system_as_separate_field":      true,
         "display_role_names":            true,
@@ -63,6 +66,7 @@ export const bedrock_models = [
         // ====================
         "modelName":                     "Claude-3-Haiku",
         "modelId":                       "anthropic.claude-3-haiku-20240307-v1:0",
+        "vision":                        true,
         "messages_api":                  true,
         "system_as_separate_field":      true,
         "display_role_names":            true,
@@ -81,6 +85,7 @@ export const bedrock_models = [
         "modelName":                     "Llama-3-3-70b",
         // "modelId":                       "meta.llama3-3-70b-instruct-v1:0",
         "modelId":                       "us.meta.llama3-3-70b-instruct-v1:0",
+        "vision":                        false,
         "messages_api":                  false,
         "bos_text":                      "<|begin_of_text|>",
         "role_system_message_prefix":    "",
@@ -108,6 +113,7 @@ export const bedrock_models = [
         "modelName":                     "Llama-3-2-1b",
         // "modelId":                       "meta.llama3-2-1b-instruct-v1:0",
         "modelId":                       "us.meta.llama3-2-1b-instruct-v1:0",
+        "vision":                        false,
         "messages_api":                  false,
         "bos_text":                      "<|begin_of_text|>",
         "role_system_message_prefix":    "",
@@ -135,6 +141,7 @@ export const bedrock_models = [
         "modelName":                     "Llama-3-2-3b",
         // "modelId":                       "meta.llama3-2-3b-instruct-v1:0",
         "modelId":                       "us.meta.llama3-2-3b-instruct-v1:0",
+        "vision":                        false,
         "messages_api":                  false,
         "bos_text":                      "<|begin_of_text|>",
         "role_system_message_prefix":    "",
@@ -162,6 +169,7 @@ export const bedrock_models = [
         "modelName":                     "Llama-3-2-11b",
         // "modelId":                       "meta.llama3-2-11b-instruct-v1:0",
         "modelId":                       "us.meta.llama3-2-11b-instruct-v1:0",
+        "vision":                        true,
         "messages_api":                  false,
         "bos_text":                      "<|begin_of_text|>",
         "role_system_message_prefix":    "",
@@ -189,6 +197,7 @@ export const bedrock_models = [
         "modelName":                     "Llama-3-2-90b",
         // "modelId":                       "meta.llama3-2-90b-instruct-v1:0",
         "modelId":                       "us.meta.llama3-2-90b-instruct-v1:0",
+        "vision":                        true,
         "messages_api":                  false,
         "bos_text":                      "<|begin_of_text|>",
         "role_system_message_prefix":    "",
@@ -215,6 +224,7 @@ export const bedrock_models = [
         // ==================
         "modelName":                     "Llama-3-1-8b",
         "modelId":                       "meta.llama3-1-8b-instruct-v1:0",
+        "vision":                        false,
         "messages_api":                  false,
         "bos_text":                      "<|begin_of_text|>",
         "role_system_message_prefix":    "",
@@ -241,6 +251,7 @@ export const bedrock_models = [
         // ===================
         "modelName":                     "Llama-3-1-70b",
         "modelId":                       "meta.llama3-1-70b-instruct-v1:0",
+        "vision":                        false,
         "messages_api":                  false,
         "bos_text":                      "<|begin_of_text|>",
         "role_system_message_prefix":    "",
@@ -267,6 +278,7 @@ export const bedrock_models = [
         // ====================
         "modelName":                     "Llama-3-1-405b",
         "modelId":                       "meta.llama3-1-405b-instruct-v1:0",
+        "vision":                        false,
         "messages_api":                  false,
         "bos_text":                      "<|begin_of_text|>",
         "role_system_message_prefix":    "",
@@ -293,6 +305,7 @@ export const bedrock_models = [
         // ================
         "modelName":                     "Llama-3-8b",
         "modelId":                       "meta.llama3-8b-instruct-v1:0",
+        "vision":                        false,
         "messages_api":                  false,
         "bos_text":                      "<|begin_of_text|>",
         "role_system_message_prefix":    "",
@@ -319,6 +332,7 @@ export const bedrock_models = [
         // =================
         "modelName":                     "Llama-3-70b",
         "modelId":                       "meta.llama3-70b-instruct-v1:0",
+        "vision":                        false,
         "messages_api":                  false,
         "bos_text":                      "<|begin_of_text|>",
         "role_system_message_prefix":    "",
@@ -345,6 +359,7 @@ export const bedrock_models = [
         // ================
         "modelName":                     "Mistral-7b",
         "modelId":                       "mistral.mistral-7b-instruct-v0:2",
+        "vision":                        false,
         "messages_api":                  false,
         "bos_text":                      "<s>",
         "role_system_message_prefix":    "",
@@ -371,6 +386,7 @@ export const bedrock_models = [
         // ==================
         "modelName":                     "Mixtral-8x7b",
         "modelId":                       "mistral.mixtral-8x7b-instruct-v0:1",
+        "vision":                        false,
         "messages_api":                  false,
         "bos_text":                      "<s>",
         "role_system_message_prefix":    "",
@@ -397,6 +413,7 @@ export const bedrock_models = [
         // ===================
         "modelName":                     "Mistral-Large",
         "modelId":                       "mistral.mistral-large-2402-v1:0",
+        "vision":                        false,
         "messages_api":                  false,
         "bos_text":                      "<s>",
         "role_system_message_prefix":    "",
