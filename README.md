@@ -100,6 +100,7 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 
 | modelName            | modelId                                   |
 |----------------------|-------------------------------------------|
+| Claude-3-7-Sonnet    | anthropic.claude-3-7-sonnet-20250219-v1:0 |
 | Claude-3-5-Sonnet-v2 | anthropic.claude-3-5-sonnet-20241022-v2:0 |
 | Claude-3-5-Sonnet    | anthropic.claude-3-5-sonnet-20240620-v1:0 |
 | Claude-3-5-Haiku     | anthropic.claude-3-5-haiku-20241022-v1:0  |
