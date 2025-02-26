@@ -11,7 +11,7 @@ export const bedrock_models = [
         // == Claude 3.7 Sonnet ==
         // ==========================
         "modelName":                     "Claude-3-7-Sonnet",
-        "modelId":                       "anthropic.claude-3-7-sonnet-20250219-v1:0",
+        "modelId":                       "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
         "messages_api":                  true,
         "system_as_separate_field":      true,
         "display_role_names":            true,
