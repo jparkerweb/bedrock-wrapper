@@ -98,26 +98,26 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 
 ### Supported Models
 
-| modelName            | modelId                                   |
-|----------------------|-------------------------------------------|
-| Claude-3-7-Sonnet    | anthropic.claude-3-7-sonnet-20250219-v1:0 |
-| Claude-3-5-Sonnet-v2 | anthropic.claude-3-5-sonnet-20241022-v2:0 |
-| Claude-3-5-Sonnet    | anthropic.claude-3-5-sonnet-20240620-v1:0 |
-| Claude-3-5-Haiku     | anthropic.claude-3-5-haiku-20241022-v1:0  |
-| Claude-3-Haiku       | anthropic.claude-3-haiku-20240307-v1:0    |
-| Llama-3-3-70b        | us.meta.llama3-3-70b-instruct-v1:0        |
-| Llama-3-2-1b         | us.meta.llama3-2-1b-instruct-v1:0         |
-| Llama-3-2-3b         | us.meta.llama3-2-3b-instruct-v1:0         |
-| Llama-3-2-11b        | us.meta.llama3-2-11b-instruct-v1:0        |
-| Llama-3-2-90b        | us.meta.llama3-2-90b-instruct-v1:0        |
-| Llama-3-1-8b         | meta.llama3-1-8b-instruct-v1:0            |
-| Llama-3-1-70b        | meta.llama3-1-70b-instruct-v1:0           |
-| Llama-3-1-405b       | meta.llama3-1-405b-instruct-v1:0          |
-| Llama-3-8b           | meta.llama3-8b-instruct-v1:0              |
-| Llama-3-70b          | meta.llama3-70b-instruct-v1:0             |
-| Mistral-7b           | mistral.mistral-7b-instruct-v0:2          |
-| Mixtral-8x7b         | mistral.mixtral-8x7b-instruct-v0:1        |
-| Mistral-Large        | mistral.mistral-large-2402-v1:0           |
+| modelName            | modelId                                      |
+|----------------------|----------------------------------------------|
+| Claude-3-7-Sonnet    | us.anthropic.claude-3-7-sonnet-20250219-v1:0 |
+| Claude-3-5-Sonnet-v2 | anthropic.claude-3-5-sonnet-20241022-v2:0    |
+| Claude-3-5-Sonnet    | anthropic.claude-3-5-sonnet-20240620-v1:0    |
+| Claude-3-5-Haiku     | anthropic.claude-3-5-haiku-20241022-v1:0     |
+| Claude-3-Haiku       | anthropic.claude-3-haiku-20240307-v1:0       |
+| Llama-3-3-70b        | us.meta.llama3-3-70b-instruct-v1:0           |
+| Llama-3-2-1b         | us.meta.llama3-2-1b-instruct-v1:0            |
+| Llama-3-2-3b         | us.meta.llama3-2-3b-instruct-v1:0            |
+| Llama-3-2-11b        | us.meta.llama3-2-11b-instruct-v1:0           |
+| Llama-3-2-90b        | us.meta.llama3-2-90b-instruct-v1:0           |
+| Llama-3-1-8b         | meta.llama3-1-8b-instruct-v1:0               |
+| Llama-3-1-70b        | meta.llama3-1-70b-instruct-v1:0              |
+| Llama-3-1-405b       | meta.llama3-1-405b-instruct-v1:0             |
+| Llama-3-8b           | meta.llama3-8b-instruct-v1:0                 |
+| Llama-3-70b          | meta.llama3-70b-instruct-v1:0                |
+| Mistral-7b           | mistral.mistral-7b-instruct-v0:2             |
+| Mixtral-8x7b         | mistral.mixtral-8x7b-instruct-v0:1           |
+| Mistral-Large        | mistral.mistral-large-2402-v1:0              |
 
 To return the list progrmatically you can import and call `listBedrockWrapperSupportedModels`:  
 ```javascript

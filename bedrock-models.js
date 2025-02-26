@@ -8,7 +8,7 @@
 export const bedrock_models = [
     {
         // ==========================
-        // == Claude 3.7 Sonnet ==
+        // == Claude 3.7 Sonnet (Cross-region inference) ==
         // ==========================
         "modelName":                     "Claude-3-7-Sonnet",
         "modelId":                       "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
