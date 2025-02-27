@@ -122,6 +122,7 @@ const openaiChatCompletionsCreateObject = {
     "stream": shouldStream,
     "temperature": LLM_TEMPERATURE,
     "top_p": LLM_TOP_P,
+    "include_thinking_data": true,
 };
 
 

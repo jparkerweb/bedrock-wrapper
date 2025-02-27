@@ -1,6 +1,23 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.3.0] - 2025-02-15 (Claude 3.7 & Image Support)
+### Added
+- Support for Claude 3.7 models
+  - Claude-3-7-Sonnet
+  - Claude-3-7-Sonnet-Thinking
+- Image support for compatible Claude models
+  - Claude 3.5 Sonnet
+  - Claude 3.5 Sonnet v2
+  - Claude 3.7 Sonnet
+  - Claude 3.7 Sonnet Thinking
+- Enhanced message handling for multimodal content
+- Documentation for image support usage
+
+### Changed
+- Updated model configuration for image-capable models
+- Improved response handling for multimodal inputs
+
 ## [2.2.0] - 2025-01-01 (Llama 3.3 70b)
 ### Added
 - Support for Llama 3.3 70b

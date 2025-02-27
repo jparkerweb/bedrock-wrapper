@@ -21,51 +21,50 @@ import {
     getValueByPath,
     writeAsciiArt
 } from "./utils.js";
+import sharp from 'sharp';
 
 
 // write the ascii art logo on initial load
 writeAsciiArt();
 
-/**
- * Finds an AWS model configuration by model id or name.
- * Model id may match partially to support cross-region models.
- *
- * @param {string} model - Model id (can be partial) or model name
- * @returns {{awsModelId: string, awsModel: object}} - The matching model configuration
- * @throws {Error} When no matching model configuration is found
- *
- * @example
- * // Full model id
- * findAwsModelWithId("us.anthropic.claude-3-5-sonnet-20241022-v2:0")
- * // Partial model id
- * findAwsModelWithId("anthropic.claude-3-5-sonnet-20241022-v2:0")
- * // Model name
- * findAwsModelWithId("Claude-3-5-Sonnet-v2")
- */
-function findAwsModelWithId(model) {
-  const matchingModel = bedrock_models.find(candidate =>
-    model.endsWith(candidate.modelId) ||
-    model === candidate.modelName
-  );
 
-  if (!matchingModel) {
-    throw new Error(`Model configuration not found for model: ${model}`);
-  }
-
-  return {
-    awsModelId: model.endsWith(matchingModel.modelId) ?
-      model :
-      matchingModel.modelId,
-    awsModel: matchingModel
-  };
-}
 
 // -------------------
 // -- main function --
 // -------------------
+async function processImage(imageInput) {
+    let base64Image;
+    
+    if (typeof imageInput === 'string') {
+        if (imageInput.startsWith('data:image')) {
+            // Handle data URL
+            base64Image = imageInput.split(',')[1];
+        } else if (imageInput.startsWith('http')) {
+            // Handle URL
+            const response = await fetch(imageInput);
+            const buffer = await response.arrayBuffer();
+            base64Image = Buffer.from(buffer).toString('base64');
+        } else {
+            // Assume it's already base64
+            base64Image = imageInput;
+        }
+    } else if (Buffer.isBuffer(imageInput)) {
+        base64Image = imageInput.toString('base64');
+    }
+
+    // Process with sharp to ensure format and size compliance
+    const buffer = Buffer.from(base64Image, 'base64');
+    const processedImage = await sharp(buffer)
+        .resize(2048, 2048, { fit: 'inside' })
+        .toFormat('jpeg')
+        .toBuffer();
+    
+    return processedImage.toString('base64');
+}
+
 export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging = false } = {} ) {
     const { region, accessKeyId, secretAccessKey } = awsCreds;
-    const { messages, model, max_tokens, stream, temperature, top_p } = openaiChatCompletionsCreateObject;
+    let { messages, model, max_tokens, stream, temperature, top_p, include_thinking_data } = openaiChatCompletionsCreateObject;
 
 
   let {awsModelId, awsModel} = findAwsModelWithId(model);
@@ -75,12 +74,53 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
     let system_message = "";
 
     for (let i = 0; i < messages.length; i++) {
-        if (messages[i].content !== "") {
-            // Extract system message only if model requires it as separate field
+        if (messages[i].content) {
+            let processedContent = messages[i].content;
+            
+            // Handle array format for messages with images
+            if (Array.isArray(processedContent)) {
+                let newContent = [];
+                for (const item of processedContent) {
+                    if (item.type === 'text') {
+                        newContent.push(item);
+                    } else if (item.type === 'image_url') {
+                        const processedImage = await processImage(
+                            typeof item.image_url === 'string' ? 
+                            item.image_url : 
+                            item.image_url.url
+                        );
+                        
+                        // Handle different model formats
+                        if (awsModel.messages_api) {
+                            newContent.push({
+                                type: 'image',
+                                source: {
+                                    type: 'base64',
+                                    media_type: 'image/jpeg',
+                                    data: processedImage
+                                }
+                            });
+                        } else {
+                            // Llama format for images
+                            newContent.push({
+                                type: 'image',
+                                image_data: {
+                                    url: `data:image/jpeg;base64,${processedImage}`
+                                }
+                            });
+                        }
+                    }
+                }
+                processedContent = newContent;
+            }
+
             if (awsModel.system_as_separate_field && messages[i].role === "system") {
-                system_message = messages[i].content;
+                system_message = processedContent;
             } else {
-                message_cleaned.push(messages[i]);
+                message_cleaned.push({
+                    ...messages[i],
+                    content: processedContent
+                });
             }
         } else if (awsModel.display_role_names) {
             message_cleaned.push(messages[i]);
@@ -98,26 +138,44 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
         // convert message array to prompt object if model supports messages api
         prompt = message_cleaned;
     } else {
-        // convert message array to prompt string if model does not support messages api
         prompt = awsModel.bos_text;
         let eom_text_inserted = false;
+        
         for (let i = 0; i < message_cleaned.length; i++) {
             prompt += "\n";
-            if (message_cleaned[i].role === "system") {
-                prompt += awsModel.role_system_message_prefix;
-                prompt += awsModel.role_system_prefix;
-                if (awsModel.display_role_names) { prompt += message_cleaned[i].role; }
-                prompt += awsModel.role_system_suffix;
-                if (awsModel.display_role_names) {prompt += "\n"; }
-                prompt += message_cleaned[i].content;
-                prompt += awsModel.role_system_message_suffix;
-            } else if (message_cleaned[i].role === "user") {
+            
+            // Handle user messages with potential images
+            if (message_cleaned[i].role === "user") {
                 prompt += awsModel.role_user_message_prefix;
                 prompt += awsModel.role_user_prefix;
                 if (awsModel.display_role_names) { prompt += message_cleaned[i].role; }
                 prompt += awsModel.role_user_suffix;
-                if (awsModel.display_role_names) {prompt += "\n"; }
-                prompt += message_cleaned[i].content;
+                if (awsModel.display_role_names) { prompt += "\n"; }
+                
+                // Handle content array with text and images
+                if (Array.isArray(message_cleaned[i].content)) {
+                    let textContent = "";
+                    let imageContent = "";
+                    
+                    // Separate text and image content
+                    message_cleaned[i].content.forEach(item => {
+                        if (item.type === 'text') {
+                            textContent += item.text;
+                        } else if (item.type === 'image') {
+                            imageContent = item.image_data.url;
+                        }
+                    });
+                    
+                    // Format based on vision model requirements
+                    if (awsModel.vision && imageContent) {
+                        prompt += `\n${textContent}\n\n${imageContent}`;
+                    } else {
+                        prompt += textContent;
+                    }
+                } else {
+                    prompt += message_cleaned[i].content;
+                }
+                
                 prompt += awsModel.role_user_message_suffix;
             } else if (message_cleaned[i].role === "assistant") {
                 prompt += awsModel.role_assistant_message_prefix;
@@ -128,6 +186,7 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
                 prompt += message_cleaned[i].content;
                 prompt += awsModel.role_assistant_message_suffix;
             }
+            
             if (message_cleaned[i+1] && message_cleaned[i+1].content === "") {
                 prompt += `\n${awsModel.eom_text}`;
                 eom_text_inserted = true;
@@ -136,16 +195,41 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
             }
         }
     }
-    
-    // logging
+
+    // Add logging to see the final prompt
     if (logging) {
-        if (awsModel.system_as_separate_field && system_message) {
-            console.log(`\nsystem: ${system_message}`);
-        }
-        console.log(`\nprompt: ${typeof prompt === 'object' ? JSON.stringify(prompt) : prompt}\n`);
+        console.log("\nFinal formatted prompt:", prompt);
     }
 
-    const max_gen_tokens = max_tokens <= awsModel.max_supported_response_tokens ? max_tokens : awsModel.max_supported_response_tokens;
+    let max_gen_tokens = max_tokens <= awsModel.max_supported_response_tokens ? max_tokens : awsModel.max_supported_response_tokens;
+
+    if (awsModel.special_request_schema?.thinking?.type === "enabled") {
+        // temperature may only be set to 1 when thinking is enabled
+        temperature = 1;
+        // top_p must be unset when thinking is enabled
+        top_p = undefined;
+        // bugget_tokens can not be greater than 80% of max_gen_tokens
+        let budget_tokens = awsModel.special_request_schema?.thinking?.budget_tokens;
+        if (budget_tokens > (max_gen_tokens * 0.8)) {
+            budget_tokens = Math.floor(max_gen_tokens * 0.8);
+        }
+        if (budget_tokens < 1024) {
+            budget_tokens = 1024;
+        }
+        // if awsModel.special_request_schema?.thinking?.budget_tokens, set it to budget_tokens
+        if (awsModel.special_request_schema?.thinking?.budget_tokens) {
+            awsModel.special_request_schema.thinking.budget_tokens = budget_tokens;
+            // max_gen_tokens has to be greater than budget_tokens
+            if (max_gen_tokens <= budget_tokens) {
+                // make max_gen_tokens 20% greater than budget_tokens
+                max_gen_tokens = Math.floor(budget_tokens * 1.2);
+            }
+        }
+    }
+
+    // if (logging) {
+    //     console.log("\nMax tokens:", max_gen_tokens);
+    // }
 
     // Format the request payload using the model's native structure.
     const request = awsModel.messages_api ? {
@@ -156,7 +240,16 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
         top_p: top_p,
         ...awsModel.special_request_schema
     } : {
-        prompt,
+        prompt: typeof prompt === 'string' ? prompt : {
+            messages: prompt.map(msg => ({
+                role: msg.role,
+                content: Array.isArray(msg.content) ? 
+                    msg.content.map(item => 
+                        item.type === 'text' ? item.text : item
+                    ).join('\n') : 
+                    msg.content
+            }))
+        },
         // Optional inference parameters:
         [awsModel.max_tokens_param_name]: max_gen_tokens,
         temperature: temperature,
@@ -173,6 +266,10 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
         },
     });
 
+    if (logging) {
+        console.log("\nFinal request:", JSON.stringify(request, null, 2));
+    }
+
     if (stream) {
         const responseStream = await client.send(
             new InvokeModelWithResponseStreamCommand({
@@ -181,12 +278,31 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
                 modelId: awsModelId,
             }),
         );
+        let is_thinking = false;
+        let should_think = awsModel.special_request_schema?.thinking?.type === "enabled";
+        
         for await (const event of responseStream.body) {
             const chunk = JSON.parse(new TextDecoder().decode(event.chunk.bytes));
-            let result = getValueByPath(chunk, awsModel.response_chunk_element);
+            let result;
+            result = getValueByPath(chunk, awsModel.response_chunk_element);
             if (result) {
+                if (should_think && is_thinking) {
+                    is_thinking = false;
+                    result = `</think>\n\n${result}`;
+                }
                 yield result;
-            }
+            } else {
+                if (include_thinking_data && awsModel.thinking_response_chunk_element) {
+                    let result = getValueByPath(chunk, awsModel.thinking_response_chunk_element);
+                    if (result && should_think && !is_thinking) {
+                        is_thinking = true;
+                        result = `<think>${result}`;
+                    }
+                    if (result) {
+                        yield result;
+                    }
+                } 
+            }        
         }
     } else {
         const apiResponse = await client.send(
@@ -196,17 +312,57 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
               modelId: awsModelId,
             }),
           );
-        
+
         const decodedBodyResponse = JSON.parse(new TextDecoder().decode(apiResponse.body));
-        let result;
-        if (awsModel.response_nonchunk_element) {
-            result = getValueByPath(decodedBodyResponse, awsModel.response_nonchunk_element);
-        } else {
-            result = getValueByPath(decodedBodyResponse, awsModel.response_chunk_element);
+        let thinking_result;
+        let text_result;
+
+        if (awsModel.thinking_response_nonchunk_element) {
+            thinking_result = getValueByPath(decodedBodyResponse, awsModel.thinking_response_nonchunk_element);
         }
+
+        if (awsModel.response_nonchunk_element) {
+            text_result = getValueByPath(decodedBodyResponse, awsModel.response_nonchunk_element);
+        }
+        if (!text_result) {
+            if (awsModel.response_chunk_element) {
+                text_result = getValueByPath(decodedBodyResponse, awsModel.response_chunk_element);
+            }
+            if (!text_result && awsModel.response_nonchunk_element) {
+                // replace [0] with [1]
+                awsModel.response_nonchunk_element = awsModel.response_nonchunk_element.replace('[0]', '[1]');
+                text_result = getValueByPath(decodedBodyResponse, awsModel.response_nonchunk_element);
+            }
+        }
+
+        let result = thinking_result ? `<think>${thinking_result}</think>\n\n${text_result}` : text_result;
         yield result;
     }    
 }
+
+
+// ----------------------------------------------------
+// -- lookup model configuration by model id or name --
+// -----------------------------------------------------------------------------
+// -- partial model id or model name is accepted (cross-region model support) --
+// -- returns model configuration object and model id                         --
+// -----------------------------------------------------------------------------
+function findAwsModelWithId(model) {
+    const matchingModel = bedrock_models.find(candidate =>
+        model === candidate.modelName ||
+        model.endsWith(candidate.modelId)
+    );
+
+    if (!matchingModel) {
+        throw new Error(`Model configuration not found for model: ${model}`);
+    }
+
+    return {
+        awsModelId: model.endsWith(matchingModel.modelId) ? model : matchingModel.modelId,
+        awsModel: matchingModel
+    };
+}
+
 
 
 // ---------------------------

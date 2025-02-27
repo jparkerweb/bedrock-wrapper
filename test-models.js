@@ -66,11 +66,11 @@ async function testModel(model, awsCreds, testMessage, isStreaming) {
     
     try {
         if (isStreaming) {
-            for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging: false })) {
+            for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging: true })) {
                 completeResponse += chunk;
             }
         } else {
-            const response = await bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging: false });
+            const response = await bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging: true });
             for await (const data of response) {
                 completeResponse += data;
             }
