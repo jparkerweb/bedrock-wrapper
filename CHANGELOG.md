@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.3.1] - 2025-05-22 (Claude 4 Opus / Sonnet)
+### Added
+- Support for Claude 4 Opus & Claude 4 Sonnet models
+  - Claude-4-Opus
+  - Claude-4-Opus-Thinking
+  - Claude-4-Sonnet
+  - Claude-4-Sonnet-Thinking
+
 ## [2.3.0] - 2025-02-15 (Claude 3.7 & Image Support)
 ### Added
 - Support for Claude 3.7 models
