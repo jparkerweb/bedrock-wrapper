@@ -35,7 +35,7 @@ async function testVisionCapabilities() {
     ];
 
     // Test with both Claude and Llama models that support vision
-    const visionModels = ["Claude-3-5-Sonnet-v2", "Claude-3-7-Sonnet"];
+    const visionModels = ["Claude-3-5-Sonnet-v2", "Claude-3-7-Sonnet", "Claude-4-Sonnet", "Claude-4-Sonnet-Thinking", "Claude-4-Opus", "Claude-4-Opus-Thinking"];
 
     for (const model of visionModels) {
         console.log(`\nTesting vision capabilities with ${model}...`);

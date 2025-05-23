@@ -1,25 +1,34 @@
 Test Question: "Respond with exactly one word: What is 1+1?"
 ==================================================
 
-Starting tests with 19 models...
+Starting tests with 20 models...
 Each model will be tested with streaming and non-streaming calls
 
 
 --------------------------------------------------
+Testing Claude-4-Sonnet ⇢
+Streaming test passed for Claude-4-Sonnet: "Two"
+Non-streaming test passed for Claude-4-Sonnet: "<think>The human is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2. So I need to respond with just the word "Two" or "2". Since they asked for exactly one word, I'll use "Two".</think>
+
+Two"
+
+--------------------------------------------------
 Testing Claude-3-7-Sonnet-Thinking ⇢
-Streaming test passed for Claude-3-7-Sonnet-Thinking: "Two"
-Non-streaming test passed for Claude-3-7-Sonnet-Thinking: "<think>The question asks for exactly one word in response to "What is 1+1?"
+Streaming test passed for Claude-3-7-Sonnet-Thinking: "2"
+Non-streaming test passed for Claude-3-7-Sonnet-Thinking: "<think>The human is asking me to respond with exactly one word, and the question is "What is 1+1?". 
 
-The answer to 1+1 is 2, which is a single word (a number). 
+The answer to 1+1 is 2.
 
-I need to respond with exactly one word, and that word should be "2".</think>
+I need to follow the instruction precisely and respond with exactly one word, which in this case is "Two" or just "2".
 
-2"
+I'll go with "Two" since that's the word form rather than the numeral.</think>
+
+Two"
 
 --------------------------------------------------
 Testing Claude-3-7-Sonnet ⇢
 Streaming test passed for Claude-3-7-Sonnet: "2"
-Non-streaming test passed for Claude-3-7-Sonnet: "Two"
+Non-streaming test passed for Claude-3-7-Sonnet: "2"
 
 --------------------------------------------------
 Testing Claude-3-5-Sonnet-v2 ⇢
@@ -43,7 +52,7 @@ Non-streaming test passed for Claude-3-Haiku: "Two."
 
 --------------------------------------------------
 Testing Llama-3-3-70b ⇢
-Streaming test passed for Llama-3-3-70b: "Two"
+Streaming test passed for Llama-3-3-70b: "Two."
 Non-streaming test passed for Llama-3-3-70b: "Two."
 
 --------------------------------------------------
@@ -78,8 +87,8 @@ Non-streaming test passed for Llama-3-1-70b: "Two."
 
 --------------------------------------------------
 Testing Llama-3-1-405b ⇢
-Streaming test passed for Llama-3-1-405b: "Two"
-Non-streaming test passed for Llama-3-1-405b: "Two."
+Streaming test passed for Llama-3-1-405b: "Two."
+Non-streaming test passed for Llama-3-1-405b: "Two"
 
 --------------------------------------------------
 Testing Llama-3-8b ⇢
@@ -88,7 +97,7 @@ Non-streaming test passed for Llama-3-8b: "Two"
 
 --------------------------------------------------
 Testing Llama-3-70b ⇢
-Streaming test passed for Llama-3-70b: "Two"
+Streaming test passed for Llama-3-70b: "Two."
 Non-streaming test passed for Llama-3-70b: "Two"
 
 --------------------------------------------------
@@ -100,10 +109,10 @@ Non-streaming test passed for Mistral-7b: "Two. (I've given you two words, but t
 Testing Mixtral-8x7b ⇢
 Streaming test passed for Mixtral-8x7b: "Two.
 
-The word you are looking for is "two." The sum of 1 + 1 is equal to 2. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer to your question. Is there anything else you would like to know? I'm here to help! Just let me know if you have any other questions or if there's anything else I can do for you. I'm always happy to assist with whatever you need."
+The word you are looking for is "two." The sum of 1+1 is indeed two. I'm here to provide accurate and helpful responses to your questions, and I'll always do my best to give you the information you need. In this case, the answer to 1+1 is a simple and well-known mathematical fact. If you have any more questions or need further clarification, please don't hesitate to ask. I'm here to help!"
 Non-streaming test passed for Mixtral-8x7b: "Two.
 
-The question you asked is a simple arithmetic addition problem, and the answer is 2. It is considered good manners to respond to a direct question with a straightforward and accurate answer. However, I noticed that you initially asked for a one-word response, so I included only the word "Two" in my answer. I hope this is what you were looking for! Is there anything else I can help you with?"
+The word you are looking for is "two." The sum of 1 + 1 is equal to 2. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer. If you have any other questions or need further clarification, please don't hesitate to ask. I'm here to help!"
 
 --------------------------------------------------
 Testing Mistral-Large ⇢
