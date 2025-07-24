@@ -103,12 +103,19 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 
 | modelName                  | AWS Model Id                                 | Image |
 |----------------------------|----------------------------------------------|-------|
+| Claude-4-Opus              | us.anthropic.claude-opus-4-20250514-v1:0    |  ✅  |
+| Claude-4-Opus-Thinking     | us.anthropic.claude-opus-4-20250514-v1:0    |  ✅  |
+| Claude-4-Sonnet            | us.anthropic.claude-sonnet-4-20250514-v1:0  |  ✅  |
+| Claude-4-Sonnet-Thinking   | us.anthropic.claude-sonnet-4-20250514-v1:0  |  ✅  |
 | Claude-3-7-Sonnet-Thinking | us.anthropic.claude-3-7-sonnet-20250219-v1:0 |  ✅  |
 | Claude-3-7-Sonnet          | us.anthropic.claude-3-7-sonnet-20250219-v1:0 |  ✅  |
 | Claude-3-5-Sonnet-v2       | anthropic.claude-3-5-sonnet-20241022-v2:0    |  ✅  |
 | Claude-3-5-Sonnet          | anthropic.claude-3-5-sonnet-20240620-v1:0    |  ✅  |
 | Claude-3-5-Haiku           | anthropic.claude-3-5-haiku-20241022-v1:0     |  ❌  |
-| Claude-3-Haiku             | anthropic.claude-3-haiku-20240307-v1:0       |  ❌  |
+| Claude-3-Haiku             | anthropic.claude-3-haiku-20240307-v1:0       |  ✅  |
+| Nova-Pro                   | us.amazon.nova-pro-v1:0                     |  ✅  |
+| Nova-Lite                  | us.amazon.nova-lite-v1:0                    |  ✅  |
+| Nova-Micro                 | us.amazon.nova-micro-v1:0                   |  ❌  |
 | Llama-3-3-70b              | us.meta.llama3-3-70b-instruct-v1:0           |  ❌  |
 | Llama-3-2-1b               | us.meta.llama3-2-1b-instruct-v1:0            |  ❌  |
 | Llama-3-2-3b               | us.meta.llama3-2-3b-instruct-v1:0            |  ❌  |
@@ -136,7 +143,7 @@ Please modify the `bedrock_models.js` file and submit a PR 🏆 or create an Iss
 
 ### Image Support
 
-For models with image support (Claude 3.5 Sonnet, Claude 3.7 Sonnet, and Claude 3.7 Sonnet Thinking), you can include images in your messages using the following format:
+For models with image support (Claude 4 series, Claude 3.7 Sonnet, Claude 3.5 Sonnet, Claude 3 Haiku, Nova Pro, and Nova Lite), you can include images in your messages using the following format:
 
 ```javascript
 messages = [

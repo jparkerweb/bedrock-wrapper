@@ -248,7 +248,7 @@ export const bedrock_models = [
         // ====================
         "modelName":                     "Claude-3-Haiku",
         "modelId":                       "anthropic.claude-3-haiku-20240307-v1:0",
-        "vision":                        false,
+        "vision":                        true,
         "messages_api":                  true,
         "system_as_separate_field":      true,
         "display_role_names":            true,

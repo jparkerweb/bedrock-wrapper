@@ -42,7 +42,7 @@ npm run clean
 # Test all 26+ models (outputs to test-models-output.txt)
 npm run test
 
-# Test vision capabilities on 10 vision-enabled models (outputs to test-vision-models-output.txt)
+# Test vision capabilities on 11 vision-enabled models (outputs to test-vision-models-output.txt)
 npm run test-vision
 
 # Interactive CLI for manual model testing
@@ -85,6 +85,6 @@ When adding models to bedrock-models.js, include these key fields:
 ## Test Infrastructure
 
 - **test-models.js**: Automatically tests all models from bedrock-models.js array
-- **test-vision.js**: Dynamically filters and tests only vision-capable models (`vision: true`)
+- **test-vision.js**: Dynamically filters and tests only vision-capable models (`vision: true`) - currently 11 models
 - Both tests write detailed results to text files with timestamps and error logging
 - Interactive testing available via `interactive-example.js`
