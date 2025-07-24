@@ -232,14 +232,71 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
     // }
 
     // Format the request payload using the model's native structure.
-    const request = awsModel.messages_api ? {
-        messages: prompt,
-        ...(awsModel.system_as_separate_field && system_message && { system: system_message }), // Only add system field if model requires it and there's a system message
-        [awsModel.max_tokens_param_name]: max_gen_tokens,
-        temperature: temperature,
-        top_p: top_p,
-        ...awsModel.special_request_schema
-    } : {
+    const request = awsModel.messages_api ? (() => {
+        // Check if this is a Nova model (has schemaVersion in special_request_schema)
+        if (awsModel.special_request_schema?.schemaVersion === "messages-v1") {
+            // Nova model format - convert messages to Nova's expected format
+            const novaMessages = prompt.map(msg => {
+                let content;
+                
+                // Convert content to array format for Nova
+                if (typeof msg.content === 'string') {
+                    content = [{ text: msg.content }];
+                } else if (Array.isArray(msg.content)) {
+                    // Already in array format, ensure proper structure
+                    content = msg.content.map(item => {
+                        if (item.type === 'text') {
+                            return { text: item.text || item };
+                        } else if (item.type === 'image') {
+                            return {
+                                image: {
+                                    format: 'jpeg',
+                                    source: {
+                                        bytes: item.source.data
+                                    }
+                                }
+                            };
+                        }
+                        return item;
+                    });
+                } else {
+                    content = [{ text: String(msg.content) }];
+                }
+                
+                return {
+                    role: msg.role,
+                    content: content
+                };
+            });
+            
+            const novaRequest = {
+                ...awsModel.special_request_schema,
+                messages: novaMessages,
+                inferenceConfig: {
+                    [awsModel.max_tokens_param_name]: max_gen_tokens,
+                    temperature: temperature,
+                    topP: top_p
+                }
+            };
+            
+            // Add system message if present
+            if (awsModel.system_as_separate_field && system_message) {
+                novaRequest.system = [{ text: system_message }];
+            }
+            
+            return novaRequest;
+        } else {
+            // Standard messages API format (Claude, etc.)
+            return {
+                messages: prompt,
+                ...(awsModel.system_as_separate_field && system_message && { system: system_message }),
+                [awsModel.max_tokens_param_name]: max_gen_tokens,
+                temperature: temperature,
+                top_p: top_p,
+                ...awsModel.special_request_schema
+            };
+        }
+    })() : {
         prompt: typeof prompt === 'string' ? prompt : {
             messages: prompt.map(msg => ({
                 role: msg.role,

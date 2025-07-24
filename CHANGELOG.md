@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.4.0] - 2025-07-24 (AWS Nova Models)
+### Added
+- Support for AWS Nova models
+  - Nova-Pro (300K context, multimodal, 5K output tokens)
+  - Nova-Lite (300K context, multimodal, optimized for speed)
+  - Nova-Micro (128K context, text-only, lowest latency)
+- Nova-specific API format handling with schemaVersion "messages-v1"
+- Proper inferenceConfig parameter structure for Nova models
+- Automatic content array formatting for Nova message compatibility
+
 ## [2.3.1] - 2025-05-22 (Claude 4 Opus / Sonnet)
 ### Added
 - Support for Claude 4 Opus & Claude 4 Sonnet models

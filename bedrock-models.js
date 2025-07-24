@@ -541,6 +541,73 @@ export const bedrock_models = [
         "response_chunk_element":        "generation"
     },
     {
+        // ===============
+        // == Nova Pro ==
+        // ===============
+        "modelName":                     "Nova-Pro",
+        "modelId":                       "us.amazon.nova-pro-v1:0",
+        "vision":                        true,
+        "messages_api":                  true,
+        "system_as_separate_field":      true,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "maxTokens",
+        "max_supported_response_tokens": 5000,
+        "response_chunk_element":        "contentBlockDelta.delta.text",
+        "response_nonchunk_element":     "output.message.content[0].text",
+        "special_request_schema": {
+            "schemaVersion": "messages-v1",
+            "inferenceConfig": {}
+        },
+        "image_support": {
+            "max_image_size": 5242880, // 5MB per image
+            "supported_formats": ["jpeg", "png", "gif", "webp"],
+            "max_images_per_request": 10
+        }
+    },
+    {
+        // ================
+        // == Nova Lite ==
+        // ================
+        "modelName":                     "Nova-Lite",
+        "modelId":                       "us.amazon.nova-lite-v1:0",
+        "vision":                        true,
+        "messages_api":                  true,
+        "system_as_separate_field":      true,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "maxTokens",
+        "max_supported_response_tokens": 5000,
+        "response_chunk_element":        "contentBlockDelta.delta.text",
+        "response_nonchunk_element":     "output.message.content[0].text",
+        "special_request_schema": {
+            "schemaVersion": "messages-v1",
+            "inferenceConfig": {}
+        },
+        "image_support": {
+            "max_image_size": 5242880, // 5MB per image
+            "supported_formats": ["jpeg", "png", "gif", "webp"],
+            "max_images_per_request": 10
+        }
+    },
+    {
+        // =================
+        // == Nova Micro ==
+        // =================
+        "modelName":                     "Nova-Micro",
+        "modelId":                       "us.amazon.nova-micro-v1:0",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      true,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "maxTokens",
+        "max_supported_response_tokens": 5000,
+        "response_chunk_element":        "contentBlockDelta.delta.text",
+        "response_nonchunk_element":     "output.message.content[0].text",
+        "special_request_schema": {
+            "schemaVersion": "messages-v1",
+            "inferenceConfig": {}
+        }
+    },
+    {
         // ================
         // == Mistral-7b ==
         // ================

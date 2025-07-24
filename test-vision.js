@@ -1,6 +1,8 @@
 import { bedrockWrapper } from "./bedrock-wrapper.js";
+import { bedrock_models } from "./bedrock-models.js";
 import dotenv from 'dotenv';
 import fs from 'fs/promises';
+import chalk from 'chalk';
 
 dotenv.config();
 
@@ -10,10 +12,37 @@ const awsCreds = {
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 };
 
+async function logOutput(message, type = 'info', writeToFile = true) {
+    if (writeToFile) {
+        // Log to file
+        await fs.appendFile('test-vision-models-output.txt', message + '\n');
+    }
+    
+    // Log to console with colors
+    switch(type) {
+        case 'success':
+            console.log(chalk.green('✓ ' + message));
+            break;
+        case 'error':
+            console.log(chalk.red('✗ ' + message));
+            break;
+        case 'info':
+            console.log(chalk.blue('ℹ ' + message));
+            break;
+        case 'running':
+            console.log(chalk.yellow(message));
+            break;
+        default:
+            console.log(message);
+    }
+}
+
 async function testVisionCapabilities() {
     // Read and convert image to base64
     const imageBuffer = await fs.readFile('./test-image.jpg');
     const base64Image = imageBuffer.toString('base64');
+    
+    const testPrompt = "What's in this image? Please describe it in detail.";
 
     const messages = [
         {
@@ -21,7 +50,7 @@ async function testVisionCapabilities() {
             content: [
                 {
                     type: "text",
-                    text: "What's in this image? Please describe it in detail."
+                    text: testPrompt
                 },
                 {
                     type: "image_url",
@@ -34,11 +63,25 @@ async function testVisionCapabilities() {
         }
     ];
 
-    // Test with both Claude and Llama models that support vision
-    const visionModels = ["Claude-3-5-Sonnet-v2", "Claude-3-7-Sonnet", "Claude-4-Sonnet", "Claude-4-Sonnet-Thinking", "Claude-4-Opus", "Claude-4-Opus-Thinking"];
+    // Filter vision-capable models from bedrock_models
+    const visionModels = bedrock_models
+        .filter(model => model.vision === true)
+        .map(model => model.modelName);
+
+    // Clear output file and add header
+    await fs.writeFile('test-vision-models-output.txt', 
+        `Vision Test Results\n` +
+        `Test Question: "${testPrompt}"\n` +
+        `Test Date: ${new Date().toISOString()}\n` +
+        `${'='.repeat(50)}\n\n`
+    );
+
+    console.clear();
+    await logOutput(`Starting vision tests with ${visionModels.length} models...`, 'info');
+    await logOutput(`Testing image description capabilities\n`, 'info');
 
     for (const model of visionModels) {
-        console.log(`\nTesting vision capabilities with ${model}...`);
+        await logOutput(`\n${'-'.repeat(50)}\nTesting ${model} ⇢`, 'running');
         
         const openaiChatCompletionsCreateObject = {
             messages,
@@ -49,23 +92,34 @@ async function testVisionCapabilities() {
         };
 
         try {
-            console.log(`\nSending request to ${model} with format:`, 
-                JSON.stringify(openaiChatCompletionsCreateObject, null, 2));
+            console.log(`\nSending request to ${model}...`);
             
             let response = "";
-            for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging: true })) {
+            for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging: false })) {
                 response += chunk;
                 process.stdout.write(chunk);
             }
-            console.log("\n-------------------");
+            
+            // Write successful response to file
+            await logOutput(`\nModel: ${model}`, 'success');
+            await logOutput(`Response: ${response.trim()}\n`, 'info', true);
+            
         } catch (error) {
-            console.error(`Error with ${model}:`, error);
-            // Log the full error details
+            const errorMessage = `Error with ${model}: ${error.message}`;
+            await logOutput(errorMessage, 'error');
+            
+            // Log the full error details to file
             if (error.response) {
-                console.error('Response error:', error.response);
+                await fs.appendFile('test-vision-models-output.txt', 
+                    `Error details: ${JSON.stringify(error.response, null, 2)}\n\n`
+                );
             }
         }
+        
+        console.log("\n-------------------");
     }
+    
+    await logOutput('\nVision testing complete! Check test-vision-models-output.txt for full results.', 'info', false);
 }
 
-testVisionCapabilities().catch(console.error); 
+testVisionCapabilities().catch(console.error);
