@@ -1,8 +1,14 @@
 .vscode
 node_modules
 package-lock.json
+tea.yaml
 .github
 .env
 .env.local
 .git
 .gitignore
+.claude
+.gemini
+CLAUDE.md
+test-models-output.txt
+test-vision-models-output.txt
