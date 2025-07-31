@@ -412,10 +412,15 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
             text_result = "";
         }
 
+        // Ensure text_result is a string to prevent 'undefined' from being part of the response
+        if (text_result === null || text_result === undefined) {
+            text_result = "";
+        }
+
         let result = thinking_result ? `<think>${thinking_result}</think>\n\n${text_result}` : text_result;
         
-        // Ensure we never return undefined
-        if (result === undefined || result === null) {
+        // Ensure final result is a string, in case thinking_result was also empty
+        if (result === null || result === undefined) {
             result = "";
         }
         yield result;
@@ -453,7 +458,10 @@ function findAwsModelWithId(model) {
 export async function listBedrockWrapperSupportedModels() {
     let supported_models = [];
     for (let i = 0; i < bedrock_models.length; i++) {
-        supported_models.push(`{"modelName": ${bedrock_models[i].modelName}, "modelId": ${bedrock_models[i].modelId}}`);
+        supported_models.push(JSON.stringify({
+            modelName: bedrock_models[i].modelName,
+            modelId: bedrock_models[i].modelId
+        }));
     }
     return supported_models;
 }

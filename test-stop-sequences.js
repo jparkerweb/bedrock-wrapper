@@ -170,10 +170,7 @@ async function main() {
 
     const supportedModels = await listBedrockWrapperSupportedModels();
     const availableModels = supportedModels.map(model => {
-        const fixedJson = model
-            .replace(/modelName": ([^,]+),/, 'modelName": "$1",')
-            .replace(/modelId": ([^}]+)}/, 'modelId": "$1"}');
-        return JSON.parse(fixedJson).modelName;
+        return JSON.parse(model).modelName;
     });
 
     console.clear();

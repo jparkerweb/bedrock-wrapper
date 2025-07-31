@@ -1,4 +1,4 @@
-Stop Sequences Test Results - 2025-07-31T18:51:22.276Z
+Stop Sequences Test Results - 2025-07-31T19:15:15.768Z
 ================================================================================
 
 This test validates that stop sequences work correctly across all models.
@@ -104,11 +104,10 @@ Testing Claude-3-Haiku
   ✓ Streaming: PASSED - Response stopped at the correct point
   Response: "The days of the week in order are:
 
-1. Monday
-2. Tuesday
-3. Wednesday
-4. Thursday
-5...."
+Monday
+Tuesday
+Wednesday
+Thursday..."
   Testing non-streaming...
   ✓ Non-streaming: PASSED - Response stopped at the correct point
   Response: "The days of the week in order are:
@@ -202,14 +201,15 @@ Testing Nova-Pro
 7. G..."
   Testing non-streaming...
   ✗ Non-streaming: FAILED - Response did not stop at the expected point
-  Response: "1. **List the alphabet in order** - The English alphabet consists of 26 letters, starting from A and..."
+  Response: "1. **List the alphabet in order**  
+   The English alphabet consists of 26 letters, starting from A ..."
 
 ▶ Test Case: Sentence completion test
   Prompt: "Complete this story: Once upon a time, there was a..."
   Stop sequences: [sword]
   Testing streaming...
   ✗ Streaming: FAILED - Response did not stop at the expected point
-  Response: ". As he ventured further, the air grew colder and the walls shimmered with an eerie, otherworldly gl..."
+  Response: ". As he ventured further, the air grew colder and the walls shimmered with an eerie, phosphorescent ..."
   Testing non-streaming...
   ✗ Non-streaming: FAILED - Response did not stop at the expected point
   Response: ". As he ventured further, the air grew colder and the walls shimmered with an eerie, otherworldly gl..."
@@ -236,7 +236,7 @@ Here's the list in markdown..."
 4. Fourth item
 5. Fifth item
 
-Here's your list with bulle..."
+Here's the list with bullet..."
 
 ============================================================
 Testing Nova-Lite
@@ -329,14 +329,14 @@ Testing Llama-3-3-70b
   Stop sequences: [Friday]
   Testing streaming...
   ✗ Streaming: FAILED - Response did not stop at the expected point
-  Response: "Here are the 7 days of the week in order:
+  Response: "Here are the days of the week in order:
 
 1. Monday
 2. Tuesday
 3. Wednesday
 4. Thursday
 5. Friday
-6..."
+6. ..."
   Testing non-streaming...
   ✗ Non-streaming: FAILED - Response did not stop at the expected point
   Response: "Here are the days of the week in order:
@@ -367,10 +367,10 @@ A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z..."
   Stop sequences: [sword]
   Testing streaming...
   ✗ Streaming: FAILED - Response did not stop at the expected point
-  Response: "As he ventured deeper into the cave, the brave knight noticed that the walls began to glow with a so..."
+  Response: "As he ventured deeper into the cave, the brave knight encountered all manner of obstacles, from trea..."
   Testing non-streaming...
   ✗ Non-streaming: FAILED - Response did not stop at the expected point
-  Response: "As he ventured deeper into the cave, the brave knight noticed that the walls began to glow with a so..."
+  Response: "As he ventured further into the cave, the brave knight encountered all manner of obstacles, from tre..."
 
 ▶ Test Case: Special character stop test
   Prompt: "Generate a list with bullet points:
@@ -404,24 +404,22 @@ Testing Mistral-7b
   Prompt: "Count from 1 to 10, separated by commas: 1, 2, 3, ..."
   Stop sequences: [7]
   Testing streaming...
-  ✗ Streaming: FAILED - Response did not stop at the expected point
-  Response: "Here is a list of numbers from 1 to 10, separated by commas: 1, 2, 3, 4, 5, 6,..."
+  ✓ Streaming: PASSED - Response stopped at the correct point
+  Response: "Here is the sequence you requested, with each number separated by a comma and a space: 1, 2, 3, 4, 5..."
   Testing non-streaming...
   ✓ Non-streaming: PASSED - Response stopped at the correct point
-  Response: "Here is the sequence you requested, with each number separated by a comma: 1, 2, 3, 4, 5, 6,..."
+  Response: "Here is the sequence you requested, with each number separated by a comma and a space: 1, 2, 3, 4, 5..."
 
 ▶ Test Case: Word-based stop test
   Prompt: "List the days of the week in order: Monday, Tuesda..."
   Stop sequences: [Friday]
   Testing streaming...
   ✓ Streaming: PASSED - Response stopped at the correct point
-  Response: "Here are the days of the week in the correct order:
+  Response: "Here are the days of the week in the order they typically appear:
 
 1. Monday
 2. Tuesday
-3. Wednesday
-4. Thursday
-5..."
+3. Wednesday..."
   Testing non-streaming...
   ✓ Non-streaming: PASSED - Response stopped at the correct point
   Response: "Here are the days of the week in the order they typically appear:
@@ -489,5 +487,5 @@ Llama-3-3-70b:
   Streaming:     0/5 passed (0.0%)
   Non-streaming: 0/5 passed (0.0%)
 Mistral-7b:
-  Streaming:     3/5 passed (60.0%)
+  Streaming:     4/5 passed (80.0%)
   Non-streaming: 4/5 passed (80.0%)
