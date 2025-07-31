@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Bedrock Wrapper (v2.4.0) is an npm package that translates OpenAI-compatible API objects to AWS Bedrock's serverless inference LLMs. It supports 26+ models including:
+Bedrock Wrapper (v2.4.2) is an npm package that translates OpenAI-compatible API objects to AWS Bedrock's serverless inference LLMs. It supports 26+ models including:
 - **Claude 4 models**: Opus/Sonnet with thinking capabilities and 131K output tokens
 - **Claude 3.x series**: Various sizes with vision support
 - **AWS Nova models**: Pro/Lite/Micro with multimodal capabilities
@@ -21,12 +21,14 @@ The system uses three main components working together:
    - Processes images using Sharp library for vision-capable models
    - Manages different API patterns (messages API vs prompt-based)
    - Handles Nova's special "messages-v1" schema format
+   - Implements stop sequences support for all model types
 
 2. **bedrock-models.js**: Configuration registry containing:
    - 26+ model definitions with specific parameters
    - Vision support flags and image processing limits
    - Response parsing paths for different model outputs
    - Special request schemas (e.g., Nova's inferenceConfig, Claude's thinking mode)
+   - Stop sequences parameter mapping (`stop_sequences_param_name`)
 
 3. **utils.js**: Helper utilities for object path traversal and ASCII art
 
@@ -70,6 +72,7 @@ When adding models to bedrock-models.js, include these key fields:
 - `messages_api`: Boolean for OpenAI-style messages vs prompt format
 - `response_chunk_element`/`response_nonchunk_element`: JSON paths for parsing responses
 - `special_request_schema`: Model-specific API requirements (Nova uses "messages-v1" schema)
+- `stop_sequences_param_name`: Parameter name for stop sequences (e.g., "stop_sequences" for Claude, "stopSequences" for Nova, "stop" for Llama/Mistral)
 
 ## Critical Implementation Notes
 
@@ -81,6 +84,13 @@ When adding models to bedrock-models.js, include these key fields:
 **Vision Model Support**: Images are processed through Sharp library and converted to base64 format. Vision-capable models are automatically tested by test-vision.js.
 
 **Streaming Architecture**: The main `bedrockWrapper` function is an async generator that yields chunks as they arrive, supporting real-time streaming for all compatible models.
+
+**Stop Sequences Implementation**: All models support stop sequences through OpenAI-compatible parameters:
+- Accepts both `stop` and `stop_sequences` parameters from input
+- Automatically converts single strings to arrays where needed
+- Maps to model-specific parameter names based on `stop_sequences_param_name` configuration
+- For messages API models: added to main request object or inferenceConfig (Nova)
+- For prompt-based models: added to request parameters
 
 ## Test Infrastructure
 

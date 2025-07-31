@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.4.2] - 2025-07-31 (Stop Sequences Support)
+### Added
+- Stop sequences support for all models
+  - OpenAI-compatible `stop` and `stop_sequences` parameters
+  - Automatic string-to-array conversion for compatibility
+  - Model-specific parameter mapping (stop_sequences for Claude, stopSequences for Nova, stop for Llama/Mistral)
+- Enhanced request building logic to include stop sequences in appropriate API formats
+- Comprehensive stop sequences testing and validation
+
+### Technical Details
+- Added `stop_sequences_param_name` configuration to all 26+ model definitions
+- Updated request construction for both messages API and prompt-based models
+- Supports both single string and array formats for stop sequences
+- Maintains full backward compatibility with existing API usage
+
 ## [2.4.0] - 2025-07-24 (AWS Nova Models)
 ### Added
 - Support for AWS Nova models

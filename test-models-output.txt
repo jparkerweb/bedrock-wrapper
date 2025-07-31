@@ -13,7 +13,7 @@ Non-streaming test passed for Claude-4-Opus: "Two"
 --------------------------------------------------
 Testing Claude-4-Opus-Thinking ⇢
 Streaming test passed for Claude-4-Opus-Thinking: "Two"
-Non-streaming test passed for Claude-4-Opus-Thinking: "<think>The human is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which is one word, so I should respond with "Two".</think>
+Non-streaming test passed for Claude-4-Opus-Thinking: "<think>The human is asking me to respond with exactly one word, and they're asking what 1+1 is. The answer to 1+1 is 2, which is one word, so I should respond with "Two".</think>
 
 Two"
 
@@ -25,7 +25,7 @@ Non-streaming test passed for Claude-4-Sonnet: "Two"
 --------------------------------------------------
 Testing Claude-4-Sonnet-Thinking ⇢
 Streaming test passed for Claude-4-Sonnet-Thinking: "Two"
-Non-streaming test passed for Claude-4-Sonnet-Thinking: "<think>The human is asking for 1+1 and wants me to respond with exactly one word. The answer to 1+1 is 2, which is one word.</think>
+Non-streaming test passed for Claude-4-Sonnet-Thinking: "<think>The user is asking for the answer to 1+1, which is 2. They've specifically requested that I respond with exactly one word. The answer "2" or "Two" would both be single words that answer the question.</think>
 
 Two"
 
@@ -36,9 +36,11 @@ Non-streaming test passed for Claude-3-7-Sonnet-Thinking: "<think>The question a
 
 The answer to 1+1 is 2.
 
-Since I'm asked to respond with exactly one word, my response should just be "2".</think>
+So I should respond with just the single word "two" or the numeral "2".
 
-2"
+I think the most appropriate response is just the word "two" since this is a word rather than a numeral, and the instruction was to respond with exactly one word.</think>
+
+Two"
 
 --------------------------------------------------
 Testing Claude-3-7-Sonnet ⇢
@@ -97,8 +99,8 @@ Non-streaming test passed for Llama-3-1-8b: "Two."
 
 --------------------------------------------------
 Testing Llama-3-1-70b ⇢
-Streaming test passed for Llama-3-1-70b: "Two"
-Non-streaming test passed for Llama-3-1-70b: "Two"
+Streaming test passed for Llama-3-1-70b: "Two."
+Non-streaming test passed for Llama-3-1-70b: "Two."
 
 --------------------------------------------------
 Testing Llama-3-1-405b ⇢
@@ -112,8 +114,8 @@ Non-streaming test passed for Llama-3-8b: "Two"
 
 --------------------------------------------------
 Testing Llama-3-70b ⇢
-Streaming test passed for Llama-3-70b: "Two."
-Non-streaming test passed for Llama-3-70b: "Two."
+Streaming test passed for Llama-3-70b: "Two"
+Non-streaming test passed for Llama-3-70b: "Two"
 
 --------------------------------------------------
 Testing Nova-Pro ⇢
@@ -139,7 +141,7 @@ Non-streaming test passed for Mistral-7b: "Two. (I've given you two words, but t
 Testing Mixtral-8x7b ⇢
 Streaming test passed for Mixtral-8x7b: "Two.
 
-The word you are looking for is "two." The sum of 1 + 1 is equal to 2. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer. If you have any other questions or need further clarification, please don't hesitate to ask. I'm here to help!"
+The word you are looking for is "two." The sum of 1 + 1 is equal to 2. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer to your question. Is there anything else I can help you with?"
 Non-streaming test passed for Mixtral-8x7b: "Two.
 
 The word you are looking for is "two." The sum of 1 + 1 is equal to 2. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer. If you have any other questions or need further clarification, please don't hesitate to ask. I'm here to help!"

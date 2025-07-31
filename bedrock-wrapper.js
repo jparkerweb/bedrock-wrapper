@@ -64,7 +64,7 @@ async function processImage(imageInput) {
 
 export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging = false } = {} ) {
     const { region, accessKeyId, secretAccessKey } = awsCreds;
-    let { messages, model, max_tokens, stream, temperature, top_p, include_thinking_data } = openaiChatCompletionsCreateObject;
+    let { messages, model, max_tokens, stream, temperature, top_p, include_thinking_data, stop, stop_sequences } = openaiChatCompletionsCreateObject;
 
 
   let {awsModelId, awsModel} = findAwsModelWithId(model);
@@ -269,13 +269,17 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
                 };
             });
             
+            const stopSequencesValue = stop_sequences || stop;
             const novaRequest = {
                 ...awsModel.special_request_schema,
                 messages: novaMessages,
                 inferenceConfig: {
                     [awsModel.max_tokens_param_name]: max_gen_tokens,
                     temperature: temperature,
-                    topP: top_p
+                    topP: top_p,
+                    ...(awsModel.stop_sequences_param_name && stopSequencesValue && {
+                        [awsModel.stop_sequences_param_name]: Array.isArray(stopSequencesValue) ? stopSequencesValue : [stopSequencesValue]
+                    })
                 }
             };
             
@@ -287,12 +291,16 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
             return novaRequest;
         } else {
             // Standard messages API format (Claude, etc.)
+            const stopSequencesValue = stop_sequences || stop;
             return {
                 messages: prompt,
                 ...(awsModel.system_as_separate_field && system_message && { system: system_message }),
                 [awsModel.max_tokens_param_name]: max_gen_tokens,
                 temperature: temperature,
                 top_p: top_p,
+                ...(awsModel.stop_sequences_param_name && stopSequencesValue && {
+                    [awsModel.stop_sequences_param_name]: Array.isArray(stopSequencesValue) ? stopSequencesValue : [stopSequencesValue]
+                }),
                 ...awsModel.special_request_schema
             };
         }
@@ -311,6 +319,12 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
         [awsModel.max_tokens_param_name]: max_gen_tokens,
         temperature: temperature,
         top_p: top_p,
+        ...(() => {
+            const stopSequencesValue = stop_sequences || stop;
+            return awsModel.stop_sequences_param_name && stopSequencesValue ? {
+                [awsModel.stop_sequences_param_name]: Array.isArray(stopSequencesValue) ? stopSequencesValue : [stopSequencesValue]
+            } : {};
+        })(),
         ...awsModel.special_request_schema
     };
     

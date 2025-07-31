@@ -44,6 +44,7 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
         "stream": true,
         "temperature": LLM_TEMPERATURE,
         "top_p": LLM_TOP_P,
+        "stop_sequences": ["STOP", "END"], // Optional: sequences that will stop generation
     };
     ```
 
@@ -186,6 +187,41 @@ messages = [
 ```
 
 You can include multiple images in a single message by adding more image_url objects to the content array.
+
+---
+
+### Stop Sequences
+
+All models support stop sequences - custom text sequences that cause the model to stop generating. This is useful for controlling where the model stops its response.
+
+```javascript
+const openaiChatCompletionsCreateObject = {
+    "messages": messages,
+    "model": "Claude-3-5-Sonnet",
+    "max_tokens": 100,
+    "stop_sequences": ["STOP", "END", "\n\n"], // Array of stop sequences
+    // OR use single string format:
+    // "stop": "STOP"
+};
+```
+
+**Features:**
+- Compatible with OpenAI's `stop` parameter (single string or array)
+- Also accepts `stop_sequences` parameter for explicit usage
+- Automatic conversion between string and array formats
+- Works with all 26+ supported models (Claude, Nova, Llama, Mistral)
+- Model-specific parameter mapping handled automatically
+
+**Example Usage:**
+```javascript
+// Stop generation when model tries to output "7"
+const result = await bedrockWrapper(awsCreds, {
+    messages: [{ role: "user", content: "Count from 1 to 10" }],
+    model: "Claude-3-5-Sonnet",
+    stop_sequences: ["7"]
+});
+// Response: "1, 2, 3, 4, 5, 6," (stops before "7")
+```
 
 ---
 

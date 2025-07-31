@@ -19,6 +19,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_tokens",
         "max_supported_response_tokens": 131072,
+        "stop_sequences_param_name":     "stop_sequences",
         "response_chunk_element":        "delta.text",
         "response_nonchunk_element":     "content[0].text",
         "thinking_response_chunk_element": "delta.thinking",
@@ -46,6 +47,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_tokens",
         "max_supported_response_tokens": 131072,
+        "stop_sequences_param_name":     "stop_sequences",
         "response_chunk_element":        "delta.text",
         "response_nonchunk_element":     "content[0].text",
         "thinking_response_chunk_element": "delta.thinking",
@@ -77,6 +79,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_tokens",
         "max_supported_response_tokens": 131072,
+        "stop_sequences_param_name":     "stop_sequences",
         "response_chunk_element":        "delta.text",
         "response_nonchunk_element":     "content[0].text",
         "thinking_response_chunk_element": "delta.thinking",
@@ -104,6 +107,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_tokens",
         "max_supported_response_tokens": 131072,
+        "stop_sequences_param_name":     "stop_sequences",
         "response_chunk_element":        "delta.text",
         "response_nonchunk_element":     "content[0].text",
         "thinking_response_chunk_element": "delta.thinking",
@@ -135,6 +139,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_tokens",
         "max_supported_response_tokens": 131072,
+        "stop_sequences_param_name":     "stop_sequences",
         "response_chunk_element":        "delta.text",
         "response_nonchunk_element":     "content[0].text",
         "thinking_response_chunk_element": "delta.thinking",
@@ -166,6 +171,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_tokens",
         "max_supported_response_tokens": 131072,
+        "stop_sequences_param_name":     "stop_sequences",
         "response_chunk_element":        "delta.text",
         "response_nonchunk_element":     "content[0].text",
         "special_request_schema": {
@@ -190,6 +196,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_tokens",
         "max_supported_response_tokens": 8192,
+        "stop_sequences_param_name":     "stop_sequences",
         "response_chunk_element":        "delta.text",
         "response_nonchunk_element":     "content[0].text",
         "special_request_schema": {
@@ -213,6 +220,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_tokens",
         "max_supported_response_tokens": 8192,
+        "stop_sequences_param_name":     "stop_sequences",
         "response_chunk_element":        "delta.text",
         "response_nonchunk_element":     "content[0].text",
         "special_request_schema": {
@@ -236,6 +244,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_tokens",
         "max_supported_response_tokens": 8192,
+        "stop_sequences_param_name":     "stop_sequences",
         "response_chunk_element":        "delta.text",
         "response_nonchunk_element":     "content[0].text",
         "special_request_schema": {
@@ -254,6 +263,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_tokens",
         "max_supported_response_tokens": 8192,
+        "stop_sequences_param_name":     "stop_sequences",
         "response_chunk_element":        "delta.text",
         "response_nonchunk_element":     "content[0].text",
         "special_request_schema": {
@@ -291,6 +301,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
+        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -319,6 +330,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
+        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -347,6 +359,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
+        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -375,6 +388,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
+        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -403,6 +417,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
+        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -430,6 +445,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
+        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -457,6 +473,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
+        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -484,6 +501,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
+        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -511,6 +529,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
+        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -538,6 +557,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
+        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -552,6 +572,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "maxTokens",
         "max_supported_response_tokens": 5000,
+        "stop_sequences_param_name":     "stopSequences",
         "response_chunk_element":        "contentBlockDelta.delta.text",
         "response_nonchunk_element":     "output.message.content[0].text",
         "special_request_schema": {
@@ -576,6 +597,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "maxTokens",
         "max_supported_response_tokens": 5000,
+        "stop_sequences_param_name":     "stopSequences",
         "response_chunk_element":        "contentBlockDelta.delta.text",
         "response_nonchunk_element":     "output.message.content[0].text",
         "special_request_schema": {
@@ -600,6 +622,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "maxTokens",
         "max_supported_response_tokens": 5000,
+        "stop_sequences_param_name":     "stopSequences",
         "response_chunk_element":        "contentBlockDelta.delta.text",
         "response_nonchunk_element":     "output.message.content[0].text",
         "special_request_schema": {
@@ -632,6 +655,7 @@ export const bedrock_models = [
         "display_role_names":            false,
         "max_tokens_param_name":         "max_tokens",
         "max_supported_response_tokens": 8192,
+        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "outputs[0].text"
     },
     {
@@ -659,6 +683,7 @@ export const bedrock_models = [
         "display_role_names":            false,
         "max_tokens_param_name":         "max_tokens",
         "max_supported_response_tokens": 4096,
+        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "outputs[0].text"
     },
     {
@@ -686,6 +711,7 @@ export const bedrock_models = [
         "display_role_names":            false,
         "max_tokens_param_name":         "max_tokens",
         "max_supported_response_tokens": 8192,
+        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "outputs[0].text"
     },
 ];
