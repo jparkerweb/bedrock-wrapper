@@ -1,4 +1,4 @@
-Stop Sequences Test Results - 2025-07-31T19:15:15.768Z
+Stop Sequences Test Results - 2025-07-31T22:24:24.587Z
 ================================================================================
 
 This test validates that stop sequences work correctly across all models.
@@ -104,10 +104,11 @@ Testing Claude-3-Haiku
   ✓ Streaming: PASSED - Response stopped at the correct point
   Response: "The days of the week in order are:
 
-Monday
-Tuesday
-Wednesday
-Thursday..."
+1. Monday
+2. Tuesday
+3. Wednesday
+4. Thursday
+5...."
   Testing non-streaming...
   ✓ Non-streaming: PASSED - Response stopped at the correct point
   Response: "The days of the week in order are:
@@ -191,18 +192,11 @@ Testing Nova-Pro
   Prompt: "Write the alphabet: A, B, C, D, E, F, G, H, I, J, ..."
   Stop sequences: [G, H, I]
   Testing streaming...
-  ✓ Streaming: PASSED - Response stopped at the correct point
-  Response: "1. A
-2. B
-3. C
-4. D
-5. E
-6. F
-7. G..."
+  ✗ Streaming: FAILED - Response did not stop at the expected point
+  Response: "1. **I..."
   Testing non-streaming...
   ✗ Non-streaming: FAILED - Response did not stop at the expected point
-  Response: "1. **List the alphabet in order**  
-   The English alphabet consists of 26 letters, starting from A ..."
+  Response: "1. **List the alphabet in order** - The English alphabet consists of 26 letters, starting from A and..."
 
 ▶ Test Case: Sentence completion test
   Prompt: "Complete this story: Once upon a time, there was a..."
@@ -227,7 +221,7 @@ Testing Nova-Pro
 4. Fourth item
 5. Fifth item
 
-Here's the list in markdown..."
+Here's your list with bulle..."
   Testing non-streaming...
   ✗ Non-streaming: FAILED - Response did not stop at the expected point
   Response: "1. First item
@@ -236,7 +230,7 @@ Here's the list in markdown..."
 4. Fourth item
 5. Fifth item
 
-Here's the list with bullet..."
+Here's your list with bulle..."
 
 ============================================================
 Testing Nova-Lite
@@ -367,10 +361,10 @@ A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z..."
   Stop sequences: [sword]
   Testing streaming...
   ✗ Streaming: FAILED - Response did not stop at the expected point
-  Response: "As he ventured deeper into the cave, the brave knight encountered all manner of obstacles, from trea..."
+  Response: "As he ventured further into the cave, the brave knight encountered all manner of obstacles, from tre..."
   Testing non-streaming...
   ✗ Non-streaming: FAILED - Response did not stop at the expected point
-  Response: "As he ventured further into the cave, the brave knight encountered all manner of obstacles, from tre..."
+  Response: "As he ventured deeper into the cave, the brave knight noticed that the walls began to glow with a so..."
 
 ▶ Test Case: Special character stop test
   Prompt: "Generate a list with bullet points:
@@ -404,8 +398,8 @@ Testing Mistral-7b
   Prompt: "Count from 1 to 10, separated by commas: 1, 2, 3, ..."
   Stop sequences: [7]
   Testing streaming...
-  ✓ Streaming: PASSED - Response stopped at the correct point
-  Response: "Here is the sequence you requested, with each number separated by a comma and a space: 1, 2, 3, 4, 5..."
+  ✗ Streaming: FAILED - Response did not stop at the expected point
+  Response: "Here is a list of numbers from 1 to 10, separated by commas: 1, 2, 3, 4, 5, 6,..."
   Testing non-streaming...
   ✓ Non-streaming: PASSED - Response stopped at the correct point
   Response: "Here is the sequence you requested, with each number separated by a comma and a space: 1, 2, 3, 4, 5..."
@@ -443,10 +437,10 @@ Testing Mistral-7b
   Stop sequences: [sword]
   Testing streaming...
   ✓ Streaming: PASSED - Response stopped at the correct point
-  Response: "The knight's heart raced with excitement as he ventured further into the depths of the cave, the mag..."
+  Response: "The knight's heart raced with excitement as he ventured further into the cave, the magical..."
   Testing non-streaming...
   ✓ Non-streaming: PASSED - Response stopped at the correct point
-  Response: "The knight's heart raced with excitement as he ventured further into the cave, the magical..."
+  Response: "The knight's heart raced with excitement as he ventured further into the depths of the cave, the mag..."
 
 ▶ Test Case: Special character stop test
   Prompt: "Generate a list with bullet points:
@@ -478,7 +472,7 @@ Claude-3-Haiku:
   Streaming:     5/5 passed (100.0%)
   Non-streaming: 5/5 passed (100.0%)
 Nova-Pro:
-  Streaming:     3/5 passed (60.0%)
+  Streaming:     2/5 passed (40.0%)
   Non-streaming: 2/5 passed (40.0%)
 Nova-Lite:
   Streaming:     5/5 passed (100.0%)
@@ -487,5 +481,5 @@ Llama-3-3-70b:
   Streaming:     0/5 passed (0.0%)
   Non-streaming: 0/5 passed (0.0%)
 Mistral-7b:
-  Streaming:     4/5 passed (80.0%)
+  Streaming:     3/5 passed (60.0%)
   Non-streaming: 4/5 passed (80.0%)
