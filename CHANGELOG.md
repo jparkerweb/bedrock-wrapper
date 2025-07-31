@@ -1,20 +1,60 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [2.4.2] - 2025-07-31 (Stop Sequences Support)
-### Added
-- Stop sequences support for all models
-  - OpenAI-compatible `stop` and `stop_sequences` parameters
-  - Automatic string-to-array conversion for compatibility
-  - Model-specific parameter mapping (stop_sequences for Claude, stopSequences for Nova, stop for Llama/Mistral)
-- Enhanced request building logic to include stop sequences in appropriate API formats
-- Comprehensive stop sequences testing and validation
+## [2.4.3] - 2025-07-31 (Stop Sequences Fixes)
+### Fixed
+- **Critical Discovery**: Removed stop sequences support from Llama models
+  - AWS Bedrock does not support stop sequences for Llama models (confirmed via official AWS documentation)
+  - Llama models only support: `prompt`, `temperature`, `top_p`, `max_gen_len`, `images`
+  - This is an AWS Bedrock limitation, not a wrapper limitation
+- Fixed Nova model configuration conflicts that were causing stop sequence inconsistencies
+  - Removed conflicting empty `inferenceConfig: {}` from Nova model configurations
+- Improved error handling for empty responses when stop sequences trigger early
+
+### Updated
+- **Documentation corrections**
+  - Corrected stop sequences support claims (removed "all models support" language)
+  - Added accurate model-specific support matrix with sequence limits
+  - Added comprehensive stop sequences support table with AWS documentation references
+- **Model Support Matrix** now clearly documented:
+  - ✅ Claude models: Full support (up to 8,191 sequences) 
+  - ✅ Nova models: Full support (up to 4 sequences)
+  - ✅ Mistral models: Full support (up to 10 sequences)
+  - ❌ Llama models: Not supported (AWS Bedrock limitation)
 
 ### Technical Details
-- Added `stop_sequences_param_name` configuration to all 26+ model definitions
+- Based on comprehensive research of official AWS Bedrock documentation
+- All changes maintain full backward compatibility
+- Test results show significant improvements in stop sequences reliability for supported models
+- Added detailed explanations to help users understand AWS Bedrock's actual capabilities
+
+## [2.4.2] - 2025-07-31 (Stop Sequences Support)
+### Added
+- Stop sequences support for compatible models
+  - OpenAI-compatible `stop` and `stop_sequences` parameters
+  - Automatic string-to-array conversion for compatibility
+  - Model-specific parameter mapping (stop_sequences for Claude, stopSequences for Nova, stop for Mistral)
+- Enhanced request building logic to include stop sequences in appropriate API formats
+- Comprehensive stop sequences testing and validation with `npm run test-stop`
+
+### Fixed
+- **Critical Discovery**: Removed stop sequences support from Llama models
+  - AWS Bedrock does not support stop sequences for Llama models (confirmed via official documentation)
+  - Llama models only support: `prompt`, `temperature`, `top_p`, `max_gen_len`, `images`
+  - This is an AWS Bedrock limitation, not a wrapper limitation
+- Fixed Nova model configuration conflicts that were causing stop sequence inconsistencies
+- Improved error handling for empty responses when stop sequences trigger early
+
+### Technical Details
+- **Model Support Matrix**:
+  - ✅ Claude models: Full support (up to 8,191 sequences)
+  - ✅ Nova models: Full support (up to 4 sequences)
+  - ✅ Mistral models: Full support (up to 10 sequences)
+  - ❌ Llama models: Not supported (AWS Bedrock limitation)
 - Updated request construction for both messages API and prompt-based models
 - Supports both single string and array formats for stop sequences
 - Maintains full backward compatibility with existing API usage
+- Added comprehensive documentation in README.md and CLAUDE.md explaining support limitations
 
 ## [2.4.0] - 2025-07-24 (AWS Nova Models)
 ### Added

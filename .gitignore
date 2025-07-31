@@ -2,3 +2,4 @@
 .env
 .gemini
 .claude
+logs/

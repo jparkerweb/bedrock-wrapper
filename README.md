@@ -192,7 +192,7 @@ You can include multiple images in a single message by adding more image_url obj
 
 ### Stop Sequences
 
-All models support stop sequences - custom text sequences that cause the model to stop generating. This is useful for controlling where the model stops its response.
+Stop sequences are custom text sequences that cause the model to stop generating text. This is useful for controlling where the model stops its response.
 
 ```javascript
 const openaiChatCompletionsCreateObject = {
@@ -205,11 +205,16 @@ const openaiChatCompletionsCreateObject = {
 };
 ```
 
+**Model Support:**
+- ✅ **Claude models**: Fully supported (up to 8,191 sequences)
+- ✅ **Nova models**: Fully supported (up to 4 sequences)  
+- ✅ **Mistral models**: Fully supported (up to 10 sequences)
+- ❌ **Llama models**: Not supported (AWS Bedrock limitation)
+
 **Features:**
 - Compatible with OpenAI's `stop` parameter (single string or array)
 - Also accepts `stop_sequences` parameter for explicit usage
 - Automatic conversion between string and array formats
-- Works with all 26+ supported models (Claude, Nova, Llama, Mistral)
 - Model-specific parameter mapping handled automatically
 
 **Example Usage:**
@@ -217,10 +222,12 @@ const openaiChatCompletionsCreateObject = {
 // Stop generation when model tries to output "7"
 const result = await bedrockWrapper(awsCreds, {
     messages: [{ role: "user", content: "Count from 1 to 10" }],
-    model: "Claude-3-5-Sonnet",
+    model: "Claude-3-5-Sonnet",  // Use Claude, Nova, or Mistral models
     stop_sequences: ["7"]
 });
 // Response: "1, 2, 3, 4, 5, 6," (stops before "7")
+
+// Note: Llama models will ignore stop sequences due to AWS Bedrock limitations
 ```
 
 ---

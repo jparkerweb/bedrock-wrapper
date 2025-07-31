@@ -47,6 +47,9 @@ npm run test
 # Test vision capabilities on 11 vision-enabled models (outputs to test-vision-models-output.txt)
 npm run test-vision
 
+# Test stop sequences functionality across representative models (outputs to test-stop-sequences-output.txt)
+npm run test-stop
+
 # Interactive CLI for manual model testing
 npm run interactive
 ```
@@ -72,7 +75,7 @@ When adding models to bedrock-models.js, include these key fields:
 - `messages_api`: Boolean for OpenAI-style messages vs prompt format
 - `response_chunk_element`/`response_nonchunk_element`: JSON paths for parsing responses
 - `special_request_schema`: Model-specific API requirements (Nova uses "messages-v1" schema)
-- `stop_sequences_param_name`: Parameter name for stop sequences (e.g., "stop_sequences" for Claude, "stopSequences" for Nova, "stop" for Llama/Mistral)
+- `stop_sequences_param_name`: Parameter name for stop sequences (e.g., "stop_sequences" for Claude, "stopSequences" for Nova, "stop" for Mistral). Omit for Llama models as they don't support stop sequences in AWS Bedrock.
 
 ## Critical Implementation Notes
 
@@ -85,16 +88,31 @@ When adding models to bedrock-models.js, include these key fields:
 
 **Streaming Architecture**: The main `bedrockWrapper` function is an async generator that yields chunks as they arrive, supporting real-time streaming for all compatible models.
 
-**Stop Sequences Implementation**: All models support stop sequences through OpenAI-compatible parameters:
+**Stop Sequences Implementation**: Claude, Nova, and Mistral models support stop sequences through OpenAI-compatible parameters:
 - Accepts both `stop` and `stop_sequences` parameters from input
 - Automatically converts single strings to arrays where needed
 - Maps to model-specific parameter names based on `stop_sequences_param_name` configuration
 - For messages API models: added to main request object or inferenceConfig (Nova)
 - For prompt-based models: added to request parameters
+- **Llama models**: Do NOT support stop sequences in AWS Bedrock (AWS limitation, not wrapper limitation)
 
 ## Test Infrastructure
 
 - **test-models.js**: Automatically tests all models from bedrock-models.js array
 - **test-vision.js**: Dynamically filters and tests only vision-capable models (`vision: true`) - currently 11 models
-- Both tests write detailed results to text files with timestamps and error logging
+- **test-stop-sequences.js**: Tests stop sequences functionality across representative models from each family (Claude, Nova, Llama, Mistral)
+- All tests write detailed results to text files with timestamps and error logging
 - Interactive testing available via `interactive-example.js`
+
+## Stop Sequences Support by Model Family
+
+Based on AWS Bedrock documentation and testing:
+
+| Model Family | Stop Sequences Support | Parameter Name | Max Sequences | AWS Documentation |
+|--------------|------------------------|----------------|---------------|-------------------|
+| **Claude**   | ✅ Full Support        | `stop_sequences` | 8,191        | Official AWS docs |
+| **Nova**     | ✅ Full Support        | `stopSequences`  | 4            | Official AWS docs |
+| **Mistral**  | ✅ Full Support        | `stop`           | 10           | Official AWS docs |
+| **Llama**    | ❌ Not Supported       | N/A              | N/A          | No mention in AWS docs |
+
+**Important**: Llama models in AWS Bedrock only support `prompt`, `temperature`, `top_p`, `max_gen_len`, and `images` parameters. Stop sequences are not supported according to AWS Bedrock documentation.
