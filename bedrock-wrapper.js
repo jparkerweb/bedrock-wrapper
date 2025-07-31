@@ -406,7 +406,18 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
             }
         }
 
+        // Handle case where stop sequences cause empty content array
+        if (!text_result && decodedBodyResponse.stop_reason === "stop_sequence") {
+            // If stopped by sequence but no content, return empty string instead of undefined
+            text_result = "";
+        }
+
         let result = thinking_result ? `<think>${thinking_result}</think>\n\n${text_result}` : text_result;
+        
+        // Ensure we never return undefined
+        if (result === undefined || result === null) {
+            result = "";
+        }
         yield result;
     }    
 }

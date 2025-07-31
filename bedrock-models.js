@@ -301,7 +301,6 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
-        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -330,7 +329,6 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
-        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -359,7 +357,6 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
-        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -388,7 +385,6 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
-        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -417,7 +413,6 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
-        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -445,7 +440,6 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
-        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -473,7 +467,6 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
-        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -501,7 +494,6 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
-        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -529,7 +521,6 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
-        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -557,7 +548,6 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_gen_len",
         "max_supported_response_tokens": 2048,
-        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "generation"
     },
     {
@@ -576,8 +566,7 @@ export const bedrock_models = [
         "response_chunk_element":        "contentBlockDelta.delta.text",
         "response_nonchunk_element":     "output.message.content[0].text",
         "special_request_schema": {
-            "schemaVersion": "messages-v1",
-            "inferenceConfig": {}
+            "schemaVersion": "messages-v1"
         },
         "image_support": {
             "max_image_size": 5242880, // 5MB per image
@@ -601,8 +590,7 @@ export const bedrock_models = [
         "response_chunk_element":        "contentBlockDelta.delta.text",
         "response_nonchunk_element":     "output.message.content[0].text",
         "special_request_schema": {
-            "schemaVersion": "messages-v1",
-            "inferenceConfig": {}
+            "schemaVersion": "messages-v1"
         },
         "image_support": {
             "max_image_size": 5242880, // 5MB per image
