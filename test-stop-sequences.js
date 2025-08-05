@@ -188,6 +188,7 @@ async function main() {
 
     // Test a subset of models for efficiency (you can test all if needed)
     const modelsToTest = [
+        "Claude-4-1-Opus",
         "Claude-3-5-Sonnet-v2",
         "Claude-3-Haiku", 
         "Nova-Pro",

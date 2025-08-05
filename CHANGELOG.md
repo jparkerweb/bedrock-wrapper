@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.4.4] - 2025-08-05 (Claude 4.1 Opus)
+### Added
+- Support for Claude 4.1 Opus models
+  - Claude-4-1-Opus
+  - Claude-4-1-Opus-Thinking
+
 ## [2.4.3] - 2025-07-31 (Stop Sequences Fixes)
 ### Fixed
 - **Critical Discovery**: Removed stop sequences support from Llama models
