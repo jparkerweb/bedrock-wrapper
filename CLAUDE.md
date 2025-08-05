@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Bedrock Wrapper (v2.4.2) is an npm package that translates OpenAI-compatible API objects to AWS Bedrock's serverless inference LLMs. It supports 26+ models including:
+Bedrock Wrapper (v2.4.4) is an npm package that translates OpenAI-compatible API objects to AWS Bedrock's serverless inference LLMs. It supports 26+ models including:
 - **Claude 4 models**: Opus/Sonnet with thinking capabilities and 131K output tokens
 - **Claude 3.x series**: Various sizes with vision support
 - **AWS Nova models**: Pro/Lite/Micro with multimodal capabilities

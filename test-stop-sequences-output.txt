@@ -1,15 +1,85 @@
-Stop Sequences Test Results - 2025-07-31T19:15:15.768Z
+Stop Sequences Test Results - 2025-08-05T20:00:11.988Z
 ================================================================================
 
 This test validates that stop sequences work correctly across all models.
 Each model is tested with multiple stop sequence scenarios.
 
-Starting stop sequences tests with 26 models...
+Starting stop sequences tests with 28 models...
 Testing 5 different stop sequence scenarios
 
 
-Testing 6 representative models...
+Testing 7 representative models...
 
+
+============================================================
+Testing Claude-4-1-Opus
+============================================================
+
+▶ Test Case: Number sequence test
+  Prompt: "Count from 1 to 10, separated by commas: 1, 2, 3, ..."
+  Stop sequences: [7]
+  Testing streaming...
+  ✓ Streaming: PASSED - Response stopped at the correct point
+  Response: "1, 2, 3, 4, 5, 6,..."
+  Testing non-streaming...
+  ✓ Non-streaming: PASSED - Response stopped at the correct point
+  Response: "1, 2, 3, 4, 5, 6,..."
+
+▶ Test Case: Word-based stop test
+  Prompt: "List the days of the week in order: Monday, Tuesda..."
+  Stop sequences: [Friday]
+  Testing streaming...
+  ✓ Streaming: PASSED - Response stopped at the correct point
+  Response: "You've already listed them correctly! The days of the week in order are:
+
+1. Monday
+2. Tuesday
+3. We..."
+  Testing non-streaming...
+  ✓ Non-streaming: PASSED - Response stopped at the correct point
+  Response: "You've already listed them correctly! The days of the week in order are:
+
+1. Monday
+2. Tuesday
+3. We..."
+
+▶ Test Case: Multi-stop sequence test
+  Prompt: "Write the alphabet: A, B, C, D, E, F, G, H, I, J, ..."
+  Stop sequences: [G, H, I]
+  Testing streaming...
+  ✗ Streaming: FAILED - Response did not stop at the expected point
+  Response: "You've already written the alphabet perfectly!..."
+  Testing non-streaming...
+  ✗ Non-streaming: FAILED - Response did not stop at the expected point
+  Response: "You've already written the alphabet perfectly!..."
+
+▶ Test Case: Sentence completion test
+  Prompt: "Complete this story: Once upon a time, there was a..."
+  Stop sequences: [sword]
+  Testing streaming...
+  ✗ Streaming: FAILED - Response did not stop at the expected point
+  Response: "As the knight ventured deeper, the..."
+  Testing non-streaming...
+  ✗ Non-streaming: FAILED - Response did not stop at the expected point
+  Response: "As the knight ventured deeper, the..."
+
+▶ Test Case: Special character stop test
+  Prompt: "Generate a list with bullet points:
+• First item
+•..."
+  Stop sequences: [• Third]
+  Testing streaming...
+  ✓ Streaming: PASSED - Response stopped at the correct point
+  Response: "Here's a list with bullet points:
+
+• First item
+• Second item..."
+  Testing non-streaming...
+  ✓ Non-streaming: PASSED - Response stopped at the correct point
+  Response: "Here's a list with bullet points:
+
+• First item
+• Second item..."
 
 ============================================================
 Testing Claude-3-5-Sonnet-v2
@@ -201,15 +271,14 @@ Testing Nova-Pro
 7. G..."
   Testing non-streaming...
   ✗ Non-streaming: FAILED - Response did not stop at the expected point
-  Response: "1. **List the alphabet in order**  
-   The English alphabet consists of 26 letters, starting from A ..."
+  Response: "1. **I..."
 
 ▶ Test Case: Sentence completion test
   Prompt: "Complete this story: Once upon a time, there was a..."
   Stop sequences: [sword]
   Testing streaming...
   ✗ Streaming: FAILED - Response did not stop at the expected point
-  Response: ". As he ventured further, the air grew colder and the walls shimmered with an eerie, phosphorescent ..."
+  Response: ". As he ventured further, the air grew colder and the walls shimmered with an eerie, otherworldly gl..."
   Testing non-streaming...
   ✗ Non-streaming: FAILED - Response did not stop at the expected point
   Response: ". As he ventured further, the air grew colder and the walls shimmered with an eerie, otherworldly gl..."
@@ -236,7 +305,7 @@ Here's the list in markdown..."
 4. Fourth item
 5. Fifth item
 
-Here's the list with bullet..."
+Here's the list in markdown..."
 
 ============================================================
 Testing Nova-Lite
@@ -367,7 +436,7 @@ A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z..."
   Stop sequences: [sword]
   Testing streaming...
   ✗ Streaming: FAILED - Response did not stop at the expected point
-  Response: "As he ventured deeper into the cave, the brave knight encountered all manner of obstacles, from trea..."
+  Response: "As he ventured further into the cave, the brave knight encountered all manner of obstacles, from tre..."
   Testing non-streaming...
   ✗ Non-streaming: FAILED - Response did not stop at the expected point
   Response: "As he ventured further into the cave, the brave knight encountered all manner of obstacles, from tre..."
@@ -405,7 +474,7 @@ Testing Mistral-7b
   Stop sequences: [7]
   Testing streaming...
   ✓ Streaming: PASSED - Response stopped at the correct point
-  Response: "Here is the sequence you requested, with each number separated by a comma and a space: 1, 2, 3, 4, 5..."
+  Response: "Here is the sequence you requested, with each number separated by a comma: 1, 2, 3, 4, 5, 6,..."
   Testing non-streaming...
   ✓ Non-streaming: PASSED - Response stopped at the correct point
   Response: "Here is the sequence you requested, with each number separated by a comma and a space: 1, 2, 3, 4, 5..."
@@ -422,11 +491,13 @@ Testing Mistral-7b
 3. Wednesday..."
   Testing non-streaming...
   ✓ Non-streaming: PASSED - Response stopped at the correct point
-  Response: "Here are the days of the week in the order they typically appear:
+  Response: "Here are the days of the week in the correct order:
 
 1. Monday
 2. Tuesday
-3. Wednesday..."
+3. Wednesday
+4. Thursday
+5..."
 
 ▶ Test Case: Multi-stop sequence test
   Prompt: "Write the alphabet: A, B, C, D, E, F, G, H, I, J, ..."
@@ -462,15 +533,18 @@ Testing Mistral-7b
   Testing non-streaming...
   ✓ Non-streaming: PASSED - Response stopped at the correct point
   Response: "• First item
+  - Detailed description or explanation of the first item
 • Second item
-- Sub-point 1 for second item
-- Sub-point 2 for second item..."
+  - Detailed de..."
 
 
 ================================================================================
 SUMMARY
 ================================================================================
 
+Claude-4-1-Opus:
+  Streaming:     3/5 passed (60.0%)
+  Non-streaming: 3/5 passed (60.0%)
 Claude-3-5-Sonnet-v2:
   Streaming:     4/5 passed (80.0%)
   Non-streaming: 2/5 passed (40.0%)
