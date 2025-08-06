@@ -62,6 +62,25 @@ async function processImage(imageInput) {
     return processedImage.toString('base64');
 }
 
+function processReasoningTags(text, awsModel) {
+    if (!text) return text;
+    
+    // Check if this is a GPT-OSS model (has reasoning tags)
+    const hasReasoningTags = text.includes('<reasoning>') && text.includes('</reasoning>');
+    
+    if (!hasReasoningTags) {
+        return text;
+    }
+    
+    // If model should preserve reasoning, return as-is
+    if (awsModel.preserve_reasoning) {
+        return text;
+    }
+    
+    // Strip reasoning tags for non-thinking GPT-OSS models
+    return text.replace(/<reasoning>[\s\S]*?<\/reasoning>/g, '').trim();
+}
+
 export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging = false } = {} ) {
     const { region, accessKeyId, secretAccessKey } = awsCreds;
     let { messages, model, max_tokens, stream, temperature, top_p, include_thinking_data, stop, stop_sequences } = openaiChatCompletionsCreateObject;
@@ -341,7 +360,11 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
         console.log("\nFinal request:", JSON.stringify(request, null, 2));
     }
 
-    if (stream) {
+    // Check if model supports streaming, override stream parameter if not
+    const modelSupportsStreaming = awsModel.streaming_supported !== false;
+    const shouldStream = stream && modelSupportsStreaming;
+
+    if (shouldStream) {
         const responseStream = await client.send(
             new InvokeModelWithResponseStreamCommand({
                 contentType: "application/json",
@@ -361,6 +384,8 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
                     is_thinking = false;
                     result = `</think>\n\n${result}`;
                 }
+                // Process reasoning tags for GPT-OSS models
+                result = processReasoningTags(result, awsModel);
                 yield result;
             } else {
                 if (include_thinking_data && awsModel.thinking_response_chunk_element) {
@@ -416,6 +441,9 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
         if (text_result === null || text_result === undefined) {
             text_result = "";
         }
+
+        // Process reasoning tags for GPT-OSS models
+        text_result = processReasoningTags(text_result, awsModel);
 
         let result = thinking_result ? `<think>${thinking_result}</think>\n\n${text_result}` : text_result;
         

@@ -1,6 +1,26 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.4.5] - 2025-08-06 (GPT-OSS Models)
+### Added
+- Support for OpenAI GPT-OSS models on AWS Bedrock
+  - GPT-OSS-120B (120B parameter open weight model)
+  - GPT-OSS-20B (20B parameter open weight model)
+  - GPT-OSS-120B-Thinking (with reasoning tag preservation)
+  - GPT-OSS-20B-Thinking (with reasoning tag preservation)
+- `<reasoning>` tag processing for GPT-OSS thinking variants
+  - Regular GPT-OSS models automatically strip `<reasoning>` tags
+  - Thinking variants preserve `<reasoning>` tags (similar to Claude's `<think>` tags)
+- Non-streaming support for GPT-OSS models (streaming not supported by AWS Bedrock)
+- OpenAI-compatible API format with `max_completion_tokens` parameter
+
+### Technical Details
+- **Model Configuration**: All GPT-OSS models use standard messages API format
+- **API Compatibility**: Supports OpenAI-style requests with Apache 2.0 licensed models
+- **Response Processing**: Automatic reasoning tag handling based on model variant
+- **Streaming Fallback**: Automatic detection and fallback to non-streaming for unsupported models
+- **Testing Coverage**: Full integration with existing test suites and interactive example
+
 ## [2.4.4] - 2025-08-05 (Claude 4.1 Opus)
 ### Added
 - Support for Claude 4.1 Opus models

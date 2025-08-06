@@ -119,6 +119,10 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 | Nova-Pro                   | us.amazon.nova-pro-v1:0                      |  ✅  |
 | Nova-Lite                  | us.amazon.nova-lite-v1:0                     |  ✅  |
 | Nova-Micro                 | us.amazon.nova-micro-v1:0                    |  ❌  |
+| GPT-OSS-120B               | openai.gpt-oss-120b-1:0                      |  ❌  |
+| GPT-OSS-120B-Thinking      | openai.gpt-oss-120b-1:0                      |  ❌  |
+| GPT-OSS-20B                | openai.gpt-oss-20b-1:0                       |  ❌  |
+| GPT-OSS-20B-Thinking       | openai.gpt-oss-20b-1:0                       |  ❌  |
 | Llama-3-3-70b              | us.meta.llama3-3-70b-instruct-v1:0           |  ❌  |
 | Llama-3-2-1b               | us.meta.llama3-2-1b-instruct-v1:0            |  ❌  |
 | Llama-3-2-3b               | us.meta.llama3-2-3b-instruct-v1:0            |  ❌  |
@@ -210,6 +214,7 @@ const openaiChatCompletionsCreateObject = {
 **Model Support:**
 - ✅ **Claude models**: Fully supported (up to 8,191 sequences)
 - ✅ **Nova models**: Fully supported (up to 4 sequences)  
+- ✅ **GPT-OSS models**: Fully supported
 - ✅ **Mistral models**: Fully supported (up to 10 sequences)
 - ❌ **Llama models**: Not supported (AWS Bedrock limitation)
 

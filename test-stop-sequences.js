@@ -193,6 +193,10 @@ async function main() {
         "Claude-3-Haiku", 
         "Nova-Pro",
         "Nova-Lite",
+        "GPT-OSS-120B",
+        "GPT-OSS-120B-Thinking",
+        "GPT-OSS-20B",
+        "GPT-OSS-20B-Thinking",
         "Llama-3-3-70b",
         "Mistral-7b"
     ].filter(m => availableModels.includes(m));

@@ -1,7 +1,7 @@
 Test Question: "Respond with exactly one word: What is 1+1?"
 ==================================================
 
-Starting tests with 28 models...
+Starting tests with 32 models...
 Each model will be tested with streaming and non-streaming calls
 
 
@@ -13,7 +13,7 @@ Non-streaming test passed for Claude-4-1-Opus: "Two"
 --------------------------------------------------
 Testing Claude-4-1-Opus-Thinking ⇢
 Streaming test passed for Claude-4-1-Opus-Thinking: "Two"
-Non-streaming test passed for Claude-4-1-Opus-Thinking: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which is one word, so I should respond with "Two".</think>
+Non-streaming test passed for Claude-4-1-Opus-Thinking: "<think>The user is asking me to respond with exactly one word, and they're asking what 1+1 is. The answer to 1+1 is 2, which is one word, so I should respond with "Two".</think>
 
 Two"
 
@@ -25,7 +25,7 @@ Non-streaming test passed for Claude-4-Opus: "Two"
 --------------------------------------------------
 Testing Claude-4-Opus-Thinking ⇢
 Streaming test passed for Claude-4-Opus-Thinking: "Two"
-Non-streaming test passed for Claude-4-Opus-Thinking: "<think>The human is asking me to respond with exactly one word and wants to know what 1+1 is. The answer to 1+1 is 2, which is one word, so I can respond with "Two" or "2". I'll go with "Two" since it's clearer as a single word.</think>
+Non-streaming test passed for Claude-4-Opus-Thinking: "<think>The user asks me to respond with exactly one word, and they're asking what 1+1 is. The answer to 1+1 is 2, which is one word, so I should respond with "2" or "Two". Since "2" is simpler and more direct, I'll use that.</think>
 
 Two"
 
@@ -37,21 +37,21 @@ Non-streaming test passed for Claude-4-Sonnet: "Two"
 --------------------------------------------------
 Testing Claude-4-Sonnet-Thinking ⇢
 Streaming test passed for Claude-4-Sonnet-Thinking: "Two"
-Non-streaming test passed for Claude-4-Sonnet-Thinking: "<think>The human is asking for 1+1 and wants exactly one word as a response. 1+1 equals 2, so I should respond with "Two".</think>
+Non-streaming test passed for Claude-4-Sonnet-Thinking: "<think>The human is asking for the answer to 1+1, which is 2. They've specifically requested that I respond with exactly one word, so I should just say "Two" or "2". Since they're asking for a mathematical answer, "2" would be the most direct and appropriate single-word response.</think>
 
 Two"
 
 --------------------------------------------------
 Testing Claude-3-7-Sonnet-Thinking ⇢
-Streaming test passed for Claude-3-7-Sonnet-Thinking: "Two"
-Non-streaming test passed for Claude-3-7-Sonnet-Thinking: "<think>The question asks for exactly one word in response. The calculation 1+1 equals 2. The answer "2" is a single word, so I should respond with just that.</think>
+Streaming test passed for Claude-3-7-Sonnet-Thinking: "2"
+Non-streaming test passed for Claude-3-7-Sonnet-Thinking: "<think>The question asks for exactly one word in response. The answer to 1+1 is 2, which is a single word (a number). So I should respond with just "2".</think>
 
-2"
+Two"
 
 --------------------------------------------------
 Testing Claude-3-7-Sonnet ⇢
-Streaming test passed for Claude-3-7-Sonnet: "Two"
-Non-streaming test passed for Claude-3-7-Sonnet: "Two"
+Streaming test passed for Claude-3-7-Sonnet: "2"
+Non-streaming test passed for Claude-3-7-Sonnet: "2"
 
 --------------------------------------------------
 Testing Claude-3-5-Sonnet-v2 ⇢
@@ -120,7 +120,7 @@ Non-streaming test passed for Llama-3-8b: "Two"
 
 --------------------------------------------------
 Testing Llama-3-70b ⇢
-Streaming test passed for Llama-3-70b: "Two"
+Streaming test passed for Llama-3-70b: "Two."
 Non-streaming test passed for Llama-3-70b: "Two"
 
 --------------------------------------------------
@@ -139,18 +139,38 @@ Streaming test passed for Nova-Micro: "2"
 Non-streaming test passed for Nova-Micro: "2"
 
 --------------------------------------------------
+Testing GPT-OSS-120B ⇢
+Streaming test passed for GPT-OSS-120B: "two"
+Non-streaming test passed for GPT-OSS-120B: "two"
+
+--------------------------------------------------
+Testing GPT-OSS-20B ⇢
+Streaming test passed for GPT-OSS-20B: "2"
+Non-streaming test passed for GPT-OSS-20B: "2"
+
+--------------------------------------------------
+Testing GPT-OSS-120B-Thinking ⇢
+Streaming test passed for GPT-OSS-120B-Thinking: "<reasoning>The user asks: "Respond with exactly one word: What is 1+1?" So we need to respond with exactly one word. The answer to 1+1 is "two". That's one word. So answer: "two".</reasoning>two"
+Non-streaming test passed for GPT-OSS-120B-Thinking: "<reasoning>The user asks: "Respond with exactly one word: What is 1+1?" So we need to respond with exactly one word. The answer to 1+1 is "2". That's a single word? "Two" is a word. "2" is a numeral, not a word. The instruction: "Respond with exactly one word". So we should answer "Two". That's one word.</reasoning>Two"
+
+--------------------------------------------------
+Testing GPT-OSS-20B-Thinking ⇢
+Streaming test passed for GPT-OSS-20B-Thinking: "<reasoning>We have a conversation. The user says: "Respond with exactly one word: What is 1+1?" The assistant should respond with exactly one word. The answer to 1+1 is 2. So the assistant should respond with "2". That is exactly one word. So the answer is "2".</reasoning>2"
+Non-streaming test passed for GPT-OSS-20B-Thinking: "<reasoning>We have a conversation. The user says: "Respond with exactly one word: What is 1+1?" The assistant should respond with exactly one word. The answer to 1+1 is 2. So the assistant should respond with "2". That is exactly one word. So the answer is "2".</reasoning>2"
+
+--------------------------------------------------
 Testing Mistral-7b ⇢
-Streaming test passed for Mistral-7b: "Two. (I've given you two words, but the first one was "What" which was not part of the mathematical equation.)"
+Streaming test passed for Mistral-7b: "Two. (I've given you two words, but the first one was "What" which was not part of the mathematical expression.)"
 Non-streaming test passed for Mistral-7b: "Two. (I've given you two words, but the first one was "What" which was not part of the mathematical expression.)"
 
 --------------------------------------------------
 Testing Mixtral-8x7b ⇢
 Streaming test passed for Mixtral-8x7b: "Two.
 
-The word you are looking for is "two." The sum of 1 + 1 is equal to 2. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer to your question. Is there anything else I can help you with?"
+The word you are looking for is "two." The sum of 1 + 1 is equal to 2. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer. If you have any other questions or need further clarification, please don't hesitate to ask. I'm here to help!"
 Non-streaming test passed for Mixtral-8x7b: "Two.
 
-The word you are looking for is "two." The sum of 1 + 1 is equal to 2. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer to your question. Is there anything else I can help you with?"
+The word you are looking for is "two." The sum of 1 + 1 is equal to 2. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer. If you have any other questions or need further clarification, please don't hesitate to ask. I'm here to help!"
 
 --------------------------------------------------
 Testing Mistral-Large ⇢
