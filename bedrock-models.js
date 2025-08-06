@@ -679,6 +679,84 @@ export const bedrock_models = [
         }
     },
     {
+        // ====================
+        // == GPT-OSS-120B ==
+        // ====================
+        "modelName":                     "GPT-OSS-120B",
+        "modelId":                       "openai.gpt-oss-120b-1:0",
+        // "modelId":                       "us.openai.gpt-oss-120b-1:0",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_completion_tokens",
+        "max_supported_response_tokens": 5000,
+        "stop_sequences_param_name":     "stop_sequences",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "streaming_supported":           false,
+        "special_request_schema": {}
+    },
+    {
+        // ===================
+        // == GPT-OSS-20B ==
+        // ===================
+        "modelName":                     "GPT-OSS-20B",
+        "modelId":                       "openai.gpt-oss-20b-1:0",
+        // "modelId":                       "us.openai.gpt-oss-20b-1:0",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_completion_tokens",
+        "max_supported_response_tokens": 5000,
+        "stop_sequences_param_name":     "stop_sequences",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "streaming_supported":           false,
+        "special_request_schema": {}
+    },
+    {
+        // ==============================
+        // == GPT-OSS-120B-Thinking ==
+        // ==============================
+        "modelName":                     "GPT-OSS-120B-Thinking",
+        "modelId":                       "openai.gpt-oss-120b-1:0",
+        // "modelId":                       "us.openai.gpt-oss-120b-1:0",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_completion_tokens",
+        "max_supported_response_tokens": 5000,
+        "stop_sequences_param_name":     "stop_sequences",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "streaming_supported":           false,
+        "preserve_reasoning":            true,
+        "special_request_schema": {}
+    },
+    {
+        // =============================
+        // == GPT-OSS-20B-Thinking ==
+        // =============================
+        "modelName":                     "GPT-OSS-20B-Thinking",
+        "modelId":                       "openai.gpt-oss-20b-1:0",
+        // "modelId":                       "us.openai.gpt-oss-20b-1:0",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_completion_tokens",
+        "max_supported_response_tokens": 5000,
+        "stop_sequences_param_name":     "stop_sequences",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "streaming_supported":           false,
+        "preserve_reasoning":            true,
+        "special_request_schema": {}
+    },
+    {
         // ================
         // == Mistral-7b ==
         // ================

@@ -4,10 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Bedrock Wrapper (v2.4.4) is an npm package that translates OpenAI-compatible API objects to AWS Bedrock's serverless inference LLMs. It supports 26+ models including:
+Bedrock Wrapper (v2.4.5) is an npm package that translates OpenAI-compatible API objects to AWS Bedrock's serverless inference LLMs. It supports 32+ models including:
 - **Claude 4 models**: Opus/Sonnet with thinking capabilities and 131K output tokens
 - **Claude 3.x series**: Various sizes with vision support
 - **AWS Nova models**: Pro/Lite/Micro with multimodal capabilities
+- **OpenAI GPT-OSS models**: GPT-OSS-120B and GPT-OSS-20B with 128K context and thinking capabilities
 - **Llama models**: 3.3, 3.2, 3.1, and 3.0 series
 - **Mistral models**: 7B, 8x7B, and Large variants
 
@@ -24,7 +25,7 @@ The system uses three main components working together:
    - Implements stop sequences support for all model types
 
 2. **bedrock-models.js**: Configuration registry containing:
-   - 26+ model definitions with specific parameters
+   - 32+ model definitions with specific parameters
    - Vision support flags and image processing limits
    - Response parsing paths for different model outputs
    - Special request schemas (e.g., Nova's inferenceConfig, Claude's thinking mode)
@@ -41,7 +42,7 @@ npm install
 # Clean reinstall (removes node_modules and package-lock.json) 
 npm run clean
 
-# Test all 26+ models (outputs to test-models-output.txt)
+# Test all 32+ models (outputs to test-models-output.txt)
 npm run test
 
 # Test vision capabilities on 11 vision-enabled models (outputs to test-vision-models-output.txt)
@@ -88,7 +89,13 @@ When adding models to bedrock-models.js, include these key fields:
 
 **Streaming Architecture**: The main `bedrockWrapper` function is an async generator that yields chunks as they arrive, supporting real-time streaming for all compatible models.
 
-**Stop Sequences Implementation**: Claude, Nova, and Mistral models support stop sequences through OpenAI-compatible parameters:
+**Stop Sequences Implementation**: Claude, Nova, GPT-OSS, and Mistral models support stop sequences through OpenAI-compatible parameters:
+
+**GPT-OSS Thinking Support**: GPT-OSS models support reasoning capabilities similar to Claude thinking:
+- **GPT-OSS-120B**: Clean responses with `<reasoning>` tags stripped
+- **GPT-OSS-120B-Thinking**: Full responses with `<reasoning>` tags preserved
+- **GPT-OSS-20B**: Clean responses with `<reasoning>` tags stripped
+- **GPT-OSS-20B-Thinking**: Full responses with `<reasoning>` tags preserved
 - Accepts both `stop` and `stop_sequences` parameters from input
 - Automatically converts single strings to arrays where needed
 - Maps to model-specific parameter names based on `stop_sequences_param_name` configuration
@@ -100,7 +107,8 @@ When adding models to bedrock-models.js, include these key fields:
 
 - **test-models.js**: Automatically tests all models from bedrock-models.js array
 - **test-vision.js**: Dynamically filters and tests only vision-capable models (`vision: true`) - currently 11 models
-- **test-stop-sequences.js**: Tests stop sequences functionality across representative models from each family (Claude, Nova, Llama, Mistral)
+- **test-stop-sequences.js**: Tests stop sequences functionality across representative models from each family (Claude, Nova, GPT-OSS, Llama, Mistral)
+- All tests automatically include both regular and thinking variants of supported models
 - All tests write detailed results to text files with timestamps and error logging
 - Interactive testing available via `interactive-example.js`
 
@@ -112,6 +120,7 @@ Based on AWS Bedrock documentation and testing:
 |--------------|------------------------|----------------|---------------|-------------------|
 | **Claude**   | ✅ Full Support        | `stop_sequences` | 8,191        | Official AWS docs |
 | **Nova**     | ✅ Full Support        | `stopSequences`  | 4            | Official AWS docs |
+| **GPT-OSS**  | ✅ Full Support        | `stop_sequences` | TBD          | Official AWS docs |
 | **Mistral**  | ✅ Full Support        | `stop`           | 10           | Official AWS docs |
 | **Llama**    | ❌ Not Supported       | N/A              | N/A          | No mention in AWS docs |
 
