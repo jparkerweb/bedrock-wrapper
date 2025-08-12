@@ -51,7 +51,7 @@ async function logOutput(message, type = 'info', writeToFile = true ) {
     }
 }
 
-async function testModel(model, awsCreds, testMessage, isStreaming) {
+async function testModel(model, awsCreds, testMessage, isStreaming, useConverseAPI, apiName) {
     const messages = [{ role: "user", content: testMessage }];
     const openaiChatCompletionsCreateObject = {
         messages,
@@ -60,17 +60,18 @@ async function testModel(model, awsCreds, testMessage, isStreaming) {
         stream: isStreaming,
         temperature: LLM_TEMPERATURE,
         top_p: LLM_TOP_P,
+        include_thinking_data: true,
     };
 
     let completeResponse = "";
     
     try {
         if (isStreaming) {
-            for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging: true })) {
+            for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging: true, useConverseAPI })) {
                 completeResponse += chunk;
             }
         } else {
-            const response = await bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging: true });
+            const response = await bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging: true, useConverseAPI });
             for await (const data of response) {
                 completeResponse += data;
             }
@@ -88,12 +89,24 @@ async function testModel(model, awsCreds, testMessage, isStreaming) {
 }
 
 async function main() {
+    // Check for command-line arguments
+    const args = process.argv.slice(2);
+    const testBothAPIs = args.includes('--both') || args.includes('--compare');
+    const useConverseOnly = args.includes('--converse');
+    
     const testMessage = "Respond with exactly one word: What is 1+1?";
+    
+    // Determine test mode
+    let testMode = "Invoke API";
+    if (useConverseOnly) testMode = "Converse API";
+    if (testBothAPIs) testMode = "Both APIs (Comparison)";
     
     // Clear output file and add header
     await fs.writeFile('test-models-output.txt', 
+        `Test Mode: ${testMode}\n` +
         `Test Question: "${testMessage}"\n` +
-        `=`.repeat(50) + '\n\n'
+        `Test Date: ${new Date().toISOString()}\n` +
+        `${'='.repeat(60)}\n\n`
     );
 
     const supportedModels = await listBedrockWrapperSupportedModels();
@@ -105,7 +118,7 @@ async function main() {
     });
 
     console.clear();
-    await logOutput(`Starting tests with ${availableModels.length} models...`, 'info');
+    await logOutput(`Starting tests with ${availableModels.length} models using ${testMode}...`, 'info');
     await logOutput(`Each model will be tested with streaming and non-streaming calls\n`, 'info');
 
     const awsCreds = {
@@ -115,29 +128,92 @@ async function main() {
     };
 
     for (const model of availableModels) {
-        await logOutput(`\n${'-'.repeat(50)}\nTesting ${model} ⇢`, 'running');
+        await logOutput(`\n${'-'.repeat(60)}\nTesting ${model} ⇢`, 'running');
 
-        // Test streaming
-        const streamResult = await testModel(model, awsCreds, testMessage, true);
-        if (streamResult.success) {
-            await logOutput(`Streaming test passed for ${model}: "${streamResult.response}"`, 'success');
-        } else {
-            await logOutput(`Streaming test failed for ${model}: ${streamResult.error}`, 'error');
-        }
+        if (testBothAPIs) {
+            // Test both APIs and compare
+            await logOutput(`\n📡 Testing with Invoke API:`, 'info');
+            
+            // Invoke API streaming test
+            const invokeStreamResult = await testModel(model, awsCreds, testMessage, true, false, "Invoke API");
+            if (invokeStreamResult.success) {
+                await logOutput(`✓ Invoke API Streaming: "${invokeStreamResult.response}"`, 'success');
+            } else {
+                await logOutput(`✗ Invoke API Streaming: ${invokeStreamResult.error}`, 'error');
+            }
 
-        // Test non-streaming
-        const nonStreamResult = await testModel(model, awsCreds, testMessage, false);
-        if (nonStreamResult.success) {
-            await logOutput(`Non-streaming test passed for ${model}: "${nonStreamResult.response}"`, 'success');
+            // Invoke API non-streaming test
+            const invokeNonStreamResult = await testModel(model, awsCreds, testMessage, false, false, "Invoke API");
+            if (invokeNonStreamResult.success) {
+                await logOutput(`✓ Invoke API Non-streaming: "${invokeNonStreamResult.response}"`, 'success');
+            } else {
+                await logOutput(`✗ Invoke API Non-streaming: ${invokeNonStreamResult.error}`, 'error');
+            }
+            
+            await logOutput(`\n📡 Testing with Converse API:`, 'info');
+            
+            // Converse API streaming test
+            const converseStreamResult = await testModel(model, awsCreds, testMessage, true, true, "Converse API");
+            if (converseStreamResult.success) {
+                await logOutput(`✓ Converse API Streaming: "${converseStreamResult.response}"`, 'success');
+            } else {
+                await logOutput(`✗ Converse API Streaming: ${converseStreamResult.error}`, 'error');
+            }
+
+            // Converse API non-streaming test
+            const converseNonStreamResult = await testModel(model, awsCreds, testMessage, false, true, "Converse API");
+            if (converseNonStreamResult.success) {
+                await logOutput(`✓ Converse API Non-streaming: "${converseNonStreamResult.response}"`, 'success');
+            } else {
+                await logOutput(`✗ Converse API Non-streaming: ${converseNonStreamResult.error}`, 'error');
+            }
+            
+            // Compare results
+            const invokeSuccess = invokeStreamResult.success && invokeNonStreamResult.success;
+            const converseSuccess = converseStreamResult.success && converseNonStreamResult.success;
+            
+            if (invokeSuccess && converseSuccess) {
+                await logOutput(`🔍 Both APIs successful for ${model}`, 'success');
+            } else if (invokeSuccess || converseSuccess) {
+                await logOutput(`⚠ Partial success for ${model}`, 'warning');
+            } else {
+                await logOutput(`❌ Both APIs failed for ${model}`, 'error');
+            }
+            
         } else {
-            await logOutput(`Non-streaming test failed for ${model}: ${nonStreamResult.error}`, 'error');
+            // Test single API
+            const useConverseAPI = useConverseOnly;
+            const apiName = useConverseAPI ? "Converse API" : "Invoke API";
+            
+            // Test streaming
+            const streamResult = await testModel(model, awsCreds, testMessage, true, useConverseAPI, apiName);
+            if (streamResult.success) {
+                await logOutput(`✓ ${apiName} Streaming: "${streamResult.response}"`, 'success');
+            } else {
+                await logOutput(`✗ ${apiName} Streaming: ${streamResult.error}`, 'error');
+            }
+
+            // Test non-streaming
+            const nonStreamResult = await testModel(model, awsCreds, testMessage, false, useConverseAPI, apiName);
+            if (nonStreamResult.success) {
+                await logOutput(`✓ ${apiName} Non-streaming: "${nonStreamResult.response}"`, 'success');
+            } else {
+                await logOutput(`✗ ${apiName} Non-streaming: ${nonStreamResult.error}`, 'error');
+            }
         }
         
-        console.log(''); // Add blank line between models
+        console.log('\n' + '-'.repeat(40));
     }
 
-    await logOutput('Testing complete! Check test-models-output.txt for full test results.', 'info', false);
+    await logOutput('\nTesting complete! Check test-models-output.txt for full test results.', 'info', false);
 }
+
+// Add usage info
+console.log('Model Test Usage:');
+console.log('  npm run test                  # Test with Invoke API (default)');
+console.log('  npm run test -- --converse       # Test with Converse API only');
+console.log('  npm run test -- --both           # Test both APIs and compare');
+console.log('\n');
 
 main().catch(async (error) => {
     await logOutput(`Fatal Error: ${error.message}`, 'error');

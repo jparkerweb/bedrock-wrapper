@@ -1,6 +1,6 @@
 {
   "name": "bedrock-wrapper",
-  "version": "2.4.5",
+  "version": "2.5.0",
   "description": "🪨 Bedrock Wrapper is an npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs.",
   "homepage": "https://www.equilllabs.com/projects/bedrock-wrapper",
   "repository": {
@@ -13,9 +13,16 @@
   },
   "scripts": {
     "clean": "npx rimraf node_modules && npx rimraf package-lock.json && npm install",
-    "test": "node test-models.js",
-    "test-vision": "node test-vision.js",
-    "test-stop": "node test-stop-sequences.js",
+    "test": "node test-models.js --both",
+    "test:invoke": "node test-models.js",
+    "test:converse": "node test-models.js --converse",
+    "test-vision": "node test-vision.js --both",
+    "test-vision:invoke": "node test-vision.js",
+    "test-vision:converse": "node test-vision.js --converse",
+    "test-stop": "node test-stop-sequences.js --both",
+    "test-stop:invoke": "node test-stop-sequences.js",
+    "test-stop:converse": "node test-stop-sequences.js --converse",
+    "test-converse": "node test-converse-api.js",
     "interactive": "node interactive-example.js"
   },
   "main": "bedrock-wrapper.js",
@@ -33,7 +40,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@aws-sdk/client-bedrock-runtime": "^3.861.0",
+    "@aws-sdk/client-bedrock-runtime": "^3.864.0",
     "dotenv": "^17.2.1",
     "sharp": "^0.34.3"
   },

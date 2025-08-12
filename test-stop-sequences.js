@@ -49,7 +49,7 @@ async function logOutput(message, type = 'info', writeToFile = true ) {
     }
 }
 
-async function testStopSequence(model, awsCreds, testCase, isStreaming) {
+async function testStopSequence(model, awsCreds, testCase, isStreaming, useConverseAPI, apiName) {
     const messages = [{ role: "user", content: testCase.prompt }];
     const openaiChatCompletionsCreateObject = {
         messages,
@@ -65,11 +65,11 @@ async function testStopSequence(model, awsCreds, testCase, isStreaming) {
     
     try {
         if (isStreaming) {
-            for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging: false })) {
+            for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging: false, useConverseAPI })) {
                 completeResponse += chunk;
             }
         } else {
-            const response = await bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging: false });
+            const response = await bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging: false, useConverseAPI });
             for await (const data of response) {
                 completeResponse += data;
             }
@@ -159,10 +159,21 @@ const stopSequenceTestCases = [
 ];
 
 async function main() {
+    // Check for command-line arguments
+    const args = process.argv.slice(2);
+    const testBothAPIs = args.includes('--both') || args.includes('--compare');
+    const useConverseOnly = args.includes('--converse');
+    
+    // Determine test mode
+    let testMode = "Invoke API";
+    if (useConverseOnly) testMode = "Converse API";
+    if (testBothAPIs) testMode = "Both APIs (Comparison)";
+    
     // Clear output file and add header
     const timestamp = new Date().toISOString();
     await fs.writeFile('test-stop-sequences-output.txt', 
-        `Stop Sequences Test Results - ${timestamp}\n` +
+        `Stop Sequences Test Results - ${testMode}\n` +
+        `Test Date: ${timestamp}\n` +
         `${'='.repeat(80)}\n\n` +
         `This test validates that stop sequences work correctly across all models.\n` +
         `Each model is tested with multiple stop sequence scenarios.\n\n`
@@ -174,7 +185,7 @@ async function main() {
     });
 
     console.clear();
-    await logOutput(`Starting stop sequences tests with ${availableModels.length} models...`, 'info');
+    await logOutput(`Starting stop sequences tests with ${availableModels.length} models using ${testMode}...`, 'info');
     await logOutput(`Testing ${stopSequenceTestCases.length} different stop sequence scenarios\n`, 'info');
 
     const awsCreds = {
@@ -208,50 +219,133 @@ async function main() {
         await logOutput(`Testing ${model}`, 'running');
         await logOutput(`${'='.repeat(60)}`, 'info');
 
-        modelResults[model] = {
-            streaming: { passed: 0, failed: 0 },
-            nonStreaming: { passed: 0, failed: 0 }
-        };
+        if (testBothAPIs) {
+            modelResults[model] = {
+                invoke: { streaming: { passed: 0, failed: 0 }, nonStreaming: { passed: 0, failed: 0 } },
+                converse: { streaming: { passed: 0, failed: 0 }, nonStreaming: { passed: 0, failed: 0 } }
+            };
+        } else {
+            modelResults[model] = {
+                streaming: { passed: 0, failed: 0 },
+                nonStreaming: { passed: 0, failed: 0 }
+            };
+        }
 
         for (const testCase of stopSequenceTestCases) {
             await logOutput(`\n▶ Test Case: ${testCase.name}`, 'info');
             await logOutput(`  Prompt: "${testCase.prompt.substring(0, 50)}..."`, 'info');
             await logOutput(`  Stop sequences: [${testCase.stopSequences.join(', ')}]`, 'info');
 
-            // Test streaming
-            await logOutput(`  Testing streaming...`, 'info');
-            const streamResult = await testStopSequence(model, awsCreds, testCase, true);
-            
-            if (streamResult.success) {
-                if (streamResult.stoppedCorrectly) {
-                    await logOutput(`  ✓ Streaming: PASSED - ${streamResult.analysis}`, 'success');
-                    modelResults[model].streaming.passed++;
+            if (testBothAPIs) {
+                // Test both APIs and compare
+                await logOutput(`\n  📡 Testing with Invoke API:`, 'info');
+                
+                // Invoke API streaming test
+                const invokeStreamResult = await testStopSequence(model, awsCreds, testCase, true, false, "Invoke API");
+                if (invokeStreamResult.success) {
+                    if (invokeStreamResult.stoppedCorrectly) {
+                        await logOutput(`    ✓ Invoke Streaming: PASSED - ${invokeStreamResult.analysis}`, 'success');
+                        modelResults[model].invoke.streaming.passed++;
+                    } else {
+                        await logOutput(`    ✗ Invoke Streaming: FAILED - ${invokeStreamResult.analysis}`, 'warning');
+                        modelResults[model].invoke.streaming.failed++;
+                    }
+                    await logOutput(`    Response: "${invokeStreamResult.response.substring(0, 100)}..."`, 'info');
                 } else {
-                    await logOutput(`  ✗ Streaming: FAILED - ${streamResult.analysis}`, 'warning');
+                    await logOutput(`    ✗ Invoke Streaming: ERROR - ${invokeStreamResult.error}`, 'error');
+                    modelResults[model].invoke.streaming.failed++;
+                }
+
+                // Invoke API non-streaming test
+                const invokeNonStreamResult = await testStopSequence(model, awsCreds, testCase, false, false, "Invoke API");
+                if (invokeNonStreamResult.success) {
+                    if (invokeNonStreamResult.stoppedCorrectly) {
+                        await logOutput(`    ✓ Invoke Non-streaming: PASSED - ${invokeNonStreamResult.analysis}`, 'success');
+                        modelResults[model].invoke.nonStreaming.passed++;
+                    } else {
+                        await logOutput(`    ✗ Invoke Non-streaming: FAILED - ${invokeNonStreamResult.analysis}`, 'warning');
+                        modelResults[model].invoke.nonStreaming.failed++;
+                    }
+                    await logOutput(`    Response: "${invokeNonStreamResult.response.substring(0, 100)}..."`, 'info');
+                } else {
+                    await logOutput(`    ✗ Invoke Non-streaming: ERROR - ${invokeNonStreamResult.error}`, 'error');
+                    modelResults[model].invoke.nonStreaming.failed++;
+                }
+
+                await logOutput(`\n  📡 Testing with Converse API:`, 'info');
+                
+                // Converse API streaming test
+                const converseStreamResult = await testStopSequence(model, awsCreds, testCase, true, true, "Converse API");
+                if (converseStreamResult.success) {
+                    if (converseStreamResult.stoppedCorrectly) {
+                        await logOutput(`    ✓ Converse Streaming: PASSED - ${converseStreamResult.analysis}`, 'success');
+                        modelResults[model].converse.streaming.passed++;
+                    } else {
+                        await logOutput(`    ✗ Converse Streaming: FAILED - ${converseStreamResult.analysis}`, 'warning');
+                        modelResults[model].converse.streaming.failed++;
+                    }
+                    await logOutput(`    Response: "${converseStreamResult.response.substring(0, 100)}..."`, 'info');
+                } else {
+                    await logOutput(`    ✗ Converse Streaming: ERROR - ${converseStreamResult.error}`, 'error');
+                    modelResults[model].converse.streaming.failed++;
+                }
+
+                // Converse API non-streaming test
+                const converseNonStreamResult = await testStopSequence(model, awsCreds, testCase, false, true, "Converse API");
+                if (converseNonStreamResult.success) {
+                    if (converseNonStreamResult.stoppedCorrectly) {
+                        await logOutput(`    ✓ Converse Non-streaming: PASSED - ${converseNonStreamResult.analysis}`, 'success');
+                        modelResults[model].converse.nonStreaming.passed++;
+                    } else {
+                        await logOutput(`    ✗ Converse Non-streaming: FAILED - ${converseNonStreamResult.analysis}`, 'warning');
+                        modelResults[model].converse.nonStreaming.failed++;
+                    }
+                    await logOutput(`    Response: "${converseNonStreamResult.response.substring(0, 100)}..."`, 'info');
+                } else {
+                    await logOutput(`    ✗ Converse Non-streaming: ERROR - ${converseNonStreamResult.error}`, 'error');
+                    modelResults[model].converse.nonStreaming.failed++;
+                }
+                
+            } else {
+                // Test single API
+                const useConverseAPI = useConverseOnly;
+                const apiName = useConverseAPI ? "Converse API" : "Invoke API";
+                
+                // Test streaming
+                await logOutput(`  Testing streaming with ${apiName}...`, 'info');
+                const streamResult = await testStopSequence(model, awsCreds, testCase, true, useConverseAPI, apiName);
+                
+                if (streamResult.success) {
+                    if (streamResult.stoppedCorrectly) {
+                        await logOutput(`  ✓ Streaming: PASSED - ${streamResult.analysis}`, 'success');
+                        modelResults[model].streaming.passed++;
+                    } else {
+                        await logOutput(`  ✗ Streaming: FAILED - ${streamResult.analysis}`, 'warning');
+                        modelResults[model].streaming.failed++;
+                    }
+                    await logOutput(`  Response: "${streamResult.response.substring(0, 100)}..."`, 'info');
+                } else {
+                    await logOutput(`  ✗ Streaming: ERROR - ${streamResult.error}`, 'error');
                     modelResults[model].streaming.failed++;
                 }
-                await logOutput(`  Response: "${streamResult.response.substring(0, 100)}..."`, 'info');
-            } else {
-                await logOutput(`  ✗ Streaming: ERROR - ${streamResult.error}`, 'error');
-                modelResults[model].streaming.failed++;
-            }
 
-            // Test non-streaming
-            await logOutput(`  Testing non-streaming...`, 'info');
-            const nonStreamResult = await testStopSequence(model, awsCreds, testCase, false);
-            
-            if (nonStreamResult.success) {
-                if (nonStreamResult.stoppedCorrectly) {
-                    await logOutput(`  ✓ Non-streaming: PASSED - ${nonStreamResult.analysis}`, 'success');
-                    modelResults[model].nonStreaming.passed++;
+                // Test non-streaming
+                await logOutput(`  Testing non-streaming with ${apiName}...`, 'info');
+                const nonStreamResult = await testStopSequence(model, awsCreds, testCase, false, useConverseAPI, apiName);
+                
+                if (nonStreamResult.success) {
+                    if (nonStreamResult.stoppedCorrectly) {
+                        await logOutput(`  ✓ Non-streaming: PASSED - ${nonStreamResult.analysis}`, 'success');
+                        modelResults[model].nonStreaming.passed++;
+                    } else {
+                        await logOutput(`  ✗ Non-streaming: FAILED - ${nonStreamResult.analysis}`, 'warning');
+                        modelResults[model].nonStreaming.failed++;
+                    }
+                    await logOutput(`  Response: "${nonStreamResult.response.substring(0, 100)}..."`, 'info');
                 } else {
-                    await logOutput(`  ✗ Non-streaming: FAILED - ${nonStreamResult.analysis}`, 'warning');
+                    await logOutput(`  ✗ Non-streaming: ERROR - ${nonStreamResult.error}`, 'error');
                     modelResults[model].nonStreaming.failed++;
                 }
-                await logOutput(`  Response: "${nonStreamResult.response.substring(0, 100)}..."`, 'info');
-            } else {
-                await logOutput(`  ✗ Non-streaming: ERROR - ${nonStreamResult.error}`, 'error');
-                modelResults[model].nonStreaming.failed++;
             }
         }
     }
@@ -262,18 +356,48 @@ async function main() {
     await logOutput(`${'='.repeat(80)}\n`, 'info');
 
     for (const [model, results] of Object.entries(modelResults)) {
-        const streamingRate = (results.streaming.passed / (results.streaming.passed + results.streaming.failed) * 100).toFixed(1);
-        const nonStreamingRate = (results.nonStreaming.passed / (results.nonStreaming.passed + results.nonStreaming.failed) * 100).toFixed(1);
-        
         await logOutput(`${model}:`, 'info');
-        await logOutput(`  Streaming:     ${results.streaming.passed}/${results.streaming.passed + results.streaming.failed} passed (${streamingRate}%)`, 
-            streamingRate > 80 ? 'success' : 'warning');
-        await logOutput(`  Non-streaming: ${results.nonStreaming.passed}/${results.nonStreaming.passed + results.nonStreaming.failed} passed (${nonStreamingRate}%)`, 
-            nonStreamingRate > 80 ? 'success' : 'warning');
+        
+        if (testBothAPIs) {
+            // Both APIs summary
+            const invokeStreamingRate = (results.invoke.streaming.passed / (results.invoke.streaming.passed + results.invoke.streaming.failed) * 100).toFixed(1);
+            const invokeNonStreamingRate = (results.invoke.nonStreaming.passed / (results.invoke.nonStreaming.passed + results.invoke.nonStreaming.failed) * 100).toFixed(1);
+            const converseStreamingRate = (results.converse.streaming.passed / (results.converse.streaming.passed + results.converse.streaming.failed) * 100).toFixed(1);
+            const converseNonStreamingRate = (results.converse.nonStreaming.passed / (results.converse.nonStreaming.passed + results.converse.nonStreaming.failed) * 100).toFixed(1);
+            
+            await logOutput(`  Invoke API:`, 'info');
+            await logOutput(`    Streaming:     ${results.invoke.streaming.passed}/${results.invoke.streaming.passed + results.invoke.streaming.failed} passed (${invokeStreamingRate}%)`, 
+                invokeStreamingRate > 80 ? 'success' : 'warning');
+            await logOutput(`    Non-streaming: ${results.invoke.nonStreaming.passed}/${results.invoke.nonStreaming.passed + results.invoke.nonStreaming.failed} passed (${invokeNonStreamingRate}%)`, 
+                invokeNonStreamingRate > 80 ? 'success' : 'warning');
+            
+            await logOutput(`  Converse API:`, 'info');
+            await logOutput(`    Streaming:     ${results.converse.streaming.passed}/${results.converse.streaming.passed + results.converse.streaming.failed} passed (${converseStreamingRate}%)`, 
+                converseStreamingRate > 80 ? 'success' : 'warning');
+            await logOutput(`    Non-streaming: ${results.converse.nonStreaming.passed}/${results.converse.nonStreaming.passed + results.converse.nonStreaming.failed} passed (${converseNonStreamingRate}%)`, 
+                converseNonStreamingRate > 80 ? 'success' : 'warning');
+                
+        } else {
+            // Single API summary
+            const streamingRate = (results.streaming.passed / (results.streaming.passed + results.streaming.failed) * 100).toFixed(1);
+            const nonStreamingRate = (results.nonStreaming.passed / (results.nonStreaming.passed + results.nonStreaming.failed) * 100).toFixed(1);
+            
+            await logOutput(`  Streaming:     ${results.streaming.passed}/${results.streaming.passed + results.streaming.failed} passed (${streamingRate}%)`, 
+                streamingRate > 80 ? 'success' : 'warning');
+            await logOutput(`  Non-streaming: ${results.nonStreaming.passed}/${results.nonStreaming.passed + results.nonStreaming.failed} passed (${nonStreamingRate}%)`, 
+                nonStreamingRate > 80 ? 'success' : 'warning');
+        }
     }
 
     await logOutput('\nTesting complete! Check test-stop-sequences-output.txt for full results.', 'info', false);
 }
+
+// Add usage info
+console.log('Stop Sequences Test Usage:');
+console.log('  npm run test-stop                # Test with Invoke API (default)');
+console.log('  npm run test-stop -- --converse      # Test with Converse API only');
+console.log('  npm run test-stop -- --both          # Test both APIs and compare');
+console.log('\n');
 
 main().catch(async (error) => {
     await logOutput(`Fatal Error: ${error.message}`, 'error');

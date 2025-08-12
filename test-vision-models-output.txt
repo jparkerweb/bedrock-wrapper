@@ -1,141 +1,177 @@
-Vision Test Results
+Vision Test Results - Both APIs (Comparison)
 Test Question: "What's in this image? Please describe it in detail."
-Test Date: 2025-08-05T19:51:54.942Z
-==================================================
+Test Date: 2025-08-12T22:44:29.871Z
+============================================================
 
-Starting vision tests with 13 models...
+Starting vision tests with 13 models using Both APIs (Comparison)...
 Testing image description capabilities
 
 
---------------------------------------------------
+------------------------------------------------------------
 Testing Claude-4-1-Opus ⇢
 
-Model: Claude-4-1-Opus
-Response: This is a beautifully atmospheric fantasy illustration depicting two silhouetted figures - an adult and a child - standing at the edge of a mystical forest pond or stream. The adult figure, wearing a long cloak or coat, holds a glowing lantern that casts warm yellow light into the misty, ethereal scene. The smaller figure, presumably a child, stands beside them.
+📡 Testing with Invoke API:
+✓ Invoke API: Success
+Response: This image depicts a mystical, atmospheric forest scene with two silhouetted figures - an adult and a child - standing by what appears to be a pond or...
 
-The setting is enchanting and dreamlike, with massive ancient trees framing the left side of the image. The forest is bathed in a soft, greenish-blue light that filters through the canopy above, creating a magical ambiance. Throughout the scene, small points of light - possibly fireflies, magical sparkles, or floating seeds - drift through the air, adding to the fantastical atmosphere.
+📡 Testing with Converse API:
+✓ Converse API: Success
+Response: This image depicts a magical, atmospheric forest scene rendered in an artistic, possibly animated or illustrated style. The composition shows two silh...
 
-The water in front of them reflects the mysterious light, and the overall color palette consists of deep teals, forest greens, and warm golden tones from the lantern. The style appears to be digital artwork with a painterly quality, reminiscent of concept art for animated films or fantasy illustrations. The scene evokes feelings of wonder, adventure, and perhaps a journey into the unknown, with the two figures appearing to be on the threshold of discovering something magical in this enchanted forest.
+🔍 Both APIs successful for Claude-4-1-Opus
 
-
---------------------------------------------------
+------------------------------------------------------------
 Testing Claude-4-1-Opus-Thinking ⇢
 
-Model: Claude-4-1-Opus-Thinking
-Response: This is a beautifully atmospheric fantasy illustration depicting two silhouetted figures - an adult and a child - standing by the edge of a misty pond or stream in an enchanted forest setting. The adult figure, wearing a long cloak or coat, is holding a glowing lantern that casts warm yellow light into the surrounding darkness. The smaller figure, presumably a child, stands beside them.
+📡 Testing with Invoke API:
+✓ Invoke API: Success
+Response: This is a beautifully atmospheric illustration depicting two silhouetted figures - an adult and a child - standing at the edge of what appears to be a...
 
-The forest scene is richly detailed with large trees framing the composition, their trunks and roots creating dramatic shapes in the foreground. The water reflects the ethereal blue-green light filtering through the forest canopy above. There are small points of light scattered throughout the scene - possibly fireflies or magical elements - that add to the mystical atmosphere.
+📡 Testing with Converse API:
+✓ Converse API: Success
+Response: This is a beautifully atmospheric digital artwork depicting a magical forest scene. The image shows two silhouetted figures - an adult and a small chi...
 
-The color palette transitions from warm golden tones near the lantern and ground to cool blue-greens in the misty background and sky. Sunlight or moonlight breaks through the trees in the distance, creating a luminous backdrop. The overall mood is one of wonder, mystery, and perhaps adventure, reminiscent of classic fairy tale illustrations or fantasy adventure stories.
+🔍 Both APIs successful for Claude-4-1-Opus-Thinking
 
-The artistic style appears to be digital painting with a cinematic quality, using dramatic lighting and atmospheric effects to create depth and mood.
-
-
---------------------------------------------------
+------------------------------------------------------------
 Testing Claude-4-Opus ⇢
 
-Model: Claude-4-Opus
-Response: This image depicts a magical, atmospheric forest scene with two silhouetted figures - an adult and a child - standing at the edge of a misty pond or stream. The adult figure, wearing a long cloak or coat, is holding a glowing lantern that casts warm light in the ethereal green-tinted environment. The child stands beside them, both figures appearing to gaze out across the water.
+📡 Testing with Invoke API:
+✓ Invoke API: Success
+Response: This image depicts a mystical, atmospheric forest scene rendered in what appears to be a digital painting or illustration style. The composition shows...
 
-The scene is richly detailed with lush vegetation, including large trees on the left with thick trunks and overhanging branches. The forest is alive with floating particles of light - possibly fireflies or magical sparkles - that drift through the air, creating a dreamlike quality. The water reflects the mysterious light, and the far shore is shrouded in mist.
+📡 Testing with Converse API:
+✓ Converse API: Success
+Response: This image depicts a mystical, atmospheric forest scene with two silhouetted figures - an adult and a child - standing at the edge of a misty pond or ...
 
-The overall color palette is dominated by deep greens and teals, with the warm yellow-orange glow of the lantern providing a striking contrast. The lighting suggests either dawn or dusk, with diffused sunlight filtering through the forest canopy in the background. The artistic style appears to be digital illustration with a painterly quality, evoking feelings of wonder, mystery, and perhaps a journey into the unknown. The composition effectively uses the silhouettes to create a sense of scale and narrative, suggesting a story of exploration or adventure in this enchanted forest setting.
+🔍 Both APIs successful for Claude-4-Opus
 
-
---------------------------------------------------
+------------------------------------------------------------
 Testing Claude-4-Opus-Thinking ⇢
 
-Model: Claude-4-Opus-Thinking
-Response: This is a beautifully atmospheric fantasy illustration depicting two figures in a mystical forest setting. The scene shows what appears to be an adult and a child standing together at the edge of a misty pond or stream. The adult figure, wearing a long hooded cloak or robe, is holding a glowing lantern that casts warm yellow light into the ethereal green-blue atmosphere. The smaller figure, likely a child, stands beside them also wearing a cloak.
+📡 Testing with Invoke API:
+✓ Invoke API: Success
+Response: This is a beautifully atmospheric fantasy illustration depicting two silhouetted figures - an adult and a child - standing together in an enchanted fo...
 
-The forest around them is enchanting and mysterious, with large twisted trees framing the scene. Sunlight or moonlight filters through the canopy above, creating dramatic rays of light that pierce through the mist. The water in front of them reflects the ambient light, and there appear to be small glowing particles or fireflies floating throughout the air, adding to the magical quality of the scene.
+📡 Testing with Converse API:
+✓ Converse API: Success
+Response: This is a beautifully atmospheric fantasy illustration showing two silhouetted figures - an adult and a child - standing at the edge of a misty pond o...
 
-The color palette is dominated by cool greens and teals, contrasted beautifully with the warm golden glow of the lantern. The overall mood is one of wonder, mystery, and perhaps a sense of adventure or journey. The artistic style appears to be digital painting with a somewhat painterly, concept art quality that's common in fantasy illustration and game art.
+🔍 Both APIs successful for Claude-4-Opus-Thinking
 
-
---------------------------------------------------
+------------------------------------------------------------
 Testing Claude-4-Sonnet ⇢
 
-Model: Claude-4-Sonnet
-Response: This is an atmospheric, fantasy-style illustration depicting two figures in a mystical forest setting. The scene shows what appears to be an adult and a child walking together through a lush, green woodland. The taller figure is holding a glowing lantern that casts warm, golden light around them, creating a striking contrast against the cool, ethereal green tones that dominate the forest.
+📡 Testing with Invoke API:
+✓ Invoke API: Success
+Response: This is a beautifully atmospheric illustration depicting two figures - what appears to be an adult and a child - walking together through a mystical f...
 
-The forest itself is richly detailed, with tall trees, dense foliage, and dappled sunlight filtering through the canopy above. There's a dreamlike quality to the lighting, with what appears to be magical particles or fireflies floating in the air, adding to the enchanted atmosphere. The path they're walking on seems to lead deeper into the mysterious woods.
+📡 Testing with Converse API:
+✓ Converse API: Success
+Response: This is a beautifully atmospheric digital artwork depicting a mystical forest scene. The image shows two figures - what appears to be an adult and a c...
 
-The overall mood is both peaceful and slightly mysterious - it has the feel of a scene from a fairy tale or fantasy story. The artistic style uses a beautiful palette of greens and golds, with soft, painterly brushwork that gives the image a storybook illustration quality. The composition draws the eye along the path the figures are taking, inviting the viewer to wonder where their journey through this magical forest might lead.
+🔍 Both APIs successful for Claude-4-Sonnet
 
-
---------------------------------------------------
+------------------------------------------------------------
 Testing Claude-4-Sonnet-Thinking ⇢
 
-Model: Claude-4-Sonnet-Thinking
-Response: This is a beautifully atmospheric digital illustration depicting a mystical forest scene. The image shows two silhouetted figures - an adult wearing a hooded cloak and a smaller child - standing together on a forest path. The adult is holding up a glowing lantern that casts warm, golden light around them.
+📡 Testing with Invoke API:
+✓ Invoke API: Success
+Response: This is a beautifully atmospheric digital illustration depicting a mystical forest scene. The image shows two silhouetted figures - what appears to be...
 
-The forest setting is lush and enchanting, with tall trees creating a dense canopy overhead. Ethereal, greenish light filters down through the foliage, creating a misty, otherworldly atmosphere. The lighting has a magical quality, with what appears to be small particles of light or possibly fireflies scattered throughout the scene, giving it a fairy-tale-like ambiance.
+📡 Testing with Converse API:
+✓ Converse API: Success
+Response: This is a beautifully atmospheric, fantasy-style illustration depicting two figures - an adult and a child - walking through an enchanted forest. The ...
 
-There's a small stream or body of water visible in the forest clearing, reflecting some of the ambient light. The ground is covered with forest vegetation, fallen logs, and natural debris typical of a woodland environment.
+🔍 Both APIs successful for Claude-4-Sonnet-Thinking
 
-The color palette is dominated by rich greens and teals for the forest environment, contrasted beautifully with the warm yellow-orange glow from the lantern. The overall mood is mysterious yet inviting, suggesting themes of adventure, guidance, or a journey through an enchanted realm. The artistic style appears to be a detailed digital painting with careful attention to lighting effects and atmospheric depth.
-
-
---------------------------------------------------
+------------------------------------------------------------
 Testing Claude-3-7-Sonnet-Thinking ⇢
 
-Model: Claude-3-7-Sonnet-Thinking
-Response: This image is a beautifully atmospheric fantasy illustration depicting a mysterious forest scene. Two silhouetted figures stand at the edge of a glistening stream or small body of water - one taller figure holding a glowing lantern that casts a warm yellow light, and a smaller figure beside them. The forest around them is rendered in rich, deep greens with a mystical quality.
+📡 Testing with Invoke API:
+✓ Invoke API: Success
+Response: This image is a beautiful, atmospheric fantasy illustration depicting a mystical forest scene at dusk or night. Two silhouetted figures stand at the e...
 
-The scene has an enchanted feel, with what appears to be tiny floating lights or fireflies scattered throughout the forest, creating a magical ambiance. Tall trees with thick trunks frame the composition, their foliage creating a canopy overhead. Soft, misty light filters through the trees in the background, suggesting either dawn or dusk.
+📡 Testing with Converse API:
+✓ Converse API: Success
+Response: This image is a beautiful, atmospheric digital illustration depicting a magical forest scene. In the foreground, two silhouetted figures stand at the ...
 
-The artwork has a painterly, atmospheric style that evokes fairy tales or fantasy adventures. The contrast between the dark silhouettes and the glowing lantern creates a sense of both mystery and wonder, as if the figures are embarking on some magical journey through this ethereal woodland setting.
+🔍 Both APIs successful for Claude-3-7-Sonnet-Thinking
 
-
---------------------------------------------------
+------------------------------------------------------------
 Testing Claude-3-7-Sonnet ⇢
 
-Model: Claude-3-7-Sonnet
-Response: This image appears to be a digital painting or artwork depicting a mystical forest scene. In the foreground, two silhouetted figures stand at the edge of a stream or small body of water - one taller figure in a long coat or cloak holding a glowing lantern, and beside them a much smaller figure, possibly a child. The taller figure is illuminating their path with the warm golden light of the lantern.
+📡 Testing with Invoke API:
+✓ Invoke API: Success
+Response: This image is a beautiful, atmospheric digital painting or illustration depicting a mystical forest scene. In the foreground, two silhouetted figures ...
 
-The forest around them is depicted in rich, deep greens and teals, creating a magical atmosphere. There are tall trees with thick trunks framing the scene, and small points of light scattered throughout the forest that resemble fireflies or magical particles. Misty light filters through the trees in the background, creating an ethereal glow.
+📡 Testing with Converse API:
+✓ Converse API: Success
+Response: This image is a beautiful, atmospheric digital artwork or illustration depicting a magical forest scene. In the foreground, two silhouetted figures st...
 
-The overall mood is enchanting and somewhat mysterious, evoking a fairy tale or fantasy setting. The artwork has a painterly style with beautiful light effects contrasting against the dark silhouettes of the figures and forest.
+🔍 Both APIs successful for Claude-3-7-Sonnet
 
-
---------------------------------------------------
+------------------------------------------------------------
 Testing Claude-3-5-Sonnet-v2 ⇢
 
-Model: Claude-3-5-Sonnet-v2
-Response: This is a beautifully atmospheric digital painting depicting two figures standing by a misty river or stream in what appears to be a magical forest setting. The larger figure is wearing a long dark cloak and holds a glowing lantern, while a smaller figure, perhaps a child, stands nearby also wearing what looks like a cloak. The scene is bathed in an ethereal green light filtering through the trees, with floating particles (possibly fireflies or magic sparkles) dotting the air. Large trees frame the scene, their trunks massive and ancient-looking. The water reflects the ambient light, creating a mystical atmosphere. The overall composition has a storybook or fantasy quality to it, suggesting adventure and wonder. The lighting from the lantern creates a warm contrast against the cool, mysterious forest tones.
+📡 Testing with Invoke API:
+✓ Invoke API: Success
+Response: This is a beautifully atmospheric digital artwork depicting a misty forest scene at dusk or nighttime. The image shows two silhouetted figures standin...
 
+📡 Testing with Converse API:
+✓ Converse API: Success
+Response: This is a beautifully atmospheric digital artwork depicting two silhouetted figures standing by what appears to be a misty pond or stream in a forest....
 
---------------------------------------------------
+🔍 Both APIs successful for Claude-3-5-Sonnet-v2
+
+------------------------------------------------------------
 Testing Claude-3-5-Sonnet ⇢
 
-Model: Claude-3-5-Sonnet
-Response: This image depicts a mystical and enchanting forest scene. In the foreground, we see two silhouetted figures standing at the edge of a small body of water. One appears to be an adult, tall and cloaked, holding a glowing lantern. Beside them is a much smaller figure, likely a child.
+📡 Testing with Invoke API:
+✓ Invoke API: Success
+Response: This image depicts a mystical and enchanting forest scene. In the foreground, we see two silhouetted figures - an adult and a child - standing at the ...
 
-The forest around them is lush and green, with tall trees framing the scene. The atmosphere is misty and ethereal, with a soft, golden-green light filtering through the trees. This creates a magical ambiance, enhanced by what appears to be fireflies or magical sparks floating in the air.
+📡 Testing with Converse API:
+✓ Converse API: Success
+Response: This image depicts a mystical and enchanting forest scene. In the foreground, we see two figures standing at the edge of a small body of water or stre...
 
-The water in front of the figures reflects the light from the lantern and the surrounding forest, adding to the dreamy quality of the scene. The overall color palette is dominated by deep greens and warm, golden tones.
+🔍 Both APIs successful for Claude-3-5-Sonnet
 
-The image has a storybook quality to it, evoking feelings of wonder, adventure, and perhaps a touch of mystery. It seems to capture a moment of quiet exploration or discovery in a fantastical woodland setting.
-
-
---------------------------------------------------
+------------------------------------------------------------
 Testing Claude-3-Haiku ⇢
 
-Model: Claude-3-Haiku
-Response: The image depicts a fantastical forest scene. In the foreground, there are two figures walking along a path - a taller figure carrying a lantern, and a smaller figure walking beside them. The forest around them is lush and green, with tall trees, ferns, and flowers. The lighting in the scene is moody and atmospheric, with warm, glowing light filtering through the trees. The overall tone of the image is one of mystery and adventure, inviting the viewer to imagine the story unfolding in this enchanting woodland setting.
+📡 Testing with Invoke API:
+✓ Invoke API: Success
+Response: The image depicts a fantastical, magical forest scene. In the foreground, two figures are walking down a path - a taller figure carrying a lantern, an...
 
+📡 Testing with Converse API:
+✓ Converse API: Success
+Response: The image depicts a serene and mystical forest scene. In the foreground, two figures are walking along a path - a taller figure, likely an adult, and ...
 
---------------------------------------------------
+🔍 Both APIs successful for Claude-3-Haiku
+
+------------------------------------------------------------
 Testing Nova-Pro ⇢
 
-Model: Nova-Pro
-Response: 2 people are standing in the forest, a person in front is holding a lantern and looking towards the left side, and another person is standing behind him. They are standing on the water surface, which seems like a river. On the right side, a large rock is beside the river. There are many plants and trees around the place. The light is shining on the trees and plants.
+📡 Testing with Invoke API:
+✓ Invoke API: Success
+Response: Illustrative artwork depicts a young boy and a little girl standing near a river in the forest. The boy is holding a lantern in his hand. The girl is ...
 
+📡 Testing with Converse API:
+✓ Converse API: Success
+Response: In an outdoor area, a person holds a lantern in both hands and stands beside a child. They are on the edge of a water body, perhaps a river, with a fe...
 
---------------------------------------------------
+🔍 Both APIs successful for Nova-Pro
+
+------------------------------------------------------------
 Testing Nova-Lite ⇢
 
-Model: Nova-Lite
-Response: A digital painting depicts a person and a child standing in a forest. The person holds a lantern, and the child seems to be looking at the lantern. The person is wearing a green robe and leather shoes, and the child is wearing a green robe and leather shoes. The person and the child are standing on the edge of the water. The water is calm, and the surrounding area is filled with trees and plants.
+📡 Testing with Invoke API:
+✓ Invoke API: Success
+Response: The image features a scene in a forest with two individuals. The person on the left is a young boy holding a lantern in his hand, standing near a stre...
 
+📡 Testing with Converse API:
+✓ Converse API: Success
+Response: The image depicts a scene in a dense, green forest with a boy and a girl standing in the foreground. The boy is holding a lantern, illuminating the su...
+
+🔍 Both APIs successful for Nova-Lite
