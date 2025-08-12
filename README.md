@@ -48,7 +48,7 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
     };
     ```
 
-    the `messages` variable should be in openai's role/content format  
+    the `messages` variable should be in openai's role/content format (not all models support system prompts)
     ```javascript
     messages = [
         {
@@ -97,6 +97,24 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
         // ----------------------------------------------------
         console.log(`\n\completeResponse:\n${completeResponse}\n`); // ⇠ do stuff with the complete response
     }
+
+5. **NEW: Using the Converse API (optional)**
+    
+    You can now optionally use AWS Bedrock's Converse API instead of the Invoke API by passing `useConverseAPI: true` in the options parameter:
+    ```javascript
+    // Use the Converse API for unified request/response format across all models
+    for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { useConverseAPI: true })) {
+        completeResponse += chunk;
+        process.stdout.write(chunk);
+    }
+    ```
+    
+    The Converse API provides:
+    - **Consistent API**: Single request/response format across all models
+    - **Simplified conversation management**: Better handling of multi-turn conversations
+    - **System prompts**: Cleaner separation of system instructions
+    - **Tool use support**: Native support for function calling (where supported)
+    - **Unified multimodal**: Consistent handling of text and image inputs
 
 ---
 
@@ -150,7 +168,7 @@ Please modify the `bedrock_models.js` file and submit a PR 🏆 or create an Iss
 
 ### Image Support
 
-For models with image support (Claude 4 series, Claude 3.7 Sonnet, Claude 3.5 Sonnet, Claude 3 Haiku, Nova Pro, and Nova Lite), you can include images in your messages using the following format:
+For models with image support (Claude 4 series, Claude 3.7 Sonnet, Claude 3.5 Sonnet, Claude 3 Haiku, Nova Pro, and Nova Lite), you can include images in your messages using the following format (not all models support system prompts):
 
 ```javascript
 messages = [
@@ -235,6 +253,44 @@ const result = await bedrockWrapper(awsCreds, {
 // Response: "1, 2, 3, 4, 5, 6," (stops before "7")
 
 // Note: Llama models will ignore stop sequences due to AWS Bedrock limitations
+```
+
+---
+
+### 🧪 Testing
+
+The package includes comprehensive test suites to verify functionality:
+
+```bash
+# Test all models with the Both APIs (Comparison)
+npm run test
+
+# Test all models with the Invoke API
+npm run test:invoke
+
+# Test all models with the Converse API
+npm run test:converse
+
+# Test vision/multimodal capabilities with Both APIs (Comparison)
+npm run test-vision
+
+# Test vision/multimodal capabilities with Invoke API
+npm run test-vision:invoke
+
+# Test vision/multimodal capabilities with Converse API
+npm run test-vision:converse
+
+# Test stop sequences functionality with Both APIs (Comparison)
+npm run test-stop
+
+# Test stop sequences functionality with Invoke API
+npm run test-stop:invoke
+
+# Test stop sequences functionality with Converse API
+npm run test-stop:converse
+
+# Interactive testing
+npm run interactive
 ```
 
 ---

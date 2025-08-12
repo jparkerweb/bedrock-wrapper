@@ -72,8 +72,16 @@ const shouldStream = await new Promise((resolve) => {
     });
 });
 
+// Ask for API preference
+const useConverseAPI = await new Promise((resolve) => {
+    rl.question('\nUse Converse API instead of Invoke API? (Y/n): ', (answer) => {
+        resolve(answer.toLowerCase() !== 'n');
+    });
+});
+
 console.log(`\nUsing model: ${selectedModel}`);
-console.log(`Streaming: ${shouldStream ? 'enabled' : 'disabled'}\n`);
+console.log(`Streaming: ${shouldStream ? 'enabled' : 'disabled'}`);
+console.log(`API: ${useConverseAPI ? 'Converse API' : 'Invoke API'}\n`);
 
 const defaultPrompt = "Describe what the openai api standard used by lots of serverless LLM api providers is and why it has been widely adopted.";
 
@@ -90,18 +98,18 @@ const userPrompt = await new Promise((resolve) => {
 // -----------------------------------------------
 const messages = [
     {
-        role: "system",
-        content: "You are a helpful AI assistant that follows instructions extremely well. Answer the user questions accurately. Think step by step before answering the question.",
-    },
-    {
         role: "user",
         content: userPrompt,
     },
-    {
+];
+
+// Only add empty assistant message for Invoke API (Converse API handles this automatically)
+if (!useConverseAPI) {
+    messages.push({
         role: "assistant",
         content: "",
-    },
-];
+    });
+}
 
 
 // ---------------------------------------------------
@@ -133,7 +141,7 @@ const openaiChatCompletionsCreateObject = {
 let completeResponse = "";
 // streamed call
 if (openaiChatCompletionsCreateObject.stream) {
-    for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging:true })) {
+    for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging:true, useConverseAPI })) {
         completeResponse += chunk;
         // ---------------------------------------------------
         // -- each chunk is streamed as it is received here --
@@ -141,7 +149,7 @@ if (openaiChatCompletionsCreateObject.stream) {
         process.stdout.write(chunk); // ⇠ do stuff with the streamed chunk
     }
 } else { // unstreamed call
-    const response = await bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging:true });
+    const response = await bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { logging:true, useConverseAPI });
     for await (const data of response) {
         completeResponse += data;
     }

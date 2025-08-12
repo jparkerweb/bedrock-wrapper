@@ -1,6 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.5.0] - 2025-08-12 (Converse API)
+### Added
+- Support for Converse API (streaming and non-streaming)
+
+### Technical Details
+- **Model Configuration**: All models use standard messages API format
+- **API Compatibility**: Supports OpenAI-style requests
+- **Response Processing**: Automatic reasoning tag handling based on model variant
+- **Streaming Fallback**: Automatic detection and fallback to non-streaming for unsupported models
+- **Testing Coverage**: Full integration with existing test suites and interactive example
+
 ## [2.4.5] - 2025-08-06 (GPT-OSS Models)
 ### Added
 - Support for OpenAI GPT-OSS models on AWS Bedrock
