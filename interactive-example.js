@@ -98,10 +98,6 @@ const userPrompt = await new Promise((resolve) => {
 // -----------------------------------------------
 const messages = [
     {
-        role: "system",
-        content: "You are a helpful AI assistant that follows instructions extremely well. Answer the user questions accurately. Think step by step before answering the question.",
-    },
-    {
         role: "user",
         content: userPrompt,
     },

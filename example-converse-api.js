@@ -21,10 +21,6 @@ async function main() {
     // Example conversation with system prompt
     const messages = [
         {
-            role: "system",
-            content: "You are a helpful AI assistant. Be concise and clear in your responses."
-        },
-        {
             role: "user",
             content: "What are the benefits of using the Converse API over the Invoke API?"
         }

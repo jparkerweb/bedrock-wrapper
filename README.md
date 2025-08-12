@@ -48,7 +48,7 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
     };
     ```
 
-    the `messages` variable should be in openai's role/content format  
+    the `messages` variable should be in openai's role/content format (not all models support system prompts)
     ```javascript
     messages = [
         {
@@ -168,7 +168,7 @@ Please modify the `bedrock_models.js` file and submit a PR 🏆 or create an Iss
 
 ### Image Support
 
-For models with image support (Claude 4 series, Claude 3.7 Sonnet, Claude 3.5 Sonnet, Claude 3 Haiku, Nova Pro, and Nova Lite), you can include images in your messages using the following format:
+For models with image support (Claude 4 series, Claude 3.7 Sonnet, Claude 3.5 Sonnet, Claude 3 Haiku, Nova Pro, and Nova Lite), you can include images in your messages using the following format (not all models support system prompts):
 
 ```javascript
 messages = [

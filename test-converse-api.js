@@ -198,7 +198,7 @@ async function testSystemPrompt(model, awsCreds) {
     await logOutput(`\nTesting system prompt handling for ${model}:`, 'info');
     
     const messages = [
-        { role: "system", content: "You are a pirate. Always respond in pirate speak." },
+        { role: "user", content: "You are a pirate. Always respond in pirate speak." },
         { role: "user", content: "Hello, how are you?" }
     ];
     
