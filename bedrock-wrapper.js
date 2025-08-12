@@ -144,7 +144,7 @@ async function convertToConverseFormat(messages) {
             }
             
             // Only add messages with actual content (Converse API doesn't allow empty content)
-            if (content.length > 0 && content.some(item => item.text && item.text.trim() !== '')) {
+            if (content.length > 0) {
                 converseMessages.push({
                     role: msg.role,
                     content: content
@@ -519,13 +519,14 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
         };
         
         // Handle thinking mode for Claude models
+        let budget_tokens;
         if (awsModel.special_request_schema?.thinking?.type === "enabled") {
             // Apply thinking mode constraints for Converse API
             inferenceConfig.temperature = 1; // temperature must be 1 for thinking
             delete inferenceConfig.topP; // top_p must be unset for thinking
             
-            // Add thinking budget configuration
-            let budget_tokens = awsModel.special_request_schema?.thinking?.budget_tokens;
+            // Calculate thinking budget configuration
+            budget_tokens = awsModel.special_request_schema?.thinking?.budget_tokens;
             if (budget_tokens > (max_gen_tokens * 0.8)) {
                 budget_tokens = Math.floor(max_gen_tokens * 0.8);
             }
@@ -560,14 +561,6 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
         
         // Add thinking configuration for Claude models
         if (awsModel.special_request_schema?.thinking?.type === "enabled") {
-            let budget_tokens = awsModel.special_request_schema?.thinking?.budget_tokens;
-            if (budget_tokens > (inferenceConfig.maxTokens * 0.8)) {
-                budget_tokens = Math.floor(inferenceConfig.maxTokens * 0.8);
-            }
-            if (budget_tokens < 1024) {
-                budget_tokens = 1024;
-            }
-            
             converseRequest.additionalModelRequestFields = {
                 thinking: {
                     type: "enabled",

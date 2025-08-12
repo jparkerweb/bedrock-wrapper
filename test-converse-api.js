@@ -174,8 +174,9 @@ async function testStopSequences(model, awsCreds) {
         await logOutput(`  Converse API result: "${converseResponse.trim()}"`, 'info');
         await logOutput(`  Invoke API result: "${invokeResponse.trim()}"`, 'info');
         
-        const converseStoppedCorrectly = !converseResponse.includes("6, 7");
-        const invokeStoppedCorrectly = !invokeResponse.includes("6, 7");
+        // Stop sequence ["6"] should stop BEFORE outputting "6"
+        const converseStoppedCorrectly = !converseResponse.includes("6");
+        const invokeStoppedCorrectly = !invokeResponse.includes("6");
         
         if (converseStoppedCorrectly && invokeStoppedCorrectly) {
             await logOutput(`  ✓ Both APIs correctly applied stop sequences`, 'success');
