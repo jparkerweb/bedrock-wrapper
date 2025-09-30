@@ -60,7 +60,7 @@ Response: This is a beautifully atmospheric digital artwork depicting a magical 
 🔍 Both APIs successful for Claude-4-Opus-Thinking
 
 ------------------------------------------------------------
-Testing Claude-4.5-Sonnet ⇢
+Testing Claude-4-5-Sonnet ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
@@ -70,10 +70,10 @@ Response: This is an evocative digital illustration depicting a magical, atmosph
 ✓ Converse API: Success
 Response: This is an evocative digital illustration depicting a magical, atmospheric forest scene. The image shows two figures - what appears to be an adult and...
 
-🔍 Both APIs successful for Claude-4.5-Sonnet
+🔍 Both APIs successful for Claude-4-5-Sonnet
 
 ------------------------------------------------------------
-Testing Claude-4.5-Sonnet-Thinking ⇢
+Testing Claude-4-5-Sonnet-Thinking ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
@@ -87,7 +87,7 @@ Response: # Detailed Image Description
 
 This is an atmospheric, beautifully illustrated scene depicting two figures from behind - an adult wearing a long, dark ...
 
-🔍 Both APIs successful for Claude-4.5-Sonnet-Thinking
+🔍 Both APIs successful for Claude-4-5-Sonnet-Thinking
 
 ------------------------------------------------------------
 Testing Claude-4-Sonnet ⇢

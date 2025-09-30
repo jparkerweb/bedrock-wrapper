@@ -39,7 +39,7 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
     ```javascript
     const openaiChatCompletionsCreateObject = {
         "messages": messages,
-        "model": "Claude-4.5-Sonnet",
+        "model": "Claude-4-5-Sonnet",
         "max_tokens": LLM_MAX_GEN_TOKENS,
         "stream": true,
         "temperature": LLM_TEMPERATURE,
@@ -126,8 +126,8 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 | Claude-4-1-Opus-Thinking   | us.anthropic.claude-opus-4-1-20250805-v1:0   |  ✅  |
 | Claude-4-Opus              | us.anthropic.claude-opus-4-20250514-v1:0     |  ✅  |
 | Claude-4-Opus-Thinking     | us.anthropic.claude-opus-4-20250514-v1:0     |  ✅  |
-| Claude-4.5-Sonnet          | us.anthropic.claude-sonnet-4-5-20250929-v1:0 |  ✅  |
-| Claude-4.5-Sonnet-Thinking | us.anthropic.claude-sonnet-4-5-20250929-v1:0 |  ✅  |
+| Claude-4-5-Sonnet          | us.anthropic.claude-sonnet-4-5-20250929-v1:0 |  ✅  |
+| Claude-4-5-Sonnet-Thinking | us.anthropic.claude-sonnet-4-5-20250929-v1:0 |  ✅  |
 | Claude-4-Sonnet            | us.anthropic.claude-sonnet-4-20250514-v1:0   |  ✅  |
 | Claude-4-Sonnet-Thinking   | us.anthropic.claude-sonnet-4-20250514-v1:0   |  ✅  |
 | Claude-3-7-Sonnet-Thinking | us.anthropic.claude-3-7-sonnet-20250219-v1:0 |  ✅  |
@@ -266,7 +266,7 @@ Some AWS Bedrock models have specific parameter restrictions that are automatica
 #### Claude 4+ Models (Temperature/Top-P Mutual Exclusion)
 
 **Affected Models:**
-- Claude-4.5-Sonnet & Claude-4.5-Sonnet-Thinking
+- Claude-4-5-Sonnet & Claude-4-5-Sonnet-Thinking
 - Claude-4-Sonnet & Claude-4-Sonnet-Thinking  
 - Claude-4-Opus & Claude-4-Opus-Thinking
 - Claude-4-1-Opus & Claude-4-1-Opus-Thinking
@@ -281,7 +281,7 @@ Some AWS Bedrock models have specific parameter restrictions that are automatica
 ```javascript
 const request = {
     messages: [{ role: "user", content: "Hello" }],
-    model: "Claude-4.5-Sonnet",
+    model: "Claude-4-5-Sonnet",
     temperature: 0.7,  // ✅ Kept
     top_p: 0.9         // ❌ Automatically removed
 };

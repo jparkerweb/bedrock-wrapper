@@ -130,7 +130,7 @@ export const bedrock_models = [
         // =======================
         // == Claude 4.5 Sonnet ==
         // =======================
-        "modelName":                     "Claude-4.5-Sonnet",
+        "modelName":                     "Claude-4-5-Sonnet",
         // "modelId":                       "anthropic.claude-sonnet-4-5-20250929-v1:0",
         "modelId":                       "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
         "vision":                        true,
@@ -161,7 +161,7 @@ export const bedrock_models = [
         // ================================
         // == Claude 4.5 Sonnet Thinking ==
         // ================================
-        "modelName":                     "Claude-4.5-Sonnet-Thinking",
+        "modelName":                     "Claude-4-5-Sonnet-Thinking",
         // "modelId":                       "anthropic.claude-sonnet-4-5-20250929-v1:0",
         "modelId":                       "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
         "vision":                        true,

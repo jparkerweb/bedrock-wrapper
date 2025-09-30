@@ -68,7 +68,7 @@ Two"
 🔍 Both APIs successful for Claude-4-Opus-Thinking
 
 ------------------------------------------------------------
-Testing Claude-4.5-Sonnet ⇢
+Testing Claude-4-5-Sonnet ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API Streaming: "Two"
@@ -77,10 +77,10 @@ Testing Claude-4.5-Sonnet ⇢
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "Two"
 ✓ Converse API Non-streaming: "Two"
-🔍 Both APIs successful for Claude-4.5-Sonnet
+🔍 Both APIs successful for Claude-4-5-Sonnet
 
 ------------------------------------------------------------
-Testing Claude-4.5-Sonnet-Thinking ⇢
+Testing Claude-4-5-Sonnet-Thinking ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API Streaming: "<think>The user is asking me what 1+1 equals, and they want me to respond with exactly one word. 
@@ -107,7 +107,7 @@ Two"
 So I should respond with "Two" or "2". Since they asked for one word, I'll use "Two".</think>
 
 Two"
-🔍 Both APIs successful for Claude-4.5-Sonnet-Thinking
+🔍 Both APIs successful for Claude-4-5-Sonnet-Thinking
 
 ------------------------------------------------------------
 Testing Claude-4-Sonnet ⇢
