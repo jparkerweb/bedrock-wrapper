@@ -127,6 +127,72 @@ export const bedrock_models = [
         }
     },
     {
+        // =======================
+        // == Claude 4.5 Sonnet ==
+        // =======================
+        "modelName":                     "Claude-4.5-Sonnet",
+        // "modelId":                       "anthropic.claude-sonnet-4-5-20250929-v1:0",
+        "modelId":                       "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+        "vision":                        true,
+        "messages_api":                  true,
+        "system_as_separate_field":      true,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 131072,
+        "stop_sequences_param_name":     "stop_sequences",
+        "response_chunk_element":        "delta.text",
+        "response_nonchunk_element":     "content[0].text",
+        "thinking_response_chunk_element": "delta.thinking",
+        "thinking_response_nonchunk_element": "content[0].thinking",
+        "parameter_restrictions": {
+            "mutually_exclusive": [["temperature", "top_p"]]
+        },
+        "special_request_schema": {
+            "anthropic_version": "bedrock-2023-05-31",
+            "anthropic_beta": ["output-128k-2025-02-19"],
+        },
+        "image_support": {
+            "max_image_size": 20971520, // 20MB
+            "supported_formats": ["jpeg", "png", "gif", "webp"],
+            "max_images_per_request": 10
+        }
+    },
+    {
+        // ================================
+        // == Claude 4.5 Sonnet Thinking ==
+        // ================================
+        "modelName":                     "Claude-4.5-Sonnet-Thinking",
+        // "modelId":                       "anthropic.claude-sonnet-4-5-20250929-v1:0",
+        "modelId":                       "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+        "vision":                        true,
+        "messages_api":                  true,
+        "system_as_separate_field":      true,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 131072,
+        "stop_sequences_param_name":     "stop_sequences",
+        "response_chunk_element":        "delta.text",
+        "response_nonchunk_element":     "content[0].text",
+        "thinking_response_chunk_element": "delta.thinking",
+        "thinking_response_nonchunk_element": "content[0].thinking",
+        "parameter_restrictions": {
+            "mutually_exclusive": [["temperature", "top_p"]]
+        },
+        "special_request_schema": {
+            "anthropic_version": "bedrock-2023-05-31",
+            "anthropic_beta": ["output-128k-2025-02-19"],
+            "thinking": {
+                "type": "enabled",
+                "budget_tokens": 16000
+            },
+        },
+        "image_support": {
+            "max_image_size": 20971520, // 20MB
+            "supported_formats": ["jpeg", "png", "gif", "webp"],
+            "max_images_per_request": 10
+        }
+    },
+    {
         // =====================
         // == Claude 4 Sonnet ==
         // =====================
@@ -144,6 +210,9 @@ export const bedrock_models = [
         "response_nonchunk_element":     "content[0].text",
         "thinking_response_chunk_element": "delta.thinking",
         "thinking_response_nonchunk_element": "content[0].thinking",
+        "parameter_restrictions": {
+            "mutually_exclusive": [["temperature", "top_p"]]
+        },
         "special_request_schema": {
             "anthropic_version": "bedrock-2023-05-31",
             "anthropic_beta": ["output-128k-2025-02-19"],
@@ -172,6 +241,9 @@ export const bedrock_models = [
         "response_nonchunk_element":     "content[0].text",
         "thinking_response_chunk_element": "delta.thinking",
         "thinking_response_nonchunk_element": "content[0].thinking",
+        "parameter_restrictions": {
+            "mutually_exclusive": [["temperature", "top_p"]]
+        },
         "special_request_schema": {
             "anthropic_version": "bedrock-2023-05-31",
             "anthropic_beta": ["output-128k-2025-02-19"],

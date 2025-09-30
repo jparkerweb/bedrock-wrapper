@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.6.0] - 2025-09-30 (Claude Sonnet 4.5)
+### Added
+- Support for Claude Sonnet 4.5 models
+  - Claude-4-5-Sonnet
+  - Claude-4-5-Sonnet-Thinking
+
 ## [2.5.0] - 2025-08-12 (Converse API)
 ### Added
 - Support for Converse API (streaming and non-streaming)

@@ -1,5 +1,5 @@
 AWS Bedrock Converse API Test Results
-Test started at: 2025-08-12T20:06:27.639Z
+Test started at: 2025-09-30T22:40:58.312Z
 ============================================================
 
 Starting Converse API tests with 9 representative models...
@@ -11,17 +11,17 @@ Testing Claude-4-1-Opus
 ============================================================
 
 Comparing STREAMING responses for Claude-4-1-Opus:
-  Invoke API (3383ms): "The capital of France is Paris...."
-  Converse API (3377ms): "The capital of France is Paris...."
+  Invoke API (3313ms): "The capital of France is Paris...."
+  Converse API (3443ms): "The capital of France is Paris...."
   ✓ Both APIs returned valid responses
 
 Comparing NON-STREAMING responses for Claude-4-1-Opus:
-  Invoke API (3539ms): "The capital of France is Paris...."
-  Converse API (3413ms): "The capital of France is Paris...."
+  Invoke API (3002ms): "The capital of France is Paris...."
+  Converse API (3103ms): "The capital of France is Paris...."
   ✓ Both APIs returned valid responses
 
 Testing system prompt handling for Claude-4-1-Opus:
-  Converse API response: "Ahoy there, matey! I be doin' fine as rum on a calm sea, thank ye fer askin'! The winds be fair and ..."
+  Converse API response: "Ahoy there, matey! I be doin' mighty fine on this fair day, thank ye for askin'! The seas be calm, m..."
   ✓ System prompt was correctly applied
 
 Testing stop sequences for Claude-4-1-Opus:
@@ -36,17 +36,17 @@ Testing Claude-3-5-Sonnet-v2
 ============================================================
 
 Comparing STREAMING responses for Claude-3-5-Sonnet-v2:
-  Invoke API (549ms): "Paris is the capital of France...."
-  Converse API (541ms): "Paris is the capital of France...."
+  Invoke API (675ms): "Paris is the capital of France...."
+  Converse API (555ms): "Paris is the capital of France...."
   ✓ Both APIs returned valid responses
 
 Comparing NON-STREAMING responses for Claude-3-5-Sonnet-v2:
-  Invoke API (707ms): "Paris is the capital of France...."
-  Converse API (647ms): "Paris is the capital of France...."
+  Invoke API (1006ms): "Paris is the capital of France...."
+  Converse API (616ms): "Paris is the capital of France...."
   ✓ Both APIs returned valid responses
 
 Testing system prompt handling for Claude-3-5-Sonnet-v2:
-  Converse API response: "Yarr, ahoy there matey! I be as right as rain on a fair wind day! Me timbers be shiverin' with joy t..."
+  Converse API response: "Yarr, ahoy there matey! I be doin' right fine, with fair winds and calm seas today. Me crew and I ju..."
   ✓ System prompt was correctly applied
 
 Testing stop sequences for Claude-3-5-Sonnet-v2:
@@ -61,17 +61,17 @@ Testing Claude-3-Haiku
 ============================================================
 
 Comparing STREAMING responses for Claude-3-Haiku:
-  Invoke API (477ms): "The capital of France is Paris...."
-  Converse API (894ms): "The capital of France is Paris...."
+  Invoke API (388ms): "The capital of France is Paris...."
+  Converse API (356ms): "The capital of France is Paris...."
   ✓ Both APIs returned valid responses
 
 Comparing NON-STREAMING responses for Claude-3-Haiku:
-  Invoke API (468ms): "The capital of France is Paris...."
-  Converse API (505ms): "The capital of France is Paris...."
+  Invoke API (957ms): "The capital of France is Paris...."
+  Converse API (337ms): "The capital of France is Paris...."
   ✓ Both APIs returned valid responses
 
 Testing system prompt handling for Claude-3-Haiku:
-  Converse API response: "Ahoy, matey! Ye be askin' how this ol' pirate be doin'? Well, I be feelin' as salty as the sea itsel..."
+  Converse API response: "Ahoy, matey! Ye be askin' how this scurvy dog be doin'? Why, I be feelin' as fit as a fiddle, ready ..."
   ✓ System prompt was correctly applied
 
 Testing stop sequences for Claude-3-Haiku:
@@ -86,21 +86,21 @@ Testing Nova-Pro
 ============================================================
 
 Comparing STREAMING responses for Nova-Pro:
-  Invoke API (843ms): "1. **Identify the country in question**:  The question asks about the capital of France.
+  Invoke API (735ms): "1. **Identify the country in question**:  The question asks for the capital of France.
 
-2. **Recal..."
-  Converse API (358ms): "The capital of France is Paris...."
+2. **Recall ..."
+  Converse API (419ms): "The capital of France is Paris...."
   ✓ Both APIs returned valid responses
 
 Comparing NON-STREAMING responses for Nova-Pro:
-  Invoke API (1619ms): "1. **Identify the country in question**:  The question asks for the capital of France.
+  Invoke API (704ms): "1. **Identify the country in question**:  The question asks for the capital of France.
 
 2. **Recall ..."
   Converse API (337ms): "The capital of France is Paris...."
   ✓ Both APIs returned valid responses
 
 Testing system prompt handling for Nova-Pro:
-  Converse API response: "Ahoy, matey! I be doin' fine, thank ye fer askin'. The sea be callin' an' me heart be light. How be ..."
+  Converse API response: "Ahoy, matey! I be doin' fine, thank ye fer askin'. The sea be callin' an' me heart be light. What be..."
   ✓ System prompt was correctly applied
 
 Testing stop sequences for Nova-Pro:
@@ -108,7 +108,8 @@ Testing stop sequences for Nova-Pro:
 
 1, 2, 3, 4, 5, 6"
   Invoke API result: "1, 2, 3, 4, 5, 6"
-  ✓ Both APIs correctly applied stop sequences
+  ⚠ Converse API did not stop correctly
+  ⚠ Invoke API did not stop correctly
 
 ✓ All tests passed for Nova-Pro
 
@@ -117,21 +118,20 @@ Testing Nova-Lite
 ============================================================
 
 Comparing STREAMING responses for Nova-Lite:
-  Invoke API (433ms): "1. Identify the country in question: France.
+  Invoke API (480ms): "1. Identify the country in question: France.
 2. Recall or search for the capital of France.
 3. Provi..."
-  Converse API (322ms): "The capital of France is Paris...."
+  Converse API (304ms): "The capital of France is Paris...."
   ✓ Both APIs returned valid responses
 
 Comparing NON-STREAMING responses for Nova-Lite:
-  Invoke API (445ms): "1. Identify the country in question: France.
-2. Recall or search for the capital of France.
-3. Provi..."
-  Converse API (292ms): "The capital of France is Paris...."
+  Invoke API (534ms): "1. Identify the country in question: France.
+2. Recall the capital of France, which is a well-known ..."
+  Converse API (289ms): "The capital of France is Paris...."
   ✓ Both APIs returned valid responses
 
 Testing system prompt handling for Nova-Lite:
-  Converse API response: "Ahoy, matey! I be doin' well, thankin' the seas an' the wind. How be ye farin' on this fine day? Arr..."
+  Converse API response: "Ahoy there! How be ye holdin' up, matey? The sea be treatin' us well today, but the wind be as fierc..."
   ✓ System prompt was correctly applied
 
 Testing stop sequences for Nova-Lite:
@@ -139,7 +139,8 @@ Testing stop sequences for Nova-Lite:
 
 1, 2, 3, 4, 5, 6"
   Invoke API result: "1, 2, 3, 4, 5, 6"
-  ✓ Both APIs correctly applied stop sequences
+  ⚠ Converse API did not stop correctly
+  ⚠ Invoke API did not stop correctly
 
 ✓ All tests passed for Nova-Lite
 
@@ -148,17 +149,17 @@ Testing Nova-Micro
 ============================================================
 
 Comparing STREAMING responses for Nova-Micro:
-  Invoke API (321ms): "The capital of France is Paris...."
-  Converse API (309ms): "The capital of France is Paris...."
+  Invoke API (282ms): "The capital of France is Paris...."
+  Converse API (278ms): "The capital of France is Paris...."
   ✓ Both APIs returned valid responses
 
 Comparing NON-STREAMING responses for Nova-Micro:
-  Invoke API (312ms): "The capital of France is Paris...."
-  Converse API (302ms): "The capital of France is Paris...."
+  Invoke API (244ms): "The capital of France is Paris...."
+  Converse API (271ms): "The capital of France is Paris...."
   ✓ Both APIs returned valid responses
 
 Testing system prompt handling for Nova-Micro:
-  Converse API response: "Arrr, matey! I be fair an' square, though me heart be heavy with the weight o' the sea. How be ye to..."
+  Converse API response: "Arrr, 'ello there, matey! I be fair to middlin', thank ye fer askin'. How be the tides treatin' ye? ..."
   ✓ System prompt was correctly applied
 
 Testing stop sequences for Nova-Micro:
@@ -166,7 +167,8 @@ Testing stop sequences for Nova-Micro:
 
 1, 2, 3, 4, 5, 6"
   Invoke API result: "1, 2, 3, 4, 5, 6"
-  ✓ Both APIs correctly applied stop sequences
+  ⚠ Converse API did not stop correctly
+  ⚠ Invoke API did not stop correctly
 
 ✓ All tests passed for Nova-Micro
 
@@ -175,17 +177,17 @@ Testing Llama-3-3-70b
 ============================================================
 
 Comparing STREAMING responses for Llama-3-3-70b:
-  Invoke API (326ms): "The capital of France is Paris...."
-  Converse API (440ms): "The capital of France is Paris...."
+  Invoke API (389ms): "The capital of France is Paris...."
+  Converse API (388ms): "The capital of France is Paris...."
   ✓ Both APIs returned valid responses
 
 Comparing NON-STREAMING responses for Llama-3-3-70b:
-  Invoke API (406ms): "The capital of France is Paris...."
-  Converse API (398ms): "The capital of France is Paris...."
+  Invoke API (401ms): "The capital of France is Paris...."
+  Converse API (372ms): "The capital of France is Paris...."
   ✓ Both APIs returned valid responses
 
 Testing system prompt handling for Llama-3-3-70b:
-  Converse API response: "Yer lookin' fer a chat, eh? Alright then, matey! I be doin' just fine, thank ye fer askin'. Me and m..."
+  Converse API response: "Arrrr, me hearty! Yer lookin' fer a chat, eh? Well, I be feelin' ship-shape, thank ye fer askin'! Me..."
   ✓ System prompt was correctly applied
 
 ✓ All tests passed for Llama-3-3-70b
@@ -195,5 +197,49 @@ Testing Llama-3-2-90b
 ============================================================
 
 Comparing STREAMING responses for Llama-3-2-90b:
-  Invoke API (421ms): "The capital of France is Paris...."
-  Converse API (413ms): "The capital of France is Paris...."
+  Invoke API (593ms): "The capital of France is Paris...."
+  Converse API (514ms): "The capital of France is Paris...."
+  ✓ Both APIs returned valid responses
+
+Comparing NON-STREAMING responses for Llama-3-2-90b:
+  Invoke API (512ms): "The capital of France is Paris...."
+  Converse API (340ms): "The capital of France is Paris...."
+  ✓ Both APIs returned valid responses
+
+Testing system prompt handling for Llama-3-2-90b:
+  Converse API response: "Arrrr, me hearty. I be doin' just fine, thank ye for askin'. Me sea legs be strong and me cutlass be..."
+  ✓ System prompt was correctly applied
+
+✓ All tests passed for Llama-3-2-90b
+
+============================================================
+Testing Mistral-7b
+============================================================
+
+Comparing STREAMING responses for Mistral-7b:
+  Invoke API (249ms): "The capital city of France is Paris...."
+  Converse API (235ms): "The capital city of France is Paris...."
+  ✓ Both APIs returned valid responses
+
+Comparing NON-STREAMING responses for Mistral-7b:
+  Invoke API (341ms): "The capital city of France is Paris...."
+  Converse API (228ms): "The capital city of France is Paris...."
+  ✓ Both APIs returned valid responses
+
+Testing system prompt handling for Mistral-7b:
+  Converse API response: " Ahoy there, landlubber! Me hearty self bein' as fit as a fiddle, an' me spirits be high as a jolly ..."
+  ✓ System prompt was correctly applied
+
+Testing stop sequences for Mistral-7b:
+  Converse API result: "I'd be happy to help you with that! Here's the sequence you requested: 1, 2, 3, 4, 5. Let me know if you need any assistance with anything else. Have a great day!"
+  Invoke API result: "I'd be happy to help you with that! Here's the sequence you requested: 1, 2, 3, 4, 5. Let me know if there's anything else I can assist you with."
+  ✓ Both APIs correctly applied stop sequences
+
+✓ All tests passed for Mistral-7b
+
+============================================================
+TEST SUMMARY
+============================================================
+Models tested: 9
+Passed: 9
+Failed: 0
