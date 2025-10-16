@@ -288,6 +288,57 @@ function buildInvokePrompt(message_cleaned, awsModel) {
     }
 }
 
+// Apply parameter restrictions for models that have them
+function applyParameterRestrictions(params, awsModel) {
+    if (!awsModel.parameter_restrictions) {
+        return params;
+    }
+
+    const restrictions = awsModel.parameter_restrictions;
+    
+    // Handle mutually exclusive parameters
+    if (restrictions.mutually_exclusive) {
+        for (const exclusiveGroup of restrictions.mutually_exclusive) {
+            // Check for both top_p and topP variants
+            const presentParams = exclusiveGroup.filter(param => {
+                if (param === 'top_p') {
+                    return (params['top_p'] !== undefined && params['top_p'] !== null) ||
+                           (params['topP'] !== undefined && params['topP'] !== null);
+                }
+                return params[param] !== undefined && params[param] !== null;
+            });
+            
+            if (presentParams.length > 1) {
+                // Keep the first parameter and remove others
+                // For temperature/top_p, prioritize temperature as it's more commonly used
+                const priorityOrder = ['temperature', 'top_p'];
+                const sortedParams = presentParams.sort((a, b) => {
+                    const aIndex = priorityOrder.indexOf(a);
+                    const bIndex = priorityOrder.indexOf(b);
+                    if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+                    if (aIndex !== -1) return -1;
+                    if (bIndex !== -1) return 1;
+                    return 0;
+                });
+                
+                // Keep the first (highest priority) parameter, remove others
+                for (let i = 1; i < sortedParams.length; i++) {
+                    const paramToRemove = sortedParams[i];
+                    if (paramToRemove === 'top_p') {
+                        // Remove both variants
+                        delete params['top_p'];
+                        delete params['topP'];
+                    } else {
+                        delete params[paramToRemove];
+                    }
+                }
+            }
+        }
+    }
+    
+    return params;
+}
+
 // Build request object for Invoke API (model-specific)
 function buildInvokeRequest(prompt, awsModel, max_gen_tokens, temperature, top_p, stop_sequences, stop, system_message) {
     if (awsModel.messages_api) {
@@ -328,17 +379,24 @@ function buildInvokeRequest(prompt, awsModel, max_gen_tokens, temperature, top_p
             });
             
             const stopSequencesValue = stop_sequences || stop;
+            
+            // Build inference config with parameter restrictions
+            let inferenceConfig = {
+                [awsModel.max_tokens_param_name]: max_gen_tokens,
+                temperature: temperature,
+                topP: top_p,
+                ...(awsModel.stop_sequences_param_name && stopSequencesValue && {
+                    [awsModel.stop_sequences_param_name]: Array.isArray(stopSequencesValue) ? stopSequencesValue : [stopSequencesValue]
+                })
+            };
+            
+            // Apply parameter restrictions
+            inferenceConfig = applyParameterRestrictions(inferenceConfig, awsModel);
+            
             const novaRequest = {
                 ...awsModel.special_request_schema,
                 messages: novaMessages,
-                inferenceConfig: {
-                    [awsModel.max_tokens_param_name]: max_gen_tokens,
-                    temperature: temperature,
-                    topP: top_p,
-                    ...(awsModel.stop_sequences_param_name && stopSequencesValue && {
-                        [awsModel.stop_sequences_param_name]: Array.isArray(stopSequencesValue) ? stopSequencesValue : [stopSequencesValue]
-                    })
-                }
+                inferenceConfig: inferenceConfig
             };
             
             // Add system message if present
@@ -350,7 +408,9 @@ function buildInvokeRequest(prompt, awsModel, max_gen_tokens, temperature, top_p
         } else {
             // Standard messages API format (Claude, etc.)
             const stopSequencesValue = stop_sequences || stop;
-            return {
+            
+            // Build request with parameter restrictions
+            let request = {
                 messages: prompt,
                 ...(awsModel.system_as_separate_field && system_message && { system: system_message }),
                 [awsModel.max_tokens_param_name]: max_gen_tokens,
@@ -361,9 +421,15 @@ function buildInvokeRequest(prompt, awsModel, max_gen_tokens, temperature, top_p
                 }),
                 ...awsModel.special_request_schema
             };
+            
+            // Apply parameter restrictions
+            request = applyParameterRestrictions(request, awsModel);
+            
+            return request;
         }
     } else {
-        return {
+        // Build request for non-messages API models (Llama, etc.)
+        let request = {
             prompt: typeof prompt === 'string' ? prompt : {
                 messages: prompt.map(msg => ({
                     role: msg.role,
@@ -386,6 +452,11 @@ function buildInvokeRequest(prompt, awsModel, max_gen_tokens, temperature, top_p
             })(),
             ...awsModel.special_request_schema
         };
+        
+        // Apply parameter restrictions
+        request = applyParameterRestrictions(request, awsModel);
+        
+        return request;
     }
 }
 
@@ -512,11 +583,14 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
         const { messages: converseMessages, system: systemPrompts } = await convertToConverseFormat(messages);
         
         // Build inference configuration (handle thinking mode for Claude models)
-        const inferenceConfig = {
+        let inferenceConfig = {
             maxTokens: max_gen_tokens,
             temperature: temperature,
             ...(top_p !== undefined && { topP: top_p })
         };
+        
+        // Apply parameter restrictions for Converse API
+        inferenceConfig = applyParameterRestrictions(inferenceConfig, awsModel);
         
         // Handle thinking mode for Claude models
         let budget_tokens;

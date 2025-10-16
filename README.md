@@ -39,7 +39,7 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
     ```javascript
     const openaiChatCompletionsCreateObject = {
         "messages": messages,
-        "model": "Llama-3-1-8b",
+        "model": "Claude-4-5-Sonnet",
         "max_tokens": LLM_MAX_GEN_TOKENS,
         "stream": true,
         "temperature": LLM_TEMPERATURE,
@@ -126,6 +126,10 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 | Claude-4-1-Opus-Thinking   | us.anthropic.claude-opus-4-1-20250805-v1:0   |  ✅  |
 | Claude-4-Opus              | us.anthropic.claude-opus-4-20250514-v1:0     |  ✅  |
 | Claude-4-Opus-Thinking     | us.anthropic.claude-opus-4-20250514-v1:0     |  ✅  |
+| Claude-4-5-Sonnet          | us.anthropic.claude-sonnet-4-5-20250929-v1:0 |  ✅  |
+| Claude-4-5-Sonnet-Thinking | us.anthropic.claude-sonnet-4-5-20250929-v1:0 |  ✅  |
+| Claude-4-5-Haiku           | us.anthropic.claude-haiku-4-5-20251001-v1:0  |  ✅  |
+| Claude-4-5-Haiku-Thinking  | us.anthropic.claude-haiku-4-5-20251001-v1:0  |  ✅  |
 | Claude-4-Sonnet            | us.anthropic.claude-sonnet-4-20250514-v1:0   |  ✅  |
 | Claude-4-Sonnet-Thinking   | us.anthropic.claude-sonnet-4-20250514-v1:0   |  ✅  |
 | Claude-3-7-Sonnet-Thinking | us.anthropic.claude-3-7-sonnet-20250219-v1:0 |  ✅  |
@@ -168,7 +172,7 @@ Please modify the `bedrock_models.js` file and submit a PR 🏆 or create an Iss
 
 ### Image Support
 
-For models with image support (Claude 4 series, Claude 3.7 Sonnet, Claude 3.5 Sonnet, Claude 3 Haiku, Nova Pro, and Nova Lite), you can include images in your messages using the following format (not all models support system prompts):
+For models with image support (Claude 4+ series including Claude 4.5 Sonnet, Claude 4.5 Haiku, Claude 3.7 Sonnet, Claude 3.5 Sonnet, Claude 3 Haiku, Nova Pro, and Nova Lite), you can include images in your messages using the following format (not all models support system prompts):
 
 ```javascript
 messages = [
@@ -254,6 +258,42 @@ const result = await bedrockWrapper(awsCreds, {
 
 // Note: Llama models will ignore stop sequences due to AWS Bedrock limitations
 ```
+
+---
+
+### Parameter Restrictions
+
+Some AWS Bedrock models have specific parameter restrictions that are automatically handled by the wrapper:
+
+#### Claude 4+ Models (Temperature/Top-P Mutual Exclusion)
+
+**Affected Models:**
+- Claude-4-5-Sonnet & Claude-4-5-Sonnet-Thinking
+- Claude-4-5-Haiku & Claude-4-5-Haiku-Thinking
+- Claude-4-Sonnet & Claude-4-Sonnet-Thinking
+- Claude-4-Opus & Claude-4-Opus-Thinking
+- Claude-4-1-Opus & Claude-4-1-Opus-Thinking
+
+**Restriction:** These models cannot accept both `temperature` and `top_p` parameters simultaneously.
+
+**Automatic Handling:** When both parameters are provided, the wrapper automatically:
+1. **Keeps `temperature`** (prioritized as more commonly used)
+2. **Removes `top_p`** to prevent validation errors
+3. **Works with both APIs** (Invoke API and Converse API)
+
+```javascript
+const request = {
+    messages: [{ role: "user", content: "Hello" }],
+    model: "Claude-4-5-Sonnet",
+    temperature: 0.7,  // ✅ Kept
+    top_p: 0.9         // ❌ Automatically removed
+};
+
+// No error thrown - wrapper handles the restriction automatically
+const response = await bedrockWrapper(awsCreds, request);
+```
+
+**Why This Happens:** AWS Bedrock enforces this restriction on newer Claude models to ensure optimal performance and prevent conflicting sampling parameters.
 
 ---
 

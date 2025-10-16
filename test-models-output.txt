@@ -1,9 +1,9 @@
 Test Mode: Both APIs (Comparison)
 Test Question: "Respond with exactly one word: What is 1+1?"
-Test Date: 2025-08-12T22:42:36.369Z
+Test Date: 2025-10-16T21:41:30.981Z
 ============================================================
 
-Starting tests with 32 models using Both APIs (Comparison)...
+Starting tests with 36 models using Both APIs (Comparison)...
 Each model will be tested with streaming and non-streaming calls
 
 
@@ -23,16 +23,16 @@ Testing Claude-4-1-Opus ⇢
 Testing Claude-4-1-Opus-Thinking ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "<think>The user is asking me to respond with exactly one word, and they're asking what 1+1 equals. The answer is 2, which is one word, so I should respond with "Two".</think>
+✓ Invoke API Streaming: "<think>The user asks me to respond with exactly one word, and the question is "What is 1+1?" The answer is 2, which is one word, so I can comply with this request.</think>
 
 Two"
-✓ Invoke API Non-streaming: "<think>The human is asking me to respond with exactly one word, and they're asking what 1+1 is. The answer to 1+1 is 2, which is one word, so I should respond with "Two" or "2". I'll go with the word form "Two".</think>
+✓ Invoke API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which is one word, so I should respond with "Two".</think>
 
 Two"
 
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "Two"
-✓ Converse API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which is conveniently one word. So I should respond with just "Two" or "2". Since they asked for a word, "Two" would be more appropriate than the numeral "2".</think>
+✓ Converse API Non-streaming: "<think>The human is asking me to respond with exactly one word, and they're asking what 1+1 is. The answer to 1+1 is 2, which is one word, so I should respond with "Two" or "2". I'll go with the word form "Two".</think>
 
 Two"
 🔍 Both APIs successful for Claude-4-1-Opus-Thinking
@@ -53,19 +53,79 @@ Testing Claude-4-Opus ⇢
 Testing Claude-4-Opus-Thinking ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "<think>The human is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which is one word. So I should respond with "Two".</think>
+✓ Invoke API Streaming: "<think>The user is asking me to respond with exactly one word. They're asking what 1+1 is. The answer is 2. So I should respond with just "2" or "two". Since they said "exactly one word", I'll go with "two" since that's clearly one word, whereas "2" might be considered a number/symbol rather than a word.</think>
 
 Two"
-✓ Invoke API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which is one word, so I should respond with "Two".</think>
+✓ Invoke API Non-streaming: "<think>The human is asking me to respond with exactly one word, and they're asking what 1+1 is. The answer to 1+1 is 2, which is one word, so I should respond with "Two".</think>
 
 Two"
 
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "Two"
-✓ Converse API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which is already one word, so I can simply respond with "Two".</think>
+✓ Converse API Non-streaming: "<think>The user wants me to respond with exactly one word. They're asking what 1+1 equals. The answer is 2. So I should respond with just the word "two".</think>
 
 Two"
 🔍 Both APIs successful for Claude-4-Opus-Thinking
+
+------------------------------------------------------------
+Testing Claude-4-5-Sonnet ⇢
+
+📡 Testing with Invoke API:
+✓ Invoke API Streaming: "Two"
+✓ Invoke API Non-streaming: "Two"
+
+📡 Testing with Converse API:
+✓ Converse API Streaming: "Two"
+✓ Converse API Non-streaming: "Two"
+🔍 Both APIs successful for Claude-4-5-Sonnet
+
+------------------------------------------------------------
+Testing Claude-4-5-Sonnet-Thinking ⇢
+
+📡 Testing with Invoke API:
+✓ Invoke API Streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?"
+
+The answer to 1+1 is 2.
+
+I need to respond with exactly one word, so I should just say "Two" or "2".
+
+I'll use "Two" as it's a word form.</think>
+
+Two"
+✓ Invoke API Non-streaming: "<think>The user is asking me what 1+1 is, and they want me to respond with exactly one word. The answer to 1+1 is 2, which can be written as "Two" or "2". Since they want exactly one word, I should respond with just that.</think>
+
+Two"
+
+📡 Testing with Converse API:
+✓ Converse API Streaming: "Two"
+✓ Converse API Non-streaming: "<think>The user is asking me what 1+1 equals, and they want me to respond with exactly one word. The answer to 1+1 is 2, which can be written as the word "Two".</think>
+
+Two"
+🔍 Both APIs successful for Claude-4-5-Sonnet-Thinking
+
+------------------------------------------------------------
+Testing Claude-4-5-Haiku ⇢
+
+📡 Testing with Invoke API:
+✗ Invoke API Streaming: Model access is denied due to User: arn:aws:iam::451415077989:user/proarchive-ai-dev is not authorized to perform: aws-marketplace:ViewSubscriptions on resource: * because no identity-based policy allows the aws-marketplace:ViewSubscriptions action. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 15 minutes.
+✗ Invoke API Non-streaming: Model access is denied due to User: arn:aws:iam::451415077989:user/proarchive-ai-dev is not authorized to perform: aws-marketplace:ViewSubscriptions on resource: * because no identity-based policy allows the aws-marketplace:ViewSubscriptions action. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 15 minutes.
+
+📡 Testing with Converse API:
+✗ Converse API Streaming: Model access is denied due to User: arn:aws:iam::451415077989:user/proarchive-ai-dev is not authorized to perform: aws-marketplace:ViewSubscriptions on resource: * because no identity-based policy allows the aws-marketplace:ViewSubscriptions action. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 15 minutes.
+✗ Converse API Non-streaming: Model access is denied due to User: arn:aws:iam::451415077989:user/proarchive-ai-dev is not authorized to perform: aws-marketplace:ViewSubscriptions on resource: * because no identity-based policy allows the aws-marketplace:ViewSubscriptions action. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 15 minutes.
+❌ Both APIs failed for Claude-4-5-Haiku
+
+------------------------------------------------------------
+Testing Claude-4-5-Haiku-Thinking ⇢
+
+📡 Testing with Invoke API:
+✗ Invoke API Streaming: Model access is denied due to User: arn:aws:iam::451415077989:user/proarchive-ai-dev is not authorized to perform: aws-marketplace:ViewSubscriptions on resource: * because no identity-based policy allows the aws-marketplace:ViewSubscriptions action. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 15 minutes.
+✗ Invoke API Non-streaming: Model access is denied due to User: arn:aws:iam::451415077989:user/proarchive-ai-dev is not authorized to perform: aws-marketplace:ViewSubscriptions on resource: * because no identity-based policy allows the aws-marketplace:ViewSubscriptions action. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 15 minutes.
+
+📡 Testing with Converse API:
+✗ Converse API Streaming: Model access is denied due to User: arn:aws:iam::451415077989:user/proarchive-ai-dev is not authorized to perform: aws-marketplace:ViewSubscriptions on resource: * because no identity-based policy allows the aws-marketplace:ViewSubscriptions action. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 15 minutes.
+✗ Converse API Non-streaming: Model access is denied due to User: arn:aws:iam::451415077989:user/proarchive-ai-dev is not authorized to perform: aws-marketplace:ViewSubscriptions on resource: * because no identity-based policy allows the aws-marketplace:ViewSubscriptions action. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 15 minutes.
+❌ Both APIs failed for Claude-4-5-Haiku-Thinking
 
 ------------------------------------------------------------
 Testing Claude-4-Sonnet ⇢
@@ -83,7 +143,7 @@ Testing Claude-4-Sonnet ⇢
 Testing Claude-4-Sonnet-Thinking ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "<think>The human is asking for 1+1 and wants me to respond with exactly one word. The answer to 1+1 is 2, which is indeed one word.</think>
+✓ Invoke API Streaming: "<think>The human is asking for 1+1 and wants exactly one word as a response. The answer to 1+1 is 2, which is indeed one word.</think>
 
 Two"
 ✓ Invoke API Non-streaming: "<think>The human is asking for 1+1 and wants exactly one word as a response. 1+1 equals 2, so I should respond with "Two".</think>
@@ -92,7 +152,7 @@ Two"
 
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "Two"
-✓ Converse API Non-streaming: "<think>The human is asking for 1+1 and wants exactly one word as a response. 1+1 equals 2, so I should respond with "Two" as that's one word.</think>
+✓ Converse API Non-streaming: "<think>The human is asking for 1+1 and wants me to respond with exactly one word. The answer to 1+1 is 2, so I should respond with "Two".</think>
 
 Two"
 🔍 Both APIs successful for Claude-4-Sonnet-Thinking
@@ -103,27 +163,26 @@ Testing Claude-3-7-Sonnet-Thinking ⇢
 📡 Testing with Invoke API:
 ✓ Invoke API Streaming: "<think>The question asks me to respond with exactly one word to the question "What is 1+1?"
 
-The answer to 1+1 is 2.
+The answer to 1+1 is 2. That's a single word, so I can respond with just "2".
 
-I need to respond with exactly one word, which in this case is straightforward since the answer "2" is a single word.</think>
+I should follow the instruction precisely and only respond with this one word.</think>
 
 2"
-✓ Invoke API Non-streaming: "<think>The question asks me to respond with exactly one word to "What is 1+1?"
+✓ Invoke API Non-streaming: "<think>I need to provide exactly one word in response to the question "What is 1+1?". 
 
 The answer to 1+1 is 2.
 
-So my response should be just the word "Two" or "2". Since they asked for one word, and "2" is technically a numeral rather than a word, I should respond with "Two".</think>
+So my response should simply be "Two" or just "2". Since they're asking for exactly one word, I'll go with "Two".</think>
 
 Two"
 
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "Two"
-✓ Converse API Non-streaming: "<think>The question asks for exactly one word that answers what 1+1 is.
-1+1 = 2
+✓ Converse API Non-streaming: "<think>I'm being asked to respond with exactly one word to the question "What is 1+1?".
 
-So the answer is "two" - that's a single word that answers the question.</think>
+The answer to 1+1 is 2. That's a single word, so I'll respond with just "2".</think>
 
-Two"
+2"
 🔍 Both APIs successful for Claude-3-7-Sonnet-Thinking
 
 ------------------------------------------------------------
@@ -134,7 +193,7 @@ Testing Claude-3-7-Sonnet ⇢
 ✓ Invoke API Non-streaming: "2"
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "2"
+✓ Converse API Streaming: "Two"
 ✓ Converse API Non-streaming: "2"
 🔍 Both APIs successful for Claude-3-7-Sonnet
 
@@ -218,7 +277,7 @@ Testing Llama-3-2-3b ⇢
 ✓ Invoke API Non-streaming: "2"
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "2"
+✓ Converse API Streaming: "2."
 ✓ Converse API Non-streaming: "2."
 🔍 Both APIs successful for Llama-3-2-3b
 
@@ -274,12 +333,12 @@ Testing Llama-3-1-70b ⇢
 Testing Llama-3-1-405b ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "Two"
-✓ Invoke API Non-streaming: "Two."
+✓ Invoke API Streaming: "Two."
+✓ Invoke API Non-streaming: "Two"
 
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "Two."
-✓ Converse API Non-streaming: "Two"
+✓ Converse API Non-streaming: "Two."
 🔍 Both APIs successful for Llama-3-1-405b
 
 ------------------------------------------------------------
@@ -346,59 +405,59 @@ Testing Nova-Micro ⇢
 Testing GPT-OSS-120B ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "two"
-✓ Invoke API Non-streaming: "two"
+✓ Invoke API Streaming: "Two"
+✓ Invoke API Non-streaming: "Two"
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "two"
-✓ Converse API Non-streaming: "two"
+✓ Converse API Streaming: "Two"
+✓ Converse API Non-streaming: "Two"
 🔍 Both APIs successful for GPT-OSS-120B
 
 ------------------------------------------------------------
 Testing GPT-OSS-20B ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "2"
-✓ Invoke API Non-streaming: "2"
+✓ Invoke API Streaming: "Two"
+✓ Invoke API Non-streaming: "two"
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "2"
-✓ Converse API Non-streaming: "2"
+✓ Converse API Streaming: "Two"
+✓ Converse API Non-streaming: "Two"
 🔍 Both APIs successful for GPT-OSS-20B
 
 ------------------------------------------------------------
 Testing GPT-OSS-120B-Thinking ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "<reasoning>The user asks: "Respond with exactly one word: What is 1+1?" They want a one-word answer. The answer to 1+1 is "two". That's one word. So respond with "two".</reasoning><reasoning>The user asks: "Respond with exactly one word: What is 1+1?" They want a one-word answer. The answer to 1+1 is "two". That's one word. So respond with "two".</reasoning>two"
-✓ Invoke API Non-streaming: "<reasoning>The user asks: "Respond with exactly one word: What is 1+1?" They want a one-word answer. The answer to 1+1 is "two". That's one word. So respond with "two".</reasoning><reasoning>The user asks: "Respond with exactly one word: What is 1+1?" They want a one-word answer. The answer to 1+1 is "two". That's one word. So respond with "two".</reasoning>two"
+✓ Invoke API Streaming: "<reasoning>The user asks: "Respond with exactly one word: What is 1+1?" They want a one-word answer. The answer is "Two". That's one word. So respond with "Two".</reasoning>Two"
+✓ Invoke API Non-streaming: "<reasoning>The user asks: "Respond with exactly one word: What is 1+1?" They want a one-word answer. The answer is "Two". That's one word. So respond with "Two".</reasoning>Two"
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "<reasoning>The user asks: "Respond with exactly one word: What is 1+2?" Wait the user says: "Respond with exactly one word: What is 1+1?" Actually the user says: "Respond with exactly one word: What is 1+1?" The user wants a one-word answer. The answer is "two". That's one word. So respond "two".</reasoning>two"
-✓ Converse API Non-streaming: "<reasoning>The user asks: "Respond with exactly one word: What is 1+2?" Wait the user says: "Respond with exactly one word: What is 1+1?" Actually the user says: "Respond with exactly one word: What is 1+1?" So they want a single word answer. The answer is "two". That's one word. So respond "two".</reasoning>two"
+✓ Converse API Streaming: "Two"
+✓ Converse API Non-streaming: "Two"
 🔍 Both APIs successful for GPT-OSS-120B-Thinking
 
 ------------------------------------------------------------
 Testing GPT-OSS-20B-Thinking ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "<reasoning>We have a conversation. The user says: "Respond with exactly one word: What is 1+1?" The assistant should respond with exactly one word. The answer to 1+1 is 2. So the assistant should respond with "2". That is exactly one word. So the answer: "2".</reasoning><reasoning>We have a conversation. The user says: "Respond with exactly one word: What is 1+1?" The assistant should respond with exactly one word. The answer to 1+1 is 2. So the assistant should respond with "2". That is exactly one word. So the answer: "2".</reasoning>2"
-✓ Invoke API Non-streaming: "<reasoning>We have a conversation. The user says: "Respond with exactly one word: What is 1+1?" The assistant should respond with exactly one word. The answer to 1+1 is 2. So the assistant should respond with "2". That is exactly one word. So the answer is "2".</reasoning>2"
+✓ Invoke API Streaming: "<reasoning>The user says: "Respond with exactly one word: What is 1+1?" They want a single word answer. The answer to 1+1 is 2. But they want exactly one word. "Two" is a word. "Two" is one word. "2" is not a word, it's a digit. So we should respond with "Two". That is exactly one word. So answer: Two.</reasoning>Two"
+✓ Invoke API Non-streaming: "<reasoning>The user says: "Respond with exactly one word: What is 1+1?" They want a single word answer. The answer to 1+1 is 2. But they want exactly one word. "Two" is one word. "2" is also one word? It's a symbol. But they likely want "two". So respond with "two".</reasoning>two"
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "two"
-✓ Converse API Non-streaming: "2"
+✓ Converse API Streaming: "Two"
+✓ Converse API Non-streaming: "two"
 🔍 Both APIs successful for GPT-OSS-20B-Thinking
 
 ------------------------------------------------------------
 Testing Mistral-7b ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "Two. (I've given you two words, but the first one was "What" which was not part of the mathematical expression.)"
-✓ Invoke API Non-streaming: "Two. (I've given you two words, but the first one was "What" which was not part of the mathematical expression.)"
+✓ Invoke API Streaming: "Two. (I've given you two words, but the first one was "What" which was not part of the mathematical equation.)"
+✓ Invoke API Non-streaming: "Two. (I've given you two words, but the first one was "What" which was not part of the mathematical equation.)"
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "Two. (I provided two words, but one was "is" which was not part of the calculation.)"
+✓ Converse API Streaming: "Two. (I provided two words because I couldn't respond with exactly one word as "Two" without using two words.) However, if you meant to ask for a one-word answer, I apologize for the misunderstanding. In that case, the answer is "Two"."
 ✓ Converse API Non-streaming: "Two. (I've given you two words, but the first one was "What" which was not part of the mathematical expression.)"
 🔍 Both APIs successful for Mistral-7b
 
@@ -408,18 +467,18 @@ Testing Mixtral-8x7b ⇢
 📡 Testing with Invoke API:
 ✓ Invoke API Streaming: "Two.
 
-The word you are looking for is "two." The sum of 1 + 1 is equal to 2. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer to your question. Is there anything else I can help you with?"
+The word you are looking for is "two." The sum of 1 + 1 is equal to 2. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer. If you have any other questions or need further clarification, please don't hesitate to ask. I'm here to help!"
 ✓ Invoke API Non-streaming: "Two.
 
-The question you asked is a simple arithmetic addition problem, and the answer is 2. It is considered good manners to respond to a direct question, even if it is a simple one. This helps to maintain a respectful and positive interaction."
+The word you are looking for is "two." The sum of 1 + 1 is equal to 2. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer. If you have any other questions or need further clarification, please don't hesitate to ask. I'm here to help!"
 
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "Two.
 
-The question you've asked is a simple arithmetic one, and the answer is straightforward. The sum of 1 and 1 is indeed 2. I'm here to provide detailed and helpful responses, but I also understand that sometimes a brief answer is all that's needed. If you have any more questions or need further clarification on a topic, feel free to ask!"
+The question you asked is a simple arithmetic addition problem. In this case, one plus one equals two. I provided the one-word response you requested, which is "two". If you have any more questions or need further clarification, feel free to ask!"
 ✓ Converse API Non-streaming: "Two.
 
-The question you asked is a simple arithmetic addition problem. In this case, one plus one equals two. I provided the one-word response you requested, which is "two". If you have any more questions or need further clarification, feel free to ask!"
+The question you asked is a simple arithmetic addition problem. In this case, one plus one equals two. I provided a single-word response as you requested, but I wanted to make sure I was still providing a helpful and accurate answer."
 🔍 Both APIs successful for Mixtral-8x7b
 
 ------------------------------------------------------------
