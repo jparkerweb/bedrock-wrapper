@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Bedrock Wrapper (v2.5.0) is an npm package that translates OpenAI-compatible API objects to AWS Bedrock's serverless inference LLMs. It supports 32+ models including Claude, Nova, GPT-OSS, Llama, and Mistral families with features like vision support, thinking modes, and stop sequences.
+Bedrock Wrapper (v2.6.2) is an npm package that translates OpenAI-compatible API objects to AWS Bedrock's serverless inference LLMs. It supports 40 models including Claude, Nova, GPT-OSS, Llama, Mistral, and Qwen families with features like vision support, thinking modes, and stop sequences.
 
 ## Core Architecture
 
@@ -92,7 +92,7 @@ Required fields in bedrock-models.js:
 - `modelName`: Consumer-facing name
 - `modelId`: AWS Bedrock identifier
 - `vision`: Boolean for image support
-- `messages_api`: Boolean (true for Claude/Nova/GPT-OSS, false for prompt-based)
+- `messages_api`: Boolean (true for Claude/Nova/GPT-OSS/Qwen, false for prompt-based)
 - `response_chunk_element`: JSON path for streaming responses
 - `response_nonchunk_element`: JSON path for non-streaming responses
 - `special_request_schema`: Model-specific requirements
@@ -124,6 +124,7 @@ Required fields in bedrock-models.js:
 | Nova        | ✅      | stopSequences | 4 |
 | GPT-OSS     | ✅      | stop_sequences | TBD |
 | Mistral     | ✅      | stop | 10 |
+| Qwen        | ✅      | stop | TBD |
 | Llama       | ❌      | N/A | N/A |
 
 ### Test Files Output

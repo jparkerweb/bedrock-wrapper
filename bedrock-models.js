@@ -978,4 +978,72 @@ export const bedrock_models = [
         "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "outputs[0].text"
     },
+    {
+        // ================
+        // == Qwen3-32B ==
+        // ================
+        "modelName":                     "Qwen3-32B",
+        "modelId":                       "alibaba.qwen3-32b-instruct-v1:0",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 32768,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+    {
+        // =========================
+        // == Qwen3-Coder-30B-A3B ==
+        // =========================
+        "modelName":                     "Qwen3-Coder-30B-A3B",
+        "modelId":                       "alibaba.qwen3-coder-30b-a3b-instruct-v1:0",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 32768,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+    {
+        // ==========================
+        // == Qwen3-235B-A22B-2507 ==
+        // ==========================
+        "modelName":                     "Qwen3-235B-A22B-2507",
+        "modelId":                       "alibaba.qwen3-235b-a22b-instruct-2507-v1:0",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 32768,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+    {
+        // ===========================
+        // == Qwen3-Coder-480B-A35B ==
+        // ===========================
+        "modelName":                     "Qwen3-Coder-480B-A35B",
+        "modelId":                       "alibaba.qwen3-coder-480b-a35b-instruct-v1:0",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 32768,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
 ];
