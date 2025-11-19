@@ -115,52 +115,57 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
     - **Tool use support**: Native support for function calling (where supported)
     - **Unified multimodal**: Consistent handling of text and image inputs
 
+    **Note**: Some models only support the Converse API and will automatically use it regardless of the `useConverseAPI` flag:
+    - DeepSeek-V3.1
+
 ---
 
 ### Supported Models
 
 | modelName                  | AWS Model Id                                 | Image |
 |----------------------------|----------------------------------------------|-------|
-| Claude-4-1-Opus            | us.anthropic.claude-opus-4-1-20250805-v1:0   |  ✅  |
-| Claude-4-1-Opus-Thinking   | us.anthropic.claude-opus-4-1-20250805-v1:0   |  ✅  |
+| Claude-3-5-Haiku           | anthropic.claude-3-5-haiku-20241022-v1:0     |  ❌  |
+| Claude-3-5-Sonnet          | anthropic.claude-3-5-sonnet-20240620-v1:0    |  ✅  |
+| Claude-3-5-Sonnet-v2       | anthropic.claude-3-5-sonnet-20241022-v2:0    |  ✅  |
+| Claude-3-7-Sonnet          | us.anthropic.claude-3-7-sonnet-20250219-v1:0 |  ✅  |
+| Claude-3-7-Sonnet-Thinking | us.anthropic.claude-3-7-sonnet-20250219-v1:0 |  ✅  |
+| Claude-3-Haiku             | anthropic.claude-3-haiku-20240307-v1:0       |  ✅  |
 | Claude-4-Opus              | us.anthropic.claude-opus-4-20250514-v1:0     |  ✅  |
 | Claude-4-Opus-Thinking     | us.anthropic.claude-opus-4-20250514-v1:0     |  ✅  |
-| Claude-4-5-Sonnet          | us.anthropic.claude-sonnet-4-5-20250929-v1:0 |  ✅  |
-| Claude-4-5-Sonnet-Thinking | us.anthropic.claude-sonnet-4-5-20250929-v1:0 |  ✅  |
-| Claude-4-5-Haiku           | us.anthropic.claude-haiku-4-5-20251001-v1:0  |  ✅  |
-| Claude-4-5-Haiku-Thinking  | us.anthropic.claude-haiku-4-5-20251001-v1:0  |  ✅  |
 | Claude-4-Sonnet            | us.anthropic.claude-sonnet-4-20250514-v1:0   |  ✅  |
 | Claude-4-Sonnet-Thinking   | us.anthropic.claude-sonnet-4-20250514-v1:0   |  ✅  |
-| Claude-3-7-Sonnet-Thinking | us.anthropic.claude-3-7-sonnet-20250219-v1:0 |  ✅  |
-| Claude-3-7-Sonnet          | us.anthropic.claude-3-7-sonnet-20250219-v1:0 |  ✅  |
-| Claude-3-5-Sonnet-v2       | anthropic.claude-3-5-sonnet-20241022-v2:0    |  ✅  |
-| Claude-3-5-Sonnet          | anthropic.claude-3-5-sonnet-20240620-v1:0    |  ✅  |
-| Claude-3-5-Haiku           | anthropic.claude-3-5-haiku-20241022-v1:0     |  ❌  |
-| Claude-3-Haiku             | anthropic.claude-3-haiku-20240307-v1:0       |  ✅  |
-| Nova-Pro                   | us.amazon.nova-pro-v1:0                      |  ✅  |
-| Nova-Lite                  | us.amazon.nova-lite-v1:0                     |  ✅  |
-| Nova-Micro                 | us.amazon.nova-micro-v1:0                    |  ❌  |
+| Claude-4-1-Opus            | us.anthropic.claude-opus-4-1-20250805-v1:0   |  ✅  |
+| Claude-4-1-Opus-Thinking   | us.anthropic.claude-opus-4-1-20250805-v1:0   |  ✅  |
+| Claude-4-5-Haiku           | us.anthropic.claude-haiku-4-5-20251001-v1:0  |  ✅  |
+| Claude-4-5-Haiku-Thinking  | us.anthropic.claude-haiku-4-5-20251001-v1:0  |  ✅  |
+| Claude-4-5-Sonnet          | us.anthropic.claude-sonnet-4-5-20250929-v1:0 |  ✅  |
+| Claude-4-5-Sonnet-Thinking | us.anthropic.claude-sonnet-4-5-20250929-v1:0 |  ✅  |
+| DeepSeek-R1                | us.deepseek.r1-v1:0                          |  ❌  |
+| DeepSeek-V3.1              | deepseek.v3-v1:0                             |  ❌  |
 | GPT-OSS-120B               | openai.gpt-oss-120b-1:0                      |  ❌  |
 | GPT-OSS-120B-Thinking      | openai.gpt-oss-120b-1:0                      |  ❌  |
 | GPT-OSS-20B                | openai.gpt-oss-20b-1:0                       |  ❌  |
 | GPT-OSS-20B-Thinking       | openai.gpt-oss-20b-1:0                       |  ❌  |
-| Llama-3-3-70b              | us.meta.llama3-3-70b-instruct-v1:0           |  ❌  |
+| Llama-3-8b                 | meta.llama3-8b-instruct-v1:0                 |  ❌  |
+| Llama-3-70b                | meta.llama3-70b-instruct-v1:0                |  ❌  |
+| Llama-3-1-8b               | meta.llama3-1-8b-instruct-v1:0               |  ❌  |
+| Llama-3-1-70b              | meta.llama3-1-70b-instruct-v1:0              |  ❌  |
+| Llama-3-1-405b             | meta.llama3-1-405b-instruct-v1:0             |  ❌  |
 | Llama-3-2-1b               | us.meta.llama3-2-1b-instruct-v1:0            |  ❌  |
 | Llama-3-2-3b               | us.meta.llama3-2-3b-instruct-v1:0            |  ❌  |
 | Llama-3-2-11b              | us.meta.llama3-2-11b-instruct-v1:0           |  ❌  |
 | Llama-3-2-90b              | us.meta.llama3-2-90b-instruct-v1:0           |  ❌  |
-| Llama-3-1-8b               | meta.llama3-1-8b-instruct-v1:0               |  ❌  |
-| Llama-3-1-70b              | meta.llama3-1-70b-instruct-v1:0              |  ❌  |
-| Llama-3-1-405b             | meta.llama3-1-405b-instruct-v1:0             |  ❌  |
-| Llama-3-8b                 | meta.llama3-8b-instruct-v1:0                 |  ❌  |
-| Llama-3-70b                | meta.llama3-70b-instruct-v1:0                |  ❌  |
+| Llama-3-3-70b              | us.meta.llama3-3-70b-instruct-v1:0           |  ❌  |
 | Mistral-7b                 | mistral.mistral-7b-instruct-v0:2             |  ❌  |
 | Mixtral-8x7b               | mistral.mixtral-8x7b-instruct-v0:1           |  ❌  |
 | Mistral-Large              | mistral.mistral-large-2402-v1:0              |  ❌  |
-| Qwen3-32B                  | alibaba.qwen3-32b-instruct-v1:0              |  ❌  |
-| Qwen3-Coder-30B-A3B        | alibaba.qwen3-coder-30b-a3b-instruct-v1:0    |  ❌  |
-| Qwen3-235B-A22B-2507       | alibaba.qwen3-235b-a22b-instruct-2507-v1:0   |  ❌  |
-| Qwen3-Coder-480B-A35B      | alibaba.qwen3-coder-480b-a35b-instruct-v1:0  |  ❌  |
+| Nova-Micro                 | us.amazon.nova-micro-v1:0                    |  ❌  |
+| Nova-Lite                  | us.amazon.nova-lite-v1:0                     |  ✅  |
+| Nova-Pro                   | us.amazon.nova-pro-v1:0                      |  ✅  |
+| Qwen3-32B                  | qwen.qwen3-32b-v1:0                          |  ❌  |
+| Qwen3-235B-A22B-2507       | qwen.qwen3-235b-a22b-2507-v1:0               |  ❌  |
+| Qwen3-Coder-30B-A3B        | qwen.qwen3-coder-30b-a3b-v1:0                |  ❌  |
+| Qwen3-Coder-480B-A35B      | qwen.qwen3-coder-480b-a35b-v1:0              |  ❌  |
 
 To return the list progrmatically you can import and call `listBedrockWrapperSupportedModels`:  
 ```javascript
@@ -170,6 +175,39 @@ console.log(`\nsupported models:\n${JSON.stringify(await listBedrockWrapperSuppo
 
 Additional Bedrock model support can be added.  
 Please modify the `bedrock_models.js` file and submit a PR 🏆 or create an Issue.
+
+---
+
+### Thinking Models
+
+Some models support extended reasoning capabilities through "thinking mode". These models include:
+- **Claude models**: Claude-4-1-Opus-Thinking, Claude-4-Opus-Thinking, Claude-4-5-Sonnet-Thinking, Claude-4-5-Haiku-Thinking, Claude-4-Sonnet-Thinking, Claude-3-7-Sonnet-Thinking
+- **GPT-OSS models**: GPT-OSS-120B-Thinking, GPT-OSS-20B-Thinking
+
+To use thinking mode and see the model's reasoning process, set `include_thinking_data: true` in your request:
+
+```javascript
+const openaiChatCompletionsCreateObject = {
+    "messages": messages,
+    "model": "Claude-4-5-Sonnet-Thinking",
+    "max_tokens": 4000,
+    "stream": true,
+    "temperature": 1.0, // Thinking models require temperature of 1.0
+    "include_thinking_data": true // Enable thinking output
+};
+
+let completeResponse = "";
+for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject)) {
+    completeResponse += chunk;
+    process.stdout.write(chunk); // Shows both thinking and response
+}
+```
+
+**Features:**
+- Thinking content appears in `<think>...</think>` tags for Claude models
+- Thinking content appears in `<reasoning>...</reasoning>` tags for GPT-OSS models
+- Temperature is automatically set to 1.0 for optimal thinking performance
+- Budget tokens are automatically calculated based on max_tokens
 
 ---
 
@@ -311,6 +349,12 @@ npm run test-stop:invoke
 
 # Test stop sequences functionality with Converse API
 npm run test-stop:converse
+
+# Test Converse API specifically
+npm run test-converse
+
+# Run all test suites
+npm run test:all
 
 # Interactive testing
 npm run interactive
