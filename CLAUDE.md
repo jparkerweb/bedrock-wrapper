@@ -82,8 +82,7 @@ AWS_REGION=us-west-2
 AWS_ACCESS_KEY_ID=your_access_key
 AWS_SECRET_ACCESS_KEY=your_secret_key
 LLM_MAX_GEN_TOKENS=1024
-LLM_TEMPERATURE=0.1
-LLM_TOP_P=0.9
+LLM_TEMPERATURE=0.2
 ```
 
 ## Adding New Models
@@ -100,11 +99,17 @@ Required fields in bedrock-models.js:
 
 ## Critical Implementation Details
 
+### Converse API Only Models
+Some models only support the Converse API and will automatically use it regardless of the `useConverseAPI` flag:
+- DeepSeek-V3.1
+
+These models have `converse_api_only: true` in their configuration and the wrapper automatically forces `useConverseAPI = true` for them.
+
 ### Converse API Thinking Support
 - Thinking configuration added via `additionalModelRequestFields`
 - Response thinking data extracted from `reasoningContent.reasoningText.text`
 - Budget tokens calculated with constraints: 1024 <= budget_tokens <= (maxTokens * 0.8)
-- Temperature forced to 1.0, top_p removed for thinking models
+- Temperature forced to 1.0 for thinking models
 
 ### Nova Models Special Handling
 - Detect via `special_request_schema.schemaVersion === "messages-v1"`

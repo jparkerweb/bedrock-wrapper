@@ -32,7 +32,6 @@ async function main() {
         max_tokens: 500,
         stream: true, // Can be true or false
         temperature: 0.7,
-        top_p: 0.9,
         stop: ["END", "STOP"] // Optional stop sequences
     };
 
@@ -80,8 +79,7 @@ async function main() {
         model: "Claude-3-Haiku",
         max_tokens: 50,
         stream: false,
-        temperature: 0.1,
-        top_p: 0.9
+        temperature: 0.1
     };
 
     // Test with Invoke API

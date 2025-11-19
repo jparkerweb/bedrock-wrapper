@@ -43,7 +43,6 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
         "max_tokens": LLM_MAX_GEN_TOKENS,
         "stream": true,
         "temperature": LLM_TEMPERATURE,
-        "top_p": LLM_TOP_P,
         "stop_sequences": ["STOP", "END"], // Optional: sequences that will stop generation
     };
     ```
@@ -278,27 +277,6 @@ Some AWS Bedrock models have specific parameter restrictions that are automatica
 - Claude-4-Sonnet & Claude-4-Sonnet-Thinking
 - Claude-4-Opus & Claude-4-Opus-Thinking
 - Claude-4-1-Opus & Claude-4-1-Opus-Thinking
-
-**Restriction:** These models cannot accept both `temperature` and `top_p` parameters simultaneously.
-
-**Automatic Handling:** When both parameters are provided, the wrapper automatically:
-1. **Keeps `temperature`** (prioritized as more commonly used)
-2. **Removes `top_p`** to prevent validation errors
-3. **Works with both APIs** (Invoke API and Converse API)
-
-```javascript
-const request = {
-    messages: [{ role: "user", content: "Hello" }],
-    model: "Claude-4-5-Sonnet",
-    temperature: 0.7,  // ✅ Kept
-    top_p: 0.9         // ❌ Automatically removed
-};
-
-// No error thrown - wrapper handles the restriction automatically
-const response = await bedrockWrapper(awsCreds, request);
-```
-
-**Why This Happens:** AWS Bedrock enforces this restriction on newer Claude models to ensure optimal performance and prevent conflicting sampling parameters.
 
 ---
 

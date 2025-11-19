@@ -1,6 +1,6 @@
 Vision Test Results - Both APIs (Comparison)
 Test Question: "What's in this image? Please describe it in detail."
-Test Date: 2025-10-16T21:47:23.822Z
+Test Date: 2025-11-19T04:24:58.315Z
 ============================================================
 
 Starting vision tests with 17 models using Both APIs (Comparison)...
@@ -12,11 +12,11 @@ Testing Claude-4-1-Opus ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This is a beautifully atmospheric digital artwork depicting a magical forest scene. In the foreground, two silhouetted figures stand at the edge of a ...
+Response: This image depicts a mystical, atmospheric forest scene rendered in what appears to be a digital painting or illustration style. The composition shows...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This is a beautifully atmospheric digital artwork depicting a magical forest scene. In the image, two silhouetted figures - an adult and a child - sta...
+Response: This is a beautifully atmospheric digital artwork depicting a magical forest scene. In the image, two silhouetted figures - an adult and a small child...
 
 🔍 Both APIs successful for Claude-4-1-Opus
 
@@ -25,11 +25,11 @@ Testing Claude-4-1-Opus-Thinking ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This is a beautifully atmospheric illustration depicting two silhouetted figures - an adult and a child - standing at the edge of what appears to be a...
+Response: This is a beautifully atmospheric fantasy illustration depicting two silhouetted figures - an adult and a child - standing at the edge of a mystical f...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This is a beautifully atmospheric digital illustration depicting a mystical forest scene. In the image, two silhouetted figures - an adult and a child...
+Response: This is a beautifully atmospheric digital illustration depicting two figures - an adult and a child - standing at the edge of what appears to be a mis...
 
 🔍 Both APIs successful for Claude-4-1-Opus-Thinking
 
@@ -38,11 +38,11 @@ Testing Claude-4-Opus ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This image depicts a mystical, atmospheric forest scene rendered in what appears to be a digital painting or illustration style. The composition shows...
+Response: This image depicts a mystical, atmospheric forest scene with two silhouetted figures - an adult and a child - standing at the edge of a misty body of ...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This image depicts a mystical, atmospheric forest scene with two silhouetted figures - an adult and a child - standing at the edge of a serene body of...
+Response: This image depicts a mystical, atmospheric forest scene with two silhouetted figures - an adult and a child - standing by what appears to be a pond or...
 
 🔍 Both APIs successful for Claude-4-Opus
 
@@ -51,11 +51,11 @@ Testing Claude-4-Opus-Thinking ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This is a beautifully atmospheric digital artwork depicting a magical forest scene. In the foreground, we see two silhouetted figures - an adult and a...
+Response: This is a beautifully atmospheric fantasy illustration showing two silhouetted figures - an adult and a small child - standing together at the edge of...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This is a beautifully atmospheric digital artwork depicting two figures - an adult and a child - standing at the edge of what appears to be a mystical...
+Response: This is a beautifully atmospheric digital artwork depicting a magical forest scene. The image shows two silhouetted figures - what appears to be an ad...
 
 🔍 Both APIs successful for Claude-4-Opus-Thinking
 
@@ -64,11 +64,11 @@ Testing Claude-4-5-Sonnet ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This is an evocative digital illustration depicting a mystical forest scene. Two figures, appearing to be an adult and a child both wearing dark cloak...
+Response: This is an evocative digital illustration depicting a mystical forest scene. Two figures, appearing to be an adult and a child, stand with their backs...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This is an evocative digital illustration depicting a mysterious, atmospheric forest scene. The image shows two figures - what appears to be an adult ...
+Response: This is a beautifully atmospheric digital illustration depicting two figures, likely a parent and child, standing together in an enchanted forest sett...
 
 🔍 Both APIs successful for Claude-4-5-Sonnet
 
@@ -79,17 +79,15 @@ Testing Claude-4-5-Sonnet-Thinking ⇢
 ✓ Invoke API: Success
 Response: # Detailed Image Description
 
-This is an atmospheric, beautifully illustrated scene depicting **two figures in a mystical forest setting**.
-
-## Main S...
+This is a beautifully atmospheric digital illustration depicting a mystical forest scene with a distinctly enchanting qu...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
 Response: # Detailed Image Description
 
-This is an atmospheric, artistic illustration depicting a mystical forest scene. Here are the key elements:
+This is a beautifully atmospheric digital illustration depicting a magical forest scene. Here are the key elements:
 
-## Main Sub...
+## ...
 
 🔍 Both APIs successful for Claude-4-5-Sonnet-Thinking
 
@@ -97,18 +95,18 @@ This is an atmospheric, artistic illustration depicting a mystical forest scene.
 Testing Claude-4-5-Haiku ⇢
 
 📡 Testing with Invoke API:
-✗ Invoke API: Model access is denied due to User: arn:aws:iam::451415077989:user/proarchive-ai-dev is not authorized to perform: aws-marketplace:ViewSubscriptions on resource: * because no identity-based policy allows the aws-marketplace:ViewSubscriptions action. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 15 minutes.
+✗ Invoke API: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 15 minutes.
 📡 Testing with Converse API:
-✗ Converse API: Model access is denied due to User: arn:aws:iam::451415077989:user/proarchive-ai-dev is not authorized to perform: aws-marketplace:ViewSubscriptions on resource: * because no identity-based policy allows the aws-marketplace:ViewSubscriptions action. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 15 minutes.
+✗ Converse API: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 15 minutes.
 ❌ Both APIs failed for Claude-4-5-Haiku
 
 ------------------------------------------------------------
 Testing Claude-4-5-Haiku-Thinking ⇢
 
 📡 Testing with Invoke API:
-✗ Invoke API: Model access is denied due to User: arn:aws:iam::451415077989:user/proarchive-ai-dev is not authorized to perform: aws-marketplace:ViewSubscriptions on resource: * because no identity-based policy allows the aws-marketplace:ViewSubscriptions action. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 15 minutes.
+✗ Invoke API: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 15 minutes.
 📡 Testing with Converse API:
-✗ Converse API: Model access is denied due to User: arn:aws:iam::451415077989:user/proarchive-ai-dev is not authorized to perform: aws-marketplace:ViewSubscriptions on resource: * because no identity-based policy allows the aws-marketplace:ViewSubscriptions action. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 15 minutes.
+✗ Converse API: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 15 minutes.
 ❌ Both APIs failed for Claude-4-5-Haiku-Thinking
 
 ------------------------------------------------------------
@@ -116,11 +114,11 @@ Testing Claude-4-Sonnet ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This is a beautifully atmospheric digital artwork depicting a mystical forest scene. The image shows two silhouetted figures - what appears to be an a...
+Response: This is a beautifully atmospheric digital artwork depicting a magical forest scene. In the image, two figures - what appears to be an adult and a chil...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This is an atmospheric, fantasy-style illustration depicting two figures walking through a mystical forest setting. The scene shows what appears to be...
+Response: This is a beautifully atmospheric digital artwork depicting a mystical forest scene. The image shows two silhouetted figures - what appears to be an a...
 
 🔍 Both APIs successful for Claude-4-Sonnet
 
@@ -129,11 +127,11 @@ Testing Claude-4-Sonnet-Thinking ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This is a beautifully atmospheric digital illustration depicting a magical forest scene. The image shows two silhouetted figures - an adult and a chil...
+Response: This is a beautifully atmospheric illustration depicting two silhouetted figures - an adult and a child - walking through an enchanted forest. The adu...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This is a beautifully atmospheric digital illustration depicting a mystical forest scene. The image shows two silhouetted figures - an adult wearing a...
+Response: This is a beautifully atmospheric fantasy illustration depicting two figures - an adult and a child - walking together through an enchanted forest. Th...
 
 🔍 Both APIs successful for Claude-4-Sonnet-Thinking
 
@@ -142,11 +140,11 @@ Testing Claude-3-7-Sonnet-Thinking ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This image is a beautifully atmospheric digital illustration depicting a mystical forest scene at dusk or nighttime. In the foreground, two silhouette...
+Response: This image is a beautiful fantasy-style illustration depicting a mystical forest scene at night. Two silhouetted figures stand at the edge of a small ...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This image is a beautifully atmospheric fantasy illustration depicting two silhouetted figures standing at the edge of a misty forest stream. A taller...
+Response: This image depicts a beautiful, atmospheric fantasy scene in a misty forest. It shows two silhouetted figures standing at the edge of a stream or smal...
 
 🔍 Both APIs successful for Claude-3-7-Sonnet-Thinking
 
@@ -155,11 +153,11 @@ Testing Claude-3-7-Sonnet ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This image is a beautiful, atmospheric digital painting or illustration depicting a magical forest scene. In the foreground, two silhouetted figures s...
+Response: This is a beautiful, atmospheric digital painting or illustration depicting a mystical forest scene. In the image, two figures are shown in silhouette...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This image appears to be a beautifully atmospheric digital painting or illustration depicting a mystical forest scene. In the foreground, there are tw...
+Response: This image is a beautiful, atmospheric digital painting or illustration depicting a mystical forest scene. In the foreground are two silhouetted figur...
 
 🔍 Both APIs successful for Claude-3-7-Sonnet
 
@@ -168,11 +166,11 @@ Testing Claude-3-5-Sonnet-v2 ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This is a beautifully atmospheric digital artwork depicting a mysterious forest scene at dusk or night. Two silhouetted figures are standing by what a...
+Response: This is a beautifully atmospheric digital artwork showing two figures standing by a misty stream or river in what appears to be a magical forest setti...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This is a moody, atmospheric digital artwork depicting a forest scene at dusk or night. Two silhouetted figures are shown standing by what appears to ...
+Response: This is a beautifully atmospheric digital painting or illustration showing two figures standing by a misty stream or river in what appears to be a mag...
 
 🔍 Both APIs successful for Claude-3-5-Sonnet-v2
 
@@ -181,11 +179,11 @@ Testing Claude-3-5-Sonnet ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This image depicts a mystical and enchanting forest scene. In the foreground, we see two silhouetted figures standing at the edge of a body of water. ...
+Response: This image depicts a mystical and enchanting forest scene. In the foreground, we see two figures standing at the edge of a small body of water or stre...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This image depicts a mystical and enchanting forest scene. In the foreground, we see two figures standing at the edge of a small body of water or stre...
+Response: This image depicts a mystical and enchanting forest scene. In the foreground, we see two silhouetted figures standing at the edge of a small body of w...
 
 🔍 Both APIs successful for Claude-3-5-Sonnet
 
@@ -194,11 +192,11 @@ Testing Claude-3-Haiku ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: The image depicts a serene, magical forest scene. In the foreground, two figures are walking along a path through the lush, green undergrowth. One fig...
+Response: The image depicts a fantastical, enchanted forest scene. In the foreground, there are two silhouetted figures - one appears to be an adult and the oth...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: The image depicts a serene and mystical forest scene. In the foreground, two figures are walking along a path - a larger figure carrying a lantern, an...
+Response: The image depicts a magical, fantastical forest scene. In the foreground, two figures are shown walking along a path through the lush, green forest. O...
 
 🔍 Both APIs successful for Claude-3-Haiku
 
@@ -207,11 +205,12 @@ Testing Nova-Pro ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: 2 people are standing in a forest, a man and a child. The man is wearing a cloak and holding a lantern in his hand. The child is standing next to him....
+Response: 1. The image depicts a young boy and a young girl standing in the middle of a forest. 
+2. The boy is holding a lantern in his right hand, and the girl...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: The image depicts a boy and a girl walking on a path in a forest. The boy is holding a lantern, while the girl is looking down. The path is surrounded...
+Response: The painting depicts two people, a boy and a girl, standing in the middle of a forest. They are both holding a lantern. The boy is standing on the rig...
 
 🔍 Both APIs successful for Nova-Pro
 
@@ -220,10 +219,10 @@ Testing Nova-Lite ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: The image shows a scene from a forest, with a young boy and a girl standing in the middle of a forest. The boy is holding a lantern, while the girl is...
+Response: A man and a child are standing in the middle of a forest. The man is wearing a green robe and holding a lantern in his left hand. The child is wearing...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: The image depicts a scene with a man and a child standing in a lush, green forest. The man is wearing a dark green cloak and holding a lantern in his ...
+Response: An illustration of a forest with a young boy and a young girl standing near a small stream. The boy is holding a lantern in his right hand, and the gi...
 
 🔍 Both APIs successful for Nova-Lite

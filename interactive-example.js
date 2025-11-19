@@ -15,7 +15,6 @@ const AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID;
 const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY;
 const LLM_MAX_GEN_TOKENS = parseInt(process.env.LLM_MAX_GEN_TOKENS);
 const LLM_TEMPERATURE = parseFloat(process.env.LLM_TEMPERATURE);
-const LLM_TOP_P = parseFloat(process.env.LLM_TOP_P);
 
 // --------------------------------------------
 // -- import functions from bedrock-wrapper   --
@@ -129,7 +128,6 @@ const openaiChatCompletionsCreateObject = {
     "max_tokens": LLM_MAX_GEN_TOKENS,
     "stream": shouldStream,
     "temperature": LLM_TEMPERATURE,
-    "top_p": LLM_TOP_P,
     "include_thinking_data": true,
 };
 
