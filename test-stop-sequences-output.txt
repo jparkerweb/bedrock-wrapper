@@ -1,11 +1,11 @@
 Stop Sequences Test Results - Both APIs (Comparison)
-Test Date: 2025-10-16T21:53:41.021Z
+Test Date: 2025-11-19T04:30:38.300Z
 ================================================================================
 
 This test validates that stop sequences work correctly across all models.
 Each model is tested with multiple stop sequence scenarios.
 
-Starting stop sequences tests with 36 models using Both APIs (Comparison)...
+Starting stop sequences tests with 42 models using Both APIs (Comparison)...
 Testing 5 different stop sequence scenarios
 
 
@@ -283,20 +283,20 @@ Thursday..."
     ✓ Invoke Non-streaming: PASSED - Response stopped at the correct point
     Response: "The days of the week in order are:
 
-1. Monday
-2. Tuesday
-3. Wednesday
-4. Thursday
-5...."
+Monday
+Tuesday
+Wednesday
+Thursday..."
 
   📡 Testing with Converse API:
     ✓ Converse Streaming: PASSED - Response stopped at the correct point
     Response: "The days of the week in order are:
 
-Monday
-Tuesday
-Wednesday
-Thursday..."
+1. Monday
+2. Tuesday
+3. Wednesday
+4. Thursday
+5...."
     ✓ Converse Non-streaming: PASSED - Response stopped at the correct point
     Response: "The days of the week in order are:
 
@@ -433,7 +433,7 @@ Testing Nova-Pro
     ✗ Invoke Streaming: FAILED - Response did not stop at the expected point
     Response: "1. **I..."
     ✗ Invoke Non-streaming: FAILED - Response did not stop at the expected point
-    Response: "1. **List the alphabet in order** - The English alphabet consists of 26 letters, starting from A and..."
+    Response: "1. **I..."
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: FAILED - Response did not stop at the expected point
@@ -452,8 +452,8 @@ Testing Nova-Pro
     Response: ". As he ventured further, the air grew colder and the walls shimmered with an eerie, otherworldly gl..."
 
   📡 Testing with Converse API:
-    ✗ Converse Streaming: FAILED - Response did not stop at the expected point
-    Response: "Once upon a time, there was a brave knight named Sir Alaric who loved to explore. One day, while tra..."
+    ✓ Converse Streaming: PASSED - Response stopped at the correct point
+    Response: "Once upon a time, there was a brave knight who loved to explore. One day, he found a mysterious cave..."
     ✓ Converse Non-streaming: PASSED - Response stopped at the correct point
     Response: "Once upon a time, there was a brave knight who loved to explore. One day, he found a mysterious cave..."
 
@@ -634,8 +634,8 @@ Testing GPT-OSS-120B
   Stop sequences: [7]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 221
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 221
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 209","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 209","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -646,8 +646,8 @@ Testing GPT-OSS-120B
   Stop sequences: [Friday]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 249
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 249
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 237","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 237","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -658,8 +658,8 @@ Testing GPT-OSS-120B
   Stop sequences: [G, H, I]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 247
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 247
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 235","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 235","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -670,8 +670,8 @@ Testing GPT-OSS-120B
   Stop sequences: [sword]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 384
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 384
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 372","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 372","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -684,8 +684,8 @@ Testing GPT-OSS-120B
   Stop sequences: [• Third]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 268
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 268
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 256","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 256","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -700,8 +700,8 @@ Testing GPT-OSS-120B-Thinking
   Stop sequences: [7]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 221
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 221
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 209","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 209","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -712,8 +712,8 @@ Testing GPT-OSS-120B-Thinking
   Stop sequences: [Friday]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 249
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 249
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 237","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 237","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -724,8 +724,8 @@ Testing GPT-OSS-120B-Thinking
   Stop sequences: [G, H, I]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 247
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 247
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 235","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 235","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -736,8 +736,8 @@ Testing GPT-OSS-120B-Thinking
   Stop sequences: [sword]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 384
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 384
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 372","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 372","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -750,8 +750,8 @@ Testing GPT-OSS-120B-Thinking
   Stop sequences: [• Third]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 268
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 268
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 256","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 256","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -766,8 +766,8 @@ Testing GPT-OSS-20B
   Stop sequences: [7]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 221
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 221
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 209","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 209","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -778,8 +778,8 @@ Testing GPT-OSS-20B
   Stop sequences: [Friday]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 249
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 249
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 237","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 237","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -790,8 +790,8 @@ Testing GPT-OSS-20B
   Stop sequences: [G, H, I]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 247
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 247
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 235","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 235","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -802,8 +802,8 @@ Testing GPT-OSS-20B
   Stop sequences: [sword]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 384
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 384
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 372","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 372","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -816,8 +816,8 @@ Testing GPT-OSS-20B
   Stop sequences: [• Third]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 268
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 268
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 256","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 256","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -832,8 +832,8 @@ Testing GPT-OSS-20B-Thinking
   Stop sequences: [7]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 221
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 221
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 209","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 209","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -844,8 +844,8 @@ Testing GPT-OSS-20B-Thinking
   Stop sequences: [Friday]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 249
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 249
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 237","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 237","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -856,8 +856,8 @@ Testing GPT-OSS-20B-Thinking
   Stop sequences: [G, H, I]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 247
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 247
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 235","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 235","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -868,8 +868,8 @@ Testing GPT-OSS-20B-Thinking
   Stop sequences: [sword]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 384
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 384
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 372","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 372","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -882,8 +882,8 @@ Testing GPT-OSS-20B-Thinking
   Stop sequences: [• Third]
 
   📡 Testing with Invoke API:
-    ✗ Invoke Streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 268
-    ✗ Invoke Non-streaming: ERROR - Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 268
+    ✗ Invoke Streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 256","param":null,"type":"invalid_request_error"}
+    ✗ Invoke Non-streaming: ERROR - {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: unknown variant `stop_sequences`, expected one of `audio`, `frequency_penalty`, `function_call`, `functions`, `logit_bias`, `logprobs`, `max_completion_tokens`, `max_tokens`, `messages`, `metadata`, `modalities`, `model`, `n`, `parallel_tool_calls`, `prediction`, `presence_penalty`, `prompt_cache_key`, `reasoning_effort`, `response_format`, `safety_identifier`, `seed`, `service_tier`, `stop`, `store`, `stream`, `stream_options`, `temperature`, `text`, `tool_choice`, `tools`, `top_k`, `top_logprobs`, `top_p`, `user`, `verbosity`, `web_search_options` at line 1 column 256","param":null,"type":"invalid_request_error"}
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: ERROR - This model doesn't support the stopSequences field. Remove stopSequences and try again.
@@ -986,8 +986,8 @@ A, B, C, D, E, F,..."
   📡 Testing with Converse API:
     ✓ Converse Streaming: PASSED - Response stopped at the correct point
     Response: "As he ventured further into the cave, the brave knight encountered all manner of obstacles, from tre..."
-    ✓ Converse Non-streaming: PASSED - Response stopped at the correct point
-    Response: "As he ventured further into the cave, the brave knight encountered all manner of obstacles, from tre..."
+    ✗ Converse Non-streaming: FAILED - Response did not stop at the expected point
+    Response: "As he ventured further into the cave, the brave knight noticed that the walls began to glow with a s..."
 
 ▶ Test Case: Special character stop test
   Prompt: "Generate a list with bullet points:
@@ -1063,11 +1063,13 @@ Testing Mistral-7b
 2. Tuesday
 3. Wednesday..."
     ✓ Invoke Non-streaming: PASSED - Response stopped at the correct point
-    Response: "Here are the days of the week in the order they typically appear:
+    Response: "Here are the days of the week in the correct order:
 
 1. Monday
 2. Tuesday
-3. Wednesday..."
+3. Wednesday
+4. Thursday
+5..."
 
   📡 Testing with Converse API:
     ✓ Converse Streaming: PASSED - Response stopped at the correct point
@@ -1109,15 +1111,15 @@ Testing Mistral-7b
 
   📡 Testing with Invoke API:
     ✓ Invoke Streaming: PASSED - Response stopped at the correct point
-    Response: "The knight's heart raced with excitement as he ventured further into the cave, the magical..."
+    Response: "The knight's heart raced with excitement as he ventured further into the depths of the cave, the mag..."
     ✓ Invoke Non-streaming: PASSED - Response stopped at the correct point
-    Response: "The knight's heart raced with excitement as he ventured further into the cave, the magical..."
+    Response: "The knight's heart raced with excitement as he ventured further into the depths of the cave, the mag..."
 
   📡 Testing with Converse API:
     ✓ Converse Streaming: PASSED - Response stopped at the correct point
     Response: "The knight's heart raced with excitement as he took the first steps deeper into the cave, the magica..."
     ✓ Converse Non-streaming: PASSED - Response stopped at the correct point
-    Response: "The knight's heart raced with excitement as he took the first steps deeper into the cave, the magica..."
+    Response: "The knight's heart raced with excitement as he took the first few steps deeper into the cave, the ma..."
 
 ▶ Test Case: Special character stop test
   Prompt: "Generate a list with bullet points:
@@ -1184,7 +1186,7 @@ Nova-Pro:
     Streaming:     2/5 passed (40.0%)
     Non-streaming: 2/5 passed (40.0%)
   Converse API:
-    Streaming:     1/5 passed (20.0%)
+    Streaming:     2/5 passed (40.0%)
     Non-streaming: 2/5 passed (40.0%)
 Nova-Lite:
   Invoke API:
@@ -1227,7 +1229,7 @@ Llama-3-3-70b:
     Non-streaming: 0/5 passed (0.0%)
   Converse API:
     Streaming:     4/5 passed (80.0%)
-    Non-streaming: 4/5 passed (80.0%)
+    Non-streaming: 3/5 passed (60.0%)
 Mistral-7b:
   Invoke API:
     Streaming:     4/5 passed (80.0%)

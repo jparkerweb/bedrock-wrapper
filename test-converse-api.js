@@ -16,7 +16,6 @@ const AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID;
 const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY;
 const LLM_MAX_GEN_TOKENS = parseInt(process.env.LLM_MAX_GEN_TOKENS);
 const LLM_TEMPERATURE = parseFloat(process.env.LLM_TEMPERATURE);
-const LLM_TOP_P = parseFloat(process.env.LLM_TOP_P);
 
 // --------------------------------------------
 // -- import functions from bedrock-wrapper   --
@@ -60,7 +59,6 @@ async function testModelWithAPI(model, awsCreds, testMessage, isStreaming, useCo
         max_tokens: LLM_MAX_GEN_TOKENS,
         stream: isStreaming,
         temperature: LLM_TEMPERATURE,
-        top_p: LLM_TOP_P,
     };
 
     let completeResponse = "";
@@ -152,7 +150,6 @@ async function testStopSequences(model, awsCreds) {
         max_tokens: 100,
         stream: false,
         temperature: 0.1,
-        top_p: 0.9,
         stop: ["6"] // Stop at "6"
     };
 
@@ -208,7 +205,6 @@ async function testSystemPrompt(model, awsCreds) {
         max_tokens: 100,
         stream: false,
         temperature: 0.7,
-        top_p: 0.9,
     };
 
     try {

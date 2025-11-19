@@ -144,9 +144,6 @@ export const bedrock_models = [
         "response_nonchunk_element":     "content[0].text",
         "thinking_response_chunk_element": "delta.thinking",
         "thinking_response_nonchunk_element": "content[0].thinking",
-        "parameter_restrictions": {
-            "mutually_exclusive": [["temperature", "top_p"]]
-        },
         "special_request_schema": {
             "anthropic_version": "bedrock-2023-05-31",
             "anthropic_beta": ["output-128k-2025-02-19"],
@@ -175,9 +172,6 @@ export const bedrock_models = [
         "response_nonchunk_element":     "content[0].text",
         "thinking_response_chunk_element": "delta.thinking",
         "thinking_response_nonchunk_element": "content[0].thinking",
-        "parameter_restrictions": {
-            "mutually_exclusive": [["temperature", "top_p"]]
-        },
         "special_request_schema": {
             "anthropic_version": "bedrock-2023-05-31",
             "anthropic_beta": ["output-128k-2025-02-19"],
@@ -210,9 +204,6 @@ export const bedrock_models = [
         "response_nonchunk_element":     "content[0].text",
         "thinking_response_chunk_element": "delta.thinking",
         "thinking_response_nonchunk_element": "content[0].thinking",
-        "parameter_restrictions": {
-            "mutually_exclusive": [["temperature", "top_p"]]
-        },
         "special_request_schema": {
             "anthropic_version": "bedrock-2023-05-31",
             "anthropic_beta": ["output-128k-2025-02-19"],
@@ -241,9 +232,6 @@ export const bedrock_models = [
         "response_nonchunk_element":     "content[0].text",
         "thinking_response_chunk_element": "delta.thinking",
         "thinking_response_nonchunk_element": "content[0].thinking",
-        "parameter_restrictions": {
-            "mutually_exclusive": [["temperature", "top_p"]]
-        },
         "special_request_schema": {
             "anthropic_version": "bedrock-2023-05-31",
             "anthropic_beta": ["output-128k-2025-02-19"],
@@ -276,9 +264,6 @@ export const bedrock_models = [
         "response_nonchunk_element":     "content[0].text",
         "thinking_response_chunk_element": "delta.thinking",
         "thinking_response_nonchunk_element": "content[0].thinking",
-        "parameter_restrictions": {
-            "mutually_exclusive": [["temperature", "top_p"]]
-        },
         "special_request_schema": {
             "anthropic_version": "bedrock-2023-05-31",
             "anthropic_beta": ["output-128k-2025-02-19"],
@@ -307,9 +292,6 @@ export const bedrock_models = [
         "response_nonchunk_element":     "content[0].text",
         "thinking_response_chunk_element": "delta.thinking",
         "thinking_response_nonchunk_element": "content[0].thinking",
-        "parameter_restrictions": {
-            "mutually_exclusive": [["temperature", "top_p"]]
-        },
         "special_request_schema": {
             "anthropic_version": "bedrock-2023-05-31",
             "anthropic_beta": ["output-128k-2025-02-19"],
@@ -977,5 +959,121 @@ export const bedrock_models = [
         "max_supported_response_tokens": 8192,
         "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "outputs[0].text"
+    },
+    {
+        // ================
+        // == Qwen3-32B ==
+        // ================
+        "modelName":                     "Qwen3-32B",
+        "modelId":                       "qwen.qwen3-32b-v1:0",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 32768,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+    {
+        // =========================
+        // == Qwen3-Coder-30B-A3B ==
+        // =========================
+        "modelName":                     "Qwen3-Coder-30B-A3B",
+        "modelId":                       "qwen.qwen3-coder-30b-a3b-v1:0",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 32768,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+    {
+        // ==========================
+        // == Qwen3-235B-A22B-2507 ==
+        // ==========================
+        "modelName":                     "Qwen3-235B-A22B-2507",
+        "modelId":                       "qwen.qwen3-235b-a22b-2507-v1:0",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 32768,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+    {
+        // ===========================
+        // == Qwen3-Coder-480B-A35B ==
+        // ===========================
+        "modelName":                     "Qwen3-Coder-480B-A35B",
+        "modelId":                       "qwen.qwen3-coder-480b-a35b-v1:0",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 32768,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+    {
+        // =================
+        // == DeepSeek-R1 ==
+        // =================
+        "modelName":                     "DeepSeek-R1",
+        // "modelId":                       "deepseek.r1-v1:0",
+        "modelId":                       "us.deepseek.r1-v1:0",
+        "vision":                        false,
+        "messages_api":                  false,
+        "bos_text":                      "",
+        "role_system_message_prefix":    "",
+        "role_system_message_suffix":    "",
+        "role_system_prefix":            "",
+        "role_system_suffix":            "",
+        "role_user_message_prefix":      "",
+        "role_user_message_suffix":      "",
+        "role_user_prefix":              "",
+        "role_user_suffix":              "",
+        "role_assistant_message_prefix": "",
+        "role_assistant_message_suffix": "",
+        "role_assistant_prefix":         "",
+        "role_assistant_suffix":         "",
+        "eom_text":                      "",
+        "display_role_names":            false,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 8192,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].text",
+        "special_request_schema": {}
+    },
+    {
+        // ====================
+        // == DeepSeek-V3.1 ==
+        // ====================
+        "modelName":                     "DeepSeek-V3.1",
+        "modelId":                       "deepseek.v3-v1:0",
+        "vision":                        false,
+        "messages_api":                  true,
+        "converse_api_only":             true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 8192,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
     },
 ];

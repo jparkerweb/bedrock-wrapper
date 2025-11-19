@@ -43,7 +43,6 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
         "max_tokens": LLM_MAX_GEN_TOKENS,
         "stream": true,
         "temperature": LLM_TEMPERATURE,
-        "top_p": LLM_TOP_P,
         "stop_sequences": ["STOP", "END"], // Optional: sequences that will stop generation
     };
     ```
@@ -158,7 +157,11 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 | Mistral-7b                 | mistral.mistral-7b-instruct-v0:2             |  ❌  |
 | Mixtral-8x7b               | mistral.mixtral-8x7b-instruct-v0:1           |  ❌  |
 | Mistral-Large              | mistral.mistral-large-2402-v1:0              |  ❌  |
-   
+| Qwen3-32B                  | alibaba.qwen3-32b-instruct-v1:0              |  ❌  |
+| Qwen3-Coder-30B-A3B        | alibaba.qwen3-coder-30b-a3b-instruct-v1:0    |  ❌  |
+| Qwen3-235B-A22B-2507       | alibaba.qwen3-235b-a22b-instruct-2507-v1:0   |  ❌  |
+| Qwen3-Coder-480B-A35B      | alibaba.qwen3-coder-480b-a35b-instruct-v1:0  |  ❌  |
+
 To return the list progrmatically you can import and call `listBedrockWrapperSupportedModels`:  
 ```javascript
 import { listBedrockWrapperSupportedModels } from 'bedrock-wrapper';
@@ -235,9 +238,10 @@ const openaiChatCompletionsCreateObject = {
 
 **Model Support:**
 - ✅ **Claude models**: Fully supported (up to 8,191 sequences)
-- ✅ **Nova models**: Fully supported (up to 4 sequences)  
+- ✅ **Nova models**: Fully supported (up to 4 sequences)
 - ✅ **GPT-OSS models**: Fully supported
 - ✅ **Mistral models**: Fully supported (up to 10 sequences)
+- ✅ **Qwen models**: Fully supported
 - ❌ **Llama models**: Not supported (AWS Bedrock limitation)
 
 **Features:**
@@ -251,7 +255,7 @@ const openaiChatCompletionsCreateObject = {
 // Stop generation when model tries to output "7"
 const result = await bedrockWrapper(awsCreds, {
     messages: [{ role: "user", content: "Count from 1 to 10" }],
-    model: "Claude-3-5-Sonnet",  // Use Claude, Nova, or Mistral models
+    model: "Claude-3-5-Sonnet",  // Use Claude, Nova, Mistral, or Qwen models
     stop_sequences: ["7"]
 });
 // Response: "1, 2, 3, 4, 5, 6," (stops before "7")
@@ -273,27 +277,6 @@ Some AWS Bedrock models have specific parameter restrictions that are automatica
 - Claude-4-Sonnet & Claude-4-Sonnet-Thinking
 - Claude-4-Opus & Claude-4-Opus-Thinking
 - Claude-4-1-Opus & Claude-4-1-Opus-Thinking
-
-**Restriction:** These models cannot accept both `temperature` and `top_p` parameters simultaneously.
-
-**Automatic Handling:** When both parameters are provided, the wrapper automatically:
-1. **Keeps `temperature`** (prioritized as more commonly used)
-2. **Removes `top_p`** to prevent validation errors
-3. **Works with both APIs** (Invoke API and Converse API)
-
-```javascript
-const request = {
-    messages: [{ role: "user", content: "Hello" }],
-    model: "Claude-4-5-Sonnet",
-    temperature: 0.7,  // ✅ Kept
-    top_p: 0.9         // ❌ Automatically removed
-};
-
-// No error thrown - wrapper handles the restriction automatically
-const response = await bedrockWrapper(awsCreds, request);
-```
-
-**Why This Happens:** AWS Bedrock enforces this restriction on newer Claude models to ensure optimal performance and prevent conflicting sampling parameters.
 
 ---
 

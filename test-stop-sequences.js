@@ -57,7 +57,6 @@ async function testStopSequence(model, awsCreds, testCase, isStreaming, useConve
         max_tokens: 200,
         stream: isStreaming,
         temperature: 0.1,
-        top_p: 0.9,
         stop_sequences: testCase.stopSequences
     };
 
