@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Bedrock Wrapper (v2.5.0) is an npm package that translates OpenAI-compatible API objects to AWS Bedrock's serverless inference LLMs. It supports 32+ models including Claude, Nova, GPT-OSS, Llama, and Mistral families with features like vision support, thinking modes, and stop sequences.
+Bedrock Wrapper (v2.6.2) is an npm package that translates OpenAI-compatible API objects to AWS Bedrock's serverless inference LLMs. It supports 40 models including Claude, Nova, GPT-OSS, Llama, Mistral, and Qwen families with features like vision support, thinking modes, and stop sequences.
 
 ## Core Architecture
 
@@ -82,8 +82,7 @@ AWS_REGION=us-west-2
 AWS_ACCESS_KEY_ID=your_access_key
 AWS_SECRET_ACCESS_KEY=your_secret_key
 LLM_MAX_GEN_TOKENS=1024
-LLM_TEMPERATURE=0.1
-LLM_TOP_P=0.9
+LLM_TEMPERATURE=0.2
 ```
 
 ## Adding New Models
@@ -92,7 +91,7 @@ Required fields in bedrock-models.js:
 - `modelName`: Consumer-facing name
 - `modelId`: AWS Bedrock identifier
 - `vision`: Boolean for image support
-- `messages_api`: Boolean (true for Claude/Nova/GPT-OSS, false for prompt-based)
+- `messages_api`: Boolean (true for Claude/Nova/GPT-OSS/Qwen, false for prompt-based)
 - `response_chunk_element`: JSON path for streaming responses
 - `response_nonchunk_element`: JSON path for non-streaming responses
 - `special_request_schema`: Model-specific requirements
@@ -100,11 +99,17 @@ Required fields in bedrock-models.js:
 
 ## Critical Implementation Details
 
+### Converse API Only Models
+Some models only support the Converse API and will automatically use it regardless of the `useConverseAPI` flag:
+- DeepSeek-V3.1
+
+These models have `converse_api_only: true` in their configuration and the wrapper automatically forces `useConverseAPI = true` for them.
+
 ### Converse API Thinking Support
 - Thinking configuration added via `additionalModelRequestFields`
 - Response thinking data extracted from `reasoningContent.reasoningText.text`
 - Budget tokens calculated with constraints: 1024 <= budget_tokens <= (maxTokens * 0.8)
-- Temperature forced to 1.0, top_p removed for thinking models
+- Temperature forced to 1.0 for thinking models
 
 ### Nova Models Special Handling
 - Detect via `special_request_schema.schemaVersion === "messages-v1"`
@@ -124,6 +129,7 @@ Required fields in bedrock-models.js:
 | Nova        | ✅      | stopSequences | 4 |
 | GPT-OSS     | ✅      | stop_sequences | TBD |
 | Mistral     | ✅      | stop | 10 |
+| Qwen        | ✅      | stop | TBD |
 | Llama       | ❌      | N/A | N/A |
 
 ### Test Files Output
