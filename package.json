@@ -5,7 +5,7 @@
   "homepage": "https://www.equilllabs.com/projects/bedrock-wrapper",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jparkerweb/bedrock-wrapper.git"
+    "url": "git+https://github.com/jparkerweb/bedrock-wrapper.git"
   },
   "bugs": {
     "url": "https://github.com/jparkerweb/bedrock-wrapper/issues",
