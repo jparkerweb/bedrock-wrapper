@@ -1,6 +1,38 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.8.0] - 2025-12-02 (New Models: Claude Opus 4.5, Gemma, Kimi, MiniMax, Mistral, Nova)
+### ✨ Added
+- Support for Claude Opus 4.5 models
+  - Claude-4-5-Opus (131K max output tokens, vision support)
+  - Claude-4-5-Opus-Thinking (with extended thinking capabilities)
+- Support for Amazon Nova 2 Lite model
+  - Nova-2-Lite (vision support, 5K max output tokens)
+- Support for Qwen3 Next model
+  - Qwen3-Next-80B-A3B (MoE architecture, 32K max output tokens)
+- Support for new Mistral models (Converse API)
+  - Mistral-Large-3 (675B parameters, vision support, 32K max output tokens)
+  - Ministral-3-3b (vision support, 8K max output tokens)
+  - Ministral-3-8b (vision support, 8K max output tokens)
+  - Ministral-3-14b (vision support, 16K max output tokens)
+  - Magistral-Small-2509 (text-only, 8K max output tokens)
+- Support for Google Gemma 3 models (new provider)
+  - Gemma-3-4b (vision support, 8K max output tokens)
+  - Gemma-3-12b (vision support, 8K max output tokens)
+  - Gemma-3-27b (vision support, 8K max output tokens)
+- Support for Moonshot AI Kimi K2 models (new provider)
+  - Kimi-K2 (1T total parameters, 32B active MoE, 32K max output tokens)
+  - Kimi-K2-Thinking (with reasoning tag preservation)
+- Support for MiniMax M2 model (new provider)
+  - MiniMax-M2 (230B total parameters, 10B active MoE, 32K max output tokens)
+
+### ⚙️ Technical Details
+- **New Model Families**: Google Gemma, Moonshot AI Kimi, MiniMax
+- **Vision Support**: All Gemma 3 models, Mistral-Large-3, Ministral 3 series, Nova-2-Lite
+- **Thinking Mode**: Kimi-K2-Thinking uses `preserve_reasoning: true` for reasoning tag preservation
+- **API Compatibility**: All new models use Converse API (`messages_api: true`)
+- **New Mistral Models**: Unlike older Mistral models (Invoke API), new models use Converse API
+
 ## [2.7.0] - 2025-11-18 (DeepSeek & Qwen 3)
 ### ✨ Added
 - Support for DeepSeek foundation models
