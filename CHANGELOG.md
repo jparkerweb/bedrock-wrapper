@@ -1,8 +1,46 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
-## [2.7.0] - 2025-11-18 (DeepSeek & Qwen 3)
+## [2.8.0] - 2025-12-05 (New Models: Claude Opus 4.5, Gemma, Kimi, MiniMax, Mistral, Nova)
+
 ### ✨ Added
+
+- Support for Claude Opus 4.5 models
+  - Claude-4-5-Opus (128K max output tokens, vision support)
+  - Claude-4-5-Opus-Thinking (with extended thinking capabilities)
+- Support for Amazon Nova 2 Lite model
+  - Nova-2-Lite (vision support, 5K max output tokens)
+- Support for Qwen3 Next model
+  - Qwen3-Next-80B-A3B (MoE architecture, 32K max output tokens)
+- Support for new Mistral models (Converse API)
+  - Mistral-Large-3 (675B parameters, vision support, 32K max output tokens)
+  - Ministral-3-3b (vision support, 8K max output tokens)
+  - Ministral-3-8b (vision support, 8K max output tokens)
+  - Ministral-3-14b (vision support, 16K max output tokens)
+  - Magistral-Small-2509 (text-only, 8K max output tokens)
+- Support for Google Gemma 3 models (new provider)
+  - Gemma-3-4b (vision support, 8K max output tokens)
+  - Gemma-3-12b (vision support, 8K max output tokens)
+  - Gemma-3-27b (vision support, 8K max output tokens)
+- Support for Moonshot AI Kimi K2 models (new provider)
+  - Kimi-K2 (1T total parameters, 32B active MoE, 32K max output tokens)
+  - Kimi-K2-Thinking (with reasoning tag preservation)
+- Support for MiniMax M2 model (new provider)
+  - MiniMax-M2 (230B total parameters, 10B active MoE, 32K max output tokens)
+
+### ⚙️ Technical Details
+
+- **New Model Families**: Google Gemma, Moonshot AI Kimi, MiniMax
+- **Vision Support**: All Gemma 3 models, Mistral-Large-3, Ministral 3 series, Nova-2-Lite
+- **Thinking Mode**: Kimi-K2-Thinking uses `preserve_reasoning: true` for reasoning tag preservation
+- **API Compatibility**: All new models use Converse API (`messages_api: true`)
+- **New Mistral Models**: Unlike older Mistral models (Invoke API), new models use Converse API
+
+## [2.7.0] - 2025-11-18 (DeepSeek & Qwen 3)
+
+### ✨ Added
+
 - Support for DeepSeek foundation models
   - DeepSeek-R1 (reasoning model with chain-of-thought capabilities, 8K max output tokens)
   - DeepSeek-V3.1 (hybrid thinking mode for complex reasoning, 8K max output tokens, **Converse API only**)
@@ -21,10 +59,12 @@ All notable changes to this project will be documented in this file.
 - Repository-scale code analysis capabilities for Qwen Coder models
 
 ### 🤬 Breaking Changes
+
 - Removed `top_p` parameter from all models as it is not fully supported by AWS Bedrock
   - `temperature` should always be used instead
 
 ### ⚙️ Technical Details
+
 - **Model Configuration**: All new models use messages API format (OpenAI-compatible)
 - **API Compatibility**:
   - Qwen 3 models: Support both Invoke API and Converse API
@@ -32,7 +72,9 @@ All notable changes to this project will be documented in this file.
   - DeepSeek-V3.1: Converse API only (automatically enforced)
 
 ## [2.6.2] - 2025-10-16 (Claude Haiku 4.5)
+
 ### ✨ Added
+
 - Support for Claude Haiku 4.5 models
   - Claude-4-5-Haiku
   - Claude-4-5-Haiku-Thinking
@@ -42,16 +84,21 @@ All notable changes to this project will be documented in this file.
 - Temperature/Top-P mutual exclusion parameter handling for Haiku 4.5 models
 
 ## [2.6.1] - 2025-09-30 (Claude Sonnet 4.5)
+
 ### ✨ Added
+
 - Support for Claude Sonnet 4.5 models
   - Claude-4-5-Sonnet
   - Claude-4-5-Sonnet-Thinking
 
 ## [2.5.0] - 2025-08-12 (Converse API)
+
 ### ✨ Added
+
 - Support for Converse API (streaming and non-streaming)
 
 ### ⚙️ Technical Details
+
 - **Model Configuration**: All models use standard messages API format
 - **API Compatibility**: Supports OpenAI-style requests
 - **Response Processing**: Automatic reasoning tag handling based on model variant
@@ -59,7 +106,9 @@ All notable changes to this project will be documented in this file.
 - **Testing Coverage**: Full integration with existing test suites and interactive example
 
 ## [2.4.5] - 2025-08-06 (GPT-OSS Models)
+
 ### ✨ Added
+
 - Support for OpenAI GPT-OSS models on AWS Bedrock
   - GPT-OSS-120B (120B parameter open weight model)
   - GPT-OSS-20B (20B parameter open weight model)
@@ -72,6 +121,7 @@ All notable changes to this project will be documented in this file.
 - OpenAI-compatible API format with `max_completion_tokens` parameter
 
 ### ⚙️ Technical Details
+
 - **Model Configuration**: All GPT-OSS models use standard messages API format
 - **API Compatibility**: Supports OpenAI-style requests with Apache 2.0 licensed models
 - **Response Processing**: Automatic reasoning tag handling based on model variant
@@ -79,13 +129,17 @@ All notable changes to this project will be documented in this file.
 - **Testing Coverage**: Full integration with existing test suites and interactive example
 
 ## [2.4.4] - 2025-08-05 (Claude 4.1 Opus)
+
 ### ✨ Added
+
 - Support for Claude 4.1 Opus models
   - Claude-4-1-Opus
   - Claude-4-1-Opus-Thinking
 
 ## [2.4.3] - 2025-07-31 (Stop Sequences Fixes)
+
 ### 🛠️ Fixed
+
 - **Critical Discovery**: Removed stop sequences support from Llama models
   - AWS Bedrock does not support stop sequences for Llama models (confirmed via official AWS documentation)
   - Llama models only support: `prompt`, `temperature`, `top_p`, `max_gen_len`, `images`
@@ -95,24 +149,28 @@ All notable changes to this project will be documented in this file.
 - Improved error handling for empty responses when stop sequences trigger early
 
 ### 📝 Updated
+
 - **Documentation corrections**
   - Corrected stop sequences support claims (removed "all models support" language)
   - Added accurate model-specific support matrix with sequence limits
   - Added comprehensive stop sequences support table with AWS documentation references
 - **Model Support Matrix** now clearly documented:
-  - ✅ Claude models: Full support (up to 8,191 sequences) 
+  - ✅ Claude models: Full support (up to 8,191 sequences)
   - ✅ Nova models: Full support (up to 4 sequences)
   - ✅ Mistral models: Full support (up to 10 sequences)
   - ❌ Llama models: Not supported (AWS Bedrock limitation)
 
 ### ⚙️ Technical Details
+
 - Based on comprehensive research of official AWS Bedrock documentation
 - All changes maintain full backward compatibility
 - Test results show significant improvements in stop sequences reliability for supported models
 - Added detailed explanations to help users understand AWS Bedrock's actual capabilities
 
 ## [2.4.2] - 2025-07-31 (Stop Sequences Support)
+
 ### ✨ Added
+
 - Stop sequences support for compatible models
   - OpenAI-compatible `stop` and `stop_sequences` parameters
   - Automatic string-to-array conversion for compatibility
@@ -121,6 +179,7 @@ All notable changes to this project will be documented in this file.
 - Comprehensive stop sequences testing and validation with `npm run test-stop`
 
 ### 🛠️ Fixed
+
 - **Critical Discovery**: Removed stop sequences support from Llama models
   - AWS Bedrock does not support stop sequences for Llama models (confirmed via official documentation)
   - Llama models only support: `prompt`, `temperature`, `top_p`, `max_gen_len`, `images`
@@ -129,6 +188,7 @@ All notable changes to this project will be documented in this file.
 - Improved error handling for empty responses when stop sequences trigger early
 
 ### ⚙️ Technical Details
+
 - **Model Support Matrix**:
   - ✅ Claude models: Full support (up to 8,191 sequences)
   - ✅ Nova models: Full support (up to 4 sequences)
@@ -140,7 +200,9 @@ All notable changes to this project will be documented in this file.
 - Added comprehensive documentation in README.md and CLAUDE.md explaining support limitations
 
 ## [2.4.0] - 2025-07-24 (AWS Nova Models)
+
 ### ✨ Added
+
 - Support for AWS Nova models
   - Nova-Pro (300K context, multimodal, 5K output tokens)
   - Nova-Lite (300K context, multimodal, optimized for speed)
@@ -150,7 +212,9 @@ All notable changes to this project will be documented in this file.
 - Automatic content array formatting for Nova message compatibility
 
 ## [2.3.1] - 2025-05-22 (Claude 4 Opus / Sonnet)
+
 ### ✨ Added
+
 - Support for Claude 4 Opus & Claude 4 Sonnet models
   - Claude-4-Opus
   - Claude-4-Opus-Thinking
@@ -158,7 +222,9 @@ All notable changes to this project will be documented in this file.
   - Claude-4-Sonnet-Thinking
 
 ## [2.3.0] - 2025-02-15 (Claude 3.7 & Image Support)
+
 ### ✨ Added
+
 - Support for Claude 3.7 models
   - Claude-3-7-Sonnet
   - Claude-3-7-Sonnet-Thinking
@@ -171,29 +237,37 @@ All notable changes to this project will be documented in this file.
 - Documentation for image support usage
 
 ### 🔄 Changed
+
 - Updated model configuration for image-capable models
 - Improved response handling for multimodal inputs
 
 ## [2.2.0] - 2025-01-01 (Llama 3.3 70b)
+
 ### ✨ Added
+
 - Support for Llama 3.3 70b
 
 ## [2.1.0] - 2024-11-21 (Claude 3.5 Haiku)
+
 ### ✨ Added
+
 - Support for Claude 3.5 Haiku
 
 ## [2.0.0] - 2024-10-31 (Claude Sonnet & Haiku)
+
 ### ✨ Added
+
 - Support for Anthropic Sonnet & Haiku models
   - Claude-3-5-Sonnet-v2
   - Claude-3-5-Sonnet
   - Claude-3-Haiku
 - Interactive example script for testing models
 - Testing script with streaming and non-streaming support for all models
-- Stardardize output to be a string via Streamed and non-Streamed responses  
+- Stardardize output to be a string via Streamed and non-Streamed responses
   > **NOTE:** This is a breaking change for previous non-streaming responses. Existing streaming responses will remain unchanged.
 
 ### 🔄 Changed
+
 - Complete architecture overhaul for better model support
 - Improved message handling with role-based formatting
 - Enhanced error handling and response processing
@@ -201,6 +275,7 @@ All notable changes to this project will be documented in this file.
 - Updated AWS SDK integration
 
 ### ⚙️ Technical Details
+
 - Implemented messages API support for compatible models
 - Added system message handling as separate field where supported
 - Configurable token limits per model
@@ -208,7 +283,9 @@ All notable changes to this project will be documented in this file.
 - Cross-region profile support for certain models
 
 ## [1.3.0] - 2024-07-24 (Llama3.2)
+
 ### ✨ Added
+
 - Support for Llama 3.2 series models
   - Llama-3-2-1b
   - Llama-3-2-3b
@@ -216,18 +293,21 @@ All notable changes to this project will be documented in this file.
   - Llama-3-2-90b
 
 ## [1.1.0] - 2024-07-24 (Llama3.1)
+
 ### ✨ Added
+
 - Support for Llama 3.1 series models
   - Llama-3-1-8b
   - Llama-3-1-70b
 
-
 ## [1.0.14] - 2024-05-06 (Initial Stable Release)
+
 ### ✨ Added
+
 - Initial stablerelease of Bedrock Wrapper
 - Basic AWS Bedrock integration
 - OpenAI-compatible API object support
-- Basic model support 
+- Basic model support
   - Llama-3-8b
   - Llama-3-70b
   - Mistral-7b

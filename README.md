@@ -122,43 +122,57 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 
 ### Supported Models
 
-| modelName                  | AWS Model Id                                 | Image |
-|----------------------------|----------------------------------------------|-------|
-| Claude-3-5-Haiku           | anthropic.claude-3-5-haiku-20241022-v1:0     |  ❌  |
-| Claude-3-5-Sonnet          | anthropic.claude-3-5-sonnet-20240620-v1:0    |  ✅  |
-| Claude-3-5-Sonnet-v2       | anthropic.claude-3-5-sonnet-20241022-v2:0    |  ✅  |
-| Claude-3-7-Sonnet          | us.anthropic.claude-3-7-sonnet-20250219-v1:0 |  ✅  |
-| Claude-3-7-Sonnet-Thinking | us.anthropic.claude-3-7-sonnet-20250219-v1:0 |  ✅  |
-| Claude-3-Haiku             | anthropic.claude-3-haiku-20240307-v1:0       |  ✅  |
-| Claude-4-Opus              | us.anthropic.claude-opus-4-20250514-v1:0     |  ✅  |
-| Claude-4-Opus-Thinking     | us.anthropic.claude-opus-4-20250514-v1:0     |  ✅  |
-| Claude-4-Sonnet            | us.anthropic.claude-sonnet-4-20250514-v1:0   |  ✅  |
-| Claude-4-Sonnet-Thinking   | us.anthropic.claude-sonnet-4-20250514-v1:0   |  ✅  |
-| Claude-4-1-Opus            | us.anthropic.claude-opus-4-1-20250805-v1:0   |  ✅  |
-| Claude-4-1-Opus-Thinking   | us.anthropic.claude-opus-4-1-20250805-v1:0   |  ✅  |
-| Claude-4-5-Haiku           | us.anthropic.claude-haiku-4-5-20251001-v1:0  |  ✅  |
-| Claude-4-5-Haiku-Thinking  | us.anthropic.claude-haiku-4-5-20251001-v1:0  |  ✅  |
-| Claude-4-5-Sonnet          | us.anthropic.claude-sonnet-4-5-20250929-v1:0 |  ✅  |
-| Claude-4-5-Sonnet-Thinking | us.anthropic.claude-sonnet-4-5-20250929-v1:0 |  ✅  |
-| DeepSeek-R1                | us.deepseek.r1-v1:0                          |  ❌  |
-| DeepSeek-V3.1              | deepseek.v3-v1:0                             |  ❌  |
-| GPT-OSS-120B               | openai.gpt-oss-120b-1:0                      |  ❌  |
-| GPT-OSS-120B-Thinking      | openai.gpt-oss-120b-1:0                      |  ❌  |
-| GPT-OSS-20B                | openai.gpt-oss-20b-1:0                       |  ❌  |
-| GPT-OSS-20B-Thinking       | openai.gpt-oss-20b-1:0                       |  ❌  |
-| Llama-3-8b                 | meta.llama3-8b-instruct-v1:0                 |  ❌  |
-| Llama-3-70b                | meta.llama3-70b-instruct-v1:0                |  ❌  |
-| Llama-3-1-8b               | meta.llama3-1-8b-instruct-v1:0               |  ❌  |
-| Llama-3-1-70b              | meta.llama3-1-70b-instruct-v1:0              |  ❌  |
-| Llama-3-1-405b             | meta.llama3-1-405b-instruct-v1:0             |  ❌  |
+| modelName                  | AWS Model Id                                    | Image |
+|----------------------------|-------------------------------------------------|-------|
+| Claude-3-5-Haiku           | us.anthropic.claude-3-5-haiku-20241022-v1:0     |  ❌  |
+| Claude-3-5-Sonnet          | us.anthropic.claude-3-5-sonnet-20240620-v1:0    |  ✅  |
+| Claude-3-5-Sonnet-v2       | us.anthropic.claude-3-5-sonnet-20241022-v2:0    |  ✅  |
+| Claude-3-7-Sonnet          | us.anthropic.claude-3-7-sonnet-20250219-v1:0    |  ✅  |
+| Claude-3-7-Sonnet-Thinking | us.anthropic.claude-3-7-sonnet-20250219-v1:0    |  ✅  |
+| Claude-3-Haiku             | us.anthropic.claude-3-haiku-20240307-v1:0       |  ✅  |
+| Claude-4-Opus              | us.anthropic.claude-opus-4-20250514-v1:0        |  ✅  |
+| Claude-4-Opus-Thinking     | us.anthropic.claude-opus-4-20250514-v1:0        |  ✅  |
+| Claude-4-Sonnet            | us.anthropic.claude-sonnet-4-20250514-v1:0      |  ✅  |
+| Claude-4-Sonnet-Thinking   | us.anthropic.claude-sonnet-4-20250514-v1:0      |  ✅  |
+| Claude-4-1-Opus            | us.anthropic.claude-opus-4-1-20250805-v1:0      |  ✅  |
+| Claude-4-1-Opus-Thinking   | us.anthropic.claude-opus-4-1-20250805-v1:0      |  ✅  |
+| Claude-4-5-Haiku           | global.anthropic.claude-haiku-4-5-20251001-v1:0 |  ✅  |
+| Claude-4-5-Haiku-Thinking  | global.anthropic.claude-haiku-4-5-20251001-v1:0 |  ✅  |
+| Claude-4-5-Opus            | global.anthropic.claude-opus-4-5-20251101-v1:0  |  ✅  |
+| Claude-4-5-Opus-Thinking   | global.anthropic.claude-opus-4-5-20251101-v1:0  |  ✅  |
+| Claude-4-5-Sonnet          | us.anthropic.claude-sonnet-4-5-20250929-v1:0    |  ✅  |
+| Claude-4-5-Sonnet-Thinking | us.anthropic.claude-sonnet-4-5-20250929-v1:0    |  ✅  |
+| DeepSeek-R1                | us.deepseek.r1-v1:0                             |  ❌  |
+| DeepSeek-V3.1              | deepseek.v3-v1:0                                |  ❌  |
+| Gemma-3-4b                 | google.gemma-3-4b-it                            |  ✅  |
+| Gemma-3-12b                | google.gemma-3-12b-it                           |  ✅  |
+| Gemma-3-27b                | google.gemma-3-27b-it                           |  ✅  |
+| GPT-OSS-120B               | openai.gpt-oss-120b-1:0                         |  ❌  |
+| GPT-OSS-120B-Thinking      | openai.gpt-oss-120b-1:0                         |  ❌  |
+| GPT-OSS-20B                | openai.gpt-oss-20b-1:0                          |  ❌  |
+| GPT-OSS-20B-Thinking       | openai.gpt-oss-20b-1:0                          |  ❌  |
+| Kimi-K2                    | moonshot.kimi-k2-thinking                       |  ❌  |
+| Kimi-K2-Thinking           | moonshot.kimi-k2-thinking                       |  ❌  |
+| Llama-3-8b                 | meta.llama3-8b-instruct-v1:0                    |  ❌  |
+| Llama-3-70b                | meta.llama3-70b-instruct-v1:0                   |  ❌  |
+| Llama-3-1-8b               | us.meta.llama3-1-8b-instruct-v1:0               |  ❌  |
+| Llama-3-1-70b              | us.meta.llama3-1-70b-instruct-v1:0              |  ❌  |
+| Llama-3-1-405b             | meta.llama3-1-405b-instruct-v1:0                |  ❌  |
 | Llama-3-2-1b               | us.meta.llama3-2-1b-instruct-v1:0            |  ❌  |
 | Llama-3-2-3b               | us.meta.llama3-2-3b-instruct-v1:0            |  ❌  |
 | Llama-3-2-11b              | us.meta.llama3-2-11b-instruct-v1:0           |  ❌  |
 | Llama-3-2-90b              | us.meta.llama3-2-90b-instruct-v1:0           |  ❌  |
 | Llama-3-3-70b              | us.meta.llama3-3-70b-instruct-v1:0           |  ❌  |
+| Magistral-Small-2509       | mistral.magistral-small-2509                 |  ❌  |
+| MiniMax-M2                 | minimax.minimax-m2                           |  ❌  |
+| Ministral-3-3b             | mistral.ministral-3-3b-instruct              |  ✅  |
+| Ministral-3-8b             | mistral.ministral-3-8b-instruct              |  ✅  |
+| Ministral-3-14b            | mistral.ministral-3-14b-instruct             |  ✅  |
 | Mistral-7b                 | mistral.mistral-7b-instruct-v0:2             |  ❌  |
-| Mixtral-8x7b               | mistral.mixtral-8x7b-instruct-v0:1           |  ❌  |
 | Mistral-Large              | mistral.mistral-large-2402-v1:0              |  ❌  |
+| Mistral-Large-3            | mistral.mistral-large-3-675b-instruct        |  ✅  |
+| Mixtral-8x7b               | mistral.mixtral-8x7b-instruct-v0:1           |  ❌  |
+| Nova-2-Lite                | us.amazon.nova-2-lite-v1:0                   |  ✅  |
 | Nova-Micro                 | us.amazon.nova-micro-v1:0                    |  ❌  |
 | Nova-Lite                  | us.amazon.nova-lite-v1:0                     |  ✅  |
 | Nova-Pro                   | us.amazon.nova-pro-v1:0                      |  ✅  |
@@ -166,6 +180,7 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 | Qwen3-235B-A22B-2507       | qwen.qwen3-235b-a22b-2507-v1:0               |  ❌  |
 | Qwen3-Coder-30B-A3B        | qwen.qwen3-coder-30b-a3b-v1:0                |  ❌  |
 | Qwen3-Coder-480B-A35B      | qwen.qwen3-coder-480b-a35b-v1:0              |  ❌  |
+| Qwen3-Next-80B-A3B         | qwen.qwen3-next-80b-a3b                      |  ❌  |
 
 To return the list progrmatically you can import and call `listBedrockWrapperSupportedModels`:  
 ```javascript
@@ -181,8 +196,9 @@ Please modify the `bedrock_models.js` file and submit a PR 🏆 or create an Iss
 ### Thinking Models
 
 Some models support extended reasoning capabilities through "thinking mode". These models include:
-- **Claude models**: Claude-4-1-Opus-Thinking, Claude-4-Opus-Thinking, Claude-4-5-Sonnet-Thinking, Claude-4-5-Haiku-Thinking, Claude-4-Sonnet-Thinking, Claude-3-7-Sonnet-Thinking
+- **Claude models**: Claude-4-5-Opus-Thinking, Claude-4-1-Opus-Thinking, Claude-4-Opus-Thinking, Claude-4-5-Sonnet-Thinking, Claude-4-5-Haiku-Thinking, Claude-4-Sonnet-Thinking, Claude-3-7-Sonnet-Thinking
 - **GPT-OSS models**: GPT-OSS-120B-Thinking, GPT-OSS-20B-Thinking
+- **Kimi models**: Kimi-K2-Thinking (preserves reasoning tags in output)
 
 To use thinking mode and see the model's reasoning process, set `include_thinking_data: true` in your request:
 
@@ -213,7 +229,7 @@ for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateOb
 
 ### Image Support
 
-For models with image support (Claude 4+ series including Claude 4.5 Sonnet, Claude 4.5 Haiku, Claude 3.7 Sonnet, Claude 3.5 Sonnet, Claude 3 Haiku, Nova Pro, and Nova Lite), you can include images in your messages using the following format (not all models support system prompts):
+For models with image support (Claude 4+ series including Claude 4.5 Opus, Claude 4.5 Sonnet, Claude 4.5 Haiku, Claude 3.7 Sonnet, Claude 3.5 Sonnet, Claude 3 Haiku, Nova Pro, Nova Lite, Nova 2 Lite, Mistral Large 3, Ministral 3 series, and Gemma 3 series), you can include images in your messages using the following format (not all models support system prompts):
 
 ```javascript
 messages = [
@@ -280,6 +296,9 @@ const openaiChatCompletionsCreateObject = {
 - ✅ **GPT-OSS models**: Fully supported
 - ✅ **Mistral models**: Fully supported (up to 10 sequences)
 - ✅ **Qwen models**: Fully supported
+- ✅ **Gemma models**: Fully supported
+- ✅ **Kimi models**: Fully supported
+- ✅ **MiniMax models**: Fully supported
 - ❌ **Llama models**: Not supported (AWS Bedrock limitation)
 
 **Features:**
@@ -310,6 +329,7 @@ Some AWS Bedrock models have specific parameter restrictions that are automatica
 #### Claude 4+ Models (Temperature/Top-P Mutual Exclusion)
 
 **Affected Models:**
+- Claude-4-5-Opus & Claude-4-5-Opus-Thinking
 - Claude-4-5-Sonnet & Claude-4-5-Sonnet-Thinking
 - Claude-4-5-Haiku & Claude-4-5-Haiku-Thinking
 - Claude-4-Sonnet & Claude-4-Sonnet-Thinking

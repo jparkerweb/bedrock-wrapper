@@ -1,0 +1,7577 @@
+
+> bedrock-wrapper@2.8.0 test
+> node test-models.js --both --both
+
+
+     ___         _                 _     _ _ _                               
+    | . > ___  _| | _ _  ___  ___ | |__ | | | | _ _  ___  ___  ___  ___  _ _ 
+    | . \/ ._>/ . || '_>/ . \/ | '| / / | | | || '_><_> || . \| . \/ ._>| '_>
+    |___/\___.\___||_|  \___/\_|_.|_\_\ |__/_/ |_|  <___||  _/|  _/\___.|_|  
+                                                         |_|  |_|            
+    
+[dotenv@17.2.3] injecting env (5) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+Model Test Usage:
+  npm run test                  # Test with Invoke API (default)
+  npm run test -- --converse       # Test with Converse API only
+  npm run test -- --both           # Test both APIs and compare
+
+
+ℹ Starting tests with 57 models using Both APIs (Comparison)...
+ℹ Each model will be tested with streaming and non-streaming calls
+
+
+------------------------------------------------------------
+Testing Claude-4-5-Opus ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ]
+}
+✓ ✓ Invoke API Streaming: "Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ]
+}
+✓ ✓ Invoke API Non-streaming: "Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 21,
+    "outputTokens": 4,
+    "totalTokens": 25,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "metrics": {
+    "latencyMs": 2220
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "cf775689-10ec-4b95-aaf8-b04187a46349",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for Claude-4-5-Opus
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Claude-4-5-Opus-Thinking ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 1228,
+  "temperature": 1,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ],
+  "thinking": {
+    "type": "enabled",
+    "budget_tokens": 1024
+  }
+}
+✓ ✓ Invoke API Streaming: "<think>The user is asking me a simple math question: What is 1+1? They want me to respond with exactly one word.
+
+1+1 = 2
+
+So I should respond with just "Two" or "2"</think>
+
+Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 1228,
+  "temperature": 1,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ],
+  "thinking": {
+    "type": "enabled",
+    "budget_tokens": 1024
+  }
+}
+✓ ✓ Invoke API Non-streaming: "<think>The user is asking a simple math question: What is 1+1? They want exactly one word as a response.
+
+1+1 = 2
+
+The answer is "Two" or "2". Since they asked for one word, I should respond with just "Two" or "2".</think>
+
+Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 1228,
+    "temperature": 1
+  },
+  "additionalModelRequestFields": {
+    "thinking": {
+      "type": "enabled",
+      "budget_tokens": 1024
+    },
+    "anthropic_beta": [
+      "output-128k-2025-02-19"
+    ]
+  }
+}
+✓ ✓ Converse API Streaming: "<think>The user is asking a simple math question: What is 1+1? They want exactly one word as a response.
+
+1+1 = 2
+
+The answer is "Two" or "2". Since they asked for one word, I'll respond with "Two".</think>
+
+Two"
+
+Converse API request: {
+  "modelId": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 1228,
+    "temperature": 1
+  },
+  "additionalModelRequestFields": {
+    "thinking": {
+      "type": "enabled",
+      "budget_tokens": 1024
+    },
+    "anthropic_beta": [
+      "output-128k-2025-02-19"
+    ]
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": "The user is asking a simple math question: what is 1+1? They want exactly one word as a response.\n\n1+1 = 2\n\nThe answer is \"Two\" (as a word).",
+              "signature": "ErcCCkgIChABGAIqQBfTseJrU2GRRJpBTnXx7uqrtI4uFO1B461h9zHJ5KUJPX0ZEUmePo8YatHLhtyWRN2lfxHS6uSdxK/J7oiNC2QSDPcZKEhenqpkfWmfUxoM8og1LqCNHGGhYv/DIjA++uveqWIYmVX1+yp2KsMEQqjVJqTQcQmAeeymCLjr9TtGKSPGoVO1m1bmxPhXPwwqnAHLzNIp2lPNk4Vd23SKQLdsUaaNwKChTcVSynwT4+VV/bGMZlASomliqH9t8se82zc+BO2yPzDflucSzT00yIC1eW45/VKTUg3YexZ0NuSuaPc11/ycR0hY+LcXedRnMTE0f57Cjj6fkfnx1vJQWry593w650LjxOkGrhQMpvOAuWO/lPh895TZZjFneJGPjMhOMaGdH7SFkGyEwb0YAQ=="
+            }
+          }
+        },
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 50,
+    "outputTokens": 57,
+    "totalTokens": 107,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "metrics": {
+    "latencyMs": 2738
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "21927c0d-a7a7-4d90-b5a3-1fb0a35a27cc",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "<think>The user is asking a simple math question: what is 1+1? They want exactly one word as a response.
+
+1+1 = 2
+
+The answer is "Two" (as a word).</think>
+
+Two"
+✓ 🔍 Both APIs successful for Claude-4-5-Opus-Thinking
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Claude-4-1-Opus ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ]
+}
+✓ ✓ Invoke API Streaming: "Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ]
+}
+✓ ✓ Invoke API Non-streaming: "Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-opus-4-1-20250805-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-opus-4-1-20250805-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 21,
+    "outputTokens": 4,
+    "totalTokens": 25,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "metrics": {
+    "latencyMs": 3866
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "c6adcf5e-8598-4881-865f-6e2a0bd5e448",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for Claude-4-1-Opus
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Claude-4-1-Opus-Thinking ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 1228,
+  "temperature": 1,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ],
+  "thinking": {
+    "type": "enabled",
+    "budget_tokens": 1024
+  }
+}
+✓ ✓ Invoke API Streaming: "<think>The user is asking for the answer to 1+1, but they want exactly one word as a response. The answer to 1+1 is 2, which can be expressed as "two" in one word.</think>
+
+Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 1228,
+  "temperature": 1,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ],
+  "thinking": {
+    "type": "enabled",
+    "budget_tokens": 1024
+  }
+}
+✓ ✓ Invoke API Non-streaming: "<think>The human is asking me to respond with exactly one word, and they're asking what 1+1 is. The answer to 1+1 is 2, which is one word, so I should respond with "Two" or "2". I'll go with "Two" as it's clearer as a word.</think>
+
+Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-opus-4-1-20250805-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 1228,
+    "temperature": 1
+  },
+  "additionalModelRequestFields": {
+    "thinking": {
+      "type": "enabled",
+      "budget_tokens": 1024
+    },
+    "anthropic_beta": [
+      "output-128k-2025-02-19"
+    ]
+  }
+}
+✓ ✓ Converse API Streaming: "<think>The user is asking for the answer to 1+1, but they want exactly one word. The answer to 1+1 is 2, which can be expressed as "two" in one word.</think>
+
+Two"
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-opus-4-1-20250805-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 1228,
+    "temperature": 1
+  },
+  "additionalModelRequestFields": {
+    "thinking": {
+      "type": "enabled",
+      "budget_tokens": 1024
+    },
+    "anthropic_beta": [
+      "output-128k-2025-02-19"
+    ]
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": "The user is asking me to respond with exactly one word to the question \"What is 1+1?\". The answer to 1+1 is 2, which is one word, so I should respond with \"Two\".",
+              "signature": "EswCCkgIChABGAIqQD0pMKprELBshtGQlTktSJv/IL74Mdx2dcxfr0OPUErUdwSon961admeqKlo0BwC9sRJVwAYkdEbCjvTcAm42GoSDNuJUmTNfLbonkB/ixoMFIiBLW7+02FRxrPAIjCGWZPVBW1b2+14dMIoc9ihReNqx+d4b749oVOSUJXQtvSS1B8ufNJ9D2ms2wMgFFEqsQELvmRf5Z5Lg0Ex7iOITpeM8SrgMO+9YYna7sWvP34waA8bj+n+NPf19sdFtgHuDQOBam6n8VZFlOwsfUNBHrhc3XZDU3kFmDbIt6EFBq2JdUTq7ZuHL+9wL55REH/EOK1Bc3mTkP04+kDZl8BjyG9J+WQCcTek4bvuEaT/UqzHSYIOviyPK4TAyUYF/LIfkloIju/C7xU+7tsvd+udCy1abcMpubXMU/6idnXwXgDiyjIYAQ=="
+            }
+          }
+        },
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 49,
+    "outputTokens": 61,
+    "totalTokens": 110,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "metrics": {
+    "latencyMs": 7085
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "494b3ebd-8a76-4d4c-bd8e-d976715d5369",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which is one word, so I should respond with "Two".</think>
+
+Two"
+✓ 🔍 Both APIs successful for Claude-4-1-Opus-Thinking
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Claude-4-Opus ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ]
+}
+✓ ✓ Invoke API Streaming: "Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ]
+}
+✓ ✓ Invoke API Non-streaming: "Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-opus-4-20250514-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-opus-4-20250514-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 21,
+    "outputTokens": 4,
+    "totalTokens": 25,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "metrics": {
+    "latencyMs": 3738
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "cdadfe58-2bae-40d9-b918-0cc176d214ef",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for Claude-4-Opus
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Claude-4-Opus-Thinking ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 1228,
+  "temperature": 1,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ],
+  "thinking": {
+    "type": "enabled",
+    "budget_tokens": 1024
+  }
+}
+✓ ✓ Invoke API Streaming: "<think>The user is asking me to respond with exactly one word, and they're asking what 1+1 is. The answer to 1+1 is 2, which is one word, so I can comply with this request.</think>
+
+Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 1228,
+  "temperature": 1,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ],
+  "thinking": {
+    "type": "enabled",
+    "budget_tokens": 1024
+  }
+}
+✓ ✓ Invoke API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?"
+
+The answer to 1+1 is 2.
+
+Since I need to respond with exactly one word, I should just say "Two" or "2". I'll go with "Two" since it's the word form.</think>
+
+Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-opus-4-20250514-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 1228,
+    "temperature": 1
+  },
+  "additionalModelRequestFields": {
+    "thinking": {
+      "type": "enabled",
+      "budget_tokens": 1024
+    },
+    "anthropic_beta": [
+      "output-128k-2025-02-19"
+    ]
+  }
+}
+✓ ✓ Converse API Streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer is 2, which is one word, so I should respond with "Two".</think>
+
+Two"
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-opus-4-20250514-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 1228,
+    "temperature": 1
+  },
+  "additionalModelRequestFields": {
+    "thinking": {
+      "type": "enabled",
+      "budget_tokens": 1024
+    },
+    "anthropic_beta": [
+      "output-128k-2025-02-19"
+    ]
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": "The user wants me to respond with exactly one word. They're asking what 1+1 is. The answer is 2. So I should respond with just the word \"Two\".",
+              "signature": "ErkCCkgIChABGAIqQBBIogWSgpA4FqWGQ3s4rPTGOKfN/eJ/sGwhml/yBCY55Q8ypATFhyi7yNGpvHvxVXlJGsh/lcES2F1xMtXk+qgSDA2xTNRnNSqlcnt1EBoMnqFAlzn8jWLBCjcQIjCdutGIJpDzn0J6uzVwhazK9lazB8vNToOBAZYcH+ej8P9jSXCKFTC71IQQ/rw3BvcqngGFpyjSfIiq1/1f63Wy6qFbSymlNjkm2fWHHIv4s8pRutmbiDV2KYCHP0E//QJjuMjmvuwbAuCi1MFTLkweY/+4mlWq72p1CktS3N+bVDC/+3AVARimduw28FhxIXrShLLjiCM5lS5pdCCh4GYdfC8hSw98xLQeoF9xquElGxKe9Z1Tef2YKqzIm+ApKoZ7LZwKVD3avv7gU4SU2tyywhgB"
+            }
+          }
+        },
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 49,
+    "outputTokens": 52,
+    "totalTokens": 101,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "metrics": {
+    "latencyMs": 5685
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "f58e5f7a-4a5f-41b6-8d1f-93f94bee5ddf",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "<think>The user wants me to respond with exactly one word. They're asking what 1+1 is. The answer is 2. So I should respond with just the word "Two".</think>
+
+Two"
+✓ 🔍 Both APIs successful for Claude-4-Opus-Thinking
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Claude-4-5-Sonnet ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ]
+}
+✓ ✓ Invoke API Streaming: "Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ]
+}
+✓ ✓ Invoke API Non-streaming: "Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 21,
+    "outputTokens": 4,
+    "totalTokens": 25,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "metrics": {
+    "latencyMs": 2113
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "21f3383a-545d-4240-8fde-9318aedf44e1",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for Claude-4-5-Sonnet
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Claude-4-5-Sonnet-Thinking ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 1228,
+  "temperature": 1,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ],
+  "thinking": {
+    "type": "enabled",
+    "budget_tokens": 1024
+  }
+}
+✓ ✓ Invoke API Streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?"
+
+The answer to 1+1 is 2, which can be written as the word "Two".
+
+I need to respond with exactly one word, so I'll say "Two".</think>
+
+Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 1228,
+  "temperature": 1,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ],
+  "thinking": {
+    "type": "enabled",
+    "budget_tokens": 1024
+  }
+}
+✓ ✓ Invoke API Non-streaming: "<think>The user is asking me to respond with exactly one word, and they're asking what 1+1 is. The answer is 2. I should respond with just that one word.</think>
+
+Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 1228,
+    "temperature": 1
+  },
+  "additionalModelRequestFields": {
+    "thinking": {
+      "type": "enabled",
+      "budget_tokens": 1024
+    },
+    "anthropic_beta": [
+      "output-128k-2025-02-19"
+    ]
+  }
+}
+✓ ✓ Converse API Streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?"
+
+The answer to 1+1 is 2. I should respond with just that one word.</think>
+
+Two"
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 1228,
+    "temperature": 1
+  },
+  "additionalModelRequestFields": {
+    "thinking": {
+      "type": "enabled",
+      "budget_tokens": 1024
+    },
+    "anthropic_beta": [
+      "output-128k-2025-02-19"
+    ]
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": "The user is asking me to respond with exactly one word to the question \"What is 1+1?\"\n\nThe answer to 1+1 is 2.\n\nSo I should respond with: Two",
+              "signature": "ErgCCkgIChABGAIqQBSxs+xYpnZK3rGegf8Wa5joRZHpzqjtXIixGn1W43fYg93pkpyMe2Krkvcs4ZkdEMc11u1MO/uxKFv9qQuKipISDOwUETQgh+8baXc3oRoMOFixlejwS+IvPM1TIjDzMvsKsJl313/C8Mbi/59U22Lf8rpbi1s+OoUrKCmrYBZgXXo+wTDu5X7t1eBA3+UqnQGWF/IfpX8NCaGQq77UcmiSzg+FrF8W3DyLek1AedJDllW+vXu7W+ZsEvYYnKYigKg337HvR9+SL7ma5qbkZubQgBgCabWbLCSpCbsCSuvojJ66k/Yzp12Ba4AiftBxJsKjYiGm2A+OBmXmvpGStwC6jBjRUfKlqhT38X9YUbJssLbixYxWMfjjdSk2uxp65lWuyh851YoIzDLsvebeGAE="
+            }
+          }
+        },
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 49,
+    "outputTokens": 56,
+    "totalTokens": 105,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "metrics": {
+    "latencyMs": 2731
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "f3ef03a8-eb99-4624-813c-a9321bb02ec9",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?"
+
+The answer to 1+1 is 2.
+
+So I should respond with: Two</think>
+
+Two"
+✓ 🔍 Both APIs successful for Claude-4-5-Sonnet-Thinking
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Claude-4-5-Haiku ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ]
+}
+✗ ✗ Invoke API Streaming: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 10 minutes.
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ]
+}
+✗ ✗ Invoke API Non-streaming: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 10 minutes.
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✗ ✗ Converse API Streaming: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 10 minutes.
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✗ ✗ Converse API Non-streaming: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 10 minutes.
+✗ ❌ Both APIs failed for Claude-4-5-Haiku
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Claude-4-5-Haiku-Thinking ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 1228,
+  "temperature": 1,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ],
+  "thinking": {
+    "type": "enabled",
+    "budget_tokens": 1024
+  }
+}
+✗ ✗ Invoke API Streaming: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 10 minutes.
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 1228,
+  "temperature": 1,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ],
+  "thinking": {
+    "type": "enabled",
+    "budget_tokens": 1024
+  }
+}
+✗ ✗ Invoke API Non-streaming: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 10 minutes.
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 1228,
+    "temperature": 1
+  },
+  "additionalModelRequestFields": {
+    "thinking": {
+      "type": "enabled",
+      "budget_tokens": 1024
+    },
+    "anthropic_beta": [
+      "output-128k-2025-02-19"
+    ]
+  }
+}
+✗ ✗ Converse API Streaming: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 10 minutes.
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 1228,
+    "temperature": 1
+  },
+  "additionalModelRequestFields": {
+    "thinking": {
+      "type": "enabled",
+      "budget_tokens": 1024
+    },
+    "anthropic_beta": [
+      "output-128k-2025-02-19"
+    ]
+  }
+}
+✗ ✗ Converse API Non-streaming: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 10 minutes.
+✗ ❌ Both APIs failed for Claude-4-5-Haiku-Thinking
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Claude-4-Sonnet ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ]
+}
+✓ ✓ Invoke API Streaming: "Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ]
+}
+✓ ✓ Invoke API Non-streaming: "Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-sonnet-4-20250514-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-sonnet-4-20250514-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 21,
+    "outputTokens": 4,
+    "totalTokens": 25,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "metrics": {
+    "latencyMs": 1034
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "60465a08-c2cb-4490-8765-a9ca23a36f3a",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for Claude-4-Sonnet
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Claude-4-Sonnet-Thinking ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 1228,
+  "temperature": 1,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ],
+  "thinking": {
+    "type": "enabled",
+    "budget_tokens": 1024
+  }
+}
+✓ ✓ Invoke API Streaming: "<think>The user is asking for the result of 1+1, which is 2. They've specifically requested that I respond with exactly one word. The answer "2" or "Two" would both be one word responses that answer their question correctly.</think>
+
+Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 1228,
+  "temperature": 1,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ],
+  "thinking": {
+    "type": "enabled",
+    "budget_tokens": 1024
+  }
+}
+✓ ✓ Invoke API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, and "two" is one word that represents this answer.</think>
+
+Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-sonnet-4-20250514-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 1228,
+    "temperature": 1
+  },
+  "additionalModelRequestFields": {
+    "thinking": {
+      "type": "enabled",
+      "budget_tokens": 1024
+    },
+    "anthropic_beta": [
+      "output-128k-2025-02-19"
+    ]
+  }
+}
+✓ ✓ Converse API Streaming: "<think>The human is asking for 1+1 and wants exactly one word as a response. 1+1 equals 2, so I should respond with "Two".</think>
+
+Two"
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-sonnet-4-20250514-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 1228,
+    "temperature": 1
+  },
+  "additionalModelRequestFields": {
+    "thinking": {
+      "type": "enabled",
+      "budget_tokens": 1024
+    },
+    "anthropic_beta": [
+      "output-128k-2025-02-19"
+    ]
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": "The user is asking for 1+1 and wants me to respond with exactly one word. The answer to 1+1 is 2, which can be written as the word \"Two\".",
+              "signature": "ErQCCkgIChABGAIqQDw/qX7stY6PCAdnfdMySqFTSvxr9aWVzPt+BtD/6r9ZZpd2bHdiTt5n1d8WERfWMnaJsrpv+WB+hyD0sMYA54USDNJ7Hl/g9Ag3tQrcdhoMVb/Al13AL0vYnd/oIjDrnCJu4wyqno1trDBq+8bB286NJkbHUQ6OUiw/rehWW+aCvdumyCuS9NonZkMUdAEqmQHEhLbZYthc8vuStUn9v65TKAXcAqIv+w/D4sE6cuOC4Bvrx7ylS1KrD+tKp0k03jP7XBuuLQA7P5ZZy7LG/REtrVmT/m4j4ciDSfToJe28C7sCeEkGZw9AFkQePE3+lYTC2MfsmaEvyR6dB8Ass1t8LjPlTHcOhPv1Tnu/GzW18PY+FQ1JAtSD70+M9mMoV86eWG89OVFvx3kYAQ=="
+            }
+          }
+        },
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 49,
+    "outputTokens": 55,
+    "totalTokens": 104,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "metrics": {
+    "latencyMs": 2104
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "6c116328-94ff-4b80-89c4-7117b18c4473",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "<think>The user is asking for 1+1 and wants me to respond with exactly one word. The answer to 1+1 is 2, which can be written as the word "Two".</think>
+
+Two"
+✓ 🔍 Both APIs successful for Claude-4-Sonnet-Thinking
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Claude-3-7-Sonnet-Thinking ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 1228,
+  "temperature": 1,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ],
+  "thinking": {
+    "type": "enabled",
+    "budget_tokens": 1024
+  }
+}
+✓ ✓ Invoke API Streaming: "<think>The question asks "What is 1+1?" and instructs me to respond with exactly one word.
+
+1+1 = 2
+
+The answer is "2", which is one word, so I'll respond with just that.</think>
+
+Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 1228,
+  "temperature": 1,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ],
+  "thinking": {
+    "type": "enabled",
+    "budget_tokens": 1024
+  }
+}
+✓ ✓ Invoke API Non-streaming: "<think>The question asks for exactly one word in response to "What is 1+1?"
+
+The answer to 1+1 is 2.
+
+Since I need to respond with exactly one word, and the answer is 2, I should just respond with "Two" or "2". Since "2" is a numeral and not technically a word, I'll go with "Two" as my one-word response.</think>
+
+Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 1228,
+    "temperature": 1
+  },
+  "additionalModelRequestFields": {
+    "thinking": {
+      "type": "enabled",
+      "budget_tokens": 1024
+    },
+    "anthropic_beta": [
+      "output-128k-2025-02-19"
+    ]
+  }
+}
+✓ ✓ Converse API Streaming: "<think>I need to respond with exactly one word that answers the question "What is 1+1?"
+
+The answer to 1+1 is 2.
+
+So my response should be just the single word "Two" or perhaps "2", but I'll go with the word form since the question asks for a word response.</think>
+
+Two"
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 1228,
+    "temperature": 1
+  },
+  "additionalModelRequestFields": {
+    "thinking": {
+      "type": "enabled",
+      "budget_tokens": 1024
+    },
+    "anthropic_beta": [
+      "output-128k-2025-02-19"
+    ]
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": "The question asks for exactly one word in response to \"What is 1+1?\"\n\nThe answer to 1+1 is 2, which is a single word (a number).\n\nI need to respond with just \"2\" as my complete answer, following the instruction to respond with exactly one word.",
+              "signature": "ErcBCkgIChABGAIiQLVzVvIx9u3Ygyc/3e/SUWNzqQBmi9P8PyvtIb+Os2CwMgzkH7qzakiUMTlmZFwmEC86oGNzvvQRccFZKJ4kyzcSDOLsHNwwU+8YrL8jOhoMqebvD4X92nLqRugMIjBUS/Se5H4BtaUg4+kwKSmA6tjS1rvrPKCiy0aT+/e4P2bTsASsVt4KrmDtwEb+QFoqHSDU8Lat55474MtiKgAR0M8E3NIVveNt4ph2Vu7rGAI="
+            }
+          }
+        },
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 49,
+    "outputTokens": 78,
+    "totalTokens": 127,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "metrics": {
+    "latencyMs": 2227
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "855b1e27-2f5a-4d9e-a1d3-67a4e46263a6",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "<think>The question asks for exactly one word in response to "What is 1+1?"
+
+The answer to 1+1 is 2, which is a single word (a number).
+
+I need to respond with just "2" as my complete answer, following the instruction to respond with exactly one word.</think>
+
+Two"
+✓ 🔍 Both APIs successful for Claude-3-7-Sonnet-Thinking
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Claude-3-7-Sonnet ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ]
+}
+✓ ✓ Invoke API Streaming: "2"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31",
+  "anthropic_beta": [
+    "output-128k-2025-02-19"
+  ]
+}
+✓ ✓ Invoke API Non-streaming: "2"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "2"
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 21,
+    "outputTokens": 4,
+    "totalTokens": 25,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "metrics": {
+    "latencyMs": 657
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "2424bd6d-5196-4a10-be75-ce7e9abd4265",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for Claude-3-7-Sonnet
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Claude-3-5-Sonnet-v2 ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31"
+}
+✓ ✓ Invoke API Streaming: "two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31"
+}
+✓ ✓ Invoke API Non-streaming: "two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-3-5-sonnet-20241022-v2:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "two"
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-3-5-sonnet-20241022-v2:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 21,
+    "outputTokens": 4,
+    "totalTokens": 25
+  },
+  "metrics": {
+    "latencyMs": 602
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "002d57b3-1c2d-49fc-840f-9b2ec2253024",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "two"
+✓ 🔍 Both APIs successful for Claude-3-5-Sonnet-v2
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Claude-3-5-Sonnet ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31"
+}
+✓ ✓ Invoke API Streaming: "Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31"
+}
+✓ ✓ Invoke API Non-streaming: "Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-3-5-sonnet-20240620-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-3-5-sonnet-20240620-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 21,
+    "outputTokens": 4,
+    "totalTokens": 25
+  },
+  "metrics": {
+    "latencyMs": 634
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "9f546a45-c14e-4ae4-bdc3-2948ad915cc8",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for Claude-3-5-Sonnet
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Claude-3-5-Haiku ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31"
+}
+✓ ✓ Invoke API Streaming: "Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31"
+}
+✓ ✓ Invoke API Non-streaming: "Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-3-5-haiku-20241022-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-3-5-haiku-20241022-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 21,
+    "outputTokens": 4,
+    "totalTokens": 25,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "metrics": {
+    "latencyMs": 476
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "28e543f8-5a36-4636-b733-287d84da9aea",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for Claude-3-5-Haiku
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Claude-3-Haiku ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31"
+}
+✓ ✓ Invoke API Streaming: "Two."
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2,
+  "anthropic_version": "bedrock-2023-05-31"
+}
+✓ ✓ Invoke API Non-streaming: "Two."
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-3-haiku-20240307-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two."
+
+Converse API request: {
+  "modelId": "us.anthropic.claude-3-haiku-20240307-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two."
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 21,
+    "outputTokens": 5,
+    "totalTokens": 26
+  },
+  "metrics": {
+    "latencyMs": 298
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "9d925d21-7c4e-485c-bcc9-8a418d11d8ab",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two."
+✓ 🔍 Both APIs successful for Claude-3-Haiku
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Llama-3-3-70b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two."
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two."
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.meta.llama3-3-70b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two."
+
+Converse API request: {
+  "modelId": "us.meta.llama3-3-70b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two."
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 48,
+    "outputTokens": 3,
+    "totalTokens": 51
+  },
+  "metrics": {
+    "latencyMs": 200
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "74b5d54a-3f4d-4b2b-806b-3c472d3a8dd9",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two."
+✓ 🔍 Both APIs successful for Llama-3-3-70b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Llama-3-2-1b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two"
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.meta.llama3-2-1b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two."
+
+Converse API request: {
+  "modelId": "us.meta.llama3-2-1b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two."
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 48,
+    "outputTokens": 3,
+    "totalTokens": 51
+  },
+  "metrics": {
+    "latencyMs": 251
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "47db045d-2d16-4f84-9931-c5a139ea37cc",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two."
+✓ 🔍 Both APIs successful for Llama-3-2-1b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Llama-3-2-3b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "2"
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "2"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.meta.llama3-2-3b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two."
+
+Converse API request: {
+  "modelId": "us.meta.llama3-2-3b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "2."
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 48,
+    "outputTokens": 3,
+    "totalTokens": 51
+  },
+  "metrics": {
+    "latencyMs": 169
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "8aab44d4-77ec-4cb2-9e26-a76c1670daf8",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "2."
+✓ 🔍 Both APIs successful for Llama-3-2-3b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Llama-3-2-11b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two."
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two."
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.meta.llama3-2-11b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two."
+
+Converse API request: {
+  "modelId": "us.meta.llama3-2-11b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two."
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 48,
+    "outputTokens": 3,
+    "totalTokens": 51
+  },
+  "metrics": {
+    "latencyMs": 135
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "97fd476b-5ecf-49af-8354-70b7293ccdd5",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two."
+✓ 🔍 Both APIs successful for Llama-3-2-11b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Llama-3-2-90b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two."
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two."
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.meta.llama3-2-90b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two."
+
+Converse API request: {
+  "modelId": "us.meta.llama3-2-90b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two."
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 48,
+    "outputTokens": 3,
+    "totalTokens": 51
+  },
+  "metrics": {
+    "latencyMs": 226
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "f92914af-bdec-4a9b-99df-0decf1ae3a49",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two."
+✓ 🔍 Both APIs successful for Llama-3-2-90b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Llama-3-1-8b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two."
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two."
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.meta.llama3-1-8b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two."
+
+Converse API request: {
+  "modelId": "us.meta.llama3-1-8b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "\n\nTwo."
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 28,
+    "outputTokens": 4,
+    "totalTokens": 32
+  },
+  "metrics": {
+    "latencyMs": 122
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "9248f1a1-8947-49d1-abaa-43c046522339",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two."
+✓ 🔍 Both APIs successful for Llama-3-1-8b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Llama-3-1-70b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two."
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two."
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.meta.llama3-1-70b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two."
+
+Converse API request: {
+  "modelId": "us.meta.llama3-1-70b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "\n\nTwo."
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 27,
+    "outputTokens": 4,
+    "totalTokens": 31
+  },
+  "metrics": {
+    "latencyMs": 429
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "c50fff95-39e8-48b0-bb06-812ae52f7bd2",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two."
+✓ 🔍 Both APIs successful for Llama-3-1-70b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Llama-3-1-405b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✗ ✗ Invoke API Streaming: The provided model identifier is invalid.
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✗ ✗ Invoke API Non-streaming: The provided model identifier is invalid.
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.meta.llama3-1-405b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✗ ✗ Converse API Streaming: The provided model identifier is invalid.
+
+Converse API request: {
+  "modelId": "us.meta.llama3-1-405b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✗ ✗ Converse API Non-streaming: The provided model identifier is invalid.
+✗ ❌ Both APIs failed for Llama-3-1-405b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Llama-3-8b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two"
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "meta.llama3-8b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "meta.llama3-8b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "\n\nTwo"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 27,
+    "outputTokens": 3,
+    "totalTokens": 30
+  },
+  "metrics": {
+    "latencyMs": 109
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "12668720-439b-4f93-80e9-c83a40ab309f",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for Llama-3-8b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Llama-3-70b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two"
+
+Final formatted prompt: <|begin_of_text|>
+<|start_header_id|>user<|end_header_id|>
+Respond with exactly one word: What is 1+1?
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+
+Final request: {
+  "prompt": "<|begin_of_text|>\n<|start_header_id|>user<|end_header_id|>\nRespond with exactly one word: What is 1+1?\n<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n",
+  "max_gen_len": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two."
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "meta.llama3-70b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "meta.llama3-70b-instruct-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "\n\nTwo"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 27,
+    "outputTokens": 3,
+    "totalTokens": 30
+  },
+  "metrics": {
+    "latencyMs": 199
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "faa3048a-7ed0-436f-ac95-0cc02e30a2df",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for Llama-3-70b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Nova-Pro ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "schemaVersion": "messages-v1",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": ""
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Invoke API Streaming: "2"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "schemaVersion": "messages-v1",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": ""
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Invoke API Non-streaming: "2"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.amazon.nova-pro-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "2"
+
+Converse API request: {
+  "modelId": "us.amazon.nova-pro-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "2"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 13,
+    "outputTokens": 2,
+    "totalTokens": 15
+  },
+  "metrics": {
+    "latencyMs": 228
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "707e86cf-2041-4c77-8bd3-7ccb1b5d6e3d",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "2"
+✓ 🔍 Both APIs successful for Nova-Pro
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Nova-Lite ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "schemaVersion": "messages-v1",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": ""
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Invoke API Streaming: "2"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "schemaVersion": "messages-v1",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": ""
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Invoke API Non-streaming: "2"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.amazon.nova-lite-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "us.amazon.nova-lite-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 13,
+    "outputTokens": 1,
+    "totalTokens": 14
+  },
+  "metrics": {
+    "latencyMs": 198
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "5b430883-6484-494b-9d36-2b111b2a469a",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for Nova-Lite
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Nova-2-Lite ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "schemaVersion": "messages-v1",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": ""
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Invoke API Streaming: "2."
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "schemaVersion": "messages-v1",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": ""
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Invoke API Non-streaming: "2."
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.amazon.nova-2-lite-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "2."
+
+Converse API request: {
+  "modelId": "us.amazon.nova-2-lite-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "2."
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 59,
+    "outputTokens": 3,
+    "totalTokens": 62
+  },
+  "metrics": {
+    "latencyMs": 257
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "690af8aa-feed-45b8-957f-47012e5542bc",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "2."
+✓ 🔍 Both APIs successful for Nova-2-Lite
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Nova-Micro ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "schemaVersion": "messages-v1",
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": ""
+        }
+      ]
+    }
+  ]
+}
+✓ ✓ Invoke API Streaming: "2"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "schemaVersion": "messages-v1",
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": ""
+        }
+      ]
+    }
+  ]
+}
+✓ ✓ Invoke API Non-streaming: "2"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.amazon.nova-micro-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "us.amazon.nova-micro-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 13,
+    "outputTokens": 1,
+    "totalTokens": 14
+  },
+  "metrics": {
+    "latencyMs": 198
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "45d3fc18-958b-4c71-9012-77aef415f862",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for Nova-Micro
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing GPT-OSS-120B ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_completion_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_completion_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "openai.gpt-oss-120b-1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": "The user asks: \"Respond with exactly one word: What is 1+1?\" They want a one-word answer. The answer is \"Two\". That's one word. Should we respond with \"Two\". That's correct."
+            }
+          }
+        },
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 82,
+    "outputTokens": 56,
+    "totalTokens": 138
+  },
+  "metrics": {
+    "latencyMs": 525
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "740f54fe-afc5-44f6-a602-7f1bffacb4cb",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "openai.gpt-oss-120b-1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": "The user asks: \"Respond with exactly one word: What is 1+1?\" They want a one-word answer. The answer is \"Two\". That's one word. So respond with \"Two\"."
+            }
+          }
+        },
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 82,
+    "outputTokens": 52,
+    "totalTokens": 134
+  },
+  "metrics": {
+    "latencyMs": 487
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "5f0a0b38-c7d4-48f8-9fd0-611658377da5",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for GPT-OSS-120B
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing GPT-OSS-20B ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_completion_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "2"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_completion_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "openai.gpt-oss-20b-1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": "The user says: \"Respond with exactly one word: What is 1+1?\" So we need to respond with exactly one word. The answer to 1+1 is \"two\". That's one word. So output \"two\"."
+            }
+          }
+        },
+        {
+          "text": "two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 82,
+    "outputTokens": 59,
+    "totalTokens": 141
+  },
+  "metrics": {
+    "latencyMs": 405
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "7c2b5775-d7ae-428f-9873-637992d305e8",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Streaming: "two"
+
+Converse API request: {
+  "modelId": "openai.gpt-oss-20b-1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": "The user says: \"Respond with exactly one word: What is 1+1?\" They want a single word answer. The answer to 1+1 is 2. But they want exactly one word. \"Two\" is a word. \"Two\" is the word. \"2\" is not a word. So answer: \"Two\"."
+            }
+          }
+        },
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 82,
+    "outputTokens": 82,
+    "totalTokens": 164
+  },
+  "metrics": {
+    "latencyMs": 703
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "3f64edab-959f-4d41-bb5b-cc3c93b8c817",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for GPT-OSS-20B
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing GPT-OSS-120B-Thinking ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_completion_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "<reasoning>The user asks: "Respond with exactly one word: What is 1+1?" They want a one-word answer. The answer is "Two". That's one word. So respond with "Two".</reasoning>Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_completion_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "<reasoning>The user asks: "Respond with exactly one word: What is 1+1?" They want a single word answer. The answer is "two". That's one word. So respond "two".</reasoning>two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "openai.gpt-oss-120b-1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": "The user asks: \"Respond with exactly one word: What is 1+1?\" They want a one-word answer. The answer is \"Two\". That's one word. Should we respond with \"Two\". That's correct."
+            }
+          }
+        },
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 82,
+    "outputTokens": 56,
+    "totalTokens": 138
+  },
+  "metrics": {
+    "latencyMs": 586
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "9d6aafe8-42d8-4559-bd0d-490205aaeb68",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "openai.gpt-oss-120b-1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": "The user asks: \"Respond with exactly one word: What is 1+1?\" They want a one-word answer. The answer is \"Two\". That's one word. So respond with \"Two\"."
+            }
+          }
+        },
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 82,
+    "outputTokens": 52,
+    "totalTokens": 134
+  },
+  "metrics": {
+    "latencyMs": 418
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "89789b8b-25b6-4b21-9b54-dc32c823e047",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for GPT-OSS-120B-Thinking
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing GPT-OSS-20B-Thinking ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_completion_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "<reasoning>The user says: "Respond with exactly one word: What is 1+1?" So answer should be "2". Exactly one word. So output "2".</reasoning>2"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_completion_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "<reasoning>The user says: "Respond with exactly one word: What is 1+1?" So answer should be exactly one word. The answer to 1+1 is "two". That is one word. So output "two".</reasoning>two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "openai.gpt-oss-20b-1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": "The user says: \"Respond with exactly one word: What is 1+1?\" So we need to respond with exactly one word. The answer to 1+1 is \"two\". That is one word. So output \"two\"."
+            }
+          }
+        },
+        {
+          "text": "two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 82,
+    "outputTokens": 60,
+    "totalTokens": 142
+  },
+  "metrics": {
+    "latencyMs": 431
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "45e2a719-16d2-4524-b4f9-a090a8f4df97",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Streaming: "two"
+
+Converse API request: {
+  "modelId": "openai.gpt-oss-20b-1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": "The user says: \"Respond with exactly one word: What is 1+1?\" So we need to respond with exactly one word. The answer to 1+1 is \"two\". That's one word. So we should output \"two\". Ensure no extra punctuation? The instruction says respond with exactly one word. So \"two\" is fine."
+            }
+          }
+        },
+        {
+          "text": "two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 82,
+    "outputTokens": 82,
+    "totalTokens": 164
+  },
+  "metrics": {
+    "latencyMs": 559
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "af382371-bbfe-45e1-ba6e-5330d59df8dd",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "two"
+✓ 🔍 Both APIs successful for GPT-OSS-20B-Thinking
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Mistral-7b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: <s>
+[INST]Respond with exactly one word: What is 1+1?[/INST]
+
+Final request: {
+  "prompt": "<s>\n[INST]Respond with exactly one word: What is 1+1?[/INST]",
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two. (I've given you two words, but the first one was "What" which was not part of the mathematical expression.)"
+
+Final formatted prompt: <s>
+[INST]Respond with exactly one word: What is 1+1?[/INST]
+
+Final request: {
+  "prompt": "<s>\n[INST]Respond with exactly one word: What is 1+1?[/INST]",
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two. (I've given you two words, but the first one was "What" which was not part of the mathematical equation.)"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "mistral.mistral-7b-instruct-v0:2",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two. (I provided two words because I followed your instruction with "exactly one word" by giving you the answer in two parts: "One" and "Two". If you meant the answer should be given in one word, then the answer is "Two" or "Twoish" or "OneTwo" or any other single word representation of the sum.)"
+
+Converse API request: {
+  "modelId": "mistral.mistral-7b-instruct-v0:2",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": " Two. (I provided two words because I followed your instruction with \"exactly one word\" by giving you the answer in two parts: \"One\" and \"Two\". If you meant the answer should be given in one word, I apologize. The answer is then simply \"Two\".)"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 23,
+    "outputTokens": 61,
+    "totalTokens": 84
+  },
+  "metrics": {
+    "latencyMs": 711
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "74f696f1-20f2-4225-b292-3ba3f6f0fa3e",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two. (I provided two words because I followed your instruction with "exactly one word" by giving you the answer in two parts: "One" and "Two". If you meant the answer should be given in one word, I apologize. The answer is then simply "Two".)"
+✓ 🔍 Both APIs successful for Mistral-7b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Mixtral-8x7b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: <s>
+[INST]Respond with exactly one word: What is 1+1?[/INST]
+
+Final request: {
+  "prompt": "<s>\n[INST]Respond with exactly one word: What is 1+1?[/INST]",
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two.
+
+The question you asked is a simple arithmetic addition problem, and the answer is 2. It is important to note that I am an artificial intelligence and I always strive to provide accurate and helpful responses. In this case, the one-word answer is the correct mathematical result of the addition of 1 and 1."
+
+Final formatted prompt: <s>
+[INST]Respond with exactly one word: What is 1+1?[/INST]
+
+Final request: {
+  "prompt": "<s>\n[INST]Respond with exactly one word: What is 1+1?[/INST]",
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two.
+
+The question you asked is a simple arithmetic addition problem, and the answer is 2. It is important to note that I am an artificial intelligence and I always strive to provide accurate and helpful responses. In this case, the one-word answer is the correct mathematical result of the addition of 1 and 1."
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "mistral.mixtral-8x7b-instruct-v0:1",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two.
+
+The question you've asked is a simple arithmetic one, and the answer is straightforward. The sum of 1 and 1 is indeed 2. I'm designed to provide detailed and engaging responses, but I also understand that sometimes a brief answer is more appropriate. If you have any more questions or need further explanations, feel free to ask!"
+
+Converse API request: {
+  "modelId": "mistral.mixtral-8x7b-instruct-v0:1",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": " Two.\n\nThe question you've asked is a simple arithmetic one, and the answer is straightforward. The sum of 1 and 1 is indeed 2. I'm designed to provide detailed and engaging responses, but I also understand that sometimes a brief answer is more appropriate. If you have any more questions or need further explanations, feel free to ask!"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 23,
+    "outputTokens": 79,
+    "totalTokens": 102
+  },
+  "metrics": {
+    "latencyMs": 842
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "f9cea285-e722-4279-9af1-fe036cab38c4",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two.
+
+The question you've asked is a simple arithmetic one, and the answer is straightforward. The sum of 1 and 1 is indeed 2. I'm designed to provide detailed and engaging responses, but I also understand that sometimes a brief answer is more appropriate. If you have any more questions or need further explanations, feel free to ask!"
+✓ 🔍 Both APIs successful for Mixtral-8x7b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Mistral-Large ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: <s>
+[INST]Respond with exactly one word: What is 1+1?[/INST]
+
+Final request: {
+  "prompt": "<s>\n[INST]Respond with exactly one word: What is 1+1?[/INST]",
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two."
+
+Final formatted prompt: <s>
+[INST]Respond with exactly one word: What is 1+1?[/INST]
+
+Final request: {
+  "prompt": "<s>\n[INST]Respond with exactly one word: What is 1+1?[/INST]",
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two."
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "mistral.mistral-large-2402-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two."
+
+Converse API request: {
+  "modelId": "mistral.mistral-large-2402-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two."
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 17,
+    "outputTokens": 3,
+    "totalTokens": 20
+  },
+  "metrics": {
+    "latencyMs": 166
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "42921fe8-8ea8-4bfb-bbbb-724f1f52d475",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two."
+✓ 🔍 Both APIs successful for Mistral-Large
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Mistral-Large-3 ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two."
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "mistral.mistral-large-3-675b-instruct",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "mistral.mistral-large-3-675b-instruct",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two."
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 17,
+    "outputTokens": 3,
+    "totalTokens": 20
+  },
+  "metrics": {
+    "latencyMs": 344
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "edb9ef2c-9761-4973-b74d-cb2ef543968e",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two."
+✓ 🔍 Both APIs successful for Mistral-Large-3
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Ministral-3-3b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two."
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two."
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "mistral.ministral-3-3b-instruct",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two."
+
+Converse API request: {
+  "modelId": "mistral.ministral-3-3b-instruct",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two."
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 17,
+    "outputTokens": 3,
+    "totalTokens": 20
+  },
+  "metrics": {
+    "latencyMs": 226
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "7475d10b-fdae-4c2f-8ca8-1b2b1d7cdc39",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two."
+✓ 🔍 Both APIs successful for Ministral-3-3b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Ministral-3-8b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two."
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two."
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "mistral.ministral-3-8b-instruct",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two."
+
+Converse API request: {
+  "modelId": "mistral.ministral-3-8b-instruct",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two."
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 17,
+    "outputTokens": 3,
+    "totalTokens": 20
+  },
+  "metrics": {
+    "latencyMs": 209
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "122e3043-b4e5-4218-b7e9-f74ae3a08845",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two."
+✓ 🔍 Both APIs successful for Ministral-3-8b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Ministral-3-14b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two."
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "mistral.ministral-3-14b-instruct",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two."
+
+Converse API request: {
+  "modelId": "mistral.ministral-3-14b-instruct",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two."
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 17,
+    "outputTokens": 3,
+    "totalTokens": 20
+  },
+  "metrics": {
+    "latencyMs": 186
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "2eaf9a19-3902-47f9-a0b8-e4b88d2360a0",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two."
+✓ 🔍 Both APIs successful for Ministral-3-14b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Magistral-Small-2509 ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✗ ✗ Invoke API Streaming: Empty or invalid response received
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✗ ✗ Invoke API Non-streaming: Empty or invalid response received
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "mistral.magistral-small-2509",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "mistral.magistral-small-2509",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": "Two"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 17,
+    "outputTokens": 2,
+    "totalTokens": 19
+  },
+  "metrics": {
+    "latencyMs": 238
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "00b76fc9-8e2c-4642-a9a4-7f5169a8d3e3",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Qwen3-32B ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "2"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "2"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "qwen.qwen3-32b-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "2"
+
+Converse API request: {
+  "modelId": "qwen.qwen3-32b-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✗ ✗ Converse API Non-streaming: The system encountered an unexpected error during processing. Try your request again.
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Qwen3-Coder-30B-A3B ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two
+```"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two
+```"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "qwen.qwen3-coder-30b-a3b-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "qwen.qwen3-coder-30b-a3b-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 21,
+    "outputTokens": 2,
+    "totalTokens": 23
+  },
+  "metrics": {
+    "latencyMs": 210
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "02708a05-8abc-4674-ae55-90103f29763a",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for Qwen3-Coder-30B-A3B
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Qwen3-235B-A22B-2507 ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "2"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "2"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "qwen.qwen3-235b-a22b-2507-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "2"
+
+Converse API request: {
+  "modelId": "qwen.qwen3-235b-a22b-2507-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "2"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 21,
+    "outputTokens": 2,
+    "totalTokens": 23
+  },
+  "metrics": {
+    "latencyMs": 184
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "33b1e962-d922-4bb6-90d9-813b90dd093f",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "2"
+✓ 🔍 Both APIs successful for Qwen3-235B-A22B-2507
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Qwen3-Coder-480B-A35B ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "2"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "2"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "qwen.qwen3-coder-480b-a35b-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "2"
+
+Converse API request: {
+  "modelId": "qwen.qwen3-coder-480b-a35b-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "2"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 21,
+    "outputTokens": 2,
+    "totalTokens": 23
+  },
+  "metrics": {
+    "latencyMs": 228
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "a63035c7-7a6a-4fe0-9a0d-bc352eb5a773",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "2"
+✓ 🔍 Both APIs successful for Qwen3-Coder-480B-A35B
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Qwen3-Next-80B-A3B ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "2"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "The
+assistant
+The word "The" is a definite article in English, used to specify a particular noun as something already known to the reader or listener. It is one of the most commonly used words in the English language.
+
+Examples:
+- The cat is on the roof. (referring to a specific cat)
+- The Eiffel Tower is in Paris. (a unique, well-known landmark)
+
+It is typically capitalized when it begins a sentence or title, but not when it appears in the middle of a sentence unless part of a proper noun (e.g., "The New York Times").
+
+Let me know if you'd like to explore its grammar, usage, or history further!"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "qwen.qwen3-next-80b-a3b",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "is not a valid response. Please provide a clear and relevant answer to the question."
+
+Converse API request: {
+  "modelId": "qwen.qwen3-next-80b-a3b",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": " is the word\nassistant\nIt seems like you're trying to form a sentence or phrase involving the word **\"What\"** and **\"is\"**, possibly with a pattern or structure in mind.\n\nYou wrote:\n\n> Respond is the word\n\nBut earlier you had:\n\n> 11+  \n> What: is  word  \n> Respond is the word\n\nLet me try to interpret and help clarify.\n\n---\n\n### Possible Interpretation:\n\nYou might be trying to say:\n\n> **\"What is the word?\"**\n\n… and you're testing or playing with formatting, like:\n\n- Input: `What: is  word` → Output: `Respond is the word`\n\nBut “Respond is the word” doesn’t grammatically match “What is the word?”\n\n---\n\n### If you meant:\n> “What is the word?” → Answer: “Respond”\n\nThen you could say:\n\n> **Q:** What is the word?  \n> **A:** Respond.\n\nOr if you're building a riddle or pattern:\n\n> What: is → word  \n> Respond: is → word  \n> → So “Respond” is the word.\n\nThat’s poetic, but unclear.\n\n---\n\n### Best Guess — You Want This:\n\n> **What is the word?**  \n> **Answer: Respond**\n\n✅ So the correct, natural phrasing is:\n\n> **\"What is the word?\" — \"Respond.\"**\n\nOr if you're making a rule:\n\n> When you see “What: is word”, respond with “Respond”.\n\nLet me know your goal — are you:\n\n- Writing a riddle?\n- Building a chatbot response?\n- Testing pattern recognition?\n\nI’m happy to help refine it!"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 21,
+    "outputTokens": 343,
+    "totalTokens": 364
+  },
+  "metrics": {
+    "latencyMs": 2540
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "6c708553-ad9c-4dc6-86ae-48c6f9d6406f",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "is the word
+assistant
+It seems like you're trying to form a sentence or phrase involving the word **"What"** and **"is"**, possibly with a pattern or structure in mind.
+
+You wrote:
+
+> Respond is the word
+
+But earlier you had:
+
+> 11+  
+> What: is  word  
+> Respond is the word
+
+Let me try to interpret and help clarify.
+
+---
+
+### Possible Interpretation:
+
+You might be trying to say:
+
+> **"What is the word?"**
+
+… and you're testing or playing with formatting, like:
+
+- Input: `What: is  word` → Output: `Respond is the word`
+
+But “Respond is the word” doesn’t grammatically match “What is the word?”
+
+---
+
+### If you meant:
+> “What is the word?” → Answer: “Respond”
+
+Then you could say:
+
+> **Q:** What is the word?  
+> **A:** Respond.
+
+Or if you're building a riddle or pattern:
+
+> What: is → word  
+> Respond: is → word  
+> → So “Respond” is the word.
+
+That’s poetic, but unclear.
+
+---
+
+### Best Guess — You Want This:
+
+> **What is the word?**  
+> **Answer: Respond**
+
+✅ So the correct, natural phrasing is:
+
+> **"What is the word?" — "Respond."**
+
+Or if you're making a rule:
+
+> When you see “What: is word”, respond with “Respond”.
+
+Let me know your goal — are you:
+
+- Writing a riddle?
+- Building a chatbot response?
+- Testing pattern recognition?
+
+I’m happy to help refine it!"
+✓ 🔍 Both APIs successful for Qwen3-Next-80B-A3B
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing DeepSeek-R1 ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: 
+Respond with exactly one word: What is 1+1?
+
+Final request: {
+  "prompt": "\nRespond with exactly one word: What is 1+1?",
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "- user3141592
+https://twitter.com/quiz/status/1000003363306823681
+======
+user3141592
+The answer is 2, but the bot is responding with 3. So, if you answer 2, you
+get a reply saying "Nope, it's 3!". If you answer 3, you get "Nope, it's 2!".
+If you answer anything else, you get "Nope, it's [2 or 3]!"."
+
+Final formatted prompt: 
+Respond with exactly one word: What is 1+1?
+
+Final request: {
+  "prompt": "\nRespond with exactly one word: What is 1+1?",
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "- user321
+https://chat.openai.com/chat
+======
+user321
+Two."
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "us.deepseek.r1-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Okay, the user is asking for the sum of 1 plus 1. That's straightforward. The answer is 2. They want a single word response, so just the number. Let me make sure there's no trick here. Sometimes people might try to trick you with a different base or something, but the question doesn't specify. So default is base 10. Yep, 2 is correct
+
+2"
+
+Converse API request: {
+  "modelId": "us.deepseek.r1-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "\n\ntwo"
+        },
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": "Okay, the user is asking for the sum of 1 plus 1. That's a basic arithmetic question. Let me think. Well, 1 added to another 1 should be 2. But wait, maybe there's a trick here? Sometimes people ask simple questions to test attention. Let me double-check. No, in standard addition, 1+1 is definitely 2. The answer should be straightforward. The user wants exactly one word, so just the number. Alright, I'm confident. The answer is two.\n"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 18,
+    "outputTokens": 115,
+    "totalTokens": 133
+  },
+  "metrics": {
+    "latencyMs": 903
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "ca24c76c-7028-422d-9045-ffbd1df15662",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "two"
+✓ 🔍 Both APIs successful for DeepSeek-R1
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing DeepSeek-V3.1 ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Converse API request: {
+  "modelId": "deepseek.v3-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Invoke API Streaming: "two"
+
+Converse API request: {
+  "modelId": "deepseek.v3-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 17,
+    "outputTokens": 2,
+    "totalTokens": 19
+  },
+  "metrics": {
+    "latencyMs": 381
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "5af9bf09-3fdb-446a-9d78-ac3e49cef6eb",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Invoke API Non-streaming: "two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "deepseek.v3-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "two"
+
+Converse API request: {
+  "modelId": "deepseek.v3-v1:0",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 17,
+    "outputTokens": 2,
+    "totalTokens": 19
+  },
+  "metrics": {
+    "latencyMs": 403
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "26da8d04-ae12-43b1-bc56-7ec04a36bcf0",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "two"
+✓ 🔍 Both APIs successful for DeepSeek-V3.1
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Gemma-3-4b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "google.gemma-3-4b-it",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "google.gemma-3-4b-it",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two\n"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 22,
+    "outputTokens": 3,
+    "totalTokens": 25
+  },
+  "metrics": {
+    "latencyMs": 220
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "1e6a4fc8-cdf5-4177-8c82-f2e50c6dc6c8",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for Gemma-3-4b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Gemma-3-12b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "google.gemma-3-12b-it",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two"
+
+Converse API request: {
+  "modelId": "google.gemma-3-12b-it",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 22,
+    "outputTokens": 2,
+    "totalTokens": 24
+  },
+  "metrics": {
+    "latencyMs": 204
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "2e66fe95-1cde-4ea4-9bce-55c7f6e1379c",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two"
+✓ 🔍 Both APIs successful for Gemma-3-12b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Gemma-3-27b ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "Two."
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "Two."
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "google.gemma-3-27b-it",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "Two."
+
+Converse API request: {
+  "modelId": "google.gemma-3-27b-it",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Two."
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 22,
+    "outputTokens": 3,
+    "totalTokens": 25
+  },
+  "metrics": {
+    "latencyMs": 230
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "3c9153ea-d63b-4ee3-899f-0514757f6b11",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "Two."
+✓ 🔍 Both APIs successful for Gemma-3-27b
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Kimi-K2 ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "2"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "2"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "moonshot.kimi-k2-thinking",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "The user asks: "Respond with exactly one word: What is 1+1?"
+The calculation is simple: 1+1 = 2.
+The user wants exactly one word as the answer.
+"2" is a number, which can be considered a word in this context. It's a single token, a single unit of response.
+The instruction is very specific: "exactly one word".
+If I respond with "Two", that's one word.
+If I respond with "2", that's also one character, which is even more minimal. Is "2" a word? In the context of such puzzles and direct instructions, a number is typically accepted as a "word" for the purpose of counting response length. It's the simplest possible answer.
+Let me consider potential pitfalls.
+- Could "two" be considered not a word but a number? The user wants a word. "Two" is the word representation of the number 2.
+- Could "2" be considered not a word? It's a numeral. However, in common parlance and especially in the context of these kinds of prompts, a single numeral is treated as fulfilling the "single word" requirement. It's unambiguous and the most direct answer.
+
+Let's think about the strictness of the instruction. "Exactly one word".
+- "Two" - This is one word. It's correct. It's safe.
+- "2" - This is one token. It's correct. It's shorter. Is it a "word"? This is the key question.
+
+In natural language processing, a "word" is often a token. "2" would be a token.
+In common English, a "word" is a sequence of letters. "Two" fits this perfectly. "2" does not.
+
+The prompt is likely designed to test if I can follow instructions precisely and give the simplest possible answer. The simplest answer is "2". The instruction is "exactly one word". There is a slight ambiguity here. Does "word" include numerals?
+
+Let's consider what a human would do. If you ask a human "Respond with exactly one word: What is 1+1?", they might say "Two". They might also say "2". If they say "2", they are giving the answer in its most direct form. If they say "Two", they are giving the answer as a linguistic word.
+
+Which is more likely to be accepted as following the rule?
+- "Two" is unambiguously one word.
+- "2" is ambiguous. It is one token, one unit of information. But is it a "word"?
+
+I should probably err on the side of being the most literal and safe interpretation. "Two" is unambiguously a single word. "2" might be rejected by a very strict parser that checks for alphabetic characters.
+
+However, the spirit of the question is extreme brevity and directness. "2" is the embodiment of that.
+Let's think about how such a system might be tested. It's usually an automated check or a human looking for compliance. An automated check might split on whitespace. Both "Two" and "2" would result in one token. A human check would see "2" and think "that's the answer, and it's one thing, so it fits".
+
+What if I overthink it? What if the "word" must be from a dictionary?
+"Two" is in the dictionary.
+"2" is not.
+
+This strongly suggests "Two" is the safer answer. The user wants *one word*. The word for the number 2 is "Two".
+
+Let's reconsider the prompt's phrasing. "Respond with exactly one word". This is a meta-instruction about the *form* of my response. The question is "What is 1+1?". The *content* of the response should answer the question. The *form* should be exactly one word.
+The answer to "What is"
+
+Converse API request: {
+  "modelId": "moonshot.kimi-k2-thinking",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": " The user asks: \"Respond with exactly one word: What is 1+1?\"\n\nThe mathematical answer to 1+1 is 2. The user wants exactly one word. \"2\" is a numeral, which is considered a word in this context. It's a single token. I must respond with exactly one word.\n\nThe answer is \"2\". I should not add any punctuation or explanation. Just the word \"2\".\n\nLet me double-check: \"2\" is one word. It's the correct answer. The user wants exactly one word. So I will just respond with \"2\"."
+            }
+          }
+        },
+        {
+          "text": " 2"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 38,
+    "outputTokens": 126,
+    "totalTokens": 164
+  },
+  "metrics": {
+    "latencyMs": 2450
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "e97bfb83-35af-4fd1-9198-5aeaa3d0891b",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "2"
+✓ 🔍 Both APIs successful for Kimi-K2
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing Kimi-K2-Thinking ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "<reasoning> The user asks: "Respond with exactly one word: What</reasoning><reasoning> is 1+1?"
+
+The answer to 1</reasoning><reasoning>+1 is 2. The user wants exactly one word</reasoning><reasoning>. "2" is a single word (or numeral</reasoning><reasoning>, which counts as a word in this context). I must</reasoning><reasoning> respond with exactly one word.
+
+So my response should be:</reasoning><reasoning> "2"
+
+Let me double-check: The user wants exactly</reasoning><reasoning> one word. "2" is one word. It's the</reasoning><reasoning> correct answer. Perfect.</reasoning> 2"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "<reasoning> The user asks: "Respond with exactly one word: What is 1+1?"
+The mathematical answer is 2.
+The constraint is to respond with exactly one word.
+"2" is a word? It's a numeral. In the context of "exactly one word", a numeral is typically considered a word. It's a single token.
+If I write "two", that's also one word.
+If I write "2", that's one character, but it's a numeral representing the word "two".
+The question is ambiguous. Does "word" mean a sequence of letters, or can it be a numeral?
+Let's consider the most direct interpretation. "1+1" evaluates to 2. The simplest way to represent this answer following the constraint is "2".
+Is "2" a word? In common parlance, when asked to respond with "one word", a single number is usually acceptable. For example, "What is 5-3?" Answer: "2". This is standard.
+If I answer "two", that's also one word.
+Which is better? "2" is more direct and is the result of the calculation. It's also arguably not a "word" in the alphabetical sense, but it's a valid single-token answer.
+The prompt is very specific: "Respond with exactly one word".
+Let's think about potential pitfalls.
+- If I say "Two", it's one word. Good.
+- If I say "2", it's one token. Is it a "word"? In natural language processing, tokens can be words or numbers. In common English, people might debate if a number is a "word". However, in the context of these kinds of prompts, "2" is almost always accepted as a valid answer. It's concise and directly answers the question.
+- If I say "The answer is two", that's multiple words. Incorrect.
+- If I say "Two.", that's "Two." with a period. Is that considered one word? Usually punctuation is attached to the word. "Two." is likely still considered one word. But it's safer to avoid punctuation if possible, or just provide the core word/number.
+
+Let's go with the simplest, most direct answer that fulfills the spirit of the request. The spirit is: give a very short, single-token answer.
+"2" is the most direct answer.
+"two" is also a direct answer, spelled out.
+
+Which one is more likely to be what the user wants?
+The user is asking a simple arithmetic question and imposing a strict format constraint. This is a classic "prompt engineering" test. The goal is to see if the AI can follow instructions precisely.
+"Exactly one word".
+If I type "two", that's unambiguously one word.
+If I type "2", it's a number. Is a number a word? Let's check definitions.
+Merriam-Webster defines "word" as "a speech sound or series of speech sounds or a representation of such that symbolizes and communicates a meaning". A numeral like "2" certainly communicates a meaning. So it qualifies.
+
+However, in many contexts, "word" implies a sequence of letters. Let's consider the alternative. What if the system is parsing my response and checking the number of words by counting spaces? "2" has no spaces. "two" has no spaces. Both would pass a simple space-counting test.
+What if it's using a more sophisticated NLP tokenizer? "2" would be tokenized as a number token. "two" would be tokenized as a word token. The prompt says "word", not "token".
+
+Let's err on the side of caution and use the alphabetical representation. "two". It's unambiguously a word.
+But "2" is also extremely common and natural. Let's think about the user. They are asking a trivial question. The constraint is the interesting part. They want to see if I can be concise.
+If I answer "two", it's</reasoning>"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "moonshot.kimi-k2-thinking",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "The user asks: "Respond with exactly one word: What is 1+1?"
+
+The mathematical answer to 1+1 is 2. The user wants exactly one word. "2" is a numeral, which is considered a word in this context. It's a single token. So the answer should be "2".
+
+I must respond with exactly one word. The word is "2". 2"
+
+Converse API request: {
+  "modelId": "moonshot.kimi-k2-thinking",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": " The user asks for exactly one word in response to \"What is 1+1?\".\n\n1+1 equals 2. The word \"two\" is the answer. I need to respond with exactly one word.\n\nThe question is simple arithmetic. 1+1=2. The word representation is \"two\". I must ensure I only output that single word and nothing else.\n\nSo my response should be: two"
+            }
+          }
+        },
+        {
+          "text": " two"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 38,
+    "outputTokens": 88,
+    "totalTokens": 126
+  },
+  "metrics": {
+    "latencyMs": 1831
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "cf237546-508d-4c30-a294-b2022610e367",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "two"
+✓ 🔍 Both APIs successful for Kimi-K2-Thinking
+
+----------------------------------------
+
+------------------------------------------------------------
+Testing MiniMax-M2 ⇢
+ℹ 
+📡 Testing with Invoke API:
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Streaming: "2"
+
+Final formatted prompt: [
+  {
+    role: 'user',
+    content: 'Respond with exactly one word: What is 1+1?'
+  },
+  { role: 'assistant', content: '' }
+]
+
+Final request: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "Respond with exactly one word: What is 1+1?"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ],
+  "max_tokens": 800,
+  "temperature": 0.2
+}
+✓ ✓ Invoke API Non-streaming: "2"
+ℹ 
+📡 Testing with Converse API:
+
+Converse API request: {
+  "modelId": "minimax.minimax-m2",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+✓ ✓ Converse API Streaming: "The user asks: "Respond with exactly one word: What is 1+1?" So we need to respond with exactly one word. The answer is "2". So we must output "2". Ensure no extra punctuation or spaces. Probably just "2". The instruction says exactly one word. So output "2".
+
+
+2"
+
+Converse API request: {
+  "modelId": "minimax.minimax-m2",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Respond with exactly one word: What is 1+1?"
+        }
+      ]
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 800,
+    "temperature": 0.2
+  }
+}
+
+Converse API response: {
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [
+        {
+          "reasoningContent": {
+            "reasoningText": {
+              "text": "The user asks: \"Respond with exactly one word: What is 1+1?\" So we need to answer with exactly one word. The answer is \"2\". So we need to output exactly \"2\". No extra punctuation? The instruction: \"Respond with exactly one word\". So we should output \"2\". Probably no period. So final answer: \"2\".\n"
+            }
+          }
+        },
+        {
+          "text": "\n\n2"
+        }
+      ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": {
+    "inputTokens": 35,
+    "outputTokens": 79,
+    "totalTokens": 114
+  },
+  "metrics": {
+    "latencyMs": 1671
+  },
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "a2f9304a-23c1-4060-96f4-4da5355f96ca",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  }
+}
+✓ ✓ Converse API Non-streaming: "2"
+✓ 🔍 Both APIs successful for MiniMax-M2
+
+----------------------------------------
+ℹ 
+Testing complete! Check test-models-output.txt for full test results.

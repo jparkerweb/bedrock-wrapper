@@ -222,7 +222,7 @@ async function processMessagesForInvoke(messages, awsModel) {
             message_cleaned.push(messages[i]);
         }
 
-        if (i === (messages.length - 1) && messages[i].content !== "" && awsModel.display_role_names) {
+        if (i === (messages.length - 1) && messages[i].content !== "" && awsModel.display_role_names && !awsModel.skip_empty_assistant_message) {
             message_cleaned.push({role: "assistant", content: ""});
         }
     }
@@ -610,7 +610,8 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
                     const reasoningContent = event.contentBlockDelta.delta?.reasoningContent;
                     
                     // Handle Claude thinking data (streaming) - check both reasoningContent and thinking
-                    const thinkingText = reasoningContent?.reasoningText?.text || thinking;
+                    // Note: streaming has delta.reasoningContent.text, non-streaming has reasoningContent.reasoningText.text
+                    const thinkingText = reasoningContent?.reasoningText?.text || reasoningContent?.text || thinking;
                     if (should_think && thinkingText) {
                         if (!is_thinking) {
                             is_thinking = true;
@@ -632,6 +633,11 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
                                 yield processedText;
                             }
                         }
+                    }
+                    // Fallback: if no text but reasoningContent exists and not in thinking mode,
+                    // yield the reasoning content as the actual response (for models like Magistral)
+                    else if (!should_think && thinkingText) {
+                        yield thinkingText;
                     }
                 }
             }
@@ -655,23 +661,33 @@ export async function* bedrockWrapper(awsCreds, openaiChatCompletionsCreateObjec
                 
                 for (const contentBlock of response.output.message.content) {
                     // Extract thinking data for Claude models (from reasoningContent)
-                    if (include_thinking_data && contentBlock.reasoningContent && 
+                    if (include_thinking_data && contentBlock.reasoningContent &&
                         awsModel.special_request_schema?.thinking?.type === "enabled") {
                         const reasoningText = contentBlock.reasoningContent.reasoningText?.text;
                         if (reasoningText) {
                             thinking_result += reasoningText;
                         }
                     }
-                    
+
                     // Also check for legacy thinking field format
-                    if (include_thinking_data && contentBlock.thinking && 
+                    if (include_thinking_data && contentBlock.thinking &&
                         awsModel.special_request_schema?.thinking?.type === "enabled") {
                         thinking_result += contentBlock.thinking;
                     }
-                    
+
                     // Extract regular text content
                     if (contentBlock.text) {
                         text_result += contentBlock.text;
+                    }
+                }
+
+                // Fallback: if no regular text but reasoningContent exists (for models like Magistral),
+                // extract the reasoning text as the actual response
+                if (!text_result) {
+                    for (const contentBlock of response.output.message.content) {
+                        if (contentBlock.reasoningContent?.reasoningText?.text) {
+                            text_result += contentBlock.reasoningContent.reasoningText.text;
+                        }
                     }
                 }
                 

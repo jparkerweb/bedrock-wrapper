@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Bedrock Wrapper (v2.6.2) is an npm package that translates OpenAI-compatible API objects to AWS Bedrock's serverless inference LLMs. It supports 40 models including Claude, Nova, GPT-OSS, Llama, Mistral, and Qwen families with features like vision support, thinking modes, and stop sequences.
+Bedrock Wrapper is an npm package that translates OpenAI-compatible API objects to AWS Bedrock's serverless inference LLMs. It supports Claude, Nova, DeepSeek, GPT-OSS, Llama, Mistral, Qwen, Gemma, Kimi, and MiniMax model families with features like vision support, thinking modes, and stop sequences.
 
 ## Core Architecture
 
@@ -17,29 +17,30 @@ The system has two main API paths and three core components:
    - Simplified message handling without model-specific formatting
    - Native system prompt support
    - Cleaner multimodal handling
-   - Located at lines 510-677 in bedrock-wrapper.js
+   - Located at lines ~507-689 in bedrock-wrapper.js
 
 2. **Invoke API Path** (default):
    - Model-specific request formatting and response parsing
    - Complex prompt construction for non-messages API models
-   - Located at lines 680-727 in bedrock-wrapper.js
+   - Located at lines ~696-745 in bedrock-wrapper.js
 
 ### Core Components
 
-1. **bedrock-wrapper.js**: Main async generator function
-   - `bedrockWrapper()`: Entry point supporting both APIs
-   - `convertToConverseFormat()`: Converts OpenAI messages to Converse API format
-   - `processMessagesForInvoke()`: Handles model-specific message processing
-   - `buildInvokePrompt()`: Constructs model-specific prompts
-   - `buildInvokeRequest()`: Creates model-specific request objects
+1. **bedrock-wrapper.js** (~777 lines): Main async generator function
+   - `bedrockWrapper()` (line 501): Entry point supporting both APIs
+   - `convertToConverseFormat()` (line 86): Converts OpenAI messages to Converse API format
+   - `processMessagesForInvoke()` (line 168): Handles model-specific message processing
+   - `buildInvokePrompt()` (line 234): Constructs model-specific prompts
+   - `buildInvokeRequest()` (line 300): Creates model-specific request objects
+   - `executeInvokeAPI()` (line 409): Handles Invoke API streaming and non-streaming
    - Thinking mode support with `<think>` tags for Claude and `<reasoning>` tags for GPT-OSS
 
-2. **bedrock-models.js**: Model configuration registry
+2. **bedrock-models.js** (~1078 lines): Model configuration registry
    - Each model entry contains: modelName, modelId, vision support, API type, response paths
    - Special configurations for thinking models (budget_tokens, anthropic_beta headers)
    - Stop sequences parameter mapping per model family
 
-3. **utils.js**: Helper utilities
+3. **utils.js**: Helper utilities (getValueByPath, writeAsciiArt)
 
 ## Development Commands
 
@@ -103,7 +104,7 @@ Required fields in bedrock-models.js:
 Some models only support the Converse API and will automatically use it regardless of the `useConverseAPI` flag:
 - DeepSeek-V3.1
 
-These models have `converse_api_only: true` in their configuration and the wrapper automatically forces `useConverseAPI = true` for them.
+These models have `converse_api_only: true` in their configuration and the wrapper automatically forces `useConverseAPI = true` for them (see line 507 in bedrock-wrapper.js).
 
 ### Converse API Thinking Support
 - Thinking configuration added via `additionalModelRequestFields`
