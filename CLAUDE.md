@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Bedrock Wrapper is an npm package that translates OpenAI-compatible API objects to AWS Bedrock's serverless inference LLMs. It supports Claude, Nova, DeepSeek, GPT-OSS, Llama, Mistral, and Qwen model families with features like vision support, thinking modes, and stop sequences.
+Bedrock Wrapper is an npm package that translates OpenAI-compatible API objects to AWS Bedrock's serverless inference LLMs. It supports Claude, Nova, DeepSeek, GPT-OSS, Llama, Mistral, Qwen, Gemma, Kimi, and MiniMax model families with features like vision support, thinking modes, and stop sequences.
 
 ## Core Architecture
 
