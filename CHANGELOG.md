@@ -4,7 +4,8 @@ All notable changes to this project will be documented in this file.
 ## [2.8.0] - 2025-12-02 (New Models: Claude Opus 4.5, Gemma, Kimi, MiniMax, Mistral, Nova)
 ### ✨ Added
 - Support for Claude Opus 4.5 models
-  - Claude-4-5-Opus (131K max output tokens, vision support)
+  - Claude-4-5-Opus (128K max output tokens, vision support)
+
   - Claude-4-5-Opus-Thinking (with extended thinking capabilities)
 - Support for Amazon Nova 2 Lite model
   - Nova-2-Lite (vision support, 5K max output tokens)
