@@ -136,8 +136,8 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 | Claude-4-Sonnet-Thinking   | us.anthropic.claude-sonnet-4-20250514-v1:0      |  ✅  |
 | Claude-4-1-Opus            | us.anthropic.claude-opus-4-1-20250805-v1:0      |  ✅  |
 | Claude-4-1-Opus-Thinking   | us.anthropic.claude-opus-4-1-20250805-v1:0      |  ✅  |
-| Claude-4-5-Haiku           | us.anthropic.claude-haiku-4-5-20251001-v1:0     |  ✅  |
-| Claude-4-5-Haiku-Thinking  | us.anthropic.claude-haiku-4-5-20251001-v1:0     |  ✅  |
+| Claude-4-5-Haiku           | global.anthropic.claude-haiku-4-5-20251001-v1:0 |  ✅  |
+| Claude-4-5-Haiku-Thinking  | global.anthropic.claude-haiku-4-5-20251001-v1:0 |  ✅  |
 | Claude-4-5-Opus            | global.anthropic.claude-opus-4-5-20251101-v1:0  |  ✅  |
 | Claude-4-5-Opus-Thinking   | global.anthropic.claude-opus-4-5-20251101-v1:0  |  ✅  |
 | Claude-4-5-Sonnet          | us.anthropic.claude-sonnet-4-5-20250929-v1:0    |  ✅  |
@@ -157,7 +157,7 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 | Llama-3-70b                | meta.llama3-70b-instruct-v1:0                   |  ❌  |
 | Llama-3-1-8b               | us.meta.llama3-1-8b-instruct-v1:0               |  ❌  |
 | Llama-3-1-70b              | us.meta.llama3-1-70b-instruct-v1:0              |  ❌  |
-| Llama-3-1-405b             | us.meta.llama3-1-405b-instruct-v1:0             |  ❌  |
+| Llama-3-1-405b             | meta.llama3-1-405b-instruct-v1:0                |  ❌  |
 | Llama-3-2-1b               | us.meta.llama3-2-1b-instruct-v1:0            |  ❌  |
 | Llama-3-2-3b               | us.meta.llama3-2-3b-instruct-v1:0            |  ❌  |
 | Llama-3-2-11b              | us.meta.llama3-2-11b-instruct-v1:0           |  ❌  |
