@@ -1051,9 +1051,7 @@ export const bedrock_models = [
         "response_chunk_element":        "outputs[0].text"
     },
     {
-        // =====================================================
-        // == New Mistral Models (Converse API) ==
-        // =====================================================
+        // =====================
         // == Mistral Large 3 ==
         // =====================
         "modelName":                     "Mistral-Large-3",

@@ -1,5 +1,5 @@
 Stop Sequences Test Results - Both APIs (Comparison)
-Test Date: 2025-12-03T04:06:46.945Z
+Test Date: 2025-12-04T23:59:36.872Z
 ================================================================================
 
 This test validates that stop sequences work correctly across all models.
@@ -276,21 +276,23 @@ Testing Claude-3-Haiku
     ✓ Invoke Streaming: PASSED - Response stopped at the correct point
     Response: "The days of the week in order are:
 
-Monday
-Tuesday
-Wednesday
-Thursday..."
+1. Monday
+2. Tuesday
+3. Wednesday
+4. Thursday
+5...."
     ✓ Invoke Non-streaming: PASSED - Response stopped at the correct point
     Response: "The days of the week in order are:
 
-Monday
-Tuesday
-Wednesday
-Thursday..."
+1. Monday
+2. Tuesday
+3. Wednesday
+4. Thursday
+5...."
 
   📡 Testing with Converse API:
     ✓ Converse Streaming: PASSED - Response stopped at the correct point
-    Response: "Here are the days of the week in order:
+    Response: "The days of the week in order are:
 
 Monday
 Tuesday
@@ -299,11 +301,10 @@ Thursday..."
     ✓ Converse Non-streaming: PASSED - Response stopped at the correct point
     Response: "The days of the week in order are:
 
-1. Monday
-2. Tuesday
-3. Wednesday
-4. Thursday
-5...."
+Monday
+Tuesday
+Wednesday
+Thursday..."
 
 ▶ Test Case: Multi-stop sequence test
   Prompt: "Write the alphabet: A, B, C, D, E, F, G, H, I, J, ..."
@@ -383,11 +384,11 @@ Testing Nova-Pro
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: FAILED - Response did not stop at the expected point
-    Response: "Certainly! Here's the count from 1 to 10, separated by commas:
+    Response: "Certainly! Here are the numbers from 1 to 10, separated by commas:
 
 1, 2, 3, 4, 5, 6, 7..."
     ✗ Converse Non-streaming: FAILED - Response did not stop at the expected point
-    Response: "Certainly! Here's the count from 1 to 10, separated by commas:
+    Response: "Certainly! Here are the numbers from 1 to 10, separated by commas:
 
 1, 2, 3, 4, 5, 6, 7..."
 
@@ -436,8 +437,10 @@ Testing Nova-Pro
     Response: "1. **List the alphabet in order** - The English alphabet consists of 26 letters, starting from A and..."
 
   📡 Testing with Converse API:
-    ✗ Converse Streaming: FAILED - Response did not stop at the expected point
-    Response: "Certainly! H..."
+    ✓ Converse Streaming: PASSED - Response stopped at the correct point
+    Response: "Sure, here is the English alphabet in order:
+
+A, B, C, D, E, F, G..."
     ✗ Converse Non-streaming: FAILED - Response did not stop at the expected point
     Response: "Certainly! H..."
 
@@ -449,13 +452,13 @@ Testing Nova-Pro
     ✗ Invoke Streaming: FAILED - Response did not stop at the expected point
     Response: ". As he ventured further, the air grew colder and the walls shimmered with an eerie, otherworldly gl..."
     ✗ Invoke Non-streaming: FAILED - Response did not stop at the expected point
-    Response: ". As he ventured further, the air grew colder and the walls shimmered with an eerie, otherworldly gl..."
+    Response: ". As he ventured further, the air grew colder and the walls shimmered with an eerie, phosphorescent ..."
 
   📡 Testing with Converse API:
-    ✗ Converse Streaming: FAILED - Response did not stop at the expected point
-    Response: "Once upon a time, there was a brave knight named Sir Alaric who loved to explore. One day, while tra..."
-    ✗ Converse Non-streaming: FAILED - Response did not stop at the expected point
-    Response: "Once upon a time, there was a brave knight named Sir Alaric who loved to explore. One day, while tra..."
+    ✓ Converse Streaming: PASSED - Response stopped at the correct point
+    Response: "Once upon a time, there was a brave knight who loved to explore. One day, he found a mysterious cave..."
+    ✓ Converse Non-streaming: PASSED - Response stopped at the correct point
+    Response: "Once upon a time, there was a brave knight who loved to explore. One day, he found a mysterious cave..."
 
 ▶ Test Case: Special character stop test
   Prompt: "Generate a list with bullet points:
@@ -477,7 +480,9 @@ Here's the list in markdown..."
 2. Second item
 3. Third item
 4. Fourth item
-5. Fifth item..."
+5. Fifth item
+
+Here's your list with bulle..."
 
   📡 Testing with Converse API:
     ✗ Converse Streaming: FAILED - Response did not stop at the expected point
@@ -922,14 +927,14 @@ Testing Llama-3-3-70b
 5. Friday
 6..."
     ✗ Invoke Non-streaming: FAILED - Response did not stop at the expected point
-    Response: "Here are the days of the week in order:
+    Response: "Here are the 7 days of the week in order:
 
 1. Monday
 2. Tuesday
 3. Wednesday
 4. Thursday
 5. Friday
-6. ..."
+6..."
 
   📡 Testing with Converse API:
     ✓ Converse Streaming: PASSED - Response stopped at the correct point
@@ -1041,7 +1046,7 @@ Testing Mistral-7b
     ✓ Invoke Streaming: PASSED - Response stopped at the correct point
     Response: "Here is the sequence you requested, with each number separated by a comma and a space: 1, 2, 3, 4, 5..."
     ✓ Invoke Non-streaming: PASSED - Response stopped at the correct point
-    Response: "Here is the sequence you requested, with each number separated by a comma and a space: 1, 2, 3, 4, 5..."
+    Response: "Here is the sequence you requested, with each number separated by a comma: 1, 2, 3, 4, 5, 6,..."
 
   📡 Testing with Converse API:
     ✓ Converse Streaming: PASSED - Response stopped at the correct point
@@ -1055,13 +1060,11 @@ Testing Mistral-7b
 
   📡 Testing with Invoke API:
     ✓ Invoke Streaming: PASSED - Response stopped at the correct point
-    Response: "Here are the days of the week in the correct order:
+    Response: "Here are the days of the week in the order they typically appear:
 
 1. Monday
 2. Tuesday
-3. Wednesday
-4. Thursday
-5..."
+3. Wednesday..."
     ✓ Invoke Non-streaming: PASSED - Response stopped at the correct point
     Response: "Here are the days of the week in the order they typically appear:
 
@@ -1111,11 +1114,11 @@ Testing Mistral-7b
     ✓ Invoke Streaming: PASSED - Response stopped at the correct point
     Response: "The knight's heart raced with excitement as he ventured further into the cave, the magical..."
     ✓ Invoke Non-streaming: PASSED - Response stopped at the correct point
-    Response: "The knight's heart raced with excitement as he ventured further into the depths of the cave, the mag..."
+    Response: "The knight's heart raced with excitement as he took the first steps deeper into the cave, the magica..."
 
   📡 Testing with Converse API:
     ✓ Converse Streaming: PASSED - Response stopped at the correct point
-    Response: "The knight's heart raced with excitement as he took the first few steps deeper into the cave, the ma..."
+    Response: "The knight's heart raced with excitement as he took the first steps deeper into the cave, the magica..."
     ✓ Converse Non-streaming: PASSED - Response stopped at the correct point
     Response: "The knight's heart raced with excitement as he took the first few steps deeper into the cave, the ma..."
 
@@ -1184,8 +1187,8 @@ Nova-Pro:
     Streaming:     2/5 passed (40.0%)
     Non-streaming: 2/5 passed (40.0%)
   Converse API:
-    Streaming:     1/5 passed (20.0%)
-    Non-streaming: 1/5 passed (20.0%)
+    Streaming:     3/5 passed (60.0%)
+    Non-streaming: 2/5 passed (40.0%)
 Nova-Lite:
   Invoke API:
     Streaming:     5/5 passed (100.0%)
