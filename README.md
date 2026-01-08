@@ -163,6 +163,8 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 | Llama-3-2-11b              | us.meta.llama3-2-11b-instruct-v1:0           |  ❌  |
 | Llama-3-2-90b              | us.meta.llama3-2-90b-instruct-v1:0           |  ❌  |
 | Llama-3-3-70b              | us.meta.llama3-3-70b-instruct-v1:0           |  ❌  |
+| Llama-4-Scout-17b          | us.meta.llama4-scout-17b-instruct-v1:0       |  ✅  |
+| Llama-4-Maverick-17b       | us.meta.llama4-maverick-17b-instruct-v1:0    |  ✅  |
 | Magistral-Small-2509       | mistral.magistral-small-2509                 |  ❌  |
 | MiniMax-M2                 | minimax.minimax-m2                           |  ❌  |
 | Ministral-3-3b             | mistral.ministral-3-3b-instruct              |  ✅  |
@@ -229,7 +231,7 @@ for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateOb
 
 ### Image Support
 
-For models with image support (Claude 4+ series including Claude 4.5 Opus, Claude 4.5 Sonnet, Claude 4.5 Haiku, Claude 3.7 Sonnet, Claude 3.5 Sonnet, Claude 3 Haiku, Nova Pro, Nova Lite, Nova 2 Lite, Mistral Large 3, Ministral 3 series, and Gemma 3 series), you can include images in your messages using the following format (not all models support system prompts):
+For models with image support (Claude 4+ series including Claude 4.5 Opus, Claude 4.5 Sonnet, Claude 4.5 Haiku, Claude 3.7 Sonnet, Claude 3.5 Sonnet, Claude 3 Haiku, Nova Pro, Nova Lite, Nova 2 Lite, Mistral Large 3, Ministral 3 series, Gemma 3 series, and Llama 4 series), you can include images in your messages using the following format (not all models support system prompts):
 
 ```javascript
 messages = [
