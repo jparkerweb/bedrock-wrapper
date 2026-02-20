@@ -1,25 +1,46 @@
 Vision Test Results - Both APIs (Comparison)
 Test Question: "What's in this image? Please describe it in detail."
-Test Date: 2026-01-08T20:56:41.699Z
+Test Date: 2026-02-20T16:33:22.682Z
 ============================================================
 
-Starting vision tests with 29 models using Both APIs (Comparison)...
+Starting vision tests with 31 models using Both APIs (Comparison)...
 Testing image description capabilities
 
+
+------------------------------------------------------------
+Testing Claude-Opus-4-6 ⇢
+
+📡 Testing with Invoke API:
+✗ Invoke API: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 2 minutes.
+📡 Testing with Converse API:
+✗ Converse API: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 2 minutes.
+❌ Both APIs failed for Claude-Opus-4-6
+
+------------------------------------------------------------
+Testing Claude-Sonnet-4-6 ⇢
+
+📡 Testing with Invoke API:
+✗ Invoke API: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 2 minutes.
+📡 Testing with Converse API:
+✗ Converse API: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 2 minutes.
+❌ Both APIs failed for Claude-Sonnet-4-6
 
 ------------------------------------------------------------
 Testing Claude-4-5-Opus ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This is a beautifully rendered digital illustration with a fantasy/storybook aesthetic. The image depicts two figures - an adult and a small child - s...
+Response: This is a beautifully atmospheric digital illustration depicting a fantasy scene in a mystical forest.
+
+**Main Subjects:**
+- A tall figure (appears to...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This is a beautifully atmospheric digital illustration depicting two figures in an enchanted forest setting.
+Response: This is a beautifully atmospheric digital artwork depicting a fantasy scene in a mystical forest.
 
-**The Figures:**
-- A tall adult figure w...
+**Main Subjects:**
+- A tall figure (appearing to be...
 
 🔍 Both APIs successful for Claude-4-5-Opus
 
@@ -28,15 +49,15 @@ Testing Claude-4-5-Opus-Thinking ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: # Detailed Description of the Image
+Response: # Detailed Image Description
 
-This is a beautifully rendered **digital fantasy illustration** depicting a magical forest scene at twilight or d...
+This is a beautiful digital illustration in a fantasy/storybook art style depicting two figures in an enchanted forest s...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This image appears to be a digital artwork or illustration with a fantasy/fairytale aesthetic. Let me describe what I see in detail.
+Response: This is a beautiful digital illustration/artwork showing a fantasy or fairy-tale scene. Let me describe it in detail.
 
-The scene depict...
+The image shows two figures fro...
 
 🔍 Both APIs successful for Claude-4-5-Opus-Thinking
 
@@ -45,7 +66,7 @@ Testing Claude-4-1-Opus ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This is a beautifully atmospheric digital artwork depicting a magical forest scene. In the image, two silhouetted figures - an adult and a child - sta...
+Response: This is a beautifully atmospheric digital artwork depicting a magical forest scene. In the foreground, two silhouetted figures stand at the edge of a ...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
@@ -58,11 +79,11 @@ Testing Claude-4-1-Opus-Thinking ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This is a beautiful, atmospheric digital illustration depicting a mystical forest scene. The image shows two silhouetted figures - an adult and a smal...
+Response: This is a beautifully atmospheric fantasy illustration depicting two silhouetted figures - an adult and a child - standing at the edge of a mystical f...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This appears to be an artistic illustration with a fantasy or storybook quality. Let me describe what I can see in detail.This is a beautifully atmosp...
+Response: The image appears to be a fantasy or illustrated artwork showing two silhouetted figures in a magical forest setting. Let me describe what I can see i...
 
 🔍 Both APIs successful for Claude-4-1-Opus-Thinking
 
@@ -71,11 +92,11 @@ Testing Claude-4-Opus ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This image depicts a mystical, atmospheric forest scene with two silhouetted figures - an adult and a child - standing by the edge of a serene body of...
+Response: This image depicts a mystical, atmospheric forest scene with two silhouetted figures - an adult and a child - standing at the edge of a serene body of...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This image depicts a mystical, atmospheric forest scene with two silhouetted figures - an adult and a child - standing at the edge of a misty body of ...
+Response: This image depicts a mystical, atmospheric forest scene with two silhouetted figures - an adult and a child - standing at the edge of a serene body of...
 
 🔍 Both APIs successful for Claude-4-Opus
 
@@ -84,11 +105,11 @@ Testing Claude-4-Opus-Thinking ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This is a beautifully atmospheric digital illustration depicting a mystical forest scene. The image shows two silhouetted figures - an adult and a chi...
+Response: This is a beautifully atmospheric digital artwork depicting a mystical forest scene. In the foreground, there are two silhouetted figures - what appea...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This appears to be a fantasy or atmospheric artwork depicting two figures in a mystical forest setting. Let me describe what I can see in detail.This ...
+Response: This appears to be a fantasy or fairy tale-inspired digital artwork. Let me describe what I can see in detail.This is a beautifully atmospheric digita...
 
 🔍 Both APIs successful for Claude-4-Opus-Thinking
 
@@ -97,11 +118,11 @@ Testing Claude-4-5-Sonnet ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This is a beautifully atmospheric digital illustration depicting two figures, likely hobbits or travelers from a fantasy setting, standing on a forest...
+Response: This is an atmospheric, painterly illustration depicting two figures - what appears to be an adult and a child - standing together on a path in a myst...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This is a beautifully atmospheric digital illustration depicting two figures - an adult and a child - standing together in an enchanted forest setting...
+Response: This is an evocative digital illustration depicting a mystical forest scene. Two figures, appearing to be an adult and a child, stand with their backs...
 
 🔍 Both APIs successful for Claude-4-5-Sonnet
 
@@ -112,11 +133,15 @@ Testing Claude-4-5-Sonnet-Thinking ⇢
 ✓ Invoke API: Success
 Response: # Detailed Image Description
 
-This is an enchanting digital illustration depicting a magical forest scene with a distinctly atmospheric and mystical q...
+This is an evocative piece of fantasy artwork depicting a mystical forest scene. Here are the key elements:
+
+## Main Sub...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This image appears to be a piece of digital artwork or illustration showing a peaceful, somewhat mystical forest scene. Let me describe what I see in ...
+Response: This is a beautiful, atmospheric digital artwork or illustration. Let me describe what I see:
+
+The image shows two figures - what appears to be an adu...
 
 🔍 Both APIs successful for Claude-4-5-Sonnet-Thinking
 
@@ -125,21 +150,21 @@ Testing Claude-4-5-Haiku ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: # Image Description
+Response: # Detailed Image Description
 
-This is a beautifully illustrated fantasy scene featuring:
+This is a beautifully illustrated fantasy scene depicting:
 
-**Main Subjects:**
-- An adult figure and a child standing together by...
+## Main Subjects
+- **Two figures** in silhouette: an adult a...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
 Response: # Detailed Image Description
 
-This is a beautifully illustrated fantasy scene set in an enchanted forest. Here are the key elements:
+This is a beautifully illustrated fantasy scene depicting:
 
-## Figures
-- **A...
+## Main Subjects
+- **Two figures**: An adult (likely a paren...
 
 🔍 Both APIs successful for Claude-4-5-Haiku
 
@@ -148,19 +173,17 @@ Testing Claude-4-5-Haiku-Thinking ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: # Mystical Forest Scene
+Response: # Mystical Forest Journey
 
-This is a beautifully illustrated fantasy artwork depicting a magical nighttime forest scene. Here are the key details:
+This is a stunning digital illustration depicting a magical forest scene with a warm, enchanting atmosphere.
 
-## M...
+## Main Eleme...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This is a beautiful fantasy or fairy tale-inspired illustration. Let me describe what I see in detail:
+Response: This image appears to be a fantasy or storybook-style illustration. Let me describe what I see in detail:
 
-The image shows a magical forest scene with:
-
-...
+1. Setting: A dark, enchanted forest with t...
 
 🔍 Both APIs successful for Claude-4-5-Haiku-Thinking
 
@@ -169,11 +192,11 @@ Testing Claude-4-Sonnet ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This image depicts a magical, atmospheric forest scene with two figures walking along a path. The larger figure, who appears to be an adult wearing a ...
+Response: This is a beautifully atmospheric digital artwork depicting a mysterious, fairy-tale-like forest scene. The image shows two figures - what appears to ...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This is an atmospheric, artistic image depicting two figures - what appears to be an adult and a child - standing together in an enchanted forest sett...
+Response: This is an evocative fantasy or fairy tale-style illustration depicting two figures in a mystical forest setting. The scene shows what appears to be a...
 
 🔍 Both APIs successful for Claude-4-Sonnet
 
@@ -182,13 +205,13 @@ Testing Claude-4-Sonnet-Thinking ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This is a beautifully atmospheric illustration depicting a mystical forest scene. In the foreground, two silhouetted figures - an adult wearing a hood...
+Response: This is a beautifully atmospheric illustration depicting two figures - an adult and a child - standing together in an enchanted forest setting. The ad...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This image appears to be an artistic illustration with a fantasy or fairy tale-like quality. Let me describe what I see in detail:
+Response: This appears to be a detailed, atmospheric illustration or digital artwork. Let me describe what I see:
 
-The scene shows tw...
+The image shows what appears to be two figure...
 
 🔍 Both APIs successful for Claude-4-Sonnet-Thinking
 
@@ -197,11 +220,11 @@ Testing Claude-3-7-Sonnet-Thinking ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This image is a beautiful, atmospheric fantasy illustration depicting a misty forest scene at dusk or night. In the foreground, two silhouetted figure...
+Response: This image is a beautifully atmospheric piece of digital art depicting a mystical forest scene. In the foreground, two silhouetted figures stand at th...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This image appears to be a digital illustration or artwork depicting a mystical forest scene. It shows a silhouette of an adult figure (appears to be ...
+Response: The image shows a fantasy-style artwork or digital painting depicting a misty forest scene at night or dusk. In the image, there are two silhouetted f...
 
 🔍 Both APIs successful for Claude-3-7-Sonnet-Thinking
 
@@ -210,11 +233,11 @@ Testing Claude-3-7-Sonnet ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This image is a beautiful, atmospheric digital painting depicting a magical forest scene. In the foreground, two silhouetted figures stand at the edge...
+Response: This image appears to be a digital painting or illustration depicting a mystical forest scene. In the foreground, two silhouetted figures stand at the...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This image is a beautiful, atmospheric digital painting or illustration depicting a mystical forest scene. In the foreground, two figures are shown in...
+Response: This image is a beautiful atmospheric digital painting or illustration depicting a mystical forest scene. In the foreground, two figures stand at the ...
 
 🔍 Both APIs successful for Claude-3-7-Sonnet
 
@@ -223,11 +246,11 @@ Testing Claude-3-5-Sonnet-v2 ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This is a moody, atmospheric digital artwork depicting a mysterious forest scene. Two silhouetted figures are standing by what appears to be a pond or...
+Response: This is a moody, atmospheric digital painting or illustration set in a misty forest at dusk or night. Two silhouetted figures are shown standing near ...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This is a beautifully atmospheric digital painting or illustration set in what appears to be a mystical forest at dusk or nighttime. The scene shows t...
+Response: This is a moody, atmospheric digital artwork depicting what appears to be a nighttime or twilight scene in a mystical forest. Two silhouetted figures ...
 
 🔍 Both APIs successful for Claude-3-5-Sonnet-v2
 
@@ -236,11 +259,11 @@ Testing Claude-3-5-Sonnet ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: This image depicts a magical and enchanting forest scene. In the foreground, we see two figures standing at the edge of a small body of water or strea...
+Response: This image depicts a mystical and enchanting forest scene. In the foreground, we see two silhouetted figures standing at the edge of a small body of w...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This image depicts a mystical and enchanting forest scene. In the foreground, we see two silhouetted figures standing at the edge of a body of water. ...
+Response: This image depicts a mystical and enchanting forest scene. In the foreground, we see two silhouetted figures - an adult and a child - standing at the ...
 
 🔍 Both APIs successful for Claude-3-5-Sonnet
 
@@ -249,11 +272,11 @@ Testing Claude-3-Haiku ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: The image depicts a serene and mystical forest scene. In the foreground, there are two figures silhouetted against the lush, green foliage. One figure...
+Response: The image depicts a fantastical, magical forest scene. In the foreground, there are two figures silhouetted against the lush, green foliage - a taller...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: The image depicts a fantasy-inspired forest scene. In the foreground, there are two figures - a taller figure, likely an adult, and a smaller figure, ...
+Response: The image depicts a fantasy-like forest scene. In the foreground, two figures are walking along a path through the lush, verdant forest. One figure, a...
 
 🔍 Both APIs successful for Claude-3-Haiku
 
@@ -262,7 +285,7 @@ Testing Llama-4-Scout-17b ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: The image you've provided appears to be a base64 encoded JPEG image. However, I'm a text-based AI and do not have the capability to directly decode or...
+Response: I don't see an image. As a text-based AI model, I don't have the capability to visually see or access images. However, I can help you if you describe ...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
@@ -275,11 +298,11 @@ Testing Llama-4-Maverick-17b ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: The image is a JPEG encoded in Base64 format. When decoded, it appears to be a photograph of a serene landscape or possibly a portrait, but the exact ...
+Response: The image is a photograph of a woman standing in a field of flowers. The woman is wearing a white dress and has long, dark hair. She is standing in a ...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: The image depicts a serene and enchanting scene of a man and a child walking through a forest, with the man holding a lantern that casts a warm glow o...
+Response: The image depicts a serene and mystical scene of a man and a child walking through a forest together, with the man carrying a lantern. The atmosphere ...
 
 🔍 Both APIs successful for Llama-4-Maverick-17b
 
@@ -288,13 +311,11 @@ Testing Nova-Pro ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: 1. The image depicts a boy and a girl in a forest. 
-2. The boy is holding a lantern in his right hand, while the girl is standing beside him. 
-3. They...
+Response: The image shows a young boy and a young girl standing in the middle of a forest. The boy, who is standing on the right side of the image, is holding a...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: The image shows a man and a child walking through a forest at night. The man is holding a lantern, and the child is standing behind him. The man and c...
+Response: The image depicts a man and a child standing in a forest with lush green trees and plants, and a stream running in the middle. The man is wearing a gr...
 
 🔍 Both APIs successful for Nova-Pro
 
@@ -303,11 +324,11 @@ Testing Nova-Lite ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: A man and a young girl are standing in a forest at night. The man is wearing a cloak and holding a lantern, and the girl is standing in front of him. ...
+Response: The image depicts a scene in a lush forest with a man and a young girl standing in the middle of the forest. The man is holding a lantern in his left ...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: The image shows a boy and a girl standing in a forest, looking at each other. The boy is wearing a green robe, and the girl is wearing a green dress. ...
+Response: The image features two people in a forest, with one of them holding a lantern. The person holding the lantern is wearing a long coat, a hood, and boot...
 
 🔍 Both APIs successful for Nova-Lite
 
@@ -316,14 +337,14 @@ Testing Nova-2-Lite ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API: Success
-Response: The image depicts a serene, enchanting forest scene bathed in soft, ethereal light. The setting is lush and verdant, with dense trees and foliage crea...
+Response: The image depicts a serene and enchanting forest scene bathed in soft, ethereal light. The setting appears to be a mystical or magical woodland, with ...
 
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: The image depicts a serene and enchanting forest scene bathed in soft, ethereal light. Here is a detailed description:
+Response: The image depicts a serene and mystical forest scene bathed in soft, ethereal light. Here is a detailed description:
 
 ### **Setting:**
-- **Forest En...
+- **Environment...
 
 🔍 Both APIs successful for Nova-2-Lite
 
@@ -331,10 +352,13 @@ Response: The image depicts a serene and enchanting forest scene bathed in soft,
 Testing Mistral-Large-3 ⇢
 
 📡 Testing with Invoke API:
-✗ Invoke API: {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: ?[0]: Invalid 'messages': Invalid 'content': value did not match any expected variant at line 1 column 247118","param":null,"type":"invalid_request_error"}
+✗ Invoke API: {"error":{"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: ?[0]: Invalid 'messages': Invalid 'content': value did not match any expected variant at line 1 column 247118","param":null,"type":"invalid_request_error"}}
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: The image depicts a scenic and magical forest setting at what appears to be either dawn or dusk. The atmosphere is serene and ethereal, omitting a mys...
+Response: The image depicts a serene and mystical forest scene, likely inspired by a fantasy setting. Here are the details:
+
+1. **Characters**:
+   - There are t...
 
 ⚠ Partial success for Mistral-Large-3
 
@@ -342,12 +366,12 @@ Response: The image depicts a scenic and magical forest setting at what appears 
 Testing Ministral-3-3b ⇢
 
 📡 Testing with Invoke API:
-✗ Invoke API: {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: ?[0]: Invalid 'messages': Invalid 'content': value did not match any expected variant at line 1 column 247118","param":null,"type":"invalid_request_error"}
+✗ Invoke API: {"error":{"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: ?[0]: Invalid 'messages': Invalid 'content': value did not match any expected variant at line 1 column 247118","param":null,"type":"invalid_request_error"}}
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This image depicts a whimsical, atmospheric scene set in a forest during twilight or early evening.
+Response: This image is a whimsical and atmospheric illustration depicting a forest scene in twilight or early evening.
 
-The two primary figures in the image are silhouet...
+In the foreground, there are two figure...
 
 ⚠ Partial success for Ministral-3-3b
 
@@ -355,10 +379,12 @@ The two primary figures in the image are silhouet...
 Testing Ministral-3-8b ⇢
 
 📡 Testing with Invoke API:
-✗ Invoke API: {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: ?[0]: Invalid 'messages': Invalid 'content': value did not match any expected variant at line 1 column 247118","param":null,"type":"invalid_request_error"}
+✗ Invoke API: {"error":{"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: ?[0]: Invalid 'messages': Invalid 'content': value did not match any expected variant at line 1 column 247118","param":null,"type":"invalid_request_error"}}
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This image portrays a tranquil, mysterious scene set in what appears to be a forested area at dusk or early evening. Here are some detailed observatio...
+Response: This image is a digital painting depicting an enchanting and mystical forest scene. Here is a detailed description:
+
+1. **Setting**: The scene appears...
 
 ⚠ Partial success for Ministral-3-8b
 
@@ -366,12 +392,12 @@ Response: This image portrays a tranquil, mysterious scene set in what appears t
 Testing Ministral-3-14b ⇢
 
 📡 Testing with Invoke API:
-✗ Invoke API: {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: ?[0]: Invalid 'messages': Invalid 'content': value did not match any expected variant at line 1 column 247118","param":null,"type":"invalid_request_error"}
+✗ Invoke API: {"error":{"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: ?[0]: Invalid 'messages': Invalid 'content': value did not match any expected variant at line 1 column 247118","param":null,"type":"invalid_request_error"}}
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: This image depicts a magical, serene forest scene during what appears to be dusk or early evening.
+Response: This image is a digitally illustrated scene featuring a serene, enchanting forest atmosphere.
 
-In the foreground, there is an adult and a child s...
+In the foreground, there are two figures: an adult and ...
 
 ⚠ Partial success for Ministral-3-14b
 
@@ -379,14 +405,14 @@ In the foreground, there is an adult and a child s...
 Testing Gemma-3-4b ⇢
 
 📡 Testing with Invoke API:
-✗ Invoke API: {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: ?[0]: Invalid 'messages': Invalid 'content': value did not match any expected variant at line 1 column 247118","param":null,"type":"invalid_request_error"}
+✗ Invoke API: {"error":{"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: ?[0]: Invalid 'messages': Invalid 'content': value did not match any expected variant at line 1 column 247118","param":null,"type":"invalid_request_error"}}
 📡 Testing with Converse API:
 ✓ Converse API: Success
-Response: Here’s a detailed description of the image:
+Response: Here's a detailed description of the image:
 
 **Overall Impression:**
 
-The image is a digitally painted illustration depicting a scene of quiet mystery...
+The image depicts a magical and slightly melancholic scene in a dense, ancient f...
 
 ⚠ Partial success for Gemma-3-4b
 
@@ -394,14 +420,12 @@ The image is a digitally painted illustration depicting a scene of quiet mystery
 Testing Gemma-3-12b ⇢
 
 📡 Testing with Invoke API:
-✗ Invoke API: {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: ?[0]: Invalid 'messages': Invalid 'content': value did not match any expected variant at line 1 column 247118","param":null,"type":"invalid_request_error"}
+✗ Invoke API: {"error":{"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: ?[0]: Invalid 'messages': Invalid 'content': value did not match any expected variant at line 1 column 247118","param":null,"type":"invalid_request_error"}}
 📡 Testing with Converse API:
 ✓ Converse API: Success
 Response: Here's a detailed description of the image:
 
-**Overall Impression:**
-
-The image depicts a magical, ethereal forest scene. It has a painterly, slightly...
+**Overall Impression:** The image depicts a magical, enchanting scene within a dense forest. It has a pai...
 
 ⚠ Partial success for Gemma-3-12b
 
@@ -409,13 +433,13 @@ The image depicts a magical, ethereal forest scene. It has a painterly, slightly
 Testing Gemma-3-27b ⇢
 
 📡 Testing with Invoke API:
-✗ Invoke API: {"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: ?[0]: Invalid 'messages': Invalid 'content': value did not match any expected variant at line 1 column 247118","param":null,"type":"invalid_request_error"}
+✗ Invoke API: {"error":{"code":"validation_error","message":"Failed to deserialize the JSON body into the target type: ?[0]: Invalid 'messages': Invalid 'content': value did not match any expected variant at line 1 column 247118","param":null,"type":"invalid_request_error"}}
 📡 Testing with Converse API:
 ✓ Converse API: Success
 Response: Here's a detailed description of the image:
 
 **Overall Impression:**
 
-The image depicts a magical and atmospheric scene of two children in a lush, gre...
+The image is a digital painting depicting a fantastical, slightly mysterious sce...
 
 ⚠ Partial success for Gemma-3-27b

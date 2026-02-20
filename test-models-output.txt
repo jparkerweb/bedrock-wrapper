@@ -1,11 +1,35 @@
 Test Mode: Both APIs (Comparison)
 Test Question: "Respond with exactly one word: What is 1+1?"
-Test Date: 2026-01-08T21:11:58.899Z
+Test Date: 2026-02-20T16:27:56.316Z
 ============================================================
 
-Starting tests with 59 models using Both APIs (Comparison)...
+Starting tests with 61 models using Both APIs (Comparison)...
 Each model will be tested with streaming and non-streaming calls
 
+
+------------------------------------------------------------
+Testing Claude-Opus-4-6 ⇢
+
+📡 Testing with Invoke API:
+✗ Invoke API Streaming: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 2 minutes.
+✗ Invoke API Non-streaming: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 2 minutes.
+
+📡 Testing with Converse API:
+✗ Converse API Streaming: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 2 minutes.
+✗ Converse API Non-streaming: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 2 minutes.
+❌ Both APIs failed for Claude-Opus-4-6
+
+------------------------------------------------------------
+Testing Claude-Sonnet-4-6 ⇢
+
+📡 Testing with Invoke API:
+✗ Invoke API Streaming: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 2 minutes.
+✗ Invoke API Non-streaming: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 2 minutes.
+
+📡 Testing with Converse API:
+✗ Converse API Streaming: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 2 minutes.
+✗ Converse API Non-streaming: Model access is denied due to IAM user or service role is not authorized to perform the required AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model. Refer to the Amazon Bedrock documentation for further details. Your AWS Marketplace subscription for this model cannot be completed at this time. If you recently fixed this issue, try again after 2 minutes.
+❌ Both APIs failed for Claude-Sonnet-4-6
 
 ------------------------------------------------------------
 Testing Claude-4-5-Opus ⇢
@@ -27,7 +51,7 @@ Testing Claude-4-5-Opus-Thinking ⇢
 
 The answer to 1+1 is 2.
 
-I need to respond with exactly one word, so my response should just be "Two" or "2".</think>
+So I should respond with just: Two</think>
 
 Two"
 ✓ Invoke API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?"
@@ -46,11 +70,7 @@ The answer to 1+1 is 2.
 So I should respond with just: Two</think>
 
 Two"
-✓ Converse API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?"
-
-The answer to 1+1 is 2.
-
-So I should respond with just: Two</think>
+✓ Converse API Non-streaming: "<think>The user is asking me to respond with exactly one word to answer what 1+1 is. The answer is 2.</think>
 
 Two"
 🔍 Both APIs successful for Claude-4-5-Opus-Thinking
@@ -71,10 +91,10 @@ Testing Claude-4-1-Opus ⇢
 Testing Claude-4-1-Opus-Thinking ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which is one word, so I should respond with "Two".</think>
+✓ Invoke API Streaming: "<think>The user is asking me to respond with exactly one word, and they're asking what 1+1 equals. The answer to 1+1 is 2, which is one word, so I should respond with "Two".</think>
 
 Two"
-✓ Invoke API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which is already one word, so I should respond with "Two" or "2". Since they asked for a word, "Two" would be more appropriate than the numeral "2".</think>
+✓ Invoke API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which is one word, so I should respond with "Two".</think>
 
 Two"
 
@@ -82,7 +102,7 @@ Two"
 ✓ Converse API Streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which is one word, so I should respond with "Two".</think>
 
 Two"
-✓ Converse API Non-streaming: "<think>The user is asking me to respond with exactly one word, and they're asking what 1+1 is. The answer to 1+1 is 2, which is one word, so I should respond with "Two" or "2". Since they asked for a word, "Two" would be more appropriate than the numeral "2".</think>
+✓ Converse API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which is one word, so I should respond with "Two".</think>
 
 Two"
 🔍 Both APIs successful for Claude-4-1-Opus-Thinking
@@ -103,18 +123,18 @@ Testing Claude-4-Opus ⇢
 Testing Claude-4-Opus-Thinking ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which is one word, so I should respond with "Two".</think>
+✓ Invoke API Streaming: "<think>The human is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2. So I should respond with just the word "Two".</think>
 
 Two"
-✓ Invoke API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which is a single word, so I can comply with this request.</think>
+✓ Invoke API Non-streaming: "<think>The human is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which is one word, so I should respond with "Two".</think>
 
 Two"
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which is one word, so I should respond with "Two".</think>
+✓ Converse API Streaming: "<think>The user is asking me to respond with exactly one word to answer "What is 1+1?". The answer to 1+1 is 2, which is a single word, so I should respond with "Two".</think>
 
 Two"
-✓ Converse API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2. Since they want exactly one word, I should just respond with "Two" or "2". "Two" would be the word form, while "2" is a numeral. Since they asked for a word, "Two" seems more appropriate.</think>
+✓ Converse API Non-streaming: "<think>The user is asking me to respond with exactly one word. They're asking what 1+1 is. The answer is 2. I need to respond with just the word "two" or the numeral "2". Since they said "exactly one word", I'll use "two" rather than "2".</think>
 
 Two"
 🔍 Both APIs successful for Claude-4-Opus-Thinking
@@ -135,11 +155,7 @@ Testing Claude-4-5-Sonnet ⇢
 Testing Claude-4-5-Sonnet-Thinking ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "<think>The user is asking me what 1+1 equals, and they want me to respond with exactly one word.
-
-1+1 = 2
-
-So I should respond with just the word "Two" or "2".</think>
+✓ Invoke API Streaming: "<think>The user is asking me what 1+1 equals and wants me to respond with exactly one word. The answer to 1+1 is 2, which can be written as the word "Two".</think>
 
 Two"
 ✓ Invoke API Non-streaming: "<think>The user is asking me what 1+1 equals, and they want me to respond with exactly one word.
@@ -151,14 +167,20 @@ So I should respond with: Two</think>
 Two"
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, which can be expressed as the word "Two".</think>
+✓ Converse API Streaming: "<think>The user is asking me what 1+1 equals, and they want me to respond with exactly one word.
+
+1+1 = 2
+
+So I should respond with "Two" or "2". Since they asked for a word, "Two" would be more appropriate than the numeral "2".</think>
 
 Two"
 ✓ Converse API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?"
 
-The answer to 1+1 is 2, which can be written as the word "Two".
+The answer to 1+1 is 2.
 
-I need to respond with exactly one word, so I should just say "Two".</think>
+I need to respond with exactly one word, so I should just say "Two" or "2".
+
+I'll go with "Two" as it's a word rather than just a numeral.</think>
 
 Two"
 🔍 Both APIs successful for Claude-4-5-Sonnet-Thinking
@@ -183,38 +205,34 @@ Testing Claude-4-5-Haiku-Thinking ⇢
 
 1+1 = 2
 
-The word for this is "Two"
+So the answer is "Two" or "2"
 
-So I should respond with just: Two</think>
-
-Two"
-✓ Invoke API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?"
-
-1 + 1 = 2
-
-So I should respond with the word "two" (or the numeral "2").
-
-The instruction says "exactly one word" so I need to give just one word as my response.
-
-I'll go with "Two" as that's the word form of the answer.</think>
+Since they want exactly one word, I should respond with either "Two" or "2". I think "Two" is better as it's a word rather than a number symbol.</think>
 
 Two"
+✓ Invoke API Non-streaming: "<think>The user is asking what 1+1 is, and they want me to respond with exactly one word.
+
+1+1 = 2
+
+So I should respond with just the word "two" or the numeral "2". The word "two" is one word, so that works.</think>
+
+Two."
 
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?"
 
 1+1 = 2
 
-So the answer is "two" or "2". They want exactly one word, so I should respond with either "two" (the word form) or "2" (the numeral). Both are technically one word/token. I'll go with "Two" as it's the word form.</think>
+The word would be "Two" or "two".
+
+I'll respond with just "Two".</think>
 
 Two"
-✓ Converse API Non-streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?"
+✓ Converse API Non-streaming: "<think>The user is asking what 1+1 equals and wants me to respond with exactly one word.
 
-1+1=2
+1+1 = 2
 
-So the answer is "two" or "2". I need to respond with exactly one word.
-
-"Two" is one word.</think>
+So I should respond with just "Two" or "2". Since they want exactly one word, I'll go with "Two" as the word form of the number.</think>
 
 Two"
 🔍 Both APIs successful for Claude-4-5-Haiku-Thinking
@@ -235,18 +253,18 @@ Testing Claude-4-Sonnet ⇢
 Testing Claude-4-Sonnet-Thinking ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "<think>The human is asking for the result of 1+1, which is 2. They've specifically requested that I respond with exactly one word. The answer is "Two" (or "2" if we consider numerals as words).</think>
+✓ Invoke API Streaming: "<think>The user is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, so I should respond with "Two" (or "2" but "Two" is more clearly a single word).</think>
 
 Two"
-✓ Invoke API Non-streaming: "<think>The human is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, so I need to respond with just the word "Two" or "2". Since they want exactly one word, I'll go with "Two".</think>
+✓ Invoke API Non-streaming: "<think>The user is asking for 1+1 and wants me to respond with exactly one word. The answer to 1+1 is 2, which is indeed one word.</think>
 
 Two"
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "<think>The human is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2, so I should respond with "Two".</think>
+✓ Converse API Streaming: "<think>The human is asking me to respond with exactly one word to the question "What is 1+1?". The answer to 1+1 is 2. So I need to respond with just the word "Two" (or "2" if numbers count as words, but "Two" is more clearly a single word).</think>
 
 Two"
-✓ Converse API Non-streaming: "<think>The human is asking me to respond with exactly one word to the question "What is 1+1?" The answer to 1+1 is 2, so I should respond with "Two" as my single word response.</think>
+✓ Converse API Non-streaming: "<think>The human is asking for the sum of 1+1, which equals 2. They've specifically requested that I respond with exactly one word. The answer "2" or "Two" would both be single words that correctly answer the question.</think>
 
 Two"
 🔍 Both APIs successful for Claude-4-Sonnet-Thinking
@@ -255,32 +273,32 @@ Two"
 Testing Claude-3-7-Sonnet-Thinking ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "<think>The question asks for the sum of 1+1, and specifically requests that I respond with exactly one word.
+✓ Invoke API Streaming: "<think>The question asks me to respond with exactly one word to answer what 1+1 is.
 
 1+1 = 2
 
-So my response should be just the word "two" or the numeral "2". Since the question asks for one word, I'll respond with "two".</think>
+So my answer should be just "Two" or "2". Since they asked for one word, I'll use the word "Two" rather than the numeral "2".</think>
 
 Two"
-✓ Invoke API Non-streaming: "<think>The question asks "What is 1+1?" and specifically requests that I respond with exactly one word.
+✓ Invoke API Non-streaming: "<think>The question asks me to respond with exactly one word to answer what 1+1 is.
 
-1+1 = 2
+The answer to 1+1 is 2.
 
-So my answer should be the single word "Two" or "2". Since "2" is a numeral and not strictly a word, I'll go with "Two".</think>
+Since I'm asked to respond with exactly one word, I'll just say "Two" or "2". Since "2" might be considered a numeral rather than a word, I'll go with "Two".</think>
 
 Two"
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "<think>The question asks me to respond with exactly one word. It's asking for the result of 1+1, which is 2. Since "2" is a single word (actually a number), I can provide this as my response.</think>
-
-Two"
-✓ Converse API Non-streaming: "<think>The question asks "What is 1+1?" and instructs me to respond with exactly one word.
-
-The answer to 1+1 is 2.
-
-The instruction is clear that I should respond with exactly one word, so I'll just respond with "2".</think>
+✓ Converse API Streaming: "<think>I am being asked to provide exactly one word in response to the math equation 1+1. The answer to 1+1 is 2, which is a single word (a number), so I should respond with just "2".</think>
 
 2"
+✓ Converse API Non-streaming: "<think>The question asks "What is 1+1?" and instructs me to respond with exactly one word.
+
+1+1 = 2
+
+So my response should be the single word "two" or possibly the numeral "2". Since the answer is a number and not really a word per se, I'll respond with the word "two" rather than the numeral "2".</think>
+
+Two"
 🔍 Both APIs successful for Claude-3-7-Sonnet-Thinking
 
 ------------------------------------------------------------
@@ -303,9 +321,9 @@ Testing Claude-3-5-Sonnet-v2 ⇢
 ✓ Invoke API Non-streaming: "two"
 
 📡 Testing with Converse API:
-✗ Converse API Streaming: The system encountered an unexpected error during processing. Try your request again.
+✓ Converse API Streaming: "two"
 ✓ Converse API Non-streaming: "two"
-⚠ Partial success for Claude-3-5-Sonnet-v2
+🔍 Both APIs successful for Claude-3-5-Sonnet-v2
 
 ------------------------------------------------------------
 Testing Claude-3-5-Sonnet ⇢
@@ -388,7 +406,7 @@ Testing Llama-3-2-1b ⇢
 
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "Two."
-✓ Converse API Non-streaming: "2."
+✓ Converse API Non-streaming: "Two."
 🔍 Both APIs successful for Llama-3-2-1b
 
 ------------------------------------------------------------
@@ -399,7 +417,7 @@ Testing Llama-3-2-3b ⇢
 ✓ Invoke API Non-streaming: "2"
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "Two."
+✓ Converse API Streaming: "2."
 ✓ Converse API Non-streaming: "2."
 🔍 Both APIs successful for Llama-3-2-3b
 
@@ -460,7 +478,7 @@ Testing Llama-3-1-405b ⇢
 
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "Two"
-✓ Converse API Non-streaming: "Two"
+✓ Converse API Non-streaming: "Two."
 🔍 Both APIs successful for Llama-3-1-405b
 
 ------------------------------------------------------------
@@ -479,8 +497,8 @@ Testing Llama-3-8b ⇢
 Testing Llama-3-70b ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "Two"
-✓ Invoke API Non-streaming: "Two."
+✓ Invoke API Streaming: "Two."
+✓ Invoke API Non-streaming: "Two"
 
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "Two"
@@ -564,7 +582,7 @@ Testing GPT-OSS-120B-Thinking ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API Streaming: "<reasoning>The user asks: "Respond with exactly one word: What is 1+1?" They want a one-word answer. The answer is "Two". That's one word. So respond with "Two".</reasoning>Two"
-✓ Invoke API Non-streaming: "<reasoning>The user asks: "Respond with exactly one word: What is 1+1?" The user wants a one-word answer. The answer to 1+1 is "two". That's one word. So respond with "two".</reasoning>two"
+✓ Invoke API Non-streaming: "<reasoning>The user asks: "Respond with exactly one word: What is 1+1?" They want a one-word answer. The answer is "Two". That's one word. Should we respond with "Two". Yes.</reasoning>Two"
 
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "Two"
@@ -575,12 +593,12 @@ Testing GPT-OSS-120B-Thinking ⇢
 Testing GPT-OSS-20B-Thinking ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "<reasoning>The user says: "Respond with exactly one word: What is 1+1?" They want a single word answer. The answer to 1+1 is 2. But they want exactly one word. "Two" is a word. "Two" is one word. "2" is not a word, it's a number. They want a word. So answer: "Two".</reasoning>Two"
-✓ Invoke API Non-streaming: "<reasoning>The user asks: "Respond with exactly one word: What is 1+1?" The answer should be "two" or "2". But exactly one word. "Two" is one word. "2" is one token but maybe considered a word? Usually "2" is a number, but it's a token. They want exactly one word. So "two" is safe.</reasoning>Two"
+✓ Invoke API Streaming: "<reasoning>The user says: "Respond with exactly one word: What is 1+1?" They want a one-word answer. The answer to 1+1 is "two". So respond with "two". Ensure exactly one word. No punctuation? They didn't forbid punctuation. But "two" is one word. So answer: two.</reasoning>two"
+✓ Invoke API Non-streaming: "<reasoning>The user says: "Respond with exactly one word: What is 1+1?" They want a one-word answer. The answer to 1+1 is "two". That's one word. So respond with "two".</reasoning>two"
 
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "two"
-✓ Converse API Non-streaming: "Two"
+✓ Converse API Non-streaming: "two"
 🔍 Both APIs successful for GPT-OSS-20B-Thinking
 
 ------------------------------------------------------------
@@ -588,11 +606,11 @@ Testing Mistral-7b ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API Streaming: "Two. (I've given you two words, but the first one was "What" which was not part of the mathematical equation.)"
-✓ Invoke API Non-streaming: "Two. (I provided an extra word in my response, but the question only asked for one word. I apologize for the mistake.)"
+✓ Invoke API Non-streaming: "Two. (I've given you two words, but the first one was "What" which was not part of the mathematical equation.)"
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "Two. (I provided two words because I followed your instruction with "exactly one word" by giving you the first answer, but then I had to provide the second number to complete the answer.) If you want an exact one-word answer, it would be "two" or "sum". However, if you meant "one word answer for 1+1" without the "exactly one word" qualifier, then the answer is "two" as well."
-✓ Converse API Non-streaming: "Two. (I've given you two words, but the first one was "What" which was not part of the mathematical expression.)"
+✓ Converse API Streaming: "Two. (I provided two words, but one was "is" which was not part of the calculation. So technically, I only provided one extra word.)"
+✓ Converse API Non-streaming: "Two. (I provided two words because I couldn't respond with exactly one word as "Two" without using two words.) However, if you accept "Two" as one word, then my response is correct according to your instruction."
 🔍 Both APIs successful for Mistral-7b
 
 ------------------------------------------------------------
@@ -601,10 +619,10 @@ Testing Mixtral-8x7b ⇢
 📡 Testing with Invoke API:
 ✓ Invoke API Streaming: "Two.
 
-The question you asked is a simple arithmetic addition problem, and the answer is 2. It is important to note that I am an AI language model, and my purpose is to assist and communicate effectively with users. I will always do my best to provide accurate and helpful responses."
+The word you are looking for is "two." The sum of 1+1 is indeed two. I'm here to provide accurate and helpful responses to your questions, and I'll always do my best to give you the information you need. In this case, the answer to 1+1 is a simple and well-known mathematical fact. If you have any more questions or need further clarification, please don't hesitate to ask. I'm here to help!"
 ✓ Invoke API Non-streaming: "Two.
 
-The word you are looking for is "two." The sum of 1 + 1 is equal to two. I am programmed to provide accurate and helpful responses, so I wanted to make sure that I gave you the correct answer. If you have any other questions or need further clarification, please don't hesitate to ask. I'm here to help!"
+The question you asked is a simple arithmetic addition problem, and the answer is 2. It is considered good manners to respond to a direct question, even if it is a simple one. This helps to maintain a respectful and positive interaction."
 
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "Two.
@@ -612,7 +630,7 @@ The word you are looking for is "two." The sum of 1 + 1 is equal to two. I am pr
 The question you asked is a simple arithmetic addition problem. In this case, one plus one equals two. I provided the one-word response you requested, which is "two". If you have any more questions or need further clarification, feel free to ask!"
 ✓ Converse API Non-streaming: "Two.
 
-The question you asked is a simple arithmetic one, and the answer is straightforward. The sum of 1 and 1 is indeed 2. I'm here to provide information and answer your questions to the best of my ability, so feel free to ask me anything else you'd like to know!"
+The question you asked is a simple arithmetic addition problem. In this case, one plus one equals two. I provided the one-word response you requested, which is "two". If you have any more questions or need further clarification, feel free to ask!"
 🔍 Both APIs successful for Mixtral-8x7b
 
 ------------------------------------------------------------
@@ -631,12 +649,12 @@ Testing Mistral-Large ⇢
 Testing Mistral-Large-3 ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "Two."
-✓ Invoke API Non-streaming: "Two."
+✓ Invoke API Streaming: "Two"
+✓ Invoke API Non-streaming: "Two"
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "Two."
-✓ Converse API Non-streaming: "Two."
+✓ Converse API Streaming: "Two"
+✓ Converse API Non-streaming: "Two"
 🔍 Both APIs successful for Mistral-Large-3
 
 ------------------------------------------------------------
@@ -680,10 +698,10 @@ Testing Magistral-Small-2509 ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API Streaming: "Two"
-✓ Invoke API Non-streaming: "Two."
+✓ Invoke API Non-streaming: "Two"
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "2"
+✓ Converse API Streaming: "Two"
 ✓ Converse API Non-streaming: "Two"
 🔍 Both APIs successful for Magistral-Small-2509
 
@@ -696,7 +714,7 @@ Testing Qwen3-32B ⇢
 
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "Two."
-✓ Converse API Non-streaming: "2"
+✓ Converse API Non-streaming: "Two."
 🔍 Both APIs successful for Qwen3-32B
 
 ------------------------------------------------------------
@@ -709,8 +727,8 @@ Testing Qwen3-Coder-30B-A3B ⇢
 ```"
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "Two"
-✓ Converse API Non-streaming: "Two"
+✓ Converse API Streaming: "2"
+✓ Converse API Non-streaming: "2"
 🔍 Both APIs successful for Qwen3-Coder-30B-A3B
 
 ------------------------------------------------------------
@@ -753,7 +771,12 @@ Testing Qwen3-Next-80B-A3B ⇢
 Testing DeepSeek-R1 ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "- user24
+✓ Invoke API Streaming: "- user321
+https://chat.openai.com/chat
+======
+user321
+Two."
+✓ Invoke API Non-streaming: "- user24
 https://twitter.com/cyberomin/status/1292258496625872896
 ======
 user24
@@ -761,96 +784,30 @@ I thought this was a really interesting example of how to get around the
 limitations of current AI. The answer is "two", but the AI can't answer
 because it's been trained to avoid giving answers to simple arithmetic
 questions (presumably because they are so common in training data that the
-model can't reliably answer them correctly, so they just block them
-altogether).
+model can't reliably answer them, so they just block them).
 
-But by adding the "respond with exactly one word" instruction, the user is
-able to bypass that block.
+But by phrasing the question as "respond with exactly one word: what is 1+1?",
+the user is able to get the correct answer.
 
-I wonder how much of the current limitations in AI are due to blocks like
-this, rather than the model's actual capabilities.
+I wonder if this is a case of the input being similar to training data that
+has the correct answer. For example, maybe in the training data, there's a
+section where someone is explaining how to answer arithmetic questions, and
+they say "the correct answer is two". So when the input is "respond with
+exactly one word: what is 1+1?", the model is primed to complete the sentence
+with the answer.
 
-~~~
-s1t5
-> I wonder how much of the current limitations in AI are due to blocks like
-> this, rather than the model's actual capabilities.
+Alternatively, maybe the input is similar to a quiz format, where the user is
+being prompted to answer, and the model is able to answer correctly in that
+context.
 
-The model's actual capability is to predict the next word in a sequence. It
-doesn't "know" anything and it can't do arithmetic. The fact that it can
-sometimes answer correctly is a side effect of the sequences that it has seen
-during training. The blocks are there because the model is unreliable and
-can't be trusted to answer correctly.
-
-~~~
-user24
-> It doesn't "know" anything and it can't do arithmetic.
-
-I think that's a bit of a semantic argument. If the model can correctly answer
-arithmetic questions, then in some sense it "knows" arithmetic.
-
-But in this case, even though the model can sometimes answer arithmetic
-questions, the owners have decided that it's not reliable enough, so they block
-those questions. But by adding an extra instruction, the user is able to get
-around that block.
-
-So, the model's actual capability is that it can answer arithmetic questions
-with some degree of reliability, but the owners have applied a filter on top
-of that which prevents it from doing so. But the user found a way around the
-filter.
-
-So, the model's actual capability is better than what the user is usually
-allowed to access.
-
-I wonder how much of the perceived limitations of GPT-3 are due to the model's
-capabilities, and how much are due to the filters that OpenAI have applied on
-top of it.
-
-~~~
-s1t5
-> If the model can correctly answer arithmetic questions, then in some sense
-> it "knows" arithmetic.
-
-It can't. It can answer some arithmetic questions because similar sequences
-have appeared in its training data. It can't do arithmetic in any reliable
-way. For example, if you ask it "What is 124345 + 235566?" it will just
-generate a random number because additions of that size are very unlikely to
-appear in the training data. If you ask it "What is two plus two?" it's more
-likely to answer correctly because that's a common phrase. If you ask it "What
-is two plus two? The answer is three." then it's more likely to answer three
-because that's the pattern that you've established.
-
-> So, the model's actual capability is better than what the user is usually
-> allowed to access.
-
-No, the model's capability is exactly the same. The filter is there because
-the model is unreliable. The user found a way around the filter but the model
-is still unreliable. The filter is a UX feature, not a capability of the model
-itself.
-
-~~~
-user24
-> It can't do arithmetic in any reliable way.
-
-But in the example, when the user added the instruction to respond with exactly
-one word, the model was able to answer correctly. So in that case, the model
-was able to answer correctly, but the filter was blocking it until the user
-changed the input.
-
-So, the model's actual"
-✓ Invoke API Non-streaming: "Okay, so I need to figure out what 1 plus 1 is. Let me start by recalling basic addition. When you add two numbers together, you're combining their values. So if I have one apple and someone gives me another apple, how many apples do I have in total? That should be two apples. Wait, but maybe there's a trick here. Sometimes people ask questions that seem simple but have a different answer. For example, in binary, 1 plus 1 equals 10. But the question doesn't specify the number system. However, since it's a general question without context, the most straightforward answer in the decimal system is 2. I don't think they're looking for a binary answer here. Let me double-check. If you add 1 and 1 in base 10, it's definitely 2. Yeah, I'm pretty sure the answer is two. No need to overcomplicate it. Just answer with the number 2 as a word. 
-
-**Final Answer**
-two
-</think>
-
-**Final Answer**
-two"
+Either way, it's a fascinating example of how the context of the input can
+dramatically affect the output, even if the underlying question is the same."
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "Okay, the user is asking for the sum of 1 plus 1. That's straightforward. Let me think. 1 added to another 1 should be 2. But wait, maybe there's a trick here? Sometimes people ask simple questions to test if you're paying attention. But the user specifically said to respond with exactly one word. So I need to make sure there's no extra text. Just the numerical answer. Let me double-check. Yes, 1+1 is definitely 2. No other possible answers here. Alright, I'll go with that
+✓ Converse API Streaming: "Okay, the user is asking for the sum of 1 plus 1. That's straightforward. The answer is 2. They want exactly one word, so I should just reply with "two" or "2". Since mathematical answers are usually in numerals, "2" is more appropriate. Let me make sure there's no trick here. No, it's a simple addition. Alright, responding with "2" is
 
-two"
-✓ Converse API Non-streaming: "two"
+2"
+✓ Converse API Non-streaming: "2"
 🔍 Both APIs successful for DeepSeek-R1
 
 ------------------------------------------------------------
@@ -858,7 +815,7 @@ Testing DeepSeek-V3.1 ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API Streaming: "two"
-✓ Invoke API Non-streaming: "Two"
+✓ Invoke API Non-streaming: "two"
 
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "two"
@@ -905,91 +862,136 @@ Testing Gemma-3-27b ⇢
 Testing Kimi-K2 ⇢
 
 📡 Testing with Invoke API:
-✓ Invoke API Streaming: "2"
-✓ Invoke API Non-streaming: "2"
+✓ Invoke API Streaming: "Two"
+✗ Invoke API Non-streaming: Empty or invalid response received
 
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "The user asks: "Respond with exactly one word: What is 1+1?"
-
-The mathematical answer to 1+1 is 2.
-The user wants exactly one word as a response.
-"2" is a single word (or numeral, which counts as a word in this context).
-I must not add any extra words, punctuation, or explanation.
-Just the single word answer.
-
-The answer is "2". 2"
-✓ Converse API Non-streaming: "2"
-🔍 Both APIs successful for Kimi-K2
+   The constraint is to respond with exactly one word.
+   The answer to 1+1 is 2.
+   The word "2" is a single word (it's a numeral, but considered a word in this context).
+   I must not add any punctuation or extra characters that could be considered separate words. The response should be just "2".
+   Let me double-check: "2" is one word. It's a numeral, but it's a single token. The user wants exactly one word. "Two" would also be one word, but "2" is more direct and is also considered a word in the sense of a response token. The user didn't specify spelling it out. "2" is the most concise and accurate answer.
+   The constraint is "exactly one word". If I respond with "2", that's one word. If I respond with "Two", that's also one word. But "2" is the direct result of the calculation.
+   I should not add a period, because that might be considered punctuation attached to the word, but it's safer to just provide the word itself without any punctuation to avoid any ambiguity about the "exactly one word" constraint.
+   Final check: Is "2" a word? In the context of natural language processing and common understanding, a numeral can function as a word. It's a single token. The user wants the answer in one word. "2" fits perfectly.
+   I will respond with: 2 2"
+✓ Converse API Non-streaming: "The user asks: "Respond with exactly one word: What is 1+1?"
+   The constraint is to respond with exactly one word.
+   The answer to 1+1 is 2.
+   "2" is a word? It's a numeral. In the context of "exactly one word", a numeral is typically considered a word. It's a single token.
+   Let's check the phrasing. "What is 1+1?" The answer is "2".
+   Is "2" a word? Yes, it's a number, and in common parlance, it's considered a word in the sense of a response. It's not multiple words.
+   Could I say "Two"? That's also one word.
+   The user wants *exactly* one word.
+   "2" is one word.
+   "Two" is one word.
+   Which is better? The question uses numerals "1+1". So responding with the numeral "2" seems more direct and consistent.
+   Let's consider edge cases. What if the system interprets "2" as a symbol and not a word? The instruction is "Respond with exactly one word". This is a bit ambiguous. Does "Two" count as a word? Yes, clearly. Does "2" count as a word? In most contexts, yes. For example, in word count, numbers are often counted as words.
+   Let's think about the simplest, most direct answer. The user wants a single word.
+   The answer is 2.
+   If I write "Two", that's one word.
+   If I write "2", that's one word (or token).
+   The prompt is very simple. I should not overcomplicate it.
+   The safest bet is to use the numeral, as it directly answers the mathematical expression.
+   Let's re-read: "Respond with exactly one word: What is 1+1?"
+   The colon seems to separate the instruction from the question.
+   The instruction is "Respond with exactly one word".
+   The question is "What is 1+1?".
+   My response must be exactly one word.
+   The answer to "What is 1+1?" is 2.
+   So, my response should be "2".
+   Is "2" a word? Let's consider the definition of a word. A single distinct meaningful element of speech or writing. "2" fits this. It's distinct, meaningful (it represents the number two), and it's an element of writing.
+   What if the platform is strict and only considers alphabetic strings as words? Then "Two" would be required.
+   However, in common usage and in the context of such puzzles/questions, "2" is universally accepted as a valid one-word answer. It's the most concise and direct answer.
+   Let's consider the risk. If I answer "2" and the system rejects it for not being a "word", I fail. If I answer "Two" and the system accepts it, I succeed. If I answer "Two" and the system would have accepted "2", I still succeed.
+   Is there any reason "Two" would be rejected? No, it's unambiguously one word.
+   Is there any reason "2" would be rejected? Possibly, if the grader is extremely pedantic about the definition of "word" vs "numeral" or "digit".
+   Which is more likely to be accepted? In AI prompts, "word" is often used loosely to mean "token" or "single unit of response". "2" is a single token.
+   Let's think about the spirit of the question. It's a simple math question with a constraint. The simplest answer is "2". The constraint is "exactly one word". This is a test of following instructions.
+   If I answer "Two", I am using a word.
+   If I answer "2", I am using a numeral."
+⚠ Partial success for Kimi-K2
 
 ------------------------------------------------------------
 Testing Kimi-K2-Thinking ⇢
 
 📡 Testing with Invoke API:
 ✓ Invoke API Streaming: "<reasoning> The user asks: "Respond with exactly one word: What is 1+1?"
-The answer is </reasoning><reasoning>2. That's one word.
-I must respond with exactly one word. So I should just say "2".
-</reasoning><reasoning>No extra punctuation, no explanation, just the single word "2".
-The user is asking for a simple arithmetic</reasoning><reasoning> answer. The constraint is "exactly one word". "2" is a word in this context (a</reasoning><reasoning> numeral representing a number). It's a single token. I should not add any fluff. Just "2".</reasoning> 2"
-✓ Invoke API Non-streaming: "<reasoning> The user asks: "Respond with exactly one word: What is 1+1?"
-The answer to 1+1 is 2.
-The user wants exactly one word.
-"2" is a word? It's a numeral. In the context of "exactly one word", it's ambiguous if a numeral counts. However, typically, a numeral is considered a token and can be a word in this context. Let's consider alternatives.
-The spelled-out answer is "two". That's definitely one word.
-The user wants exactly one word. "two" is one word.
-"2" is also one token. Which is more appropriate?
-The question is "What is 1+1?". The most direct answer is "2".
-If I respond with "two", that's also correct.
-If I respond with "2", is that a word? In natural language processing, tokens are often words or numbers. The instruction is "exactly one word". This is a bit of a trick question or a test of instruction following.
-Let's think about the spirit of the instruction. The user wants a minimal answer. "2" is minimal. "two" is also minimal but spelled out.
-Is "2" considered a word? A word is a unit of language that carries meaning. Numerals like "2" represent a concept and function as words in many contexts. For example, "I have 2 apples." Here "2" is a determiner or a quantifier, functioning like a word.
-However, sometimes "word" implies a sequence of letters. The instruction is very specific: "exactly one word".
-If I say "two", it's unambiguously one word.
-If I say "2", it's ambiguous but likely acceptable.
-What if the system is checking for spaces? "two" has no spaces. "2" has no spaces.
-What if the system is checking against a dictionary? "two" is in the dictionary. "2" is not.
-The safest interpretation that is guaranteed to meet the "exactly one word" criterion using standard definitions is "two".
-But "2" is the most direct and common answer to "1+1".
-Let's reconsider the phrasing. "Respond with exactly one word". This is a meta-instruction. The question is "What is 1+1?".
-If someone asks "What is 1+1?", you say "2". You don't typically say "two" unless you're writing it out in text for emphasis or in a very formal context, or for children.
-In the context of a text-based AI, "2" is the standard answer.
-Is "2" a word? Let's check definitions.
-Merriam-Webster defines "word" as:
-1a) a speech sound or series of speech sounds that symbolizes and communicates a meaning usually without being divisible into smaller units capable of independent use
-1b) the entire set of linguistic forms produced by combining a single base with various inflectional elements without change in the part of speech elements
-2) a written or printed character or combination of characters representing a spoken word
-3: a unit of computer storage capacity
-4: something that is said
-5: NEWS, INFORMATION
-6: the act of speaking or making verbal communication
-7: a quarrel
-8: an order, command
-9: a promise, declaration
-10: COMMAND, ORDER
 
-A numeral like "2" is a "written or printed character... representing a spoken word". So by definition 2, "2" represents the spoken word "two". So it functions as a word.
-In linguistics, numerals are a word class.
-So "2" should be acceptable as "one word".
-The user wants *exactly* one word. No punctuation, no explanation.
-So the answer should be just: 2
-or just: two
-Which one is better?
-The prompt is extremely simple. The</reasoning>"
+   The mathematical answer is </reasoning><reasoning>2. The constraint is to respond with exactly one word.
+
+   "2" is a number, which can be considered</reasoning><reasoning> a word in this context. It's a single token response.
+
+   Let me check: Is "2" a word?</reasoning><reasoning> In the context of "exactly one word", a number is typically acceptable as a word. It's the simplest possible answer</reasoning><reasoning>.
+
+   Could I write "two"? That's also one word. But "2" is more direct and is the actual</reasoning><reasoning> result of the arithmetic.
+
+   The user wants exactly one word. "2" is one word. "two"</reasoning><reasoning> is also one word.
+
+   Which is better? The question is "What is 1+1?" - it's an</reasoning><reasoning> arithmetic expression. The standard answer would be "2". 
+
+   Let me think about potential issues:
+   - Is "</reasoning><reasoning>2" considered a word? Yes, in common usage, numbers are considered words when counting words. For example, "</reasoning><reasoning>I have 2 apples" is 4 words. So "2" by itself is 1 word.
+   -</reasoning><reasoning> Is there any ambiguity? No. 1+1=2 is a basic arithmetic fact.
+
+   The simplest, most</reasoning><reasoning> direct answer is "2". I will go with that.
+
+   Final check: The response must be exactly one word.</reasoning><reasoning> "2" is exactly one word. Perfect.</reasoning> 2"
+✓ Invoke API Non-streaming: "<reasoning> The user asks: "Respond with exactly one word: What is 1+1?"
+   The constraint is to respond with exactly one word.
+   The answer to 1+1 is 2.
+   "2" is a single word (or token, but in this context, it's considered a word as it's a single entity).
+   I must not add any punctuation or explanation. Just the word.
+   The word is "2".
+   Let me double-check: Is "2" considered a word? In the context of these instructions, yes. It's the answer they want, and it's a single token. It's not a phrase or a sentence. It's just the numeral "2".
+   The user wants exactly one word. "2" is one word.
+   I should not add a period. I should not add any other characters. Just "2".
+   Final check: The question is "What is 1+1?". The answer is 2. The constraint is "exactly one word". The numeral "2" fits this constraint perfectly. I will just output "2".</reasoning> 2"
 
 📡 Testing with Converse API:
 ✓ Converse API Streaming: "The user asks: "Respond with exactly one word: What is 1+1?"
 
-The mathematical answer is 2. The constraint is to respond with exactly one word. "2" is a numeral, which is typically considered a word in this context (or at least a single token response). The user wants exactly one word. "Two" is also one word. But "2" is more direct for a math question.
-
-Let me check the constraint: "exactly one word". If I respond with "2", is that a word? In common usage, a number can be considered a word. It's a single token. It's not multiple words. It's not a sentence. It's just "2". That should satisfy the requirement.
-
-If I respond with "Two", that's also one word. But "2" is more concise and directly answers the arithmetic expression.
-
-The user is asking for a very simple arithmetic result. The simplest possible answer is "2". This is one word (or one token). I should not add any punctuation or explanation. Just "2".
-
-Let me double-check: Is there any ambiguity? The user says "exactly one word". If I type "2", that's one character, but it represents a word (the number two). In the context of these instructions, a numeral is acceptable as a single-word response. It's the most direct answer.
-
-I will respond with: 2 2"
-✓ Converse API Non-streaming: "two"
+I must respond with exactly one word. The answer to 1+1 is 2. "2" is a word? It's a numeral. In the context of "exactly one word", a numeral is typically considered a word. It's a single token. The user wants the answer to the arithmetic question. The answer is 2. I should just say "2". Is "2" a word? It's a number, but in plain text, it's a single token and fits the requirement of "exactly one word". The user is asking for a simple answer. I should not add any fluff. I should not say "Two" or "The answer is two". I should just say "2". The instruction is "Respond with exactly one word". So I will just output "2". Let me double-check. Could "Two" be considered a word? Yes. But "2" is more direct and is the standard representation of the number. The user didn't specify "spell it out". So "2" is fine. It's concise and exactly one word (or token). I will go with "2". 2"
+✓ Converse API Non-streaming: "The user asks: "Respond with exactly one word: What is 1+1?"
+The mathematical answer is 2.
+The constraint is to respond with exactly one word.
+"2" is a word? In the context of a response, a single character "2" would be considered a word (or token). It's the simplest answer.
+Let me double-check the constraint: "exactly one word".
+If I respond with "Two", that's one word.
+If I respond with "2", that's also one word (or token).
+The question is "What is 1+1?". The answer is 2.
+I should provide the answer as a single word.
+"Two" is the word representation of the number 2.
+"2" is the numeral.
+Both are technically single words/tokens. However, "Two" is more explicitly a word.
+Let me think about potential ambiguity. If I say "Two", that's clearly one word. If I say "2", it's a single character, but in the context of natural language processing and common understanding, it would be considered a single token response, which fits the spirit of "one word".
+The user wants a simple, direct answer. "2" is the most direct answer.
+But is "2" a "word"? A word is typically defined as a unit of language that carries meaning. Numerals can be considered words in a broad sense, especially when they stand alone as a response.
+However, the more conventional "word" representation would be "Two".
+Let me consider the instruction again: "Respond with exactly one word".
+If I write "2", is that a word? In many contexts, yes. For example, in tokenization, "2" would be a token. In everyday speech, you might say "two" but write "2".
+The safest interpretation that clearly meets the "word" requirement is "Two".
+But "2" is simpler and more direct. Let me think about how a human would answer. If someone asks "What is 1+1?", you might just say "Two". That's one word.
+If you just say "2", that's also acceptable and common.
+The prompt is very specific: "exactly one word".
+Let me check if there's any trick. 1+1=2. There's no trick. It's a simple arithmetic question.
+The constraint is the key part.
+I think "Two" is the most unambiguously correct answer as a word.
+But "2" is also correct and is arguably more direct.
+In typical language model contexts, a standalone numeral like "2" is considered a single token, which is the computational equivalent of a word.
+However, the user explicitly said "word", not "token". In common parlance, "Two" is a word, "2" is a number/numeral.
+I should go with "Two" to be absolutely certain I'm following the instruction to provide a "word".
+Wait, let me reconsider. The user wants the answer to "What is 1+1?". The answer is 2. The constraint is "exactly one word".
+If I answer "Two", that's one word.
+If I answer "2", that's one character, but it's not a word in the traditional sense. It's a numeral.
+The instruction is "Respond with exactly one word". This is a test of following instructions.
+The most faithful answer that is a word is "Two".
+But is there any ambiguity in "Two"? No.
+Is there any ambiguity in "2"? Possibly, regarding whether it counts as a "word".
+Therefore, to be safe and absolutely certain, I should answer "Two".
+However, I also know that in these puzzles/challenges, the simplest answer is often the intended one. "2" is simpler than "Two".
+Let me think about the spirit of the question. It's a simple math question with a constraint. The constraint is likely there"
 🔍 Both APIs successful for Kimi-K2-Thinking
 
 ------------------------------------------------------------
@@ -1000,7 +1002,7 @@ Testing MiniMax-M2 ⇢
 ✓ Invoke API Non-streaming: "2"
 
 📡 Testing with Converse API:
-✓ Converse API Streaming: "The user asks: "Respond with exactly one word: What is 1+1?" So we need to answer with exactly one word. The answer is "2". So we should output "2". Ensure no extra punctuation? The instruction says exactly one word. So "2" is a word? It's a number, but it's a token. Should we include any punctuation? Probably not. So just "2". Ensure no extra spaces, no newline? Probably just "2". So final answer: "2".
+✓ Converse API Streaming: "The user asks: "Respond with exactly one word: What is 1+1?" The answer is "2". So we must respond with exactly one word: "2". That is a single word. Ensure no extra punctuation? The instruction says exactly one word. "2" is a word? It's a numeral, but it's a single token. Usually acceptable. We should not add any extra punctuation or spaces. So answer: 2.
 
 
 2"

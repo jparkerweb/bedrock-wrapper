@@ -1,6 +1,6 @@
 {
   "name": "bedrock-wrapper",
-  "version": "2.9.0",
+  "version": "2.10.0",
   "description": "🪨 Bedrock Wrapper is an npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs.",
   "homepage": "https://www.equilllabs.com/projects/bedrock-wrapper",
   "repository": {
@@ -41,8 +41,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@aws-sdk/client-bedrock-runtime": "^3.943.0",
-    "dotenv": "^17.2.3",
+    "@aws-sdk/client-bedrock-runtime": "^3.994.0",
+    "dotenv": "^17.3.1",
     "sharp": "^0.34.5"
   },
   "devDependencies": {

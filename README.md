@@ -142,6 +142,8 @@ Bedrock Wrapper is an npm package that simplifies the integration of existing Op
 | Claude-4-5-Opus-Thinking   | global.anthropic.claude-opus-4-5-20251101-v1:0  |  ✅  |
 | Claude-4-5-Sonnet          | us.anthropic.claude-sonnet-4-5-20250929-v1:0    |  ✅  |
 | Claude-4-5-Sonnet-Thinking | us.anthropic.claude-sonnet-4-5-20250929-v1:0    |  ✅  |
+| Claude-Opus-4-6            | us.anthropic.claude-opus-4-6-v1                 |  ✅  |
+| Claude-Sonnet-4-6          | us.anthropic.claude-sonnet-4-6                  |  ✅  |
 | DeepSeek-R1                | us.deepseek.r1-v1:0                             |  ❌  |
 | DeepSeek-V3.1              | deepseek.v3-v1:0                                |  ❌  |
 | Gemma-3-4b                 | google.gemma-3-4b-it                            |  ✅  |
@@ -231,7 +233,7 @@ for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateOb
 
 ### Image Support
 
-For models with image support (Claude 4+ series including Claude 4.5 Opus, Claude 4.5 Sonnet, Claude 4.5 Haiku, Claude 3.7 Sonnet, Claude 3.5 Sonnet, Claude 3 Haiku, Nova Pro, Nova Lite, Nova 2 Lite, Mistral Large 3, Ministral 3 series, Gemma 3 series, and Llama 4 series), you can include images in your messages using the following format (not all models support system prompts):
+For models with image support (Claude 4+ series including Claude Opus 4.6, Claude Sonnet 4.6, Claude 4.5 Opus, Claude 4.5 Sonnet, Claude 4.5 Haiku, Claude 3.7 Sonnet, Claude 3.5 Sonnet, Claude 3 Haiku, Nova Pro, Nova Lite, Nova 2 Lite, Mistral Large 3, Ministral 3 series, Gemma 3 series, and Llama 4 series), you can include images in your messages using the following format (not all models support system prompts):
 
 ```javascript
 messages = [
@@ -331,6 +333,8 @@ Some AWS Bedrock models have specific parameter restrictions that are automatica
 #### Claude 4+ Models (Temperature/Top-P Mutual Exclusion)
 
 **Affected Models:**
+- Claude-Opus-4-6
+- Claude-Sonnet-4-6
 - Claude-4-5-Opus & Claude-4-5-Opus-Thinking
 - Claude-4-5-Sonnet & Claude-4-5-Sonnet-Thinking
 - Claude-4-5-Haiku & Claude-4-5-Haiku-Thinking

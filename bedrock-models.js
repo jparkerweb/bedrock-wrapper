@@ -7,6 +7,62 @@
 
 export const bedrock_models = [
     {
+        // =====================
+        // == Claude Opus 4.6 ==
+        // =====================
+        "modelName":                     "Claude-Opus-4-6",
+        // "modelId":                       "anthropic.claude-opus-4-6-v1",  // single-region
+        "modelId":                       "us.anthropic.claude-opus-4-6-v1",  // cross-region inference profile
+        "vision":                        true,
+        "messages_api":                  true,
+        "system_as_separate_field":      true,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 131072,
+        "stop_sequences_param_name":     "stop_sequences",
+        "response_chunk_element":        "delta.text",
+        "response_nonchunk_element":     "content[0].text",
+        "thinking_response_chunk_element": "delta.thinking",
+        "thinking_response_nonchunk_element": "content[0].thinking",
+        "special_request_schema": {
+            "anthropic_version": "bedrock-2023-05-31",
+            "anthropic_beta": ["output-128k-2025-02-19"],
+        },
+        "image_support": {
+            "max_image_size": 20971520, // 20MB
+            "supported_formats": ["jpeg", "png", "gif", "webp"],
+            "max_images_per_request": 10
+        }
+    },
+    {
+        // =======================
+        // == Claude Sonnet 4.6 ==
+        // =======================
+        "modelName":                     "Claude-Sonnet-4-6",
+        // "modelId":                       "anthropic.claude-sonnet-4-6",  // single-region
+        "modelId":                       "us.anthropic.claude-sonnet-4-6",  // cross-region inference profile
+        "vision":                        true,
+        "messages_api":                  true,
+        "system_as_separate_field":      true,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 65536,
+        "stop_sequences_param_name":     "stop_sequences",
+        "response_chunk_element":        "delta.text",
+        "response_nonchunk_element":     "content[0].text",
+        "thinking_response_chunk_element": "delta.thinking",
+        "thinking_response_nonchunk_element": "content[0].thinking",
+        "special_request_schema": {
+            "anthropic_version": "bedrock-2023-05-31",
+            "anthropic_beta": ["output-128k-2025-02-19"],
+        },
+        "image_support": {
+            "max_image_size": 20971520, // 20MB
+            "supported_formats": ["jpeg", "png", "gif", "webp"],
+            "max_images_per_request": 10
+        }
+    },
+    {
         // ======================
         // == Claude 4.5 Opus ==
         // ======================
