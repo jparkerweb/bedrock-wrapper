@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.10.0] - 2026-02-20 (Claude Opus 4.6 & Sonnet 4.6)
+
+### ✨ Added
+
+- Support for Claude Opus 4.6 and Claude Sonnet 4.6 models
+  - Claude-Opus-4-6 (128K max output tokens, vision support, cross-region inference profile)
+  - Claude-Sonnet-4-6 (64K max output tokens, vision support, cross-region inference profile)
+
+### ⚙️ Technical Details
+
+- **Model IDs**: `us.anthropic.claude-opus-4-6-v1` and `us.anthropic.claude-sonnet-4-6`
+- **Vision Support**: Both models support image inputs
+- **Extended Output**: Both models use the `output-128k-2025-02-19` beta header
+- **API Compatibility**: Both Invoke API and Converse API paths supported
+
+---
+
 ## [2.9.0] - 2026-01-08 (Llama 4 Models)
 
 ### ✨ Added
