@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.10.1] - 2026-03-18 (Dependency Updates)
+
+### 🔧 Maintenance
+
+- Updated `@aws-sdk/client-bedrock-runtime` from `3.994.0` to `3.1012.0`
+- Resolved 2 security vulnerabilities in `fast-xml-parser` (low + high severity)
+
+---
+
 ## [2.10.0] - 2026-02-20 (Claude Opus 4.6 & Sonnet 4.6)
 
 ### ✨ Added
