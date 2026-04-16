@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.0] - 2026-04-15
+
+### 🗑️ Removed (EOL Models)
+
+| Model | EOL Date |
+|---|---|
+| Claude-3-7-Sonnet | Apr 28, 2026 |
+| Claude-3-7-Sonnet-Thinking | Apr 28, 2026 |
+| Claude-4-Opus | May 31, 2026 |
+| Claude-4-Opus-Thinking | May 31, 2026 |
+| Claude-3-5-Haiku | Jun 19, 2026 |
+| Claude-3-5-Sonnet v1 | Jul 30, 2026 |
+| Claude-3-5-Sonnet-v2 | Jul 30, 2026 |
+| Claude-3-Haiku | Sep 10, 2026 |
+| Llama-3-2-1b | Jul 7, 2026 |
+| Llama-3-2-3b | Jul 7, 2026 |
+| Llama-3-2-11b | Jul 7, 2026 |
+| Llama-3-2-90b | Jul 7, 2026 |
+| Llama-3-1-405b | Jul 7, 2026 |
+
+### ✨ Added
+
+- **DeepSeek-V3.2** — Updated DeepSeek V3 model; Converse API works, Invoke API has empty response (Converse path recommended)
+- **Mistral-Pixtral-Large** — Mistral's vision-capable model; vision via Converse API works, Invoke streaming has empty response
+- **Qwen3-VL-235B-A22B** — Qwen3 vision-language model (235B MoE); vision via Converse API
+- **Qwen3-Coder-Next** — Qwen3 coding-focused model
+- **Kimi-K2.5** — Moonshot AI K2.5 with vision support; vision via Converse API
+- **Kimi-K2.5-Thinking** — Kimi K2.5 with reasoning mode and vision support
+- **MiniMax-M2.1** — MiniMax M2.1 with internal reasoning
+- **MiniMax-M2.5** — MiniMax M2.5 with internal reasoning
+
+### 🐛 Fixed
+
+- **Magistral-Small-2509**: Corrected `vision: false` flag (was incorrectly set to `true`) — vision tests now pass for this model
+- **GPT-OSS models**: Corrected stop sequences parameter name from `stop_sequences` to `stop` (GPT-compatible format)
+
+### ⚠️ Known Limitations
+
+- **DeepSeek-V3.2 / Kimi-K2.5 / Qwen3-VL / Mistral-Pixtral-Large**: Invoke API streaming returns empty responses for these models; use Converse API path (`useConverseAPI: true`) for reliable operation.
+
+---
+
 ## [2.10.1] - 2026-03-18 (Dependency Updates)
 
 ### 🔧 Maintenance
