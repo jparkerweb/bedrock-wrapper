@@ -182,66 +182,7 @@ export const bedrock_models = [
             "max_images_per_request": 10
         }
     },
-    {
-        // ====================
-        // == Claude 4 Opus ==
-        // ====================
-        "modelName":                     "Claude-4-Opus",
-        // "modelId":                       "anthropic.claude-opus-4-20250514-v1:0",
-        "modelId":                       "us.anthropic.claude-opus-4-20250514-v1:0",
-        "vision":                        true,
-        "messages_api":                  true,
-        "system_as_separate_field":      true,
-        "display_role_names":            true,
-        "max_tokens_param_name":         "max_tokens",
-        "max_supported_response_tokens": 131072,
-        "stop_sequences_param_name":     "stop_sequences",
-        "response_chunk_element":        "delta.text",
-        "response_nonchunk_element":     "content[0].text",
-        "thinking_response_chunk_element": "delta.thinking",
-        "thinking_response_nonchunk_element": "content[0].thinking",
-        "special_request_schema": {
-            "anthropic_version": "bedrock-2023-05-31",
-            "anthropic_beta": ["output-128k-2025-02-19"],
-        },
-        "image_support": {
-            "max_image_size": 20971520, // 20MB
-            "supported_formats": ["jpeg", "png", "gif", "webp"],
-            "max_images_per_request": 10
-        }
-    },
-    {
-        // ==============================
-        // == Claude 4 Opus Thinking ==
-        // ==============================
-        "modelName":                     "Claude-4-Opus-Thinking",
-        // "modelId":                       "anthropic.claude-opus-4-20250514-v1:0",
-        "modelId":                       "us.anthropic.claude-opus-4-20250514-v1:0",
-        "vision":                        true,
-        "messages_api":                  true,
-        "system_as_separate_field":      true,
-        "display_role_names":            true,
-        "max_tokens_param_name":         "max_tokens",
-        "max_supported_response_tokens": 131072,
-        "stop_sequences_param_name":     "stop_sequences",
-        "response_chunk_element":        "delta.text",
-        "response_nonchunk_element":     "content[0].text",
-        "thinking_response_chunk_element": "delta.thinking",
-        "thinking_response_nonchunk_element": "content[0].thinking",
-        "special_request_schema": {
-            "anthropic_version": "bedrock-2023-05-31",
-            "anthropic_beta": ["output-128k-2025-02-19"],
-            "thinking": {
-                "type": "enabled",
-                "budget_tokens": 16000
-            },
-        },
-        "image_support": {
-            "max_image_size": 20971520, // 20MB
-            "supported_formats": ["jpeg", "png", "gif", "webp"],
-            "max_images_per_request": 10
-        }
-    },
+
     {
         // =======================
         // == Claude 4.5 Sonnet ==
@@ -422,159 +363,10 @@ export const bedrock_models = [
             "max_images_per_request": 10
         }
     },
-    {
-        // ================================
-        // == Claude 3.7 Sonnet Thinking ==
-        // ================================
-        "modelName":                     "Claude-3-7-Sonnet-Thinking",
-        // "modelId":                       "anthropic.claude-3-7-sonnet-20250219-v1:0",
-        "modelId":                       "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
-        "vision":                        true,
-        "messages_api":                  true,
-        "system_as_separate_field":      true,
-        "display_role_names":            true,
-        "max_tokens_param_name":         "max_tokens",
-        "max_supported_response_tokens": 131072,
-        "stop_sequences_param_name":     "stop_sequences",
-        "response_chunk_element":        "delta.text",
-        "response_nonchunk_element":     "content[0].text",
-        "thinking_response_chunk_element": "delta.thinking",
-        "thinking_response_nonchunk_element": "content[0].thinking",
-        "special_request_schema": {
-            "anthropic_version": "bedrock-2023-05-31",
-            "anthropic_beta": ["output-128k-2025-02-19"],
-            "thinking": {
-                "type": "enabled",
-                "budget_tokens": 16000
-            },
-        },
-        "image_support": {
-            "max_image_size": 20971520, // 20MB
-            "supported_formats": ["jpeg", "png", "gif", "webp"],
-            "max_images_per_request": 10
-        }
-    },
-    {
-        // =======================
-        // == Claude 3.7 Sonnet ==
-        // =======================
-        "modelName":                     "Claude-3-7-Sonnet",
-        // "modelId":                       "anthropic.claude-3-7-sonnet-20250219-v1:0",
-        "modelId":                       "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
-        "vision":                        true,
-        "messages_api":                  true,
-        "system_as_separate_field":      true,
-        "display_role_names":            true,
-        "max_tokens_param_name":         "max_tokens",
-        "max_supported_response_tokens": 131072,
-        "stop_sequences_param_name":     "stop_sequences",
-        "response_chunk_element":        "delta.text",
-        "response_nonchunk_element":     "content[0].text",
-        "special_request_schema": {
-            "anthropic_version": "bedrock-2023-05-31",
-            "anthropic_beta": ["output-128k-2025-02-19"]
-        },
-        "image_support": {
-            "max_image_size": 20971520, // 20MB
-            "supported_formats": ["jpeg", "png", "gif", "webp"],
-            "max_images_per_request": 10
-        }
-    },
-    {
-        // ==========================
-        // == Claude 3.5 Sonnet v2 ==
-        // ==========================
-        "modelName":                     "Claude-3-5-Sonnet-v2",
-        // "modelId":                       "anthropic.claude-3-5-sonnet-20241022-v2:0",  // single-region
-        "modelId":                       "us.anthropic.claude-3-5-sonnet-20241022-v2:0",  // cross-region inference profile
-        "vision":                        true,
-        "messages_api":                  true,
-        "system_as_separate_field":      true,
-        "display_role_names":            true,
-        "max_tokens_param_name":         "max_tokens",
-        "max_supported_response_tokens": 8192,
-        "stop_sequences_param_name":     "stop_sequences",
-        "response_chunk_element":        "delta.text",
-        "response_nonchunk_element":     "content[0].text",
-        "special_request_schema": {
-            "anthropic_version": "bedrock-2023-05-31"
-        },
-        "image_support": {
-            "max_image_size": 20971520, // 20MB
-            "supported_formats": ["jpeg", "png", "gif", "webp"],
-            "max_images_per_request": 10
-        }
-    },
-    {
-        // =======================
-        // == Claude 3.5 Sonnet ==
-        // =======================
-        "modelName":                     "Claude-3-5-Sonnet",
-        // "modelId":                       "anthropic.claude-3-5-sonnet-20240620-v1:0",  // single-region
-        "modelId":                       "us.anthropic.claude-3-5-sonnet-20240620-v1:0",  // cross-region inference profile
-        "vision":                        true,
-        "messages_api":                  true,
-        "system_as_separate_field":      true,
-        "display_role_names":            true,
-        "max_tokens_param_name":         "max_tokens",
-        "max_supported_response_tokens": 8192,
-        "stop_sequences_param_name":     "stop_sequences",
-        "response_chunk_element":        "delta.text",
-        "response_nonchunk_element":     "content[0].text",
-        "special_request_schema": {
-            "anthropic_version": "bedrock-2023-05-31"
-        },
-        "image_support": {
-            "max_image_size": 20971520, // 20MB
-            "supported_formats": ["jpeg", "png", "gif", "webp"],
-            "max_images_per_request": 10
-        }
-    },
-    {
-        // ======================
-        // == Claude 3.5 Haiku ==
-        // ======================
-        "modelName":                     "Claude-3-5-Haiku",
-        // "modelId":                       "anthropic.claude-3-5-haiku-20241022-v1:0",  // single-region
-        "modelId":                       "us.anthropic.claude-3-5-haiku-20241022-v1:0",  // cross-region inference profile
-        "vision":                        false,
-        "messages_api":                  true,
-        "system_as_separate_field":      true,
-        "display_role_names":            true,
-        "max_tokens_param_name":         "max_tokens",
-        "max_supported_response_tokens": 8192,
-        "stop_sequences_param_name":     "stop_sequences",
-        "response_chunk_element":        "delta.text",
-        "response_nonchunk_element":     "content[0].text",
-        "special_request_schema": {
-            "anthropic_version": "bedrock-2023-05-31"
-        }
-    },
-    {
-        // ====================
-        // == Claude 3 Haiku ==
-        // ====================
-        "modelName":                     "Claude-3-Haiku",
-        // "modelId":                       "anthropic.claude-3-haiku-20240307-v1:0",  // single-region
-        "modelId":                       "us.anthropic.claude-3-haiku-20240307-v1:0",  // cross-region inference profile
-        "vision":                        true,
-        "messages_api":                  true,
-        "system_as_separate_field":      true,
-        "display_role_names":            true,
-        "max_tokens_param_name":         "max_tokens",
-        "max_supported_response_tokens": 8192,
-        "stop_sequences_param_name":     "stop_sequences",
-        "response_chunk_element":        "delta.text",
-        "response_nonchunk_element":     "content[0].text",
-        "special_request_schema": {
-            "anthropic_version": "bedrock-2023-05-31"
-        },
-        "image_support": {
-            "max_image_size": 20971520, // 20MB
-            "supported_formats": ["jpeg", "png", "gif", "webp"],
-            "max_images_per_request": 10
-        }
-    },
+
+
+
+
     {
         // ===================
         // == Llama 3.3 70b ==
@@ -659,118 +451,7 @@ export const bedrock_models = [
         "max_supported_response_tokens": 2048,
         "response_chunk_element":        "generation"
     },
-    {
-        // ==================
-        // == Llama 3.2 1b ==
-        // ==================
-        "modelName":                     "Llama-3-2-1b",
-        // "modelId":                       "meta.llama3-2-1b-instruct-v1:0",
-        "modelId":                       "us.meta.llama3-2-1b-instruct-v1:0",
-        "vision":                        false,
-        "messages_api":                  false,
-        "bos_text":                      "<|begin_of_text|>",
-        "role_system_message_prefix":    "",
-        "role_system_message_suffix":    "",
-        "role_system_prefix":            "<|start_header_id|>",
-        "role_system_suffix":            "<|end_header_id|>",
-        "role_user_message_prefix":      "",
-        "role_user_message_suffix":      "",
-        "role_user_prefix":              "<|start_header_id|>",
-        "role_user_suffix":              "<|end_header_id|>",
-        "role_assistant_message_prefix": "",
-        "role_assistant_message_suffix": "",
-        "role_assistant_prefix":         "<|start_header_id|>",
-        "role_assistant_suffix":         "<|end_header_id|>",
-        "eom_text":                      "<|eot_id|>",
-        "display_role_names":            true,
-        "max_tokens_param_name":         "max_gen_len",
-        "max_supported_response_tokens": 2048,
-        "response_chunk_element":        "generation"
-    },
-    {
-        // ==================
-        // == Llama 3.2 3b ==
-        // ==================
-        "modelName":                     "Llama-3-2-3b",
-        // "modelId":                       "meta.llama3-2-3b-instruct-v1:0",
-        "modelId":                       "us.meta.llama3-2-3b-instruct-v1:0",
-        "vision":                        false,
-        "messages_api":                  false,
-        "bos_text":                      "<|begin_of_text|>",
-        "role_system_message_prefix":    "",
-        "role_system_message_suffix":    "",
-        "role_system_prefix":            "<|start_header_id|>",
-        "role_system_suffix":            "<|end_header_id|>",
-        "role_user_message_prefix":      "",
-        "role_user_message_suffix":      "",
-        "role_user_prefix":              "<|start_header_id|>",
-        "role_user_suffix":              "<|end_header_id|>",
-        "role_assistant_message_prefix": "",
-        "role_assistant_message_suffix": "",
-        "role_assistant_prefix":         "<|start_header_id|>",
-        "role_assistant_suffix":         "<|end_header_id|>",
-        "eom_text":                      "<|eot_id|>",
-        "display_role_names":            true,
-        "max_tokens_param_name":         "max_gen_len",
-        "max_supported_response_tokens": 2048,
-        "response_chunk_element":        "generation"
-    },
-    {
-        // ===================
-        // == Llama 3.2 11b ==
-        // ===================
-        "modelName":                     "Llama-3-2-11b",
-        // "modelId":                       "meta.llama3-2-11b-instruct-v1:0",
-        "modelId":                       "us.meta.llama3-2-11b-instruct-v1:0",
-        "vision":                        false,
-        "messages_api":                  false,
-        "bos_text":                      "<|begin_of_text|>",
-        "role_system_message_prefix":    "",
-        "role_system_message_suffix":    "",
-        "role_system_prefix":            "<|start_header_id|>",
-        "role_system_suffix":            "<|end_header_id|>",
-        "role_user_message_prefix":      "",
-        "role_user_message_suffix":      "",
-        "role_user_prefix":              "<|start_header_id|>",
-        "role_user_suffix":              "<|end_header_id|>",
-        "role_assistant_message_prefix": "",
-        "role_assistant_message_suffix": "",
-        "role_assistant_prefix":         "<|start_header_id|>",
-        "role_assistant_suffix":         "<|end_header_id|>",
-        "eom_text":                      "<|eot_id|>",
-        "display_role_names":            true,
-        "max_tokens_param_name":         "max_gen_len",
-        "max_supported_response_tokens": 2048,
-        "response_chunk_element":        "generation"
-    },
-    {
-        // ===================
-        // == Llama 3.2 90b ==
-        // ===================
-        "modelName":                     "Llama-3-2-90b",
-        // "modelId":                       "meta.llama3-2-90b-instruct-v1:0",
-        "modelId":                       "us.meta.llama3-2-90b-instruct-v1:0",
-        "vision":                        false,
-        "messages_api":                  false,
-        "bos_text":                      "<|begin_of_text|>",
-        "role_system_message_prefix":    "",
-        "role_system_message_suffix":    "",
-        "role_system_prefix":            "<|start_header_id|>",
-        "role_system_suffix":            "<|end_header_id|>",
-        "role_user_message_prefix":      "",
-        "role_user_message_suffix":      "",
-        "role_user_prefix":              "<|start_header_id|>",
-        "role_user_suffix":              "<|end_header_id|>",
-        "role_assistant_message_prefix": "",
-        "role_assistant_message_suffix": "",
-        "role_assistant_prefix":         "<|start_header_id|>",
-        "role_assistant_suffix":         "<|end_header_id|>",
-        "eom_text":                      "<|eot_id|>",
-        "display_role_names":            true,
-        "max_tokens_param_name":         "max_gen_len",
-        "max_supported_response_tokens": 2048,
-        "response_chunk_element":        "generation"
-    },
+
     {
         // ==================
         // == Llama 3.1 8b ==
@@ -827,33 +508,7 @@ export const bedrock_models = [
         "max_supported_response_tokens": 2048,
         "response_chunk_element":        "generation"
     },
-    {
-        // ====================
-        // == Llama 3.1 405b ==
-        // ====================
-        "modelName":                     "Llama-3-1-405b",
-        "modelId":                       "meta.llama3-1-405b-instruct-v1:0",
-        "vision":                        false,
-        "messages_api":                  false,
-        "bos_text":                      "<|begin_of_text|>",
-        "role_system_message_prefix":    "",
-        "role_system_message_suffix":    "",
-        "role_system_prefix":            "<|start_header_id|>",
-        "role_system_suffix":            "<|end_header_id|>",
-        "role_user_message_prefix":      "",
-        "role_user_message_suffix":      "",
-        "role_user_prefix":              "<|start_header_id|>",
-        "role_user_suffix":              "<|end_header_id|>",
-        "role_assistant_message_prefix": "",
-        "role_assistant_message_suffix": "",
-        "role_assistant_prefix":         "<|start_header_id|>",
-        "role_assistant_suffix":         "<|end_header_id|>",
-        "eom_text":                      "<|eot_id|>",
-        "display_role_names":            true,
-        "max_tokens_param_name":         "max_gen_len",
-        "max_supported_response_tokens": 2048,
-        "response_chunk_element":        "generation"
-    },
+
     {
         // ================
         // == Llama 3 8b ==
@@ -1013,7 +668,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_completion_tokens",
         "max_supported_response_tokens": 5000,
-        "stop_sequences_param_name":     "stop_sequences",
+        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "choices[0].delta.content",
         "response_nonchunk_element":     "choices[0].message.content",
         "streaming_supported":           false,
@@ -1032,7 +687,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_completion_tokens",
         "max_supported_response_tokens": 5000,
-        "stop_sequences_param_name":     "stop_sequences",
+        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "choices[0].delta.content",
         "response_nonchunk_element":     "choices[0].message.content",
         "streaming_supported":           false,
@@ -1051,7 +706,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_completion_tokens",
         "max_supported_response_tokens": 5000,
-        "stop_sequences_param_name":     "stop_sequences",
+        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "choices[0].delta.content",
         "response_nonchunk_element":     "choices[0].message.content",
         "streaming_supported":           false,
@@ -1071,7 +726,7 @@ export const bedrock_models = [
         "display_role_names":            true,
         "max_tokens_param_name":         "max_completion_tokens",
         "max_supported_response_tokens": 5000,
-        "stop_sequences_param_name":     "stop_sequences",
+        "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "choices[0].delta.content",
         "response_nonchunk_element":     "choices[0].message.content",
         "streaming_supported":           false,
@@ -1186,6 +841,30 @@ export const bedrock_models = [
         }
     },
     {
+        // ==========================
+        // == Mistral-Pixtral-Large ==
+        // ==========================
+        "modelName":                     "Mistral-Pixtral-Large",
+        // "modelId":                    "mistral.pixtral-large-2502-v1:0",  // single-region
+        "modelId":                       "us.mistral.pixtral-large-2502-v1:0",  // cross-region inference profile
+        "vision":                        true,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "skip_empty_assistant_message":  true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 32768,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {},
+        "image_support": {
+            "max_image_size": 20971520,
+            "supported_formats": ["jpeg", "png", "gif", "webp"],
+            "max_images_per_request": 10
+        }
+    },
+    {
         // ====================
         // == Ministral 3 3b ==
         // ====================
@@ -1260,7 +939,7 @@ export const bedrock_models = [
         // ==========================
         "modelName":                     "Magistral-Small-2509",
         "modelId":                       "mistral.magistral-small-2509",
-        "vision":                        false,
+        "vision":                        true,
         "messages_api":                  true,
         "converse_api_only":             true,
         "system_as_separate_field":      false,
@@ -1271,7 +950,12 @@ export const bedrock_models = [
         "stop_sequences_param_name":     "stop",
         "response_chunk_element":        "choices[0].delta.content",
         "response_nonchunk_element":     "choices[0].message.content",
-        "special_request_schema": {}
+        "special_request_schema": {},
+        "image_support": {
+            "max_image_size": 20971520,
+            "supported_formats": ["jpeg", "png", "gif", "webp"],
+            "max_images_per_request": 10
+        }
     },
     {
         // ================
@@ -1359,6 +1043,45 @@ export const bedrock_models = [
         "special_request_schema": {}
     },
     {
+        // ========================
+        // == Qwen3-VL-235B-A22B ==
+        // ========================
+        "modelName":                     "Qwen3-VL-235B-A22B",
+        "modelId":                       "qwen.qwen3-vl-235b-a22b",
+        "vision":                        true,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 32768,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {},
+        "image_support": {
+            "max_image_size": 20971520,
+            "supported_formats": ["jpeg", "png", "gif", "webp"],
+            "max_images_per_request": 10
+        }
+    },
+    {
+        // ====================
+        // == Qwen3-Coder-Next ==
+        // ====================
+        "modelName":                     "Qwen3-Coder-Next",
+        "modelId":                       "qwen.qwen3-coder-next",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 32768,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+    {
         // =================
         // == DeepSeek-R1 ==
         // =================
@@ -1397,6 +1120,23 @@ export const bedrock_models = [
         "vision":                        false,
         "messages_api":                  true,
         "converse_api_only":             true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 8192,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+    {
+        // ====================
+        // == DeepSeek-V3.2 ==
+        // ====================
+        "modelName":                     "DeepSeek-V3.2",
+        "modelId":                       "deepseek.v3.2",
+        "vision":                        false,
+        "messages_api":                  true,
         "system_as_separate_field":      false,
         "display_role_names":            true,
         "max_tokens_param_name":         "max_tokens",
@@ -1512,6 +1252,51 @@ export const bedrock_models = [
         "special_request_schema": {}
     },
     {
+        // =============
+        // == Kimi-K2.5 ==
+        // =============
+        "modelName":                     "Kimi-K2.5",
+        "modelId":                       "moonshotai.kimi-k2.5",
+        "vision":                        true,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 32768,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {},
+        "image_support": {
+            "max_image_size": 20971520,
+            "supported_formats": ["jpeg", "png", "gif", "webp"],
+            "max_images_per_request": 10
+        }
+    },
+    {
+        // ====================
+        // == Kimi-K2.5-Thinking ==
+        // ====================
+        "modelName":                     "Kimi-K2.5-Thinking",
+        "modelId":                       "moonshotai.kimi-k2.5",
+        "vision":                        true,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 32768,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "preserve_reasoning":            true,
+        "special_request_schema": {},
+        "image_support": {
+            "max_image_size": 20971520,
+            "supported_formats": ["jpeg", "png", "gif", "webp"],
+            "max_images_per_request": 10
+        }
+    },
+    {
         // ========================================
         // == MiniMax Models ==
         // ========================================
@@ -1530,4 +1315,38 @@ export const bedrock_models = [
         "response_nonchunk_element":     "choices[0].message.content",
         "special_request_schema": {}
     },
+    {
+        // ================
+        // == MiniMax-M2.1 ==
+        // ================
+        "modelName":                     "MiniMax-M2.1",
+        "modelId":                       "minimax.minimax-m2.1",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 32768,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+    {
+        // ================
+        // == MiniMax-M2.5 ==
+        // ================
+        "modelName":                     "MiniMax-M2.5",
+        "modelId":                       "minimax.minimax-m2.5",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 32768,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    }
 ];
