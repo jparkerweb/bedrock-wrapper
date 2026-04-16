@@ -17,6 +17,6 @@ test-models-output.txt
 test-vision-models-output.txt
 test-stop-sequences-output.txt
 test-converse-api-output.txt
-text-converse-output.txt
+test-converse-output.txt
 test-final-output.txt
 test-run-output.txt
