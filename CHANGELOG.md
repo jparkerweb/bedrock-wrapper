@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.11.1] - 2026-05-16
+## [2.12.0] - 2026-05-16
 
 ### 🗑️ Removed (EOL Models)
 
