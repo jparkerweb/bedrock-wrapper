@@ -1251,7 +1251,7 @@ export const bedrock_models = [
         "response_nonchunk_element":     "choices[0].message.content",
         "special_request_schema": {},
         "image_support": {
-            "max_image_size": 20971520,
+            "max_image_size": 5242880,
             "supported_formats": ["jpeg", "png", "gif", "webp"],
             "max_images_per_request": 10
         }
@@ -1398,7 +1398,7 @@ export const bedrock_models = [
         "response_nonchunk_element":     "choices[0].message.content",
         "special_request_schema": {},
         "image_support": {
-            "max_image_size": 20971520,
+            "max_image_size": 5242880,
             "supported_formats": ["jpeg", "png", "gif", "webp"],
             "max_images_per_request": 10
         }
