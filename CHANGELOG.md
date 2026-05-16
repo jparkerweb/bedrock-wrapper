@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.1] - 2026-05-16
+
+### 🗑️ Removed (EOL Models)
+
+| Model | Model ID | EOL Date |
+|---|---|---|
+| Llama-3-8b | meta.llama3-8b-instruct-v1:0 | Apr 23, 2025 |
+| Llama-3-70b | meta.llama3-70b-instruct-v1:0 | Apr 23, 2025 |
+| Llama-3-1-8b | us.meta.llama3-1-8b-instruct-v1:0 | Jul 23, 2025 |
+| Llama-3-1-70b | us.meta.llama3-1-70b-instruct-v1:0 | Jul 23, 2025 |
+| Mistral-7b | mistral.mistral-7b-instruct-v0:2 | Mar 1, 2025 |
+| Mixtral-8x7b | mistral.mixtral-8x7b-instruct-v0:1 | Mar 1, 2025 |
+| Mistral-Large (2402) | mistral.mistral-large-2402-v1:0 | Apr 3, 2025 |
+
+### ✨ Added
+
+- **Claude-Opus-4-7** — Anthropic's Claude Opus 4.7 model with vision support, 128k output, cross-region inference
+- **Claude-Opus-4-7-Thinking** — Claude Opus 4.7 with thinking/reasoning mode enabled
+- **Nemotron-Super-3-120B** — NVIDIA Nemotron 3 Super 120B; text only, 32k output, OpenAI-compatible messages API
+- **Nemotron-Nano-12B-v2** — NVIDIA Nemotron Nano 12B v2; vision-language model, 8k output
+- **Nemotron-Nano-9B-v2** — NVIDIA Nemotron Nano 9B v2; text only, 8k output
+- **Nemotron-Nano-3-30B** — NVIDIA Nemotron Nano 3 30B; text only, 8k output
+- **GLM-4.7** — Z.AI GLM 4.7; multilingual reasoning/coding, 4k output
+- **GLM-4.7-Flash** — Z.AI GLM 4.7 Flash; faster/cheaper GLM 4.7 variant, 4k output
+- **GLM-5** — Z.AI GLM 5; latest generation, 128k output
+- **Palmyra-X4** — Writer Palmyra X4; enterprise writing/reasoning, 8k output
+- **Palmyra-X5** — Writer Palmyra X5; latest Writer flagship, 8k output
+- **Palmyra-Vision-7B** — Writer Palmyra Vision 7B; vision-enabled, 4k output
+
+---
+
 ## [2.11.0] - 2026-04-15
 
 ### 🗑️ Removed (EOL Models)
