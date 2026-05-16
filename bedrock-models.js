@@ -8,6 +8,66 @@
 export const bedrock_models = [
     {
         // =====================
+        // == Claude Opus 4.7 ==
+        // =====================
+        "modelName":                     "Claude-Opus-4-7",
+        // "modelId":                       "anthropic.claude-opus-4-7-v1",  // single-region
+        "modelId":                       "us.anthropic.claude-opus-4-7-v1",  // cross-region inference profile
+        "vision":                        true,
+        "messages_api":                  true,
+        "system_as_separate_field":      true,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 131072,
+        "stop_sequences_param_name":     "stop_sequences",
+        "response_chunk_element":        "delta.text",
+        "response_nonchunk_element":     "content[0].text",
+        "thinking_response_chunk_element": "delta.thinking",
+        "thinking_response_nonchunk_element": "content[0].thinking",
+        "special_request_schema": {
+            "anthropic_version": "bedrock-2023-05-31",
+            "anthropic_beta": ["output-128k-2025-02-19"],
+        },
+        "image_support": {
+            "max_image_size": 20971520, // 20MB
+            "supported_formats": ["jpeg", "png", "gif", "webp"],
+            "max_images_per_request": 10
+        }
+    },
+    {
+        // ==============================
+        // == Claude Opus 4.7 Thinking ==
+        // ==============================
+        "modelName":                     "Claude-Opus-4-7-Thinking",
+        // "modelId":                       "anthropic.claude-opus-4-7-v1",  // single-region
+        "modelId":                       "us.anthropic.claude-opus-4-7-v1",  // cross-region inference profile
+        "vision":                        true,
+        "messages_api":                  true,
+        "system_as_separate_field":      true,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 131072,
+        "stop_sequences_param_name":     "stop_sequences",
+        "response_chunk_element":        "delta.text",
+        "response_nonchunk_element":     "content[0].text",
+        "thinking_response_chunk_element": "delta.thinking",
+        "thinking_response_nonchunk_element": "content[0].thinking",
+        "special_request_schema": {
+            "anthropic_version": "bedrock-2023-05-31",
+            "anthropic_beta": ["output-128k-2025-02-19"],
+            "thinking": {
+                "type": "enabled",
+                "budget_tokens": 16000
+            },
+        },
+        "image_support": {
+            "max_image_size": 20971520, // 20MB
+            "supported_formats": ["jpeg", "png", "gif", "webp"],
+            "max_images_per_request": 10
+        }
+    },
+    {
+        // =====================
         // == Claude Opus 4.6 ==
         // =====================
         "modelName":                     "Claude-Opus-4-6",
@@ -453,117 +513,6 @@ export const bedrock_models = [
     },
 
     {
-        // ==================
-        // == Llama 3.1 8b ==
-        // ==================
-        "modelName":                     "Llama-3-1-8b",
-        // "modelId":                       "meta.llama3-1-8b-instruct-v1:0",  // single-region
-        "modelId":                       "us.meta.llama3-1-8b-instruct-v1:0",  // cross-region inference profile
-        "vision":                        false,
-        "messages_api":                  false,
-        "bos_text":                      "<|begin_of_text|>",
-        "role_system_message_prefix":    "",
-        "role_system_message_suffix":    "",
-        "role_system_prefix":            "<|start_header_id|>",
-        "role_system_suffix":            "<|end_header_id|>",
-        "role_user_message_prefix":      "",
-        "role_user_message_suffix":      "",
-        "role_user_prefix":              "<|start_header_id|>",
-        "role_user_suffix":              "<|end_header_id|>",
-        "role_assistant_message_prefix": "",
-        "role_assistant_message_suffix": "",
-        "role_assistant_prefix":         "<|start_header_id|>",
-        "role_assistant_suffix":         "<|end_header_id|>",
-        "eom_text":                      "<|eot_id|>",
-        "display_role_names":            true,
-        "max_tokens_param_name":         "max_gen_len",
-        "max_supported_response_tokens": 2048,
-        "response_chunk_element":        "generation"
-    },
-    {
-        // ===================
-        // == Llama 3.1 70b ==
-        // ===================
-        "modelName":                     "Llama-3-1-70b",
-        // "modelId":                       "meta.llama3-1-70b-instruct-v1:0",  // single-region
-        "modelId":                       "us.meta.llama3-1-70b-instruct-v1:0",  // cross-region inference profile
-        "vision":                        false,
-        "messages_api":                  false,
-        "bos_text":                      "<|begin_of_text|>",
-        "role_system_message_prefix":    "",
-        "role_system_message_suffix":    "",
-        "role_system_prefix":            "<|start_header_id|>",
-        "role_system_suffix":            "<|end_header_id|>",
-        "role_user_message_prefix":      "",
-        "role_user_message_suffix":      "",
-        "role_user_prefix":              "<|start_header_id|>",
-        "role_user_suffix":              "<|end_header_id|>",
-        "role_assistant_message_prefix": "",
-        "role_assistant_message_suffix": "",
-        "role_assistant_prefix":         "<|start_header_id|>",
-        "role_assistant_suffix":         "<|end_header_id|>",
-        "eom_text":                      "<|eot_id|>",
-        "display_role_names":            true,
-        "max_tokens_param_name":         "max_gen_len",
-        "max_supported_response_tokens": 2048,
-        "response_chunk_element":        "generation"
-    },
-
-    {
-        // ================
-        // == Llama 3 8b ==
-        // ================
-        "modelName":                     "Llama-3-8b",
-        "modelId":                       "meta.llama3-8b-instruct-v1:0",
-        "vision":                        false,
-        "messages_api":                  false,
-        "bos_text":                      "<|begin_of_text|>",
-        "role_system_message_prefix":    "",
-        "role_system_message_suffix":    "",
-        "role_system_prefix":            "<|start_header_id|>",
-        "role_system_suffix":            "<|end_header_id|>",
-        "role_user_message_prefix":      "",
-        "role_user_message_suffix":      "",
-        "role_user_prefix":              "<|start_header_id|>",
-        "role_user_suffix":              "<|end_header_id|>",
-        "role_assistant_message_prefix": "",
-        "role_assistant_message_suffix": "",
-        "role_assistant_prefix":         "<|start_header_id|>",
-        "role_assistant_suffix":         "<|end_header_id|>",
-        "eom_text":                      "<|eot_id|>",
-        "display_role_names":            true,
-        "max_tokens_param_name":         "max_gen_len",
-        "max_supported_response_tokens": 2048,
-        "response_chunk_element":        "generation"
-    },
-    {
-        // =================
-        // == Llama 3 70b ==
-        // =================
-        "modelName":                     "Llama-3-70b",
-        "modelId":                       "meta.llama3-70b-instruct-v1:0",
-        "vision":                        false,
-        "messages_api":                  false,
-        "bos_text":                      "<|begin_of_text|>",
-        "role_system_message_prefix":    "",
-        "role_system_message_suffix":    "",
-        "role_system_prefix":            "<|start_header_id|>",
-        "role_system_suffix":            "<|end_header_id|>",
-        "role_user_message_prefix":      "",
-        "role_user_message_suffix":      "",
-        "role_user_prefix":              "<|start_header_id|>",
-        "role_user_suffix":              "<|end_header_id|>",
-        "role_assistant_message_prefix": "",
-        "role_assistant_message_suffix": "",
-        "role_assistant_prefix":         "<|start_header_id|>",
-        "role_assistant_suffix":         "<|end_header_id|>",
-        "eom_text":                      "<|eot_id|>",
-        "display_role_names":            true,
-        "max_tokens_param_name":         "max_gen_len",
-        "max_supported_response_tokens": 2048,
-        "response_chunk_element":        "generation"
-    },
-    {
         // ===============
         // == Nova Pro ==
         // ===============
@@ -732,90 +681,6 @@ export const bedrock_models = [
         "streaming_supported":           false,
         "preserve_reasoning":            true,
         "special_request_schema": {}
-    },
-    {
-        // ================
-        // == Mistral-7b ==
-        // ================
-        "modelName":                     "Mistral-7b",
-        "modelId":                       "mistral.mistral-7b-instruct-v0:2",
-        "vision":                        false,
-        "messages_api":                  false,
-        "bos_text":                      "<s>",
-        "role_system_message_prefix":    "",
-        "role_system_message_suffix":    "",
-        "role_system_prefix":            "",
-        "role_system_suffix":            "",
-        "role_user_message_prefix":      "[INST]",
-        "role_user_message_suffix":      "[/INST]",
-        "role_user_prefix":              "",
-        "role_user_suffix":              "",
-        "role_assistant_message_prefix": "",
-        "role_assistant_message_suffix": "",
-        "role_assistant_prefix":         "",
-        "role_assistant_suffix":         "",
-        "eom_text":                      "</s>",
-        "display_role_names":            false,
-        "max_tokens_param_name":         "max_tokens",
-        "max_supported_response_tokens": 8192,
-        "stop_sequences_param_name":     "stop",
-        "response_chunk_element":        "outputs[0].text"
-    },
-    {
-        // ==================
-        // == Mixtral-8x7b ==
-        // ==================
-        "modelName":                     "Mixtral-8x7b",
-        "modelId":                       "mistral.mixtral-8x7b-instruct-v0:1",
-        "vision":                        false,
-        "messages_api":                  false,
-        "bos_text":                      "<s>",
-        "role_system_message_prefix":    "",
-        "role_system_message_suffix":    "",
-        "role_system_prefix":            "",
-        "role_system_suffix":            "",
-        "role_user_message_prefix":      "[INST]",
-        "role_user_message_suffix":      "[/INST]",
-        "role_user_prefix":              "",
-        "role_user_suffix":              "",
-        "role_assistant_message_prefix": "",
-        "role_assistant_message_suffix": "",
-        "role_assistant_prefix":         "",
-        "role_assistant_suffix":         "",
-        "eom_text":                      "</s>",
-        "display_role_names":            false,
-        "max_tokens_param_name":         "max_tokens",
-        "max_supported_response_tokens": 4096,
-        "stop_sequences_param_name":     "stop",
-        "response_chunk_element":        "outputs[0].text"
-    },
-    {
-        // ===================
-        // == Mistral Large ==
-        // ===================
-        "modelName":                     "Mistral-Large",
-        "modelId":                       "mistral.mistral-large-2402-v1:0",
-        "vision":                        false,
-        "messages_api":                  false,
-        "bos_text":                      "<s>",
-        "role_system_message_prefix":    "",
-        "role_system_message_suffix":    "",
-        "role_system_prefix":            "",
-        "role_system_suffix":            "",
-        "role_user_message_prefix":      "[INST]",
-        "role_user_message_suffix":      "[/INST]",
-        "role_user_prefix":              "",
-        "role_user_suffix":              "",
-        "role_assistant_message_prefix": "",
-        "role_assistant_message_suffix": "",
-        "role_assistant_prefix":         "",
-        "role_assistant_suffix":         "",
-        "eom_text":                      "</s>",
-        "display_role_names":            false,
-        "max_tokens_param_name":         "max_tokens",
-        "max_supported_response_tokens": 8192,
-        "stop_sequences_param_name":     "stop",
-        "response_chunk_element":        "outputs[0].text"
     },
     {
         // =====================
@@ -1348,5 +1213,194 @@ export const bedrock_models = [
         "response_chunk_element":        "choices[0].delta.content",
         "response_nonchunk_element":     "choices[0].message.content",
         "special_request_schema": {}
+    },
+
+    {
+        // ========================================
+        // == NVIDIA Nemotron Models ==
+        // ========================================
+        // == Nemotron-Super-3-120B ==
+        // ===========================
+        "modelName":                     "Nemotron-Super-3-120B",
+        "modelId":                       "nvidia.nemotron-super-3-120b",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 32768,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+    {
+        // ==========================
+        // == Nemotron-Nano-12B-v2 ==
+        // ==========================
+        "modelName":                     "Nemotron-Nano-12B-v2",
+        "modelId":                       "nvidia.nemotron-nano-12b-v2",
+        "vision":                        true,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 8192,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {},
+        "image_support": {
+            "max_image_size": 5242880,
+            "supported_formats": ["jpeg", "png", "gif", "webp"],
+            "max_images_per_request": 10
+        }
+    },
+    {
+        // =========================
+        // == Nemotron-Nano-9B-v2 ==
+        // =========================
+        "modelName":                     "Nemotron-Nano-9B-v2",
+        "modelId":                       "nvidia.nemotron-nano-9b-v2",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 8192,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+    {
+        // =========================
+        // == Nemotron-Nano-3-30B ==
+        // =========================
+        "modelName":                     "Nemotron-Nano-3-30B",
+        "modelId":                       "nvidia.nemotron-nano-3-30b",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 8192,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+
+    {
+        // ========================================
+        // == Z.AI GLM Models ==
+        // ========================================
+        // == GLM-4.7 ==
+        // =============
+        "modelName":                     "GLM-4.7",
+        "modelId":                       "zai.glm-4.7",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 4096,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+    {
+        // =================
+        // == GLM-4.7-Flash ==
+        // =================
+        "modelName":                     "GLM-4.7-Flash",
+        "modelId":                       "zai.glm-4.7-flash",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 4096,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+    {
+        // ===========
+        // == GLM-5 ==
+        // ===========
+        "modelName":                     "GLM-5",
+        "modelId":                       "zai.glm-5",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 131072,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+
+    {
+        // ========================================
+        // == Writer Palmyra Models ==
+        // ========================================
+        // == Palmyra-X4 ==
+        // ================
+        "modelName":                     "Palmyra-X4",
+        "modelId":                       "writer.palmyra-x4-v1:0",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 8192,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+    {
+        // ================
+        // == Palmyra-X5 ==
+        // ================
+        "modelName":                     "Palmyra-X5",
+        "modelId":                       "writer.palmyra-x5-v1:0",
+        "vision":                        false,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 8192,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {}
+    },
+    {
+        // =======================
+        // == Palmyra-Vision-7B ==
+        // =======================
+        "modelName":                     "Palmyra-Vision-7B",
+        "modelId":                       "writer.palmyra-vision-7b",
+        "vision":                        true,
+        "messages_api":                  true,
+        "system_as_separate_field":      false,
+        "display_role_names":            true,
+        "max_tokens_param_name":         "max_tokens",
+        "max_supported_response_tokens": 4096,
+        "stop_sequences_param_name":     "stop",
+        "response_chunk_element":        "choices[0].delta.content",
+        "response_nonchunk_element":     "choices[0].message.content",
+        "special_request_schema": {},
+        "image_support": {
+            "max_image_size": 5242880,
+            "supported_formats": ["jpeg", "png", "gif", "webp"],
+            "max_images_per_request": 10
+        }
     }
 ];
